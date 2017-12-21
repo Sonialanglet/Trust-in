@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
+    @prestations = Prestation.all.sample(4)
   end
 end

@@ -7,7 +7,7 @@ class PrestationsController < ApplicationController
   def show
     @prestation = Prestation.find(params[:id])
     authorize @prestation
-    @booking = Booking.new
+    # @booking = Booking.new
   end
 
   def new
