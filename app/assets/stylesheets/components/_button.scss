@@ -1,14 +1,22 @@
-.btn-home {
-  color: linear-gradient(45deg, #FF4F61, #FF0108);
-  padding: 7px 10px;
-  border-radius: 2px;
+
+.btn-trust_large {
+  color: white;
+  background: linear-gradient(45deg, #D32944, #FF0108);
+  padding: 10px 10px;
+  margin: 3px;
+  // border: 0.5px, solid, #FF0108;
+  border-radius: 5px;
   font-weight: bold;
+  height: 59px;
+  width: 195px;
+  font-size: x-large;
   transition: background 0.7s ease;
   text-decoration: none;
+  margin-top: 5px;
 }
 
-.btn-home:hover {
-  opacity: 1;
+.btn-trust_large:hover {
+  opacity: 0.7;
   background: linear-gradient(45deg, #FF4F61, #FF0108);
   opacity: 0,5;
   text-decoration: none;
@@ -27,32 +35,7 @@
 }
 .btn-new-prestation:hover {
   opacity: 0.7;
-  background: linear-gradient(45deg, #FF4F61, #FF0108);
-  opacity: 0,5;
-  text-decoration: none;
-  color: white;
-}
-
-
-.btn-trust_large {
-  color: white;
-  background: linear-gradient(45deg, #FF4F61, #FF0108);
-  padding: 10px 10px;
-  margin: 3px;
-  // border: 0.5px, solid, #FF0108;
-  border-radius: 5px;
-  font-weight: normal;
-  height: 59px;
-  width: 195px;
-  font-size: x-large;
-  transition: background 0.7s ease;
-  text-decoration: none;
-  margin-top: 5px;
-}
-
-.btn-trust_large:hover {
-  opacity: 0.7;
-  background: linear-gradient(45deg, #FF4F61, #FF0108);
+  background: #FF4F61;
   opacity: 0,5;
   text-decoration: none;
   color: white;
