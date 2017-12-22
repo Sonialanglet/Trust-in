@@ -18,7 +18,7 @@ url(<%= image_path 'pied.jpg' %>);">
      <div class="col-xs-12 ">
       <p> Avec Trust-in, retrouvez vos bons plans et vos 'Trusters' </p>
       <p>Et découvrez ceux de votre réseau pour suivre leurs recommandations </p>
-      <p class="blue-text">TRUSTER : personne de confiance recommandée par votre réseau </p>
+      <div class="blue-text"> <p>TRUSTER : personne de confiance recommandée par votre réseau </p></div>
      </div>
     </div>
   </div>
@@ -61,7 +61,7 @@ url(<%= image_path 'pied.jpg' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2 class="title-home"> Votre réseau </h2>
+      <h2 class="title-home"> Votre réseau d'entre-aide </h2>
      </div>
     </div>
   </div>
@@ -69,8 +69,10 @@ url(<%= image_path 'pied.jpg' %>);">
 
   <div class="col-md-4">
       <div class="feature-home">
+        <div class="picto-home">
+         <%= image_tag 'coeur_red.png' , height: 70, width: 70, crop: :fill %>
+        </div>
         <div class="feature-header">
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
           <h3>Confiance</h3>
         </div>
         <div class="feature-body">
@@ -78,6 +80,31 @@ url(<%= image_path 'pied.jpg' %>);">
         </div>
       </div>
   </div>
-
+  <div class="col-md-4">
+      <div class="feature-home">
+        <div class="picto-home">
+         <%= image_tag 'share.png' , height: 70, width: 70, crop: :fill %>
+        </div>
+        <div class="feature-header">
+          <h3>Solidarité</h3>
+        </div>
+        <div class="feature-body">
+          <p> Chaque parent recommande des personnes de confiance pour vous rendre service à votre tour</p>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="feature-home">
+        <div class="picto-home">
+         <%= image_tag 'location.png' , height: 70, width: 70, crop: :fill %>
+        </div>
+        <div class="feature-header">
+          <h3>Proximité</h3>
+        </div>
+        <div class="feature-body">
+          <p> Un réseau à un niveau ultra-local, proche de chez vous</p>
+        </div>
+      </div>
+  </div>
 
 </div>
