@@ -16,8 +16,9 @@ url(<%= image_path 'pied.jpg' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12 ">
-      <p> Avec Trust-in, retrouvez vos bons plans et vos personnes de confiance : 'vos Trusters' </p>
-      <p>Découvrez ceux de votre réseau pour suivre leurs recommandations </p>
+      <p> Avec Trust-in, retrouvez vos bons plans et vos 'Trusters' </p>
+      <p>Et découvrez ceux de votre réseau pour suivre leurs recommandations </p>
+      <p class="blue-text">TRUSTER : personne de confiance recommandée par votre réseau </p>
      </div>
     </div>
   </div>
@@ -26,8 +27,7 @@ url(<%= image_path 'pied.jpg' %>);">
 <div class="container">
   <div class="row">
      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-        url('<%= image_path 'pied.jpg' , height: 300, width: 400, crop: :fill %>');">
+        <div class="card" style="background: url('<%= image_path 'babysitting.jpg' , height: 300, width: 400, crop: :fill %>');">
           <div class="card-category"> Vos trusters </div>
             <div class="card-description">
               <h2>Babysitting</h2>
@@ -37,7 +37,7 @@ url(<%= image_path 'pied.jpg' %>);">
      </div>
      <div class="col-xs-12 col-sm-4">
         <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-        url('<%= image_path 'pied.jpg' , height: 300, width: 400, crop: :fill %>');">
+        url('<%= image_path 'books.jpg' , height: 300, width: 400, crop: :fill %>');">
           <div class="card-category"> Vos trusters </div>
             <div class="card-description">
               <h2>Petits cours</h2>
@@ -47,7 +47,7 @@ url(<%= image_path 'pied.jpg' %>);">
      </div>
      <div class="col-xs-12 col-sm-4">
         <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-        url('<%= image_path 'pied.jpg' , height: 300, width: 400, crop: :fill %>');">
+        url('<%= image_path 'cooperative.jpg' , height: 300, width: 400, crop: :fill %>');">
           <div class="card-category"> Vos trusters </div>
             <div class="card-description">
               <h2>Echanges entre parents</h2>
@@ -60,18 +60,22 @@ url(<%= image_path 'pied.jpg' %>);">
 
   <div class="explication-concept">
     <div class="row">
-     <div class="col-xs-12 ">
-      <p> Nos engagements </p>
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2 class="title-home"> Votre réseau </h2>
      </div>
     </div>
   </div>
 
 
-  <div class="col-md-4 wow zoomIn animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">
-      <div class="feature_home">
+  <div class="col-md-4">
+      <div class="feature-home">
+        <div class="feature-header">
           <i class="fa fa-heart-o" aria-hidden="true"></i>
           <h3>Confiance</h3>
+        </div>
+        <div class="feature-body">
           <p> Vous pouvez choisir avec qui vous souhaitez partager vos recommandations</p>
+        </div>
       </div>
   </div>
 
