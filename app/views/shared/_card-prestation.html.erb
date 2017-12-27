@@ -1,8 +1,12 @@
 
 
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path (prestation.user.photo.present? ? prestation.user.photo : 'profile_icon.png'), height: 300, width: 400, crop: :fill %>')";>
-  <h2 class="title"><%= prestation.category %></h2>
+<div class="card-prestation" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path (prestation.user.photo.present? ? prestation.user.photo : 'profile_icon.png'), height: 300, width: 400, crop: :fill %>')";>
   <%= link_to '', prestation_path(prestation), class:'card-link' %>
+</div>
+<div class="card-description-prestation">
+  <h3><%= prestation.user.first_name%></h3>
+  <p class="list-description"><b><%= prestation.category %></b></p>
+  <p>recommandé par </p>
 </div>
 
 
