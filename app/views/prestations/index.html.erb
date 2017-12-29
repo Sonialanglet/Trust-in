@@ -1,2 +1,12 @@
-<h1>Prestations#index</h1>
-<p>Find me in app/views/prestations/index.html.erb</p>
+
+<div class="cards-container">
+  <div class="row">
+    <div class="card-prestations">
+      <% @prestations.each do |prestation| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render 'shared/card-prestation', prestation: prestation %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
