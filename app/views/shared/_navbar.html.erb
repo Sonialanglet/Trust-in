@@ -9,8 +9,10 @@
 
     <% if user_signed_in? %>
     <!-- photo de la personne qui s'incrit, avatar par defaut si pas de chargement photo -->
-
-      <% if current_user.photo.present? %>
+    <!-- gestion de la photo via facebook ou bien via le formulaire d'inscription -->
+      <% if current_user.facebook_picture_url %>
+        <% avatar_url = current_user.facebook_picture_url %>
+      <% elsif current_user.photo.present? %>
         <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
       <% else %>
         <% avatar_url = "profile_icon.png" %>
