@@ -1,2 +1,30 @@
-<h1>Prestations#show</h1>
-<p>Find me in app/views/prestations/show.html.erb</p>
+<div class='container'>
+  <div class="row">
+
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="card-show" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= cl_image_path @prestation.user.photo, height: 150, width: 150, crop: :thumb %>');">
+          <div class="card-details">
+            <h2><%= @prestation.user.first_name %></h2>
+            <h2 id="prestation_job"><%= @prestation.category %></h2>
+            <p id="prestation_price"><%= @prestation.price %> €</p>
+          </div>
+        </div>
+
+        <div class="card-white-bottom">
+          <p id="prestation_description"><%=  @prestation.description %> </p>
+          <% if policy(@prestation).destroy? %>
+            <% if current_user == @prestation.user %>
+              <%= link_to prestation_path(@prestation),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                <p class="cancel-btn">Cancel</p>
+              <% end %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
