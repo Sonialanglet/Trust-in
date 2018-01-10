@@ -19,9 +19,11 @@
       <% end %>
 
       <!-- Links when logged in -->
-      <%= link_to "Trusters", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link-propose" %>
+      <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Annonces", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -58,6 +60,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Proposer</a></li>
         <li><a href="#">Trusters</a></li>
         <li><a href="#">Annonces</a></li>
         <li><a href="#">Profile</a></li>

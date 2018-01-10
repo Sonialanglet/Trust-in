@@ -45,6 +45,19 @@
   text-decoration: none;
 }
 
+.navbar-wagon-link-propose {
+  background-color: #ff6075;
+  border-radius: 2px;
+  color: white;
+  a {
+    text-decoration: none;
+  }
+}
+.navbar-wagon-link-propose:hover {
+  color: #da552f;
+  text-decoration: none;
+}
+
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
