@@ -27,18 +27,15 @@ class PrestationsController < ApplicationController
   end
 
   def destroy
-    # @prestation = Prestation.find(params[:id])
-    # # authorize @prestation
-    # @bookings = @prestation.bookings
-    # @bookings.each do |booking|
-    #   booking.destroy
-    # end
-    # @prestation.destroy
+    @prestation = Prestation.find(params[:id])
+    authorize @prestation
+    @prestation.destroy
 
-    # redirect_to prestations_path
+    redirect_to prestations_path
   end
 
   def edit
+
   end
 
   def update
