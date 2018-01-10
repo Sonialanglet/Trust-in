@@ -3,10 +3,10 @@
 
       <h2 class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </h2>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <% if current_user.facebook_picture_url %>
-            <% avatar_url = current_user.facebook_picture_url %>
-          <% elsif current_user.photo.present? %>
-            <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
+          <% if @prestation.user.facebook_picture_url %>
+            <% avatar_url = prestation.user.facebook_picture_url %>
+          <% elsif @prestation.user.photo.present? %>
+            <% avatar_url = cl_image_path(@prestation.user.photo, crop: :thumb, graviti: :face) %>
           <% else %>
             <% avatar_url = "profile_icon.png" %>
           <% end %>
