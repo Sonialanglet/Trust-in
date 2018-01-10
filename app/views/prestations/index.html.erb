@@ -1,12 +1,15 @@
 
+
+
 <div class="cards-container">
   <div class="row">
-    <div class="card-prestations">
+
       <% @prestations.each do |prestation| %>
+
         <div class="col-xs-12 col-sm-4">
           <%= render 'shared/card-prestation', prestation: prestation %>
         </div>
       <% end %>
-    </div>
+
   </div>
 </div>

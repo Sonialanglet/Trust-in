@@ -1,13 +1,20 @@
+<% if prestation.user.facebook_picture_url %>
+  <% avatar_url = prestation.user.facebook_picture_url %>
+<% elsif prestation.user.photo.present? %>
+  <% avatar_url = cl_image_path(prestation.user.photo, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
 
+<div class="card-prestations-index">
+  <div class="photo-prestation" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url, height: 300, width: 400, crop: :fill %>')";>
+    <%= link_to '', prestation_path(prestation), class:'card-link' %>
+  </div>
+  <div class="card-description-prestation">
+    <h3><%= prestation.user.first_name%></h3>
+    <p class="list-description"> <b>Propose : <%= prestation.category %></b></p>
+    <p>recommandé par </p>
+  </div>
 
-<div class="card-prestation" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path (prestation.user.photo.present? ? prestation.user.photo : 'profile_icon.png'), height: 300, width: 400, crop: :fill %>')";>
-  <%= link_to '', prestation_path(prestation), class:'card-link' %>
 </div>
-<div class="card-description-prestation">
-  <h3><%= prestation.user.first_name%></h3>
-  <p class="list-description"><b><%= prestation.category %></b></p>
-  <p>recommandé par </p>
-</div>
-
-
 
