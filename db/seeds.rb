@@ -46,3 +46,9 @@ p "creating prestations"
   prestation_valerie = Prestation.new(category: "soutien scolaire", price: "30€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
   prestation_valerie.user = user_valerie
   prestation_valerie.save!
+
+p "creating services"
+  services = %w(Babysitting Soutien-scolaire Sortie-école Cours-musique)
+  services.each do |service|
+    Service.create!(name: service)
+  end
