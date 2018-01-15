@@ -27,9 +27,10 @@
 
 .card-prestations-index {
   display:flex;
-  margin-left:15px;
-  margin-right: 15px;
+  margin-left: 8px;
+  margin-right: 0px;
 }
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -67,9 +68,9 @@
 
   h3 {
     position: relative;
-    left: 18px;
-    top: 59px;
-    font-size: 28px;
+    left: 11px;
+    top: 50px;
+    font-size: 23px
   }
 }
 .card-link {
@@ -91,10 +92,12 @@
   position: relative;
     // background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(http://res.cloudinary.com/dfjd5sbad/image/upload/v1511968719/emghxa2ioidbq0etjfxd.jpg);
   background-position: center;
-  left: 10px;
-  height: 155px;
+  height: 139px;
   background-color: white;
-  text-align: center;
+  width: 64%;
+  text-align: left;
+  padding-left: 25px;
+  padding-top: 15px;
 
   h3 {
   font-size: 18px;
@@ -105,8 +108,12 @@
   }
 
   p {
-    font-size: 15px;
-    margin: 3px 0 15px 0;
-  }
+    font-size: 16px;
+     color: #4F4F4F;
+     margin: 0;
+         }
 }
 
+.recos {
+  margin-top: 16px;
+}

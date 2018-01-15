@@ -3,12 +3,13 @@
 
 <div class="cards-container">
   <div class="row">
-
       <% @prestations.each do |prestation| %>
 
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-6">
           <%= render 'shared/card-prestation', prestation: prestation %>
         </div>
+
+
       <% end %>
 
   </div>

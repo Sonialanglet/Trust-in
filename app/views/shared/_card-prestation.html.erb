@@ -7,9 +7,11 @@
 <% end %>
 
 <% if prestation.category=="Babysitting" %>
-  <% background_url = "pied.jpg" %>
+  <% prestation.category = "baby.png" %>
+  <% elsif prestation.category=="sortie école" %>
+    <% prestation.category = "school.png" %>
 <% else %>
-  <% background_url = "babysitting.jpg" %>
+  <% prestation.category = "book.png" %>
 <% end %>
 
 
@@ -20,9 +22,9 @@
 
   </div>
   <div class="card-description-prestation">
-    <p class="list-description"> <b>Propose : <%= prestation.category %></b></p>
+    <p class="list-description"> Propose : <%= image_tag prestation.category, height: 50, width: 50 %></p>
     <div class="recos">
-      <p>recommandé par </p>
+      <p>Recommandé par </p>
     </div>
   </div>
 
