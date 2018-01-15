@@ -10,7 +10,7 @@
               <%= simple_form_for @prestation do |f| %>
 
                   <div class="form-group">
-                    <label class="control-label check_boxes optional">Services que vous souhaitez proposer </label>
+                    <label class="control-label check_boxes optional"> </label>
                     <input type="hidden" name="prestation[service_ids][]" value="">
                     <div class="service-choices">
                       <% Service.all.each do |service| %>
