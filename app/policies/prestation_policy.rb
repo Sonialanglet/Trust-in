@@ -18,6 +18,10 @@ class PrestationPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def edit?
+    true
+  end
+
   def update?
     record.user == user
   end

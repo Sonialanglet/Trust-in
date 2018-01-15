@@ -19,8 +19,12 @@
       <% end %>
 
       <!-- Links when logged in -->
+      <% if current_user.prestation_ids.last.present? %>
+        <%= link_to "Proposer", edit_prestation_path(current_user), class: "navbar-wagon-item navbar-wagon-link-propose" %>
+      <% else %>
+        <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link-propose" %>
+      <% end %>
 
-      <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link-propose" %>
       <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Annonces", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>

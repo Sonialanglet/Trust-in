@@ -35,10 +35,15 @@ class PrestationsController < ApplicationController
   end
 
   def edit
-
+    @prestation = Prestation.find(params[:id])
+    authorize @prestation
   end
 
   def update
+    @prestation = Prestation.find(params[:id])
+    authorize @prestation
+    @prestation.update(prestation_params)
+    redirect_to prestation_path(current_user)
   end
 
   private
