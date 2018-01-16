@@ -11,19 +11,19 @@ User.destroy_all
 
 p "creating users"
 user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle")
-user_rachel.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload//q_auto:low/v1513851194/i7bvn6hhb4ptpvproovl.png"
+user_rachel.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513851194/i7bvn6hhb4ptpvproovl.png"
 user_rachel.save
 
 user_sophie = User.new(email: 'sophie@mail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo")
-user_sophie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload//q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
+user_sophie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_sophie.save
 
 user_marie = User.new(email: 'marie@mail.com', password: "password", first_name: 'Marie', last_name: "Kenz")
-user_marie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload//q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
+user_marie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_marie.save
 
 user_valerie = User.new(email: 'valerie@mail.com', password: "password", first_name: 'Valerie', last_name: "Doodle")
-user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload//q_auto:low/v1513880963/iihbblzswtgi7u7zvnhy.jpg"
+user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
 user_valerie.save
 
 
