@@ -6,6 +6,7 @@
   <% avatar_url = "profile_icon.png" %>
 <% end %>
 
+<!-- si logo des prestations  -->
 <% if prestation.category=="Babysitting" %>
   <% prestation.category = "baby.png" %>
   <% elsif prestation.category=="sortie école" %>
@@ -22,7 +23,7 @@
 
   </div>
   <div class="card-description-prestation">
-    <p class="list-description"> Propose : <%= image_tag prestation.category, height: 50, width: 50 %></p>
+    <p class="list-description"> Propose : <%= prestation.category%> ,<%= image_tag prestation.category, height: 50, width: 50 %></p>
     <div class="recos">
       <p>Recommandé par </p>
     </div>
