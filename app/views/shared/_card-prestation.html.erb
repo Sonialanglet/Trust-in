@@ -6,14 +6,29 @@
   <% avatar_url = "profile_icon.png" %>
 <% end %>
 
+<!-- si logo des prestations  -->
+<% if prestation.category=="Babysitting" %>
+  <% prestation.category = "baby.png" %>
+  <% elsif prestation.category=="sortie école" %>
+    <% prestation.category = "school.png" %>
+<% else %>
+  <% prestation.category = "book.png" %>
+<% end %>
+
+
 <div class="card-prestations-index">
   <div class="photo-prestation" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url, height: 300, width: 400, crop: :fill %>')";>
     <%= link_to '', prestation_path(prestation), class:'card-link' %>
+    <h3><%= prestation.user.first_name%></h3>
+
   </div>
   <div class="card-description-prestation">
-    <h3><%= prestation.user.first_name%></h3>
-    <p class="list-description"> <b>Propose : <%= prestation.category %></b></p>
-    <p>recommandé par </p>
+    <div class="categories">
+      <p> <%= image_tag prestation.category, height: 50, width: 50 %></p>
+    </div>
+    <div class="recos">
+      <p>Recommandé par </p>
+    </div>
   </div>
 
 </div>
