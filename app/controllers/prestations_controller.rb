@@ -1,7 +1,16 @@
 class PrestationsController < ApplicationController
   def index
     policy_scope(Prestation)
-    @prestations = Prestation.all
+    if params[:query].present?
+      sql_query = " \
+           prestations.category ILIKE :query \
+           OR users.first_name ILIKE :query \
+           OR users.last_name ILIKE :query \
+         "
+         @prestations = Prestation.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+     @prestations = Prestation.all
+    end
   end
 
   def show
