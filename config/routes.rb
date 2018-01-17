@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       get :join
     end
   end
+
+  resources :profiles, only: [:show, :index]
 end

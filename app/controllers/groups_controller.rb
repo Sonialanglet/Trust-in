@@ -15,6 +15,17 @@ class GroupsController < ApplicationController
     authorize @group
   end
 
+  def create
+    @group = Group.new(prestation_params)
+    @group.user = current_user
+    authorize @group
+    if @group.save
+      redirect_to groups_path
+    else
+      render :new
+    end
+  end
+
   def join
   end
 

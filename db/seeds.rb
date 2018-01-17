@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Group.destroy_all
 Prestation.destroy_all
 User.destroy_all
 
@@ -46,3 +46,25 @@ p "creating prestations"
   prestation_valerie = Prestation.new(category: "soutien scolaire", price: "30€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
   prestation_valerie.user = user_valerie
   prestation_valerie.save!
+
+
+  p "creating groups"
+
+    group_rachel = Group.new(title: "Bons plans Rachel")
+    group_rachel.save!
+
+
+  p "creating lien entre user et groups"
+
+  group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
+  group_user_rachel.save!
+  p"group_user done"
+
+
+  p "creating lien entre prestation et groups"
+
+  group_prestation_rachel = GroupPrestation.new(group: group_rachel, prestation: prestation_rachel)
+  group_prestation_rachel.save!
+  p"group_prestation done"
+
+
