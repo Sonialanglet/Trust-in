@@ -1,13 +1,16 @@
 // Specific CSS for your home-page
 
 .explication-concept {
-  font-size: 25px;
-  line-height: 37px;
+
   text-align: center;
-  margin: 19px auto 18px;
+  margin: 29px auto 48px;
   padding-left: 10px;
   padding-right: 11px;
+
   p {
+    font-family: lato;
+    font-size: 32px;
+    line-height: 42px;
     font-weight: bold;
   }
 
@@ -15,34 +18,7 @@
   }
 
 
-.blue-text {
-  color: #00B9AE;
-  font-size : 16px;
-  font-family: lato-medium;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-radius: 5px;
-  margin: 12px;
-  border: dotted;
-  text-align: center;
-  padding: 15px;
 
-
-}
-
-.title-home {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  border-bottom: 1px solid #E0E0E0;
-  height: 7px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  display: flex;
-  margin: 2em 40px 1em 40px;
-  }
 
 
 .feature_home {
@@ -83,4 +59,29 @@
   color: #00B9AE;
   text-align: center;
 
+}
+
+.separator {
+  text-align: center;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.separator span:not(:nth-child(2)) {
+  background-color: #DDDDDD;
+  width: 80px;
+  height: 1px;
+  display: inline-block;
+  top: -10px;
+  position: relative;
+}
+
+.separator span:nth-child(2) {
+    background-color: #22C0F1;
+    width: 5px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
