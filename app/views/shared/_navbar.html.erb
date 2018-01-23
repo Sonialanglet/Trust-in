@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -22,7 +22,7 @@
       <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link-propose" %>
       <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Annonces", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
       <!-- Avatar with dropdown menu -->
@@ -31,7 +31,7 @@
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to profile_path(current_user.id) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -63,6 +63,7 @@
         <li><a href="#">Proposer</a></li>
         <li><a href="#">Trusters</a></li>
         <li><a href="#">Annonces</a></li>
+        <li><a href="#">Reseau</a></li>
         <li><a href="#">Profile</a></li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>

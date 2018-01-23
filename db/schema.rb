@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108094542) do
+ActiveRecord::Schema.define(version: 20180116154717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "group_prestations", force: :cascade do |t|
+    t.bigint "prestation_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_prestations_on_group_id"
+    t.index ["prestation_id"], name: "index_group_prestations_on_prestation_id"
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "title"
+    t.bigint "founder_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["founder_id"], name: "index_groups_on_founder_id"
+  end
 
   create_table "prestations", force: :cascade do |t|
     t.string "category"
@@ -50,5 +76,10 @@ ActiveRecord::Schema.define(version: 20180108094542) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "group_prestations", "groups"
+  add_foreign_key "group_prestations", "prestations"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "users", column: "founder_id"
   add_foreign_key "prestations", "users"
 end

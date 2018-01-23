@@ -1,12 +1,25 @@
 
-
-
 <div class="cards-container">
+  <div class = "search-form">
+    <p> Filtrez votre recherche </p>
+
+  <%= form_tag prestations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "rechercher par service ou par personne"
+    %>
+  <% end %>
+  </div>
+
+
   <div class="row">
       <% @prestations.each do |prestation| %>
 
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-4">
+          <div class="one-card">
           <%= render 'shared/card-prestation', prestation: prestation %>
+          </div>
         </div>
 
 

@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :photo, PhotoUploader
   has_many :prestations, dependent: :destroy
+  has_many :groups, dependent: :destroy
+  has_one :profile, dependent: :destroy
   devise :omniauthable, omniauth_providers: [:facebook]
+
 
 
   def self.find_for_facebook_oauth(auth)
@@ -28,5 +31,8 @@ class User < ApplicationRecord
 
       return user
   end
+
+
+
 
 end

@@ -1,0 +1,30 @@
+<h1>Aggrandir mon réseau</h1>
+<p>Invitez des membres à rejoindre votre réseau de bons contacts </p>
+
+
+<div class="row">
+  <h2>Les groupes qui peuvent vous intéresser : </h2>
+    <% @groups.each do |group| %>
+
+      <div class="col-xs-12 col-sm-10 col-md-offset-1">
+        <div class="one-group">
+          <%= group.title %>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+
+<div class="row">
+    <div class = "search-form-groups">
+      <p> Retrouver des amis </p>
+
+    <%= form_tag profiles_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "rechercher par nom de famille"
+      %>
+    <% end %>
+    </div>
+</div>
