@@ -7,10 +7,14 @@
 <% end %>
 
 <!-- si logo des prestations  -->
-<% if prestation.category=="Babysitting" %>
-  <% image_path category = "pied.jpg" %>
-  <% elsif prestation.category=="sortie école" %>
-    <% image_path category = "pied.jpg" %>
+<% if prestation.category.name=="Babysitting" %>
+  <% image_path category = "babysitting.jpeg" %>
+  <% elsif prestation.category.name=="Soutien scolaire" %>
+    <% image_path category = "books.jpeg" %>
+    <% elsif prestation.category.name=="Cours musique" %>
+      <% image_path category = "coursmusique.jpeg" %>
+      <% elsif prestation.category.name=="Pet Sitting" %>
+        <% image_path category = "petsitting.jpeg" %>
 <% else %>
   <% image_path category = "pied.jpg" %>
 <% end %>
@@ -18,7 +22,7 @@
 
 <div class="card-prestations-index">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category%>');">
-    <div class="card-category">  <%= prestation.category%> </div>
+    <div class="card-category">  <%= prestation.category.name%> </div>
     <div class="card-description">
     </div>
     <%= image_tag avatar_url, crop: :fill, class:'card-user' %>

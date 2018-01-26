@@ -8,15 +8,18 @@ class PrestationsController < ApplicationController
            OR users.last_name ILIKE :query \
          "
          @prestations = Prestation.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+         @categories = Category.new
     else
      @prestations = Prestation.all
+     @categories = Category.new
     end
   end
 
   def show
     @prestation = Prestation.find(params[:id])
     authorize @prestation
-    # @booking = Booking.new
+    @categories = Category.new
+
   end
 
   def new
