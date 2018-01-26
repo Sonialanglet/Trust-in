@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116154717) do
+ActiveRecord::Schema.define(version: 20180126092137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "group_prestations", force: :cascade do |t|
     t.bigint "prestation_id"
@@ -42,12 +49,13 @@ ActiveRecord::Schema.define(version: 20180116154717) do
   end
 
   create_table "prestations", force: :cascade do |t|
-    t.string "category"
     t.string "price"
     t.text "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_prestations_on_category_id"
     t.index ["user_id"], name: "index_prestations_on_user_id"
   end
 
@@ -81,5 +89,6 @@ ActiveRecord::Schema.define(version: 20180116154717) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "users", column: "founder_id"
+  add_foreign_key "prestations", "categories"
   add_foreign_key "prestations", "users"
 end
