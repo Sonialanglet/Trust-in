@@ -12,18 +12,27 @@
 
 .filtres-categorie {
   display: flex;
-  position: relative;
+ flex-wrap: wrap;
+ justify-content: center;
+
 
 }
 
 .cat {
-  margin: 20px;
+  flex: 0,0,40%;
+  margin: 10px;
   justify-content: space-around;
+
+
+}
+
+.cat:hover {
+  opacity: 0.6;
 }
 
 .image-cat {
 
- height: 100px;
- width: 100px;
+ height: 80px;
+ width: 80px;
 
 }
