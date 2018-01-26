@@ -8,13 +8,13 @@
 
 <!-- si logo des prestations  -->
 <% if prestation.category.name=="Babysitting" %>
-  <% image_path category = "babysitting.jpeg" %>
+  <% image_path category = "babysitting.jpg" %>
   <% elsif prestation.category.name=="Soutien scolaire" %>
-    <% image_path category = "books.jpeg" %>
+    <% image_path category = "books.jpg" %>
     <% elsif prestation.category.name=="Cours musique" %>
-      <% image_path category = "coursmusique.jpeg" %>
+      <% image_path category = "coursmusique.jpg" %>
       <% elsif prestation.category.name=="Pet Sitting" %>
-        <% image_path category = "petsitting.jpeg" %>
+        <% image_path category = "petsitting.jpg" %>
 <% else %>
   <% image_path category = "pied.jpg" %>
 <% end %>
