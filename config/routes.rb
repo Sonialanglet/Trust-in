@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'categories/index'
 
   devise_for :users,
       controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -16,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:show, :index]
+  resources :categories, only: [:show, :index]
 end

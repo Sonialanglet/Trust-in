@@ -10,8 +10,8 @@
 Prestation.destroy_all
 p "destroy1"
 User.destroy_all
-Group.destroy_all
-Category.destroy_all
+# Group.destroy_all
+# Category.destroy_all
 
 p "creating users"
 user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle")
