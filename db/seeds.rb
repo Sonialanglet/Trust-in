@@ -72,23 +72,23 @@ p "creating prestations"
   prestation_marie2.user = user_marie
   prestation_marie2.save!
 
-  p "creating groups"
+  # p "creating groups"
 
-    group_rachel = Group.new(title: "Bons plans Rachel")
-    group_rachel.save!
-
-
-  p "creating lien entre user et groups"
-
-  group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
-  group_user_rachel.save!
-  p"group_user done"
+  #   group_rachel = Group.new(title: "Bons plans Rachel", founder: user_rachel)
+  #   group_rachel.save!
 
 
-  p "creating lien entre prestation et groups"
+  # p "creating lien entre user et groups"
 
-  group_prestation_rachel = GroupPrestation.new(group: group_rachel, prestation: prestation_rachel)
-  group_prestation_rachel.save!
-  p"group_prestation done"
+  # group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
+  # group_user_rachel.save!
+  # p"group_user done"
+
+
+  # p "creating lien entre prestation et groups"
+
+  # group_prestation_rachel = GroupPrestation.new(group: group_rachel, prestation: prestation_rachel)
+  # group_prestation_rachel.save!
+  # p"group_prestation done"
 
 
