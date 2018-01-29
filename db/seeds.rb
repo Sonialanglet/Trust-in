@@ -14,22 +14,21 @@ User.destroy_all
 # Category.destroy_all
 
 p "creating users"
-user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle")
+user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", birth_date: "01/02/2002")
 user_rachel.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513851194/i7bvn6hhb4ptpvproovl.png"
 user_rachel.save
 
-user_sophie = User.new(email: 'sophie@mail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo")
+user_sophie = User.new(email: 'sophie@mail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", birth_date: "03/06/2002")
 user_sophie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_sophie.save
 
-user_marie = User.new(email: 'marie@mail.com', password: "password", first_name: 'Marie', last_name: "Kenz")
+user_marie = User.new(email: 'marie@mail.com', password: "password", first_name: 'Marie', last_name: "Kenz", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", birth_date: "08/02/2001")
 user_marie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_marie.save
 
-user_valerie = User.new(email: 'valerie@mail.com', password: "password", first_name: 'Valerie', last_name: "Doodle")
+user_valerie = User.new(email: 'valerie@mail.com', password: "password", first_name: 'Valerie', last_name: "Doodle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", birth_date: "06/08/2000")
 user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
 user_valerie.save
-
 
 p "users - done"
 
@@ -52,23 +51,23 @@ p "creating 4 categories"
 
 p "creating prestations"
   #url1 = "http://res.cloudinary.com/dfosxgid7/image/upload/v1511969122/zz12gka0dadceixpw0a7.jpg"
-  prestation_rachel = Prestation.new(category: category_babysitting, price: "20€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
+  prestation_rachel = Prestation.new(category: category_babysitting, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_rachel.user = user_rachel
   prestation_rachel.save!
 
-  prestation_sophie = Prestation.new(category: category_soutienscolaire, price: "20€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
+  prestation_sophie = Prestation.new(category: category_soutienscolaire, price: "15€/h", description: "J'ai beaucoup d'expérience en soutien scolaire, j'ai fait travailler de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_sophie.user = user_sophie
   prestation_sophie.save!
 
-  prestation_marie = Prestation.new(category: category_coursmusique, price: "30€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
+  prestation_marie = Prestation.new(category: category_coursmusique, price: "20€/h", description: "J'ai beaucoup d'expérience en cours de piano, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_marie.user = user_marie
   prestation_marie.save!
 
-  prestation_valerie = Prestation.new(category: category_petsitting, price: "30€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
+  prestation_valerie = Prestation.new(category: category_petsitting, price: "20€/jour", description: "J'ai gardé de nombreuses fois des chiens et chats. N'hésitez pas à me joindre pour en savoir plus")
   prestation_valerie.user = user_valerie
   prestation_valerie.save!
 
-  prestation_marie2 = Prestation.new(category: category_babysitting, price: "30€/h", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you")
+  prestation_marie2 = Prestation.new(category: category_babysitting, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_marie2.user = user_marie
   prestation_marie2.save!
 
