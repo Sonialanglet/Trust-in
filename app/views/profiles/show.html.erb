@@ -1,2 +1,7 @@
 show.html.erb
 <h2>view show profile </h2>
+
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+'.html_safe, profile_path(@profile),
+method: :delete,
+data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
