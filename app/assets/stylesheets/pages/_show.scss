@@ -1,7 +1,100 @@
-.name-show {
-  text-align: center;
+.profil {
+  background-color: rgba(73, 205, 194,0.6);
+  justify-content: center;
 }
 
+.name-show {
+  text-align: center;
+  font-family: lato;
+  font-size: 20px;
+}
+
+
+
 .content-show {
-border: 2px;
+
+}
+
+.photo-show {
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+
+.photo {
+  margin-top: 10px;
+  border-radius: 50%;
+  height:100px;
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+
+}
+
+
+.services  {
+margin-top:10px;
+margin-bottom: 15px;
+background-color: white;
+padding-top: 5px;
+padding-bottom: 20px;
+}
+
+.services h2 {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 23px;
+  padding-top: 15px;
+}
+
+
+.photoservice {
+  margin-top: 10px;
+  height:80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+}
+
+
+
+.photo-small {
+  margin-top: 10px;
+  border-radius: 50%;
+  height:30px;
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 1px solid;
+
+}
+
+.price-services {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 16px;
+
+
+}
+
+.description-prestation {
+  margin-top:10px;
+  margin-bottom: 15px;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.description-prestation p {
+  text-align: center;
+  font-family: lato;
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
