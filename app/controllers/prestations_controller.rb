@@ -44,6 +44,8 @@ class PrestationsController < ApplicationController
 
   def edit
     @prestation = Prestation.find(params[:id])
+    authorize @prestation
+
   end
 
   def destroy
@@ -58,7 +60,8 @@ class PrestationsController < ApplicationController
 
   def update
     @prestation = Prestation.find(params[:id])
-    @prestation.update(params[:prestation])
+    @prestation.update(prestation_params)
+    authorize @prestation
     redirect_to prestation_path(@prestation)
   end
 

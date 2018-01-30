@@ -13,6 +13,8 @@ class ProfilesController < ApplicationController
   def show
   @profile = User.find(params[:id])
   skip_authorization
+  @prestations = Prestation.where({user_id: current_user.id})
+
 
   end
 
@@ -30,6 +32,10 @@ class ProfilesController < ApplicationController
  #   redirect_to prestations_path
  # end
 
+def complete
+  @profile = User.find(params[:id])
+  skip_authorization
+end
 
 
   def update

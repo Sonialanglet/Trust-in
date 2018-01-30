@@ -48,6 +48,30 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> Les prestations que vous proposez: </h2>
+      <div class="img-services">
+       <ul>
+         <% @prestations.each do |prestation|%>
+           <li style="list-style-type: none";>
+            <%= prestation.category.name%> <%= prestation.price%>
+            <div class="circle-icon">
+                <%= link_to edit_prestation_path(current_user) do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
+
+            </div>
+          </li>
+         <% end %>
+       </ul>
+
+      </div>
+
+    </div>
+  </div>
+</div>
 <div class="modifier-compte">
   <p>Vous souhaitez modifier votre profil ? </p>
   <div class="circle-icon">
