@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
  # end
 
   def show
-  @profile = User.find(params[:id])
+  @profile = User.where({user_id: current_user.id})
   skip_authorization
   @prestations = Prestation.where({user_id: current_user.id})
 
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
 
 
  def edit
-    @profile = User.find(params[:id])
+    @profile = User.where({user_id: current_user.id})
     skip_authorization
  end
 
@@ -32,15 +32,11 @@ class ProfilesController < ApplicationController
  #   redirect_to prestations_path
  # end
 
-def complete
-  @profile = User.find(params[:id])
-  skip_authorization
-end
 
 
   def update
-    @profile = User.find(params[:id])
-    @profile.update(profile_params)
+    @profile = User.where({user_id: current_user.id})
+    @profile.update(user_params)
     redirect_to profile_path(current_user)
   end
 
