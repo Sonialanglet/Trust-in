@@ -18,30 +18,30 @@ class ProfilesController < ApplicationController
 
 
  def edit
-   @profile = User.find(params[:id])
-   authorize@profile
+    @profile = User.find(params[:id])
+    skip_authorization
  end
 
- def destroy
-   @profile = User.find(params[:id])
-   authorize @profile
-   @profile.destroy
+ # def destroy
+ #   @profile = User.find(params[:id])
+ #   authorize @profile
+ #   @profile.destroy
 
-   redirect_to prestations_path
- end
+ #   redirect_to prestations_path
+ # end
 
 
 
- def update
-   @profile = User.find(params[:id])
-   @profile.update(params[:profile])
-   redirect_to profile_path(@profile)
- end
+  def update
+    @profile = User.find(params[:id])
+    @profile.update(profile_params)
+    redirect_to profile_path(current_user)
+  end
 
- private
 
- def profile_params
-   params.require(:profile).permit(:email, :photo, :first_name, :last_name, :description, :town, :address, :school1, :school2, :club1, :club2, :birth_date)
+  private
 
- end
+  def profile_params
+    params.require(:user).permit(:first_name, :last_name, :email, :photo, :description, :password, :town, :address, :school1, :school2, :club1, :club2)
+  end
 end

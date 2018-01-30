@@ -1,7 +1,72 @@
-show.html.erb
-<h2>view show profile </h2>
+<!-- photo de la personne qui s'incrit, avatar par defaut si pas de chargement photo -->
+<!-- gestion de la photo via facebook ou bien via le formulaire d'inscription -->
+<% if current_user.facebook_picture_url %>
+  <% avatar_url = current_user.facebook_picture_url %>
+<% elsif current_user.photo.present? %>
+  <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
 
-<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-'.html_safe, profile_path(@profile),
-method: :delete,
-data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="profil">
+      <div class="photo-show">
+       <%= image_tag avatar_url, class: "photo", crop: :thumb %>
+      </div>
+
+      <p class="name-show"><%= current_user.first_name%> <%= current_user.last_name%> </p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> vos recommandations : </h2>
+      <div class="img-recos">
+       <%= image_tag "profile_icon.png", class: "photo-small" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> vos informations : </h2>
+      <div class="img-recos">
+        <p class="name-show"> lieu d'habitation : <%= current_user.town%> </p>
+        <p class="name-show"> Ecole(s) des enfants : <%= current_user.school1%>, <%= current_user.school2%> </p>
+        <p class="name-show"> Club et associations : <%= current_user.club1%>, <%= current_user.club2%> </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modifier-compte">
+  <p>Vous souhaitez modifier votre profil ? </p>
+  <div class="circle-icon">
+      <%= link_to edit_profile_path(current_user) do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+
+  </div>
+</div>
+
+
+
+<div class="suppression-compte">
+  <p>Vous souhaitez supprimer votre compte ? </p>
+
+  <p>Cliquez-ici :<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+  '.html_safe, registration_path(current_user),
+  method: :delete,
+  data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+
+</div>
+

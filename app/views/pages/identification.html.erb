@@ -1,0 +1,33 @@
+<div class='container'>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="etre-prestataire">
+        <h2> Vous recherchez des personnes pour vous aider ? </h2>
+        <p> Accompagnement aux activités des enfants, babysitting, soutien scolaire, sortie d'école, cours de musique, etc ..</p>
+        <div class="arrow-blue">
+        <p> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
+        </div>
+        <div class="validation">
+          <%= link_to "continuer",prestations_path, :class => "btn btn-continuer validation"  %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="etre-prestataire">
+        <h2> vous souhaitez proposer vos services ? </h2>
+        <div class="arrow">
+        <p> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
+        </div>
+        <div class="validation">
+          <%= link_to "devenir truster",new_prestation_path, :class => "btn btn-truster validation"  %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
