@@ -1,30 +1,43 @@
+
+<script type="text/javascript">
+  function show_hide_div(header){
+  var lediv = document.getElementById('header');
+  if(lediv.style.display=="block")
+  lediv.style.display="none";
+  else
+  lediv.style.display="block";
+  }
+</script>
+
+
+
 <div class="row">
   <div class="filtres">
   <h2> Quels services souhaitez-vous proposer ?</h2>
   <div class="filtres-categorie">
 
-    <div class="cat btn">
+    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
       <%= image_tag "babysitting.jpg", class:"image-cat" %>
 
     </div>
-    <div class="cat btn">
+    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
        <%= image_tag "bulles.jpg", class:"image-cat" %>
     </div>
 
 
-    <div class="cat btn">
+    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
        <%= image_tag "books.jpg", class:"image-cat" %>
     </div>
-    <div class="cat btn">
+    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
        <%= image_tag "coursmusique.jpg", class:"image-cat" %>
     </div>
 
 
-      <div class="cat btn">
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
          <%= image_tag "petsitting.jpg", class:"image-cat" %>
       </div>
 
-      <div class="cat btn">
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
          <%= image_tag "pied.jpg", class:"image-cat" %>
       </div>
 
@@ -33,11 +46,11 @@
 </div>
 
 
-  <div class="container">
+  <div id="hidden" class="container">
     <div class="content">
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <div class="card-form">
+          <div id="header" class="card-form">
             <% if current_user %>
               <%= simple_form_for @prestation do |f| %>
                <%= f.association :category, collection: Category.all.order('name ASC') %>
