@@ -38,10 +38,17 @@
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
       <h2> vos informations : </h2>
-      <div class="img-recos">
-        <p class="name-show"> lieu d'habitation : <%= current_user.town%> </p>
+      <div class="img-recos infos">
+        <p class="name-show"> Lieu d'habitation : <%= current_user.town%> </p>
         <p class="name-show"> Ecole(s) fréquentées : <%= current_user.school1%>, <%= current_user.school2%> </p>
         <p class="name-show"> Club et associations : <%= current_user.club1%>, <%= current_user.club2%> </p>
+
+        <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(current_user) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+
+        </div>
       </div>
 
     </div>
@@ -55,13 +62,18 @@
       <div class="fiche-prestation">
        <ul>
          <% @prestations.each do |prestation|%>
-           <li style="list-style-type: none";>
-            <%= prestation.category.name%> <%= prestation.price%>
+           <li class="item-list" style="list-style-type: none";>
+            <div class="name">
+              <%= prestation.category.name%>
+            </div>
+            <div class="price">
+              <%= prestation.price%>
+            </div>
             <div class="circle-icon-edit">
                 <%= link_to edit_prestation_path(current_user) do %>
                   <i class="fa fa-pencil" aria-hidden="true"></i>
             </div>
-            <div class="circle-icon-edit">
+            <div class="circle-icon-delete">
               <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
                 '.html_safe, prestation_path(current_user),
                 method: :delete,
@@ -77,25 +89,19 @@
     </div>
   </div>
 </div>
-<div class="modifier-compte">
-  <p>Vous souhaitez modifier votre profil ? </p>
-  <div class="circle-icon">
-      <%= link_to edit_profile_path(current_user) do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      <% end %>
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <p>Vous souhaitez supprimer votre compte ? </p>
+        <div class="circle-icon-profile">
+        <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+        '.html_safe, registration_path(current_user),
+        method: :delete,
+        data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+        </div>
+    </div>
 
   </div>
 </div>
-
-
-
-<div class="suppression-compte">
-  <p>Vous souhaitez supprimer votre compte ? </p>
-
-  <p>Cliquez-ici :<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-  '.html_safe, registration_path(current_user),
-  method: :delete,
-  data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
-
-</div>
-

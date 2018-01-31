@@ -60,11 +60,19 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Proposer</a></li>
-        <li><a href="#">Trusters</a></li>
+        <li>
+           <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li>
+          <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
         <li><a href="#">Annonces</a></li>
-        <li><a href="#">Reseau</a></li>
-        <li><a href="#">Profile</a></li>
+        <li>
+          <%= link_to "Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li>
+          <%= link_to "Profile", profile_path(current_user.id), class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
