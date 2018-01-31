@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
+  get "/identification", to: "pages#identification", as: :identification_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :prestations
   resources :groups do
@@ -14,6 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profiles, only: [:show, :index]
+  resources :profiles
   resources :categories, only: [:show, :index]
 end

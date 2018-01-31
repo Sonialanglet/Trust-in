@@ -33,6 +33,7 @@
   transition: background 0.7s ease;
   text-decoration: none;
 }
+
 .btn-new-prestation:hover {
   opacity: 0.7;
   background: #FF4F61;
@@ -55,4 +56,43 @@
     font-size: 18px;
     font-family: lato;
   }
+}
+
+.btn-truster {
+  color: white;
+  background: linear-gradient(#FF4F61, #FF0108);
+  height: 46px;
+  width: 195px;
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-truster:hover {
+  opacity: 0.7;
+  background: #FF4F61;
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+.btn-continuer {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(73, 205, 194, 1);
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-continuer:hover {
+  opacity: 0.7;
+  background: rgba(73, 205, 194,0.6);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
 }

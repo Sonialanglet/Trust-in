@@ -11,31 +11,41 @@ class PrestationsController < ApplicationController
          @categories = Category.new
     else
      @prestations = Prestation.all
-     @categories = Category.new
+     @category = Category.new
     end
   end
 
   def show
     @prestation = Prestation.find(params[:id])
     authorize @prestation
-    @categories = Category.new
+    @category = Category.new
 
   end
 
   def new
     @prestation = Prestation.new
     authorize @prestation
+    @category = Category.new
+
   end
 
   def create
     @prestation = Prestation.new(prestation_params)
     @prestation.user = current_user
+
+
     authorize @prestation
     if @prestation.save
       redirect_to prestation_path(@prestation)
     else
       render :new
     end
+  end
+
+  def edit
+    @prestation = Prestation.find(params[:id])
+    authorize @prestation
+
   end
 
   def destroy
@@ -46,17 +56,19 @@ class PrestationsController < ApplicationController
     redirect_to prestations_path
   end
 
-  def edit
 
-  end
 
   def update
+    @prestation = Prestation.find(params[:id])
+    @prestation.update(prestation_params)
+    authorize @prestation
+    redirect_to prestation_path(@prestation)
   end
 
   private
 
   def prestation_params
-    params.require(:prestation).permit(:price, :description, :category, :photo)
+    params.require(:prestation).permit(:price, :description, :category_id, :photo)
   end
 
 end

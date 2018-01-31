@@ -11,8 +11,39 @@ class ProfilesController < ApplicationController
  # end
 
   def show
-  @profile = User.find(params[:id])
+  @profile = User.where({user_id: current_user.id})
   skip_authorization
+  @prestations = Prestation.where({user_id: current_user.id})
 
+
+  end
+
+
+ def edit
+    @profile = User.where({user_id: current_user.id})
+    skip_authorization
+ end
+
+ # def destroy
+ #   @profile = User.find(params[:id])
+ #   authorize @profile
+ #   @profile.destroy
+
+ #   redirect_to prestations_path
+ # end
+
+
+
+  def update
+    @profile = User.where({user_id: current_user.id})
+    @profile.update(user_params)
+    redirect_to profile_path(current_user)
+  end
+
+
+  private
+
+  def profile_params
+    params.require(:user).permit(:first_name, :last_name, :email, :photo, :description, :password, :town, :address, :school1, :school2, :club1, :club2)
   end
 end

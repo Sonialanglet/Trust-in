@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="content">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="card-form">
+          <% if current_user %>
+            <%= simple_form_for @prestation do |f| %>
+             <%= f.association :category, collection: Category.all.order('name ASC') %>
+              <%= f.input :price, placeholder: "8€/h" %>
+              <%= f.input :description, placeholder: "Décrivez votre expérience" %>
+              <%= f.submit "valider", class: "btn-new-prestation"%>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
