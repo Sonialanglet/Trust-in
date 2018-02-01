@@ -22,6 +22,9 @@
       <%= f.input :address, label: "Adresse",autofocus: true, placeholder: "1 route de la Reine", required: false %>
       <%= f.input :school1, label: "Etablissement scolaire actuel",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
       <%= f.input :school2, label: "Précédent établissement",autofocus: true, placeholder: "SFA" , required: false%>
+      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+      <%= f.input :password_confirmation, required: false %>
+      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
 
   </div>
 
@@ -32,5 +35,13 @@
 
 <%= link_to "Oublié votre mot de passe?", new_password_path(resource_name), class: "link-text" %><br />
 </div>
+
+<%= link_to "Back", :back %>
+
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
