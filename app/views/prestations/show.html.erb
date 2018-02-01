@@ -30,7 +30,10 @@
 
         <p class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </p>
         <p class="name-show"><%= @prestation.user.town%> </p>
-        <p class="name-show"><%= @prestation.user.birth_date%></p>
+        <% if @prestation.user.date_of_birth %>
+         <p class="name-show"><%= (Date.today.year)-(@prestation.user.date_of_birth.year)%> ans
+        </p>
+        <% end %>
       </div>
     </div>
   </div>
@@ -64,11 +67,18 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
+        <h2> Présentation : </h2>
         <p> <%=  @prestation.description %> </p>
       </div>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="description-prestation">
+        <p> <%=  @prestation.user.description %> </p>
+      </div>
+    </div>
+  </div>
             <% if policy(@prestation).destroy? %>
               <% if current_user == @prestation.user %>
                 <%= link_to prestation_path(@prestation),

@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(prestation_params)
+    @group = Group.new(group_params)
     @group.user = current_user
     authorize @group
     if @group.save
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
 
   private
 
-  def prestation_params
+  def group_params
     params.require(:group).permit(:title)
   end
 

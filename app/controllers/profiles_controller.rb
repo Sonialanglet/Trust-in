@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = User.where({user_id: current_user.id})
-    @profile.update(user_params)
+    @profile.update(profile_params)
     redirect_to profile_path(current_user)
   end
 
@@ -44,6 +44,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :email, :photo, :description, :password, :town, :address, :school1, :school2, :club1, :club2)
+    params.require(:user).permit(:first_name, :last_name, :email, :photo, :description, :password, :town, :address, :school1, :school2, :club1, :club2, :first_name, :last_name, :photo, :description, :town, :address, :school1, :school2, :club1, :club2, :date_of_birth)
   end
 end

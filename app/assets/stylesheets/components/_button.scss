@@ -96,3 +96,22 @@
   text-decoration: none;
   color: white;
 }
+.btn-cancel {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(76, 100, 166,1);
+  margin: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.7s ease;
+  text-decoration: none;
+}
+
+.btn-cancel:hover {
+  opacity: 0.7;
+  background: rgba(76, 100, 166,0.6);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}

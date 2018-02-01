@@ -3,11 +3,12 @@ class PrestationsController < ApplicationController
     policy_scope(Prestation)
     if params[:query].present?
       sql_query = " \
-           prestations.category ILIKE :query \
+           prestations.description ILIKE :query \
            OR users.first_name ILIKE :query \
+           OR categories.name ILIKE :query \
            OR users.last_name ILIKE :query \
          "
-         @prestations = Prestation.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+         @prestations = Prestation.joins(:user, :category).where(sql_query, query: "%#{params[:query]}%")
          @categories = Category.new
     else
      @prestations = Prestation.all
