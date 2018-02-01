@@ -30,7 +30,7 @@
 
         <p class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </p>
         <p class="name-show"><%= @prestation.user.town%> </p>
-        <p class="name-show"><%= @prestation.user.birth_date%></p>
+        <p class="name-show"><%= (Date.today.year)-(@prestation.user.date_of_birth.year)%> ans</p>
       </div>
     </div>
   </div>

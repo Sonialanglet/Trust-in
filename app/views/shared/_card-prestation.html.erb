@@ -31,7 +31,8 @@
   <div class = "card-footer">
     <div class="info-prestataire">
       <p> <%= prestation.user.first_name%></p>
-      <p> <%= prestation.user.birth_date%></p>
+      <p> <%= (Date.today.year)-(prestation.user.date_of_birth.year)%> ans</p>
+
       <p> <%= prestation.user.town%> </p>
     </div>
     <div class="recos-prestataire">
