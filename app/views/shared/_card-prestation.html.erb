@@ -31,8 +31,8 @@
   <div class = "card-footer">
     <div class="info-prestataire">
       <p> <%= prestation.user.first_name%></p>
-      <% if current_user.date_of_birth.present? %>
-      <p> <%= (Date.today.year)-(prestation.user.date_of_birth.year)%> ans</p>
+      <% if prestation.user.date_of_birth %>
+        <p> <%= Date.today.year-prestation.user.date_of_birth.year%> ans</p>
       <% end %>
       <p> <%= prestation.user.town%> </p>
     </div>
