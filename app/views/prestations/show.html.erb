@@ -52,14 +52,21 @@
     </div>
   </div>
 
+
+
+   </script>
+
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
         <h2> Recommandé par : </h2>
         <div class="img-recos">
          <%= image_tag "profile_icon.png", class: "photo-small" %>
+
         </div>
-         <%=link_to new_prestation_review_path(@prestation) %>
+        <div>
+          <p>Recommandez-vous cette prestation ?  <%= image_tag 'like.png', class:"star0" %></p>
+         </div>
       </div>
     </div>
   </div>
@@ -78,6 +85,7 @@
         <p> <%=  @prestation.user.description %> </p>
       </div>
     </div>
+
   </div>
             <% if policy(@prestation).destroy? %>
               <% if current_user == @prestation.user %>
@@ -89,23 +97,8 @@
               <% end %>
             <% end %>
 
-            <div class="container">
-              <div class="content">
-                <div class="row">
-                  <div class="col-xs-12 col-md-6 col-md-offset-3">
-                    <div class="card-form">
+            <%= render 'reviews/form', prestation: @prestation, review: @review %>
 
-                        <%= simple_form_for [@prestation, @review] do |f| %>
-                         <%= f.input :rating %>
-                          <%= f.input :comment, placeholder: "commentaires" %>
-                          <%= f.submit "valider", class: "btn-new-prestation"%>
-                        <% end %>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
 </div>
 

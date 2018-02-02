@@ -1,27 +1,23 @@
 class ReviewsController < ApplicationController
-  def new
-    @prestation = Prestation.find(params[:prestation_id])
 
-    @review = Review.new
-    authorize @review
-  end
 
   def create
+    @prestation = Prestation.find(params[:prestation_id])
     @review = Review.new(review_params)
-    # we need `restaurant_id` to asssociate review with corresponding restaurant
-    @review.prestation = Prestation.find(params[:prestation_id])
+
+    @review.prestation = @prestation
     authorize @review
-    if @review.save
-      redirect_to prestation_path(@prestation)
-    else
-      render :new
-    end
+    @review.save
+    redirect_to prestation_path(@prestation)
+
   end
-end
+
 
 
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment)
+    params.require(:review).permit( :comment, :rating).merge(:user_id => current_user.id)
   end
+
+end

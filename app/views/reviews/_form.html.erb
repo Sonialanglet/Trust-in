@@ -1,0 +1,23 @@
+
+  <div class="content">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="description-prestation">
+          <h2> Commentaires : </h2>
+          <div>
+             <% @prestation.reviews.each do |review| %>
+             <li>
+             <%= review.comment  %>
+            <% end %>
+            </li>
+           </div>
+          <%= simple_form_for([ prestation, review ]) do |form| %>
+            <%= form.input :comment, as: :text, label:"Poster votre commentaire" %>
+            <%= form.submit "valider", class: "btn-new-prestation" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
