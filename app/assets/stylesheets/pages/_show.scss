@@ -178,3 +178,22 @@ position:relative;
 
 }
 
+.review_single {
+text-decoration: none;
+list-style: none;
+
+p {
+  text-align: center;
+  font-family: lato;
+  font-size: 16px;
+  padding-top: 4px;
+  padding-bottom: 7px
+}
+
+}
+
+.review_single li {
+  list-style-position:inside;
+     border: 1px dotted grey;
+     border-radius: 3px;
+}

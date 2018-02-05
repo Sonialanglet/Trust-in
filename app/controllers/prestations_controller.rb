@@ -20,6 +20,7 @@ class PrestationsController < ApplicationController
     @prestation = Prestation.find(params[:id])
     authorize @prestation
     @category = Category.new
+    @review = Review.new
 
   end
 
