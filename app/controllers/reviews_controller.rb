@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     @review.prestation = @prestation
+
     authorize @review
     @review.save
     redirect_to prestation_path(@prestation)
