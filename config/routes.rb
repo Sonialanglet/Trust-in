@@ -8,8 +8,14 @@ Rails.application.routes.draw do
   get "/identification", to: "pages#identification", as: :identification_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :prestations do
+    member do
+      post 'recomandation'
+      end
     resources :reviews, only: [:create ]
-    end
+     end
+
+
+
 
 
   resources :groups do

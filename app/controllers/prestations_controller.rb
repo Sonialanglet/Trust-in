@@ -9,10 +9,11 @@ class PrestationsController < ApplicationController
            OR users.last_name ILIKE :query \
          "
          @prestations = Prestation.joins(:user, :category).where(sql_query, query: "%#{params[:query]}%")
-         @categories = Category.new
+         @category = Category.new
+         @recomand = Recomand.new
     else
      @prestations = Prestation.all
-     @category = Category.new
+     @recomand = Recomand.new
     end
   end
 
@@ -67,10 +68,27 @@ class PrestationsController < ApplicationController
     redirect_to prestation_path(@prestation)
   end
 
+
+  def recomandation
+    @prestation = Prestation.find(params[:id])
+
+    @recomand = Recomand.new(prestation:@prestation, user:current_user)
+
+    authorize @prestation
+    @recomand.save
+    if @recomand.save
+      redirect_to prestations_path
+    else
+      redirect_to prestation_path(@prestation)
+    end
+
+  end
+
   private
 
   def prestation_params
     params.require(:prestation).permit(:price, :description, :category_id, :photo)
   end
+
 
 end
