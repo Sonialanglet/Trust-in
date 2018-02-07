@@ -5,6 +5,7 @@
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
+<!-- photos associees des personnes qui recommandent  -->
 
 <!-- photos associees des prestations  -->
 <% if @prestation.category.name=="Babysitting" %>
@@ -63,11 +64,17 @@
         <h2> Recommandé par : </h2>
         <p> Recommandé par <%= pluralize(@prestation.recomands.count, 'utilisateur') %>  </p>
         <% @prestation.recomands.each do |recomandation|%>
-          <%= recomandation.user.first_name %> <%= recomandation.user.last_name %>
-          <% end %>
-        <p> </p>
         <div class="img-recos">
-         <%= image_tag "profile_icon.png", class: "photo-small" %>
+          <% if recomandation.user.facebook_picture_url %>
+            <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small" %>
+          <% elsif recomandation.user.photo.present? %>
+            <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small" %>
+          <% else %>
+            <%= image_tag "profile_icon.png", class:"avatar_small" %>
+          <% end %>
+         <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
+          <% end %>
+
 
         </div>
         <div>
