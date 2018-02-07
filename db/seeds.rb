@@ -10,6 +10,7 @@
 Prestation.destroy_all
 p "destroy1"
 User.destroy_all
+Recomand.destroy_all
 # Group.destroy_all
 # Category.destroy_all
 

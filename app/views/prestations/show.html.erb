@@ -61,7 +61,7 @@
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
         <h2> Recommandé par : </h2>
-        <p> Recommandé par <%= @prestation.recomands.count%> utilisateurs</p>
+        <p> Recommandé par <%= pluralize(@prestation.recomands.count, 'utilisateur') %>  </p>
         <% @prestation.recomands.each do |recomandation|%>
           <%= recomandation.user.first_name %> <%= recomandation.user.last_name %>
           <% end %>
@@ -71,10 +71,11 @@
 
         </div>
         <div>
-           <p> Recommandez-ici à votre tour :<%= link_to recomandation_prestation_path(@prestation), method: :post do %>
-                    <%=image_tag "like.png", class:'recomand-btn-lg' %>
-                    <% end %>
 
+            <p> Recommandez-ici à votre tour :<%= link_to recomandation_prestation_path(@prestation), method: :post,
+               data: { confirm: "Votre recommandation est ajoutée !" } do %>
+                <%=image_tag "like.png", class:'recomand-btn-lg' %>
+                <% end %>
               </p>
         </div>
       </div>

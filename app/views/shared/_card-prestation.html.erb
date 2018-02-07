@@ -38,8 +38,9 @@
     <div class="recos-prestataire">
 
         <div class="recomand">
-          <p> Recommandé par <%= prestation.recomands.count%> utilisateurs</p>
-          <p> Recommandez-ici :<%= link_to recomandation_prestation_path(prestation), method: :post do %>
+          <p> Recommandé par <%= pluralize(prestation.recomands.count, 'utilisateur')%> </p>
+          <p> Recommandez-ici :<%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation est ajoutée !" }  do %>
             <%=image_tag "like.png", class:'recomand-btn' %>
             <% end %>
 

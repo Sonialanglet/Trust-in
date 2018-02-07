@@ -73,16 +73,12 @@ class PrestationsController < ApplicationController
     @prestation = Prestation.find(params[:id])
 
     @recomand = Recomand.new(prestation:@prestation, user:current_user)
-
+       # @prestation.recomands.create
     authorize @prestation
-    @recomand.save
-    if @recomand.save
-      redirect_to prestations_path
-    else
-      redirect_to prestation_path(@prestation)
-    end
 
-  end
+    @recomand.save
+    redirect_to prestations_path
+   end
 
   private
 
