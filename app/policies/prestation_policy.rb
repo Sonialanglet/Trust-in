@@ -21,5 +21,7 @@ class PrestationPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
-
+  def recomandation?
+    true # Tous les users peuvent créer une recomandation
+  end
 end

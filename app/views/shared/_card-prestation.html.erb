@@ -19,7 +19,6 @@
   <% image_path category = "pied.jpg" %>
 <% end %>
 
-
 <div class="card-prestations-index">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category%>');">
     <div class="card-category">  <%= prestation.category.name%> </div>
@@ -37,7 +36,16 @@
       <p> <%= prestation.user.town%> </p>
     </div>
     <div class="recos-prestataire">
-      <p> Recommandé par</p>
+
+        <div class="recomand">
+          <p> Recommandé par <%= pluralize(prestation.recomands.count, 'utilisateur')%> </p>
+          <p> Recommandez-ici :<%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation est ajoutée !" }  do %>
+            <%=image_tag "like.png", class:'recomand-btn' %>
+            <% end %>
+
+      </p>
+      </div>
     </div>
   </div>
   </div>

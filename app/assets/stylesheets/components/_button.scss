@@ -115,3 +115,41 @@
   text-decoration: none;
   color: white;
 }
+
+.btn-delete {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(127, 103, 103, 1);
+  margin: 12px;
+  padding:5px;
+  border-radius: 5px;
+
+  transition: background 0.7s ease;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-delete:hover {
+  opacity: 0.7;
+  background: rgba(127, 103, 103,0.6);
+  opacity: 0,5;
+  text-decoration: none;
+  color: white;
+}
+
+.recomand-btn {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+.recomand-btn-lg {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+
