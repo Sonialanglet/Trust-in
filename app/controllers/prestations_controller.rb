@@ -12,9 +12,25 @@ class PrestationsController < ApplicationController
          @category = Category.new
          @recomand = Recomand.new
     else
-     @prestations = Prestation.all
+
+     @prestations = policy_scope(Prestation).where(
+       "id not in (SELECT prestation_id FROM recomands WHERE
+         user_id = #{current_user.id})"
+         )
+     @recomanded_prestations = policy_scope(Prestation).where(
+       "id in (SELECT prestation_id FROM recomands WHERE
+         user_id = #{current_user.id})"
+         )
      @recomand = Recomand.new
     end
+  end
+
+  def recomanded_prestations
+    @prestations = policy_scope(Prestation).where(
+      "id in (SELECT prestation_id FROM recomands WHERE
+        user_id = #{current_user.id})"
+        )
+    render :index
   end
 
   def show

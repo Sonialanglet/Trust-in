@@ -11,8 +11,8 @@ Prestation.destroy_all
 p "destroy1"
 User.destroy_all
 Recomand.destroy_all
-# Group.destroy_all
-# Category.destroy_all
+Group.destroy_all
+Category.destroy_all
 
 p "creating users"
 user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "01/02/2002")
@@ -72,17 +72,17 @@ p "creating prestations"
   prestation_marie2.user = user_marie
   prestation_marie2.save!
 
-  # p "creating groups"
+   # p "creating groups"
 
-  #   group_rachel = Group.new(title: "Bons plans Rachel", founder: user_rachel)
-  #   group_rachel.save!
+    group_rachel = Group.new(title: "Bons plans Rachel", founder: user_rachel)
+    group_rachel.save!
 
 
-  # p "creating lien entre user et groups"
+    p "creating un utilisateur dans le groupe Rachel"
 
-  # group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
-  # group_user_rachel.save!
-  # p"group_user done"
+    group_user_sophie = GroupUser.new(group: group_rachel, user: user_sophie)
+    group_user_sophie.save!
+   p"group_user done"
 
 
   # p "creating lien entre prestation et groups"
