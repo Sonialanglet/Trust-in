@@ -47,6 +47,19 @@
   </div>
 
   <div class="row">
+      <% @recomanded_prestations.each do |prestation| %>
+
+        <div class="col-xs-12 col-sm-4">
+          <div class="one-card">
+          <%= render 'shared/card-prestation', prestation: prestation %>
+          </div>
+        </div>
+
+
+      <% end %>
+
+  </div>
+  <div class="row">
       <% @prestations.each do |prestation| %>
 
         <div class="col-xs-12 col-sm-4">
