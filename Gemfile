@@ -20,8 +20,8 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem "pundit"
 gem 'omniauth-facebook'
-
-
+gem "letter_opener", group: :development
+gem 'postmark-rails'
 
 
 group :development do
