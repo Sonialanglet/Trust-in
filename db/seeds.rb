@@ -52,24 +52,19 @@ p "creating 4 categories"
 
 p "creating prestations"
   #url1 = "http://res.cloudinary.com/dfosxgid7/image/upload/v1511969122/zz12gka0dadceixpw0a7.jpg"
-  prestation_rachel = Prestation.new(category: category_babysitting, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
-  prestation_rachel.user = user_rachel
+  prestation_rachel = Prestation.new(category: category_babysitting, user: user_rachel, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_rachel.save!
 
-  prestation_sophie = Prestation.new(category: category_soutienscolaire, price: "15€/h", description: "J'ai beaucoup d'expérience en soutien scolaire, j'ai fait travailler de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
-  prestation_sophie.user = user_sophie
+  prestation_sophie = Prestation.new(category: category_soutienscolaire, user: user_sophie, price: "15€/h", description: "J'ai beaucoup d'expérience en soutien scolaire, j'ai fait travailler de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_sophie.save!
 
-  prestation_marie = Prestation.new(category: category_coursmusique, price: "20€/h", description: "J'ai beaucoup d'expérience en cours de piano, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
-  prestation_marie.user = user_marie
+  prestation_marie = Prestation.new(category: category_coursmusique, user: user_marie, price: "20€/h", description: "J'ai beaucoup d'expérience en cours de piano, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_marie.save!
 
-  prestation_valerie = Prestation.new(category: category_petsitting, price: "20€/jour", description: "J'ai gardé de nombreuses fois des chiens et chats. N'hésitez pas à me joindre pour en savoir plus")
-  prestation_valerie.user = user_valerie
+  prestation_valerie = Prestation.new(category: category_petsitting, user: user_valerie, price: "20€/jour", description: "J'ai gardé de nombreuses fois des chiens et chats. N'hésitez pas à me joindre pour en savoir plus")
   prestation_valerie.save!
 
-  prestation_marie2 = Prestation.new(category: category_babysitting, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
-  prestation_marie2.user = user_marie
+  prestation_marie2 = Prestation.new(category: category_babysitting, user: user_marie, price: "8€/h", description: "J'ai beaucoup d'expérience en babysitting, j'ai gardé de nombreuses fois mes petits cousins. N'hésitez pas à me joindre pour en savoir plus")
   prestation_marie2.save!
 
    # p "creating groups"

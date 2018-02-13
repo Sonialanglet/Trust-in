@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     member do
       post 'recomandation'
+      get 'contact'
     end
     resources :reviews, only: [:create ]
   end

@@ -96,6 +96,14 @@ class PrestationsController < ApplicationController
     redirect_to prestations_path
    end
 
+  def contact
+    @prestation = Prestation.find(params[:id])
+
+    UserMailer.contact(@prestation).deliver_now
+    authorize @prestation
+    redirect_to prestation_path(@prestation)
+  end
+
   private
 
   def prestation_params

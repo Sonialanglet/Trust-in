@@ -13,4 +13,12 @@ class UserMailer < ApplicationMailer
       # This will render a view in `app/views/user_mailer`!
     end
 
+  def contact(prestation)
+    @prestation = prestation
+    mail(
+      to:       @prestation.user.email,
+      subject:  "hello"
+    )
+  end
+
 end

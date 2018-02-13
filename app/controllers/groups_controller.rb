@@ -27,6 +27,11 @@ class GroupsController < ApplicationController
   end
 
   def join
+
+      @group = Group.find(params[:id])
+      @group.status = 'accepted'
+      GroupUser.create(user: current_user, group: @group)
+      redirect_to groups_path
   end
 
   def edit
