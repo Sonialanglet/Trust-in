@@ -2,10 +2,9 @@ Rails.application.configure do
     # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
 
-
   config.action_mailer.delivery_method     = :postmark
-    config.action_mailer.postmark_settings   = { api_key: ENV['90b1e4ab-fd06-44b5-82fd-2c27a8436bae'] }
-    config.action_mailer.default_url_options = { host: "trust-in.herokuapp.com" }
+   config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
+   config.action_mailer.default_url_options = { host: "trust-in.herokuapp.com" }
 
 
   # Settings specified here will take precedence over those in config/application.rb.
