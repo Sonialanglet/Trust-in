@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'contact@trust-in.fr'
+  default from: 'sonia@trust-in.fr'
   layout 'mailer'
 
 
