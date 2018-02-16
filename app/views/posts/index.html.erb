@@ -1,0 +1,25 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+<%= simple_form_for @post do |form| %>
+  <div class="form-group">
+    <%= form.input :content, as: :text, label:"Poster votre message" %>
+   </div>
+   <%= form.submit "poster", class: "btn-new-prestation" %>
+<% end %>
+</div>
+</div>
+
+<div class="row">
+    <% @posts.each do |post| %>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="one-card">
+        <%= post.content %>
+        </div>
+      </div>
+
+
+    <% end %>
+
+</div>
