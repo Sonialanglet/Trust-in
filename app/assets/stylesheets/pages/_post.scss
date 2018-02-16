@@ -1,0 +1,33 @@
+.conversation {
+  border: 1px solid rgba(220,224,244,0.4);
+  background-color: white;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+
+}
+
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-family:lato;
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.content {
+  padding-left: 30px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+
+}
