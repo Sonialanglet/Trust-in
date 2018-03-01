@@ -7,19 +7,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-xs-12 ">
 
-  <%= simple_form_for @post do |form| %>
-    <div class="form-group">
-      <%= form.input :content, as: :text, label:"Poster votre message" %>
-    </div>
-     <%= form.submit "poster", class: "btn-new-prestation" %>
-    <% end %>
-  </div>
-</div>
-
-<div class="row">
-    <% @posts.each do |post| %>
       <div class="col-xs-12 ">
         <div class="one-post">
           <div class="message">
@@ -27,20 +15,24 @@
              <%= image_tag avatar_url, class: "photo", crop: :thumb %>
             </div>
             <div class="message-name">
-             <%= post.user.first_name %>
+             <%= @post.user.first_name %>
             </div>
             </div>
           <div class="content">
-          <%= post.content %>
+          <%= @post.content %>
           </div>
-          <div>
-          <%= link_to pluralize(post.replies.count, 'réponse'), post_path(post) %>
-          </div>
+
         </div>
 
-      <% end %>
+
       </div>
 
 
 
+</div>
+
+<div class="col-xs-12">
+  <div class="description-prestation">
+        <%= render 'replies/form', post: @post, reply: @reply %>
+  </div>
 </div>

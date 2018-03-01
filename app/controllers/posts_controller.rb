@@ -4,10 +4,14 @@ class PostsController < ApplicationController
     policy_scope(Post)
     @posts = Post.all
     @post = Post.new
+
   end
 
   def show
       @post = Post.find(params[:id])
+      @reply = Reply.new
+      authorize @post
+      @reply.post = @post
     end
 
   def new

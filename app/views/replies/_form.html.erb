@@ -1,0 +1,18 @@
+
+
+
+
+<div class="review_single">
+   <% @post.replies.each do |reply| %>
+   <li>
+    <p> <%= reply.content  %></p>
+   <% end %>
+  </li>
+</div>
+
+
+
+<%= simple_form_for [@post, @reply] do |f| %>
+  <%= f.input :content, label:"Répondre" %>
+  <%= f.submit "reply", class: "btn btn-primary" %>
+<% end %>
