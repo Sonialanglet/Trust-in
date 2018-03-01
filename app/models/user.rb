@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :photo, PhotoUploader
   has_many :prestations, dependent: :destroy
+  has_many :posts, dependent: :destroy
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :groups, dependent: :destroy, foreign_key: 'founder_id'

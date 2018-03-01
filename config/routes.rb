@@ -32,5 +32,7 @@ Rails.application.routes.draw do
 
   resources :profiles
   resources :categories, only: [:show, :index]
-  resources :posts
+  resources :posts do
+    resources :replies, only: [ :new, :create ]
+  end
 end

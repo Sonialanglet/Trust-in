@@ -21,7 +21,7 @@
       <!-- Links when logged in -->
       <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link-propose" %>
       <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Annonces", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
@@ -66,7 +66,8 @@
         <li>
           <%= link_to "Trusters", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
-        <li><a href="#">Annonces</a></li>
+        <li> <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
         <li>
           <%= link_to "Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
