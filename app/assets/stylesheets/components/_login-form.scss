@@ -4,35 +4,35 @@
   margin-top: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+
   h2 {
     font-size: 20px;
     margin-bottom: 30px;
     text-align: center;
   }
+}
 
-  .link-text {
-    color: grey;
-    font-size: 16px;
-
-  }
-
-
-  .btn {
-    width: 100%;
-    margin-bottom: 20px
-  }
-
-  .btn-green {
-    color: white;
-    background: #4ECDC4;
-
-    a {
-      color:white;
-      text-decoration: none;
-    }
-  }
+.link-text {
+  color: black;
+  font-size: 16px;
 
 }
+
+
+
+.btn-green {
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+  background: #4ECDC4;
+
+  a {
+    color:white;
+    text-decoration: none;
+  }
+}
+
+
 
 
 .end {
@@ -40,3 +40,5 @@
   margin-top:20px;
   margin-bottom:20px;
 }
+
+
