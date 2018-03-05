@@ -2,8 +2,21 @@ class PostsController < ApplicationController
 
   def index
     policy_scope(Post)
-    @posts = Post.all
+    if params[:query].present?
+      sql_query = " \
+           posts.content ILIKE :query \
+           OR users.last_name ILIKE :query \
+           OR users.first_name ILIKE :query \
+
+         "
+         @posts = Post.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+
     @post = Post.new
+    else
+    @posts = Post.all.order("created_at DESC")
+
+    @post = Post.new
+    end
 
   end
 

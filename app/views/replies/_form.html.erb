@@ -1,30 +1,13 @@
-<div class="row">
-  <div class="col-xs-12 ">
 
-    <div class="review_single">
-      <% @post.replies.each do |reply| %>
-      <li class="message">
 
-        <div class="message-reply-name">
-          <p> <%= reply.post.user.first_name %></p>
-        </div>
-        <div class="message-reply-date">
-            <p> <%= reply.created_at.strftime("%d/%m/%Y")  %></p>
-        </div>
-        <div class="message-reply-content">
-            <p> <%= reply.content  %></p>
-        </div>
-        <% end %>
-      </li>
 
-    </div>
 
 
 
 <%= simple_form_for [@post, @reply] do |f| %>
+<div class="form-group form-post">
   <%= f.input :content, label:"Répondre" %>
-  <%= f.submit "reply", class: "btn btn-primary" %>
+  <%= f.submit "reply", class: "btn-new-prestation" %>
 <% end %>
 
-  </div>
 </div>

@@ -64,18 +64,23 @@ font-size: 13px;
   font-size: 20px;
   margin: 20px;
   height: 30px;
-  padding-left: 20px
+  padding-left: 20px;
 }
 
 .message-reply-name {
-padding-left:10px
+padding-left:10px;
 }
 
 .message-reply-date {
-padding-left:20px
+padding-left:20px;
 }
 
 .message-reply-content {
-padding-left:30px
+padding-left:30px;
+
+
+p {
+  font-size: 14px;
+}
 }
 

@@ -7,7 +7,7 @@ class RepliesController < ApplicationController
       @reply.post = @post
       authorize @reply
       @reply.save
-      redirect_to posts_path
+      redirect_to post_path(@post)
     end
 
 
