@@ -1,0 +1,52 @@
+<% if current_user.facebook_picture_url %>
+  <% avatar_url = current_user.facebook_picture_url %>
+<% elsif current_user.photo.present? %>
+  <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
+<% else %>
+  <% avatar_url = "profile_icon.png" %>
+<% end %>
+
+<div class="back">
+<%= link_to posts_path do %>
+<i class="fa fa-arrow-circle-o-left"> back</i>
+<% end %>
+</div>
+
+
+
+<div class="row">
+
+      <div class="col-xs-12 ">
+        <div class="one-post">
+          <div class="message">
+            <div class="photo-show">
+             <%= image_tag avatar_url, class: "photo", crop: :thumb %>
+            </div>
+            <div class="message-name">
+             <p> <%= @post.user.first_name %> </p>
+             <p><%= @post.created_at.strftime("%d/%m/%Y")%> </p>
+            </div>
+            </div>
+          <div class="content">
+          <%= @post.content %>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+</div>
+
+
+<div class="col-xs-12">
+  <div class="description-prestation">
+        <%= render 'replies/form', post: @post, reply: @reply %>
+  </div>
+</div>
+
+
+
+
+
