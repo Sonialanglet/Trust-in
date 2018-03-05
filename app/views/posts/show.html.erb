@@ -1,10 +1,4 @@
-<% if current_user.facebook_picture_url %>
-  <% avatar_url = current_user.facebook_picture_url %>
-<% elsif current_user.photo.present? %>
-  <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
-<% else %>
-  <% avatar_url = "profile_icon.png" %>
-<% end %>
+
 
 <div class="back">
 <%= link_to posts_path do %>
@@ -20,7 +14,13 @@
         <div class="one-post">
           <div class="message">
             <div class="photo-show">
-             <%= image_tag avatar_url, class: "photo", crop: :thumb %>
+              <% if @post.user.photo.present? %>
+                <%= image_tag @post.user.photo, class: "photo", crop: :thumb %>
+             <% elsif @post.user.facebook_picture_url.present? %>
+                <%= image_tag @post.user.facebook_picture_url, class: "photo", crop: :thumb %>
+             <% else %>
+                 <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+             <% end %>
             </div>
             <div class="message-name">
              <p> <%= @post.user.first_name %> </p>
