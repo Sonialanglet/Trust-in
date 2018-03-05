@@ -136,20 +136,32 @@
 .btn-delete:hover {
   opacity: 0.7;
   background: rgba(127, 103, 103,0.6);
-  opacity: 0,5;
   text-decoration: none;
   color: white;
 }
 
 .recomand-btn {
-  height: 20px;
-  width: 20px;
-  margin: 5px;
-}
+  height: 30px;
+  width: 30px;
+  margin: 2px;
+  background: #17E8C7;
+  border-radius: 50%;
+
+    }
+
+    .recomand-btn:hover {
+      opacity: 0.7;
+    }
 
 .recomand-btn-lg {
   height: 40px;
   width: 40px;
   margin: 5px;
+  background: #17E8C7;
+  border-radius: 50%;
+
+    a {
+      color: white;
+    }
 }
 

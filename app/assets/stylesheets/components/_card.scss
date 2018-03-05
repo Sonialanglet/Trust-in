@@ -99,6 +99,8 @@
   border-color: #E6E6E6;
 
   h3 {
+  font-family: lato;
+
   font-size: 18px;
     line-height: 20px;
     margin-top: 0;
@@ -107,6 +109,7 @@
   }
 
   p {
+    font-family: lato;
     font-size: 16px;
      color: #4F4F4F;
      margin: 0;
@@ -117,5 +120,33 @@
   padding-bottom: 16px;
 }
 .recos {
+
   margin-top: 16px;
 }
+
+.recomand {
+ position: absolute;
+ bottom: 52px;
+ right: 45px;
+ width: 80px;
+
+
+  p {
+    font-size:13px;
+    font-weight:bold;
+    text-align: center;
+
+  }
+}
+
+
+.coeur-recomand {
+ width: 39px;
+ position: absolute;
+ bottom: 20px;
+ right: 30px;
+ margin-bottom: 17px;
+
+}
+
+

@@ -29,7 +29,7 @@
   </div>
   <div class = "card-footer">
     <div class="info-prestataire">
-      <p> <%= prestation.user.first_name%></p>
+      <p ><strong> <%= prestation.user.first_name.upcase%> </strong> </p>
       <% if prestation.user.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.date_of_birth.year%> ans</p>
       <% end %>
@@ -38,14 +38,15 @@
     <div class="recos-prestataire">
 
         <div class="recomand">
-          <p> Recommandé par <%= pluralize(prestation.recomands.count, 'utilisateur')%> </p>
+          <%= image_tag "coeur_red.png", class:'coeur-recomand' %>
+          <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau </p>
+      </div>
           <p> Recommandez-ici :<%= link_to recomandation_prestation_path(prestation), method: :post,
           data: { confirm: "Votre recommandation est ajoutée !" }  do %>
             <%=image_tag "like.png", class:'recomand-btn' %>
             <% end %>
 
       </p>
-      </div>
     </div>
   </div>
   </div>
