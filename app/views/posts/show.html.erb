@@ -6,6 +6,14 @@
   <% avatar_url = "profile_icon.png" %>
 <% end %>
 
+<div class="back">
+<%= link_to posts_path do %>
+<i class="fa fa-arrow-circle-o-left"> back</i>
+<% end %>
+</div>
+
+
+
 <div class="row">
 
       <div class="col-xs-12 ">
@@ -15,7 +23,8 @@
              <%= image_tag avatar_url, class: "photo", crop: :thumb %>
             </div>
             <div class="message-name">
-             <%= @post.user.first_name %>
+             <p> <%= @post.user.first_name %> </p>
+             <p><%= @post.created_at.strftime("%d/%m/%Y")%> </p>
             </div>
             </div>
           <div class="content">
@@ -28,11 +37,16 @@
       </div>
 
 
-
 </div>
+
 
 <div class="col-xs-12">
   <div class="description-prestation">
         <%= render 'replies/form', post: @post, reply: @reply %>
   </div>
 </div>
+
+
+
+
+

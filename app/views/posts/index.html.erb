@@ -6,11 +6,25 @@
   <% avatar_url = "profile_icon.png" %>
 <% end %>
 
+<div class="cards-container">
+  <div class = "search-form">
+    <p> Filtrez votre recherche </p>
+
+  <%= form_tag prestations_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "rechercher par mot clé"
+    %>
+  <% end %>
+  </div>
+
+
 <div class="row">
   <div class="col-xs-12 ">
 
   <%= simple_form_for @post do |form| %>
-    <div class="form-group">
+    <div class="form-group form-post">
       <%= form.input :content, as: :text, label:"Poster votre message" %>
     </div>
      <%= form.submit "poster", class: "btn-new-prestation" %>
@@ -19,21 +33,23 @@
 </div>
 
 <div class="row">
+  <div class="col-xs-12 ">
     <% @posts.each do |post| %>
-      <div class="col-xs-12 ">
+
         <div class="one-post">
           <div class="message">
             <div class="photo-show">
              <%= image_tag avatar_url, class: "photo", crop: :thumb %>
             </div>
             <div class="message-name">
-             <%= post.user.first_name %>
+            <p> <%= post.user.first_name %> </p>
+            <p><%= post.created_at.strftime("%d/%m/%Y")%> </p>
             </div>
             </div>
           <div class="content">
           <%= post.content %>
           </div>
-          <div>
+          <div class="link-answer">
           <%= link_to pluralize(post.replies.count, 'réponse'), post_path(post) %>
           </div>
         </div>
@@ -43,4 +59,5 @@
 
 
 
+</div>
 </div>
