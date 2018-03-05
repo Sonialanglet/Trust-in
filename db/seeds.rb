@@ -13,6 +13,7 @@ User.destroy_all
 Recomand.destroy_all
 Group.destroy_all
 Category.destroy_all
+Post.destroy_all
 
 p "creating users"
 user_rachel = User.new(email: 'rachel@mail.com', password: "password", first_name: 'Rachel', last_name: "Markle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "01/02/2002")
@@ -91,4 +92,11 @@ p "creating prestations"
   # group_prestation_rachel.save!
   # p"group_prestation done"
 
+   p "creating deux posts par rachel"
 
+   post_rachel = Post.new(content: "Qui connaitrait le nom d'un bon plombier. J'ai besoin de changer mon ballon d'eau chaude.merci !", user: user_rachel)
+   post_rachel.save!
+
+   post_sophie = Post.new(content: "Help ! ma babysitter m'a plantée. Qui est dsipo pour venir garder mes 2 enfants ce soir à 19h30 ?", user: user_sophie)
+   post_sophie.save!
+  p"creating 2 posts OK done"
