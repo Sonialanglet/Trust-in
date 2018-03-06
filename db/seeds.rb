@@ -73,6 +73,8 @@ p "creating prestations"
   prestation_marie2.user = user_marie
   prestation_marie2.save!
 
+  Recomand.new(prestation: prestation_marie, user: user_sophie).save!
+  Recomand.new(prestation: prestation_valerie, user: user_sophie).save!
    # p "creating groups"
 
     group_rachel = Group.new(title: "Bons plans Rachel", founder: user_rachel)
@@ -83,6 +85,9 @@ p "creating prestations"
 
     group_user_sophie = GroupUser.new(group: group_rachel, user: user_sophie)
     group_user_sophie.save!
+
+    group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
+    group_user_rachel.save!
    p"group_user done"
 
 

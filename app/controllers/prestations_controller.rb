@@ -12,16 +12,20 @@ class PrestationsController < ApplicationController
          @category = Category.new
          @recomand = Recomand.new
     else
+      @recomanded_prestations = policy_scope(Prestation)
+      .joins(
+        "JOIN recomands r ON prestations.id = r.prestation_id
+        JOIN users user_prestation ON user_prestation.id = prestations.user_id
+        JOIN users user_recomand ON user_recomand.id = r.user_id
+        JOIN group_users ON group_users.user_id = user_recomand.id
+        JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
+        ")
+        .distinct
+        .where("my_group_users.user_id" => current_user.id)
 
-     @prestations = policy_scope(Prestation).where(
-       "id not in (SELECT prestation_id FROM recomands WHERE
-         user_id = #{current_user.id})"
-         )
-     @recomanded_prestations = policy_scope(Prestation).where(
-       "id in (SELECT prestation_id FROM recomands WHERE
-         user_id = #{current_user.id})"
-         )
-     @recomand = Recomand.new
+      @prestations = policy_scope(Prestation)
+        .where.not(id:@recomanded_prestations.map(&:id))
+      @recomand = Recomand.new
     end
   end
 
