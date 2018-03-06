@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   after_create :send_welcome_email
+  after_create do |user|
+   build_group(user)
+ end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -43,5 +46,12 @@ class User < ApplicationRecord
     def send_welcome_email
       UserMailer.welcome(self).deliver_now
     end
+
+def build_group(user)
+
+     group=Group.new(title: "carnet d'adresse de #{user.email}", founder: user)
+     group.users << user
+     group.save
+  end
 
 end
