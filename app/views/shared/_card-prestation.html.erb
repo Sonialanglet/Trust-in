@@ -38,17 +38,26 @@
     <div class="recos-prestataire">
 
         <div class="recomand">
-          <%= image_tag "coeur_red.png", class:'coeur-recomand' %>
+          <% if prestation.recomands.count > 0 %>
+          <%= image_tag "star.png", class:'star-recomand' %>
+          <% else %>
+          <%= image_tag "star0.png", class:'star-recomand' %>
+          <% end %>
           <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau </p>
-      </div>
-          <p> Recommandez-ici :<%= link_to recomandation_prestation_path(prestation), method: :post,
-          data: { confirm: "Votre recommandation est ajoutée !" }  do %>
-            <%=image_tag "like.png", class:'recomand-btn' %>
+        </div>
+          <div class="recommandez-ici">
+          <p> Recommandez-vous également ? <%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+            <div class="recomand-btn">
+              <i class="fa fa-thumbs-up"> </i>
+            </div>
             <% end %>
 
       </p>
+          </div>
     </div>
   </div>
   </div>
+
 
 
