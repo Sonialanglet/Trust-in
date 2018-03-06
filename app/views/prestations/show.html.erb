@@ -70,7 +70,7 @@
           <% elsif recomandation.user.photo.present? %>
             <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small" %>
           <% else %>
-            <%= image_tag "profile_icon.png", class:"avatar_small" %>
+            <%= image_tag "profile_icon.png", class:"avatar_small" %>    <i class="fa fa-thumbs-up"> </i>
           <% end %>
          <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
           <% end %>
