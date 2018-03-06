@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users,
-      controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+      controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
