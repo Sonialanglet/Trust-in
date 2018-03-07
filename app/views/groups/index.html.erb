@@ -1,5 +1,5 @@
 <h1>Aggrandir mon réseau</h1>
-<p>Invitez des membres à rejoindre votre réseau de bons contacts </p>
+<p>Invitez des membres à rejoindre votre carnet d'adresses </p>
 
 
 <div class="row">
@@ -19,7 +19,7 @@
     <div class = "search-form-groups">
       <p> Retrouver des amis </p>
 
-    <%= form_tag profiles_path, method: :get do %>
+    <%= form_tag groups_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",

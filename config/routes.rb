@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/identification", to: "pages#identification", as: :identification_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :profiles, only: [:show, :edit, :update ]
+  resources :profiles, only: [:index, :show, :edit, :update ]
 
   resources :prestations do
     collection do

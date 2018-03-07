@@ -47,9 +47,9 @@
     <div class="services">
       <h2> vos informations : </h2>
       <div class="img-recos infos">
-        <p class="name-show"> Lieu d'habitation : <%= current_user.town%> </p>
-        <p class="name-show"> Ecole(s) fréquentées : <%= current_user.school1%>, <%= current_user.school2%> </p>
-        <p class="name-show"> Club et associations : <%= current_user.club1%>, <%= current_user.club2%> </p>
+        <p class="name-show"> Lieu d'habitation : <%= current_user.profile.town%> </p>
+        <p class="name-show"> Ecole(s) fréquentées : <%= current_user.profile.school1%>, <%= current_user.profile.school2%> </p>
+        <p class="name-show"> Club et associations : <%= current_user.profile.club1%>, <%= current_user.profile.club2%> </p>
 
         <div class="circle-icon-profile">
 

@@ -1,7 +1,16 @@
 class GroupsController < ApplicationController
   def index
     policy_scope(Group)
+    if params[:query].present?
+      sql_query = " \
+           groups.title ILIKE :query \
+
+         "
+         @groups = Group.where(sql_query, query: "%#{params[:query]}%")
+
+    else
     @groups = Group.all
+  end
   end
 
   def show
