@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :profiles, only: [:show, :edit, :update ]
+
   resources :prestations do
     collection do
       get 'recomanded_prestations'
@@ -30,7 +33,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profiles
   resources :categories, only: [:show, :index]
   resources :posts do
     resources :replies
