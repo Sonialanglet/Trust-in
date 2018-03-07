@@ -1,27 +1,43 @@
 class ProfilesController < ApplicationController
 
- # def index
-
- # if params[:query].present?
- #   sql_query = "last_name ILIKE :query OR first_name ILIKE :query"
- #   @profiles = User.where(sql_query, query: "%#{params[:query]}%")
- #  else
- #   @profiles = User.all
- #  end
- # end
+ def index
+   policy_scope(Profile)
+   @profiles = Profile.all
+ end
 
   def show
   @profile = User.where({user_id: current_user.id})
-  skip_authorization
+  authorize @user
   @prestations = Prestation.where({user_id: current_user.id})
 
 
   end
 
 
+ def new
+   @profile = Profile.new
+   authorize @profile
+
+
+ end
+
+ def create
+   @profile = Profile.new(profile_params)
+   @profile.user = current_user
+
+
+   authorize @profile
+   if @profile.save
+     redirect_to profile_path(@profile)
+   else
+     render :new
+   end
+ end
+
+
  def edit
-    @profile = User.where({user_id: current_user.id})
-    skip_authorization
+  @profile = Profile.find(params[:id])
+  authorize @profile
  end
 
  # def destroy
@@ -31,7 +47,6 @@ class ProfilesController < ApplicationController
 
  #   redirect_to prestations_path
  # end
-
 
 
   def update
@@ -44,6 +59,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :email, :photo, :description, :password, :town, :address, :school1, :school2, :club1, :club2, :first_name, :last_name, :photo, :description, :town, :address, :school1, :school2, :club1, :club2, :date_of_birth)
+    params.require(:profile).permit(:description, :town, :address, :school1, :school2, :club1, :club2, :date_of_birth)
   end
 end

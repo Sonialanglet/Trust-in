@@ -145,7 +145,7 @@
 .star-recomand {
  width: 39px;
  position: absolute;
- bottom: 27px;
+ bottom: 10px;
  right: 20px;
  margin-bottom: 17px;
 
@@ -165,4 +165,17 @@
     font-weight: bold;
   }
 
+}
+
+.the-recommanded h3 {
+font-size:16px;
+margin-top:10px;
+margin-left: 26px;
+font-weight: bold;
+}
+.the-non-recommanded h3 {
+  font-size:16px;
+  margin-top:20px;
+  margin-left: 26px;
+  font-weight: bold;
 }

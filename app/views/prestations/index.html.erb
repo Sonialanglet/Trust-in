@@ -46,8 +46,11 @@
     </div>
   </div>
 
-  <div class="row">
-    <h2> Trusters recommandés par votre réseau :</h2>
+  <div class="the-recommanded">
+    <% if @recomanded_prestations.exists?%>
+    <div class="row">
+
+      <h3> Trusters recommandés par vous & votre réseau :</h3>
       <% @recomanded_prestations.each do |prestation| %>
 
         <div class="col-xs-12 col-sm-4">
@@ -56,12 +59,14 @@
           </div>
         </div>
 
+        <% end %>
 
-      <% end %>
-
+         </div>
+     <% end %>
   </div>
-  <div class="row">
-    <h2> autres :</h2>
+  <div class="the-non-recommanded">
+    <div class="row">
+      <h3> Trusters qui pourraient vous intéresser :</h3>
       <% @prestations.each do |prestation| %>
 
         <div class="col-xs-12 col-sm-4">
@@ -73,6 +78,7 @@
 
       <% end %>
 
+    </div>
   </div>
 
 

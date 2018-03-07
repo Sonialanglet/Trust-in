@@ -43,7 +43,7 @@
           <% else %>
           <%= image_tag "star0.png", class:'star-recomand' %>
           <% end %>
-          <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau </p>
+          <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
         </div>
           <div class="recommandez-ici">
           <p> Recommandez-vous également ? <%= link_to recomandation_prestation_path(prestation), method: :post,
