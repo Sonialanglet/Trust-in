@@ -10,47 +10,46 @@
 Prestation.destroy_all
 p "destroy1"
 User.destroy_all
+Profile.destroy_all
 Recomand.destroy_all
 Group.destroy_all
 Category.destroy_all
 Post.destroy_all
 
 p "creating users"
-user_rachel = User.new(email: 'sonia.langlet@gmail.com', password: "password", first_name: 'Rachel', last_name: "Markle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "01/02/2002")
+user_rachel = User.new(email: 'sonia.langlet@gmail.com', password: "password", first_name: 'Rachel', last_name: "Markle")
 user_rachel.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513851194/i7bvn6hhb4ptpvproovl.png"
 user_rachel.save
 
-user_sophie = User.new(email: 's.onialanglet@gmail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "03/06/2002")
+user_sophie = User.new(email: 's.onialanglet@gmail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo", )
 user_sophie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_sophie.save
 
-user_marie = User.new(email: 'so.nialanglet@gmail.com', password: "password", first_name: 'Marie', last_name: "Kenz", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "08/02/2001")
+user_marie = User.new(email: 'so.nialanglet@gmail.com', password: "password", first_name: 'Marie', last_name: "Kenz")
 user_marie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
 user_marie.save
 
-user_valerie = User.new(email: 'son.ialanglet@gmail.com', password: "password", first_name: 'Valerie', last_name: "Doodle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "06/08/2000")
+user_valerie = User.new(email: 'son.ialanglet@gmail.com', password: "password", first_name: 'Valerie', last_name: "Doodle", )
 user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
 user_valerie.save
 
 p "users - done"
 
-p "creating users"
+p "creating profiles"
 profile_rachel = Profile.new(user:user_rachel, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "01/02/2002")
 profile_rachel.save
 
-user_sophie = Profile.new(email: 's.onialanglet@gmail.com', password: "password", first_name: 'Sophie', last_name: "Bilbo", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "03/06/2002")
-user_sophie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
-user_sophie.save
+profile_sophie = Profile.new( user:user_sophie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 rue de Paris", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "03/06/2002")
+profile_sophie.save
 
-user_marie = Profile.new(email: 'so.nialanglet@gmail.com', password: "password", first_name: 'Marie', last_name: "Kenz", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "08/02/2001")
-user_marie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/q_auto:low/v1513795634/hkhutgh1ckkch2mqvi5e.jpg"
-user_marie.save
+profile_marie = Profile.new(user:user_marie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 boulevard jean jaures", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "08/02/2001")
+profile_marie.save
 
-user_valerie = Profile.new(email: 'son.ialanglet@gmail.com', password: "password", first_name: 'Valerie', last_name: "Doodle", description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "06/08/2000")
-user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
-user_valerie.save
+profile_valerie = Profile.new(user:user_valerie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", address: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "06/08/2000")
+profile_valerie.save
 
-p "users - done"
+p "profiles - done"
+
 p "creating 4 categories"
 
   category_babysitting = Category.new(name: "Babysitting", photo:"http://res.cloudinary.com/ddfczdsao/image/upload/v1516959531/babysitting_zqmnvh.jpg" )
