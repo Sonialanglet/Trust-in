@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
 
     else
     @groups = Group.all
+    @group = Group.new
   end
   end
 
@@ -34,6 +35,18 @@ class GroupsController < ApplicationController
       render :new
     end
   end
+
+  def add
+
+    @user = User.find(params[:id])
+
+    @group = current_user.groups.first
+        @group.users << @user
+        authorize @group
+    redirect_to groups_path
+  end
+
+
 
   def join
   end
