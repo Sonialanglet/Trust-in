@@ -1,0 +1,105 @@
+
+
+.title-groups h3 {
+
+  text-align: center;
+    font-family: lato;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.subtitle-groups {
+ display: block;
+       margin-left: auto;
+       margin-right: auto;
+}
+
+.subtitle-groups p {
+
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: rgb(127, 103, 103);
+  font-weight: 500;
+}
+
+.img-network img{
+  position:absolute;
+  left:40px;
+  width: 50px;
+  height: 50px;
+
+}
+
+.text-network {
+  padding-left: 87px;
+  padding-right: 10px
+
+
+}
+
+.groups-list {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  h3 {
+    text-align: center;
+    font-family: lato;
+    font-size: 18px;
+    font-weight: bold;
+
+  }
+
+  p {
+    text-align: center;
+    font-family: lato;
+    font-size: 15px;
+
+  }
+
+}
+
+.one-group {
+  border-style: dotted;
+      border-width: 1px;
+
+
+ ul {
+  list-style-type: none;
+  }
+
+
+ p {
+  font-family: lato;
+  font-size: 15px;
+ }
+}
+
+.one-to-add {
+  display: flex;
+
+}
+
+.name-to-add {
+  left: 110px;
+  position: absolute;
+}
+
+.circle-icon-add {
+
+    background: #17E8C7;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+    a {
+    color:white;
+
+    }
+
+}
