@@ -30,9 +30,9 @@
         </div>
 
         <p class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </p>
-        <p class="name-show"><%= @profile.town%> </p>
-        <% if @profile.date_of_birth %>
-         <p class="name-show"><%= (Date.today.year)-(@profile.date_of_birth.year)%> ans
+        <p class="name-show"><%= @prestation.user.profile.town%> </p>
+        <% if @prestation.user.profile.date_of_birth %>
+         <p class="name-show"><%= (Date.today.year)-(@prestation.user.profile.date_of_birth.year)%> ans
         </p>
         <% end %>
       </div>
@@ -101,8 +101,8 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
-        <% unless @prestation.user.description.nil? %>
-        <p> <%=  @prestation.user.description %> </p>
+        <% unless @prestation.user.profile.description.nil? %>
+        <p> <%=  @prestation.user.profile.description %> </p>
         <% end %>
       </div>
     </div>

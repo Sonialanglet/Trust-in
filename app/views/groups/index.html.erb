@@ -20,25 +20,27 @@
 
 
 
-
   <div class="row">
     <div class="groups-list">
     <h3> Ajoutez dans votre carnet de contacts : </h3>
       <% @groups.each do |group| %>
       <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <% unless current_user.groups.first.users.include? group.founder%>
         <div class="one-group">
           <ul>
             <li>
               <div class="one-to-add">
                 <div class="name-to-add">
-                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %></p>
+                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %>
+                 </p>
                  </div>
-
                 <div class="circle-icon-add">
-                   <%= link_to add_group_path (current_user) do %>
+                   <%= link_to add_group_path (group) do %>
                   <i class="fa fa-plus" aria-hidden="true"></i>
                   <% end %>
+                  <% end %>
                 </div>
+
               </div>
           </li>
           </ul>
@@ -66,4 +68,20 @@
       </div>
   </div>
 
+  <div class="row">
+      <div class="groups-list">
+      <h3> vos contacts actuels</h3>
+      <% current_user.groups.each do |group| %>
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <%group.users.each do |contact| %>
+        <div class="current_contacts">
+        <p>  <%= contact.first_name %> <%= contact.last_name %> </p>
+        <% end %>
+        <% end %>
+        </div>
+        </div>
+      </div>
+
+      </div>
+  </div>
 </div>

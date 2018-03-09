@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     member do
       get :join
       get :add
+      get :remove_user
     end
   end
 

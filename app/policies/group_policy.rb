@@ -24,4 +24,8 @@ class GroupPolicy < ApplicationPolicy
   def add?
     true
   end
+
+  def remove_user
+    true
+  end
 end
