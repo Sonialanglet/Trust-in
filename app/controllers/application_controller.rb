@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :first_time_visit, unless: -> {cookies[:first_visit]}
 
 
     # Pundit: white-list approach.
@@ -29,6 +30,20 @@ class ApplicationController < ActionController::Base
        { host: ENV["HOST"] || "localhost:3000" }
      end
 
+     def first_time_visit
+      if cookies[:first_visit] != "1"
+          cookies.permanent[:first_visit] = 1
+          cookies[:first_session] = 1
+          @first_visit = true
+      else
+          if !cookies[:first_session].blank?
+            @first_visit = true
+          else
+            @first_visit = false
+          end
+      end
+
+     end
 
      private
 

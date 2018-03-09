@@ -56,6 +56,9 @@
           <div id="header" class="card-form">
             <% if current_user %>
               <%= simple_form_for @prestation do |f| %>
+            <div class="message-error">
+              <%= @prestation.errors[:category_id] %>
+            </div>
                <%= f.association :category, collection: Category.all.order('name ASC') %>
                 <%= f.input :price, placeholder: "8€/h" %>
                 <%= f.input :description, placeholder: "Décrivez votre expérience" %>
@@ -67,6 +70,4 @@
       </div>
     </div>
   </div>
-
-
 
