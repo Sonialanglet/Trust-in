@@ -17,8 +17,16 @@
       </div>
 
       <p class="name-show"><%= current_user.first_name%> <%= current_user.last_name%> </p>
+    <div class="circle-icon-profile">
+        <%= link_to edit_user_registration_path(current_user) do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        <% end %>
+
     </div>
     </div>
+
+    </div>
+
   </div>
 </div>
 
@@ -39,14 +47,16 @@
     <div class="services">
       <h2> vos informations : </h2>
       <div class="img-recos infos">
-        <p class="name-show"> Lieu d'habitation : <%= current_user.town%> </p>
-        <p class="name-show"> Ecole(s) fréquentées : <%= current_user.school1%>, <%= current_user.school2%> </p>
-        <p class="name-show"> Club et associations : <%= current_user.club1%>, <%= current_user.club2%> </p>
+        <p class="name-show"> Lieu d'habitation : <%= current_user.profile.town%> </p>
+        <p class="name-show"> Ecole(s) fréquentées : <%= current_user.profile.school1%>, <%= current_user.profile.school2%> </p>
+        <p class="name-show"> Club et associations : <%= current_user.profile.club1%>, <%= current_user.profile.club2%> </p>
 
         <div class="circle-icon-profile">
-            <%= link_to edit_user_registration_path(current_user) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            <% end %>
+
+          <%= link_to edit_profile_path(@current_user.profile) do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+
 
         </div>
       </div>

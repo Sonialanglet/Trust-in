@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_create :send_welcome_email
   after_create do |user|
+   build_profile(user)
    build_group(user)
  end
   # Include default devise modules. Others available are:
@@ -8,6 +9,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :photo, PhotoUploader
+  has_one :profile, dependent: :destroy
   has_many :prestations, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :group_users, dependent: :destroy
@@ -47,11 +49,17 @@ class User < ApplicationRecord
       UserMailer.welcome(self).deliver_now
     end
 
-def build_group(user)
+    def build_profile(user)
 
-     group=Group.new(title: "carnet d'adresse de #{user.email}", founder: user)
+     profile=Profile.new(user: user)
+     profile.save
+     end
+
+    def build_group(user)
+
+     group=Group.new(title: "carnet d'adresse de #{user.first_name} #{user.last_name}", founder: user)
      group.users << user
      group.save
-  end
+     end
 
 end

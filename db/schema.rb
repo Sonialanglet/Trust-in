@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301154222) do
+ActiveRecord::Schema.define(version: 20180307164831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,21 @@ ActiveRecord::Schema.define(version: 20180301154222) do
     t.index ["user_id"], name: "index_prestations_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.text "description"
+    t.string "town"
+    t.string "adress"
+    t.string "school1"
+    t.string "school2"
+    t.string "club1"
+    t.string "club2"
+    t.bigint "user_id"
+    t.date "date_of_birth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "recomands", force: :cascade do |t|
     t.bigint "prestation_id"
     t.bigint "user_id"
@@ -149,14 +164,6 @@ ActiveRecord::Schema.define(version: 20180301154222) do
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.text "description"
-    t.string "town"
-    t.string "address"
-    t.string "school1"
-    t.string "school2"
-    t.string "club1"
-    t.string "club2"
-    t.date "date_of_birth"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -169,6 +176,7 @@ ActiveRecord::Schema.define(version: 20180301154222) do
   add_foreign_key "posts", "users"
   add_foreign_key "prestations", "categories"
   add_foreign_key "prestations", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "recomands", "prestations"
   add_foreign_key "recomands", "users"
   add_foreign_key "replies", "posts"

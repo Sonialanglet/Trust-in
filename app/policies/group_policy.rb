@@ -20,4 +20,12 @@ class GroupPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
+
+  def add?
+    true
+  end
+
+  def remove_user
+    true
+  end
 end
