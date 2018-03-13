@@ -37,30 +37,14 @@
     </div>
     <div class="recos-prestataire">
 
-        <div class="recomand-reseau">
-          <% if prestation.recomands.count > 1 %>
-            <%= image_tag "star.png", class:'star-recomand-reseau' %>
-            <div class="recomand-reseau-count" >
-              <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
-            </div>
-            <div class="recomand-reseau-list">
-              <p> <%= prestation.recomands.first.user.first_name%> & co  </p>
-           </div>
-
-           <% elsif prestation.recomands.count == 1 %>
-             <%= image_tag "star.png", class:'star-recomand-reseau' %>
-             <div class="recomand-reseau-count" >
-               <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
-             </div>
-             <div class="recomand-reseau-list">
-               <p> par <%= prestation.recomands.first.user.first_name%> </p>
-            </div>
-
+        <div class="recomand">
+          <% if prestation.recomands.count > 0 %>
+          <%= image_tag "star.png", class:'star-recomand' %>
           <% else %>
-          <%= image_tag "star0.png", class:'star-recomand-reseau' %>
+          <%= image_tag "star0.png", class:'star-recomand' %>
           <% end %>
+          <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
 
-         </div>
 
 
         </div>
@@ -75,7 +59,6 @@
       </p>
           </div>
     </div>
-
   </div>
   </div>
 

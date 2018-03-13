@@ -46,9 +46,9 @@
     </div>
   </div>
 
-  <div class="the-recommanded">
+  <div class="row">
+   <div class="the-recommanded">
     <% if @recomanded_prestations.present?%>
-    <div class="row">
 
       <h3> Trusters recommandés par vous & votre réseau :</h3>
       <% @recomanded_prestations.each do |prestation| %>
@@ -61,17 +61,19 @@
 
         <% end %>
 
-         </div>
      <% end %>
+    </div>
   </div>
-  <div class="the-non-recommanded">
+
+
     <div class="row">
+      <div class="the-non-recommanded">
       <h3> Trusters qui pourraient vous intéresser :</h3>
       <% @prestations.each do |prestation| %>
 
         <div class="col-xs-12 col-sm-4">
           <div class="one-card">
-          <%= render 'shared/card-prestation', prestation: prestation %>
+          <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
           </div>
         </div>
 

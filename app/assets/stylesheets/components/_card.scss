@@ -141,13 +141,67 @@
   }
 }
 
+.recomand-reseau {
+  position: absolute;
+  top: 2px;
+  right: 23px;
+  width: 80px;
 
+
+
+
+}
 .star-recomand {
  width: 39px;
  position: absolute;
  bottom: 10px;
  right: 20px;
  margin-bottom: 17px;
+
+}
+
+.star-recomand-reseau {
+ width: 39px;
+ position: absolute;
+ top: 2px;
+ right: 20px;
+ margin-bottom: 17px;
+}
+
+.recomand-reseau-count {
+  width: 80px;
+  position: absolute;
+  top: 41px;
+  right: 0px;
+
+  p {
+
+    font-size:13px;
+    font-weight:bold;
+    text-align: center;
+    color:rgb(26, 83, 92);
+
+  }
+}
+
+.recomand-reseau-list {
+  width: 81px;
+  position: absolute;
+  top: 85px;
+
+
+  p {
+
+    font-size:13px;
+    text-align: center;
+
+  }
+}
+
+.img-recos-index {
+  position: absolute;
+  bottom: -8px;
+  right: -13px
 
 }
 
