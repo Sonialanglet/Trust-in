@@ -41,7 +41,9 @@
           <% if prestation.recomands.count > 1 %>
             <%= image_tag "star.png", class:'star-recomand-reseau' %>
             <div class="recomand-reseau-count" >
+              <%= link_to prestation_path(prestation) do %>
               <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
+              <% end %>
             </div>
             <div class="recomand-reseau-list">
               <p> <%= prestation.recomands.first.user.first_name%> & co  </p>
@@ -50,7 +52,10 @@
            <% elsif prestation.recomands.count == 1 %>
              <%= image_tag "star.png", class:'star-recomand-reseau' %>
              <div class="recomand-reseau-count" >
+              <%= link_to prestation_path(prestation) do %>
                <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
+                 <% end %>
+
              </div>
              <div class="recomand-reseau-list">
                <p> par <%= prestation.recomands.first.user.first_name%> </p>

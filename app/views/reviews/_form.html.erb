@@ -1,7 +1,7 @@
 
 
-    <h2> Commentaires : </h2>
-    <p> <%= @prestation.reviews.count %> commentaires</p>
+    <h2> Avis : </h2>
+    <p> <%= @prestation.reviews.count %> avis </p>
     <div class="review_single">
        <% @prestation.reviews.each do |review| %>
        <li>
@@ -10,7 +10,7 @@
       </li>
      </div>
     <%= simple_form_for([ prestation, review ]) do |form| %>
-      <%= form.input :comment, as: :text, label:"Poster votre commentaire" %>
+      <%= form.input :comment, as: :text, label:"Poster votre avis" %>
       <%= form.submit "poster", class: "btn-new-prestation" %>
     <% end %>
 

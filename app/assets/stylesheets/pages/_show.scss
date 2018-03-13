@@ -221,7 +221,8 @@ p {
      border-radius: 3px;
 }
 
-.img-reco {
+.img-recos {
+
   text-align: center;
       padding-left: 10px;
       padding-right: 10px;
@@ -231,5 +232,38 @@ p {
       font-family: lato;
       font-size: 15px;
 
+  }
+
+  li {
+    list-style-type: none;
+    padding-bottom: 10px;
+  }
+}
+
+.avatar_small_reco {
+  border-radius: 50%;
+  height:30px;
+  width: 30px;
+  position: absolute;
+  left: 40px;
+
+}
+
+.img-recos-name {
+  position: absolute;
+  left: 72px;
+}
+
+.recommandez-show {
+  padding-top: 20px;
+  background: white;
+
+    p {
+      text-align: center;
+          font-family: lato;
+          font-size: 18px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top: 10px;
   }
 }
