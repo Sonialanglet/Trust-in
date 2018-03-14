@@ -65,19 +65,27 @@
         <p> Recommandé par <%= pluralize(@prestation.recomands.count, 'utilisateur') %>  </p>
         <% @prestation.recomands.each do |recomandation|%>
         <div class="img-recos">
-          <% if recomandation.user.facebook_picture_url %>
-            <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small" %>
-          <% elsif recomandation.user.photo.present? %>
-            <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small" %>
-          <% else %>
-            <%= image_tag "profile_icon.png", class:"avatar_small" %>    <i class="fa fa-thumbs-up"> </i>
-          <% end %>
-         <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
-          <% end %>
-
+          <ul>
+            <li>
+              <% if recomandation.user.facebook_picture_url %>
+                <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small_reco" %>
+                <div class="img-recos-name">
+                  <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %>, </p>
+                </div>
+              <% elsif recomandation.user.photo.present? %>
+                <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small_reco" %>
+                <div class="img-recos-name">
+                <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
+                </div>
+              <% else %>
+                <%= image_tag "profile_icon.png", class:"avatar_small" %>    <i class="fa fa-thumbs-up"> </i>
+              <% end %>
+            </li>
+          </ul>
+              <% end %>
 
         </div>
-        <div>
+      <div class="recommandez-show">
 
             <p> Recommandez-ici à votre tour :<%= link_to recomandation_prestation_path(@prestation), method: :post,
                data: { confirm: "Votre recommandation est ajoutée !" } do %>
@@ -87,7 +95,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -134,3 +142,4 @@
 </div>
 
 
+</div>

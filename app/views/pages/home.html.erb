@@ -5,11 +5,15 @@ url(<%= image_path 'bulles.jpg' %>);">
     <h1> Trust-in </h1>
     <div class="text-banner">
       <p> Le réseau pour simplifier votre quotidien de parents </p>
-
-    </div>
-      <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
-
+      <%if @first_visit %>
   </div>
+      <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
+  </div>
+  <%else %>
+  </div>
+      <%= link_to "Se connecter",prestations_path, :class => "btn btn-trust_large"  %>
+  </div>
+  <% end %>
 </div>
 
 <div class="container">

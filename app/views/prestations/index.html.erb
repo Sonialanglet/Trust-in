@@ -1,6 +1,7 @@
 
-<div class="cards-container">
-  <div class = "search-form">
+
+
+  <div class="search-form">
     <p> Filtrez votre recherche </p>
 
   <%= form_tag prestations_path, method: :get do %>
@@ -9,7 +10,7 @@
       class: "form-control",
       placeholder: "rechercher par service ou par personne"
     %>
-  <% end %>
+   <% end %>
   </div>
 
   <div class="row">
@@ -46,40 +47,43 @@
     </div>
   </div>
 
-  <div class="the-recommanded">
-    <% if @recomanded_prestations.present?%>
     <div class="row">
+      <% if @recomanded_prestations.present?%>
+      <div class="allprestations">
+        <h3> Trusters recommandés par vous & votre réseau :</h3>
+        <% @recomanded_prestations.each do |prestation| %>
+        <div class="the-recommanded">
 
-      <h3> Trusters recommandés par vous & votre réseau :</h3>
-      <% @recomanded_prestations.each do |prestation| %>
-
-        <div class="col-xs-12 col-sm-4">
-          <div class="one-card">
-          <%= render 'shared/card-prestation', prestation: prestation %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="one-card">
+            <%= render 'shared/card-prestation', prestation: prestation %>
+            </div>
           </div>
-        </div>
+
+          <% end %>
 
         <% end %>
+        </div>
+      </div>
+    </div>
 
-         </div>
-     <% end %>
-  </div>
-  <div class="the-non-recommanded">
-    <div class="row">
-      <h3> Trusters qui pourraient vous intéresser :</h3>
-      <% @prestations.each do |prestation| %>
 
-        <div class="col-xs-12 col-sm-4">
-          <div class="one-card">
-          <%= render 'shared/card-prestation', prestation: prestation %>
+      <div class="row">
+        <div class="allprestations">
+          <h3> Trusters qui pourraient vous intéresser :</h3>
+          <% @prestations.each do |prestation| %>
+
+          <div class="the-non-recommanded">
+            <div class="col-xs-12 col-sm-4">
+              <div class="one-card">
+              <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
+              </div>
+            </div>
+           <% end %>
           </div>
         </div>
+      </div>
 
 
-      <% end %>
-
-    </div>
-  </div>
 
 
-</div>
