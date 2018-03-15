@@ -35,7 +35,13 @@
     <div class="services">
       <h2> vos recommandations : </h2>
       <div class="img-recos">
-       <%= image_tag "profile_icon.png", class: "photo-small" %>
+        <% current_user.prestations.each do |prestation|%>
+                 <div class="img-recos-name">
+                  <p> <% prestation.recomands.each do |reco|%>
+                  <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
+                </div>
+                <% end %>
+                <% end %>
       </div>
 
     </div>

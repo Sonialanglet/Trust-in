@@ -1,18 +1,4 @@
-
-<script type="text/javascript">
-
-  function show_hide_div(header){
-  var lediv = document.getElementById('header');
-  if(lediv.style.display=="block")
-  lediv.style.display="none";
-  else
-  lediv.style.display="block";
-  }
-
-
-</script>
-
-
+<% if current_user.profile.date_of_birth.present? && current_user.profile.town.present? && current_user.profile.adress.present? %>
 
 <div class="row">
   <div class="filtres">
@@ -47,27 +33,67 @@
   </div>
   </div>
 </div>
+        <div id="" class="container">
+          <div class="content">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div id="" class="card-form">
+                  <% if current_user %>
+                    <%= simple_form_for @prestation do |f| %>
+                  <div class="message-error">
 
-
-  <div id="hidden" class="container">
-    <div class="content">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <div id="header" class="card-form">
-            <% if current_user %>
-              <%= simple_form_for @prestation do |f| %>
-            <div class="message-error">
-              <%= @prestation.errors[:category_id] %>
+                  </div>
+                     <%= f.association :category, collection: Category.all.order('name ASC') %>
+                      <%= f.input :price, placeholder: "8€/h" %>
+                      <%= f.input :description, placeholder: "Décrivez votre expérience" %>
+                      <%= f.submit "valider", class: "btn-new-prestation"%>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             </div>
-               <%= f.association :category, collection: Category.all.order('name ASC') %>
-                <%= f.input :price, placeholder: "8€/h" %>
-                <%= f.input :description, placeholder: "Décrivez votre expérience" %>
-                <%= f.submit "valider", class: "btn-new-prestation"%>
-              <% end %>
-            <% end %>
           </div>
         </div>
+<% else %>
+
+<div class="content">
+  <div class="row">
+
+    <h2> Quels services souhaitez-vous proposer ?</h2>
+    <div class="filtres-categorie">
+
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+        <%= image_tag "babysitting.jpg", class:"image-cat" %>
+
       </div>
-    </div>
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+         <%= image_tag "bulles.jpg", class:"image-cat" %>
+      </div>
+
+
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+         <%= image_tag "books.jpg", class:"image-cat" %>
+      </div>
+      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+         <%= image_tag "coursmusique.jpg", class:"image-cat" %>
+      </div>
+
+
+        <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+           <%= image_tag "petsitting.jpg", class:"image-cat" %>
+        </div>
+
+        <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
+           <%= image_tag "pied.jpg", class:"image-cat" %>
+        </div>
+
   </div>
+
+
+ <%= link_to "Proposer ses services", edit_profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link-propose" %>
+
+    <% end %>
+
+    </div>
+
 

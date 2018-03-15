@@ -1,9 +1,10 @@
-
+div class="container">
+  <div class="content">
+    <div class="row">
+      <h2>Veuillez compléter vos informations </h2>
       <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="edit-profile" >
         <div class="card-form">
-         <h2> Veuillez compléter vos informations</h2>
-          <p>(*:champs indispensables pour pouvoir proposer ses services)</p>
+
           <% if current_user %>
             <%= simple_form_for @profile do |f| %>
 
@@ -12,12 +13,12 @@
 
                 <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %>
 
-                <%= f.input :town, label: "Ville d'habitation",autofocus: true, placeholder: "Boulogne", required: true%>
+                <%= f.input :town, label: "Ville",autofocus: true, placeholder: "Boulogne", required: true, hint: "*:ville d'habitation" %>
                 <%= f.input :adress, label: "Adresse",autofocus: true, placeholder: "1 route de la Reine", required: true %>
                 <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %>
                 <%= f.input :school1, label: "Etablissement scolaire actuel",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
                 <%= f.input :school2, label: "Précédent établissement",autofocus: true, placeholder: "SFA" , required: false%>
-                <%= f.input :club1, label: "Club ou association sportive",autofocus: true, placeholder: "ACBB" , required: false%>
+                <%= f.input :club1, label: "Club ou association",autofocus: true, placeholder: "ACBB" , required: false%>
                 <%= f.input :club2, label: "Autre club ou association",autofocus: true, placeholder: "club des loisirs" , required: false%>
 
 
@@ -35,7 +36,5 @@
       </div>
     </div>
   </div>
-  </div>
 </div>
-
 

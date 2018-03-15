@@ -1,43 +1,43 @@
 <div class="cards-container">
 
-<div class="row">
-  <div class="col-xs-12 col-md-4 col-md-offset-4">
-    <div class="title-groups">
-    <h3>Aggrandissez votre reseau pour vous simplifier votre quotidien </h3>
-    </div>
-
-    <div class="subtitle-groups">
-      <div class="img-network">
-        <%= image_tag 'share.png' %>
-      </div>
-      <div class="text-network">
-        <p> Partagez vos recommandations sur vos prestataires de confiance (babysitting, petsitting, travaux etc) </p>
-        <p> ... et bénéficiez à votre tour des recommandations de votre réseau) </p>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="title-groups">
+      <h3>Aggrandissez votre reseau pour vous simplifier votre quotidien </h3>
       </div>
     </div>
   </div>
-</div>
 
-
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="subtitle-groups">
+        <div class="img-network">
+          <%= image_tag 'share.png' %>
+        </div>
+        <div class="text-network">
+          <p> Partagez vos recommandations sur vos prestataires de confiance  </p>
+          <p> ... et bénéficiez à votre tour des recommandations de votre réseau </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
     <div class="groups-list">
-    <h3> Ajoutez dans votre carnet de contacts : </h3>
+    <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  Ajoutez dans votre carnet de contacts : </h3>
       <% @groups.each do |group| %>
-      <div class="col-xs-12 col-md-4 col-md-offset-4">
         <% unless current_user.groups.first.users.include? group.founder%>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="one-group">
           <ul>
             <li>
               <div class="one-to-add">
                 <div class="name-to-add">
-                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %>
-                 </p>
+                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %> </p>
                  </div>
                 <div class="circle-icon-add">
                    <%= link_to add_group_path (group) do %>
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                  <% end %>
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
                   <% end %>
                 </div>
 
@@ -45,34 +45,22 @@
           </li>
           </ul>
         </div>
+        <% end %>
     </div>
-    <% end %>
+       <% end %>
     </div>
-</div>
-
-
-  <div class="row">
-    <div class="col-xs-12 col-md-4 col-md-offset-4">
-      <div class = "search-form-groups">
-        <p> Rechercher une personne </p>
-
-      <%= form_tag groups_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "rechercher par nom de famille"
-        %>
-      <% end %>
-      </div>
-
-      </div>
   </div>
+
+
+
+
 
   <div class="row">
       <div class="groups-list">
-      <h3> vos contacts actuels</h3>
+      <h3> <i class="fa fa-address-book" aria-hidden="true"></i>  Vos contacts actuels</h3>
+
       <% current_user.groups.each do |group| %>
-        <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
         <%group.users.each do |contact| %>
         <div class="current_contacts">
         <p>  <%= contact.first_name %> <%= contact.last_name %> </p>
@@ -83,5 +71,45 @@
       </div>
 
       </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="groups-list">
+        <h3> <i class="fa fa-thumbs-up" aria-hidden="true"></i>  Ils recommandent vos services </h3>
+
+        <div class="current_contacts">
+          <% current_user.prestations.each do |prestation|%>
+
+                    <p> <% prestation.recomands.each do |reco|%>
+                    <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
+
+                  <% end %>
+                  <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class = "search-form-groups">
+        <h3> <i class="fa fa-search-plus" aria-hidden="true"></i>  Rechercher une personne </h3>
+
+
+      <%= form_tag groups_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "rechercher par nom de famille"
+        %>
+      <% end %>
+      </div>
+
+    </div>
   </div>
 </div>

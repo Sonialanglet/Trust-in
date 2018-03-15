@@ -11,6 +11,7 @@ class PrestationsController < ApplicationController
          @prestations = Prestation.joins(:user, :category).where(sql_query, query: "%#{params[:query]}%")
          @category = Category.new
          @recomand = Recomand.new
+
     else
       @recomanded_prestations = policy_scope(Prestation)
       .joins(
@@ -26,6 +27,7 @@ class PrestationsController < ApplicationController
       @prestations = policy_scope(Prestation)
         .where.not(id:@recomanded_prestations.map(&:id))
       @recomand = Recomand.new
+
     end
   end
 
