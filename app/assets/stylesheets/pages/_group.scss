@@ -6,6 +6,7 @@
     font-family: lato;
     font-weight: bold;
     font-size: 23px;
+    color: rgb(30, 84, 92);
 }
 
 .subtitle-groups {
@@ -24,17 +25,19 @@
 }
 
 .img-network img{
-  position:absolute;
-  left:40px;
-  width: 50px;
   height: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:10px;
 
 }
 
 .text-network {
-  padding-left: 87px;
-  padding-right: 10px
-
+  padding-right: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
@@ -62,8 +65,9 @@
 }
 
 .one-group {
-  border-style: dotted;
-      border-width: 1px;
+  border-style: outset;
+  border-width: 1px;
+  height: 40px;
 
 
  ul {
@@ -79,6 +83,7 @@
 
 .one-to-add {
   display: flex;
+  padding-bottom: 17px;
 
 }
 
@@ -88,10 +93,11 @@
 }
 
 .circle-icon-add {
-
-    background: #17E8C7;
-    width: 40px;
-    height: 40px;
+  left: 41px;
+   position: absolute;
+    background: rgb(24, 154, 231);
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -110,6 +116,13 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-style: dotted;
+  border-style: outset;
       border-width: 1px;
+}
+
+.search-form-groups h3{
+  text-align: center;
+      font-family: lato;
+      font-size: 18px;
+      font-weight: bold;
 }
