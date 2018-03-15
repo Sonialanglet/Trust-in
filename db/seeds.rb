@@ -9,6 +9,7 @@
 
 Prestation.destroy_all
 p "destroy1"
+Reply.destroy_all
 Profile.destroy_all
 User.destroy_all
 Recomand.destroy_all
@@ -35,20 +36,7 @@ user_valerie.save
 
 p "users - done"
 
-p "creating profiles"
-profile_rachel = Profile.new(user:user_rachel, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", adress: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "01/02/2002")
-profile_rachel.save
 
-profile_sophie = Profile.new( user:user_sophie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", adress: "16 rue de Paris", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "03/06/2002")
-profile_sophie.save
-
-profile_marie = Profile.new(user:user_marie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", adress: "16 boulevard jean jaures", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "08/02/2001")
-profile_marie.save
-
-profile_valerie = Profile.new(user:user_valerie, description: "Hello i am an american actress, I am able to be whoever you want me to be wife queen princess lawyer you name it i could be the wife of your dreams so go ahead just book me I'll be the perfect girl for you", town: "Boulogne-Billancourt", adress: "16 route de la reine", school1: "SFA", school2: "Parchamps", club1: "TCBB", club2:"ACBB", date_of_birth: "06/08/2000")
-profile_valerie.save
-
-p "profiles - done"
 
 p "creating 4 categories"
 
