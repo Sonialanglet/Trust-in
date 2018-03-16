@@ -10,7 +10,7 @@
 Prestation.destroy_all
 p "destroy1"
 Reply.destroy_all
-Profile.destroy_all
+
 User.destroy_all
 Recomand.destroy_all
 Group.destroy_all
