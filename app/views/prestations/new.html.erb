@@ -6,28 +6,28 @@
   <div class="filtres-categorie">
 
     <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-      <%= image_tag "babysitting.jpg", class:"image-cat" %>
+      <%= image_tag "babysittingTEXT3.jpg", class:"image-cat" %>
 
     </div>
     <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "bulles.jpg", class:"image-cat" %>
+       <%= image_tag "courssoutienTEXT4.jpg", class:"image-cat" %>
     </div>
 
 
     <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "books.jpg", class:"image-cat" %>
+       <%= image_tag "coursMUSIQUETEXT4.jpg", class:"image-cat" %>
     </div>
     <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "coursmusique.jpg", class:"image-cat" %>
+       <%= image_tag "PETSITTINGTEXT4.jpg", class:"image-cat" %>
     </div>
 
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "petsitting.jpg", class:"image-cat" %>
+         <%= image_tag "travauxTEXT4.jpg", class:"image-cat" %>
       </div>
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "pied.jpg", class:"image-cat" %>
+         <%= image_tag "DIVERSTEXT4.jpg", class:"image-cat" %>
       </div>
 
   </div>
@@ -63,35 +63,44 @@
     <div class="filtres-categorie">
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= image_tag "babysitting.jpg", class:"image-cat" %>
+        <%= link_to edit_profile_path(current_user) do %>
+        <%= image_tag "babysittingTEXT3.jpg", class:"image-cat" %>
+        <% end %>
 
       </div>
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "bulles.jpg", class:"image-cat" %>
+        <%= link_to edit_profile_path(current_user) do %>
+         <%= image_tag "courssoutienTEXT4.jpg", class:"image-cat" %>
+         <% end %>
       </div>
 
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "books.jpg", class:"image-cat" %>
+        <%= link_to edit_profile_path(current_user) do %>
+         <%= image_tag "coursMUSIQUETEXT4.jpg", class:"image-cat" %>
+         <% end %>
       </div>
+
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "coursmusique.jpg", class:"image-cat" %>
+        <%= link_to edit_profile_path(current_user) do %>
+         <%= image_tag "PETSITTINGTEXT4.jpg", class:"image-cat" %>
+         <% end %>
       </div>
 
 
         <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-           <%= image_tag "petsitting.jpg", class:"image-cat" %>
+          <%= link_to edit_profile_path(current_user) do %>
+           <%= image_tag "travauxTEXT4.jpg", class:"image-cat" %>
+           <% end %>
         </div>
 
         <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-           <%= image_tag "pied.jpg", class:"image-cat" %>
+          <%= link_to edit_profile_path(current_user) do %>
+           <%= image_tag "DIVERSTEXT4.jpg", class:"image-cat" %>
+           <% end %>
         </div>
 
   </div>
-
-
- <%= link_to "Proposer ses services", edit_profile_path(current_user), class: "navbar-wagon-item navbar-wagon-link-propose" %>
-
     <% end %>
 
     </div>
