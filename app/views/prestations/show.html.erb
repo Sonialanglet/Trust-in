@@ -9,15 +9,17 @@
 
 <!-- photos associees des prestations  -->
 <% if @prestation.category.name=="Babysitting" %>
-  <% image_tag category = "babysitting.jpg" %>
+  <% image_tag category = "babysittingTEXT3.jpg" %>
   <% elsif @prestation.category.name=="Soutien scolaire" %>
-    <% image_tag category = "books.jpg" %>
+    <% image_tag category = "courssoutienTEXT4.jpg" %>
     <% elsif @prestation.category.name=="Cours musique" %>
-      <% image_tag category = "coursmusique.jpg" %>
+      <% image_tag category = "coursMUSIQUETEXT4.jpg" %>
       <% elsif @prestation.category.name=="Pet Sitting" %>
-        <% image_tag category = "petsitting.jpg" %>
+        <% image_tag category = "PETSITTINGTEXT4.jpg" %>
+        <% elsif @prestation.category.name=="travaux" %>
+          <% image_tag category = "travauxTEXT4.jpg" %>
 <% else %>
-  <% image_tag category = "pied.jpg" %>
+  <% image_tag category = "DIVERSTEXT4.jpg" %>
 <% end %>
 
 

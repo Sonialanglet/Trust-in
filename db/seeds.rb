@@ -10,7 +10,7 @@
 Prestation.destroy_all
 p "destroy1"
 Reply.destroy_all
-
+Profile.destroy_all
 User.destroy_all
 Recomand.destroy_all
 Group.destroy_all
@@ -52,6 +52,12 @@ p "creating 4 categories"
 
   category_petsitting = Category.new(name: "Pet Sitting", photo:"http://res.cloudinary.com/ddfczdsao/image/upload/v1516959552/petsitting25cm_preview_hjtdop.jpg" )
   category_petsitting.save!
+
+  category_travaux = Category.new(name: "Travaux")
+  category_travaux.save!
+
+  category_divers = Category.new(name: "Divers")
+  category_divers.save!
 
   p "categories - done"
 
