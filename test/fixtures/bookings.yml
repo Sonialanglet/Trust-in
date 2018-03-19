@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  date: 2018-03-19
+  location: MyString
+  status: MyString
+  prestation: one
+  user: one
+
+two:
+  description: MyText
+  date: 2018-03-19
+  location: MyString
+  status: MyString
+  prestation: two
+  user: two

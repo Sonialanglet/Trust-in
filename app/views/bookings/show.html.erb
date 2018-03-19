@@ -1,0 +1,48 @@
+
+  <h3 class="all_bookings"> Résumé de vos demandes :</h3>
+
+
+
+      <% @bookings.each do |booking| %>
+
+      <div class="one-book">
+        <div class="message">
+          <div class="photo-show">
+            <% if booking.prestation.user.photo.present? %>
+              <%= image_tag booking.prestation.user.photo, class: "photo", crop: :thumb %>
+           <% elsif booking.prestation.user.facebook_picture_url.present? %>
+              <%= image_tag booking.prestation.user.facebook_picture_url, class: "photo", crop: :thumb %>
+           <% else %>
+               <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+           <% end %>
+          </div>
+
+        <div class="message-name">
+          <%= link_to prestation_path(@prestation) do %>
+          <p> Envoyé à : <%= booking.prestation.user.first_name  %> <%= booking.prestation.user.last_name  %></p>
+          <%end %>
+         <p> le <%= booking.created_at.strftime("%d/%m/%Y")%> </p>
+        <p> Service : <%= booking.prestation.category.name  %></p>
+        <div class="circle-icon-delete">
+          <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+            '.html_safe, booking_path(@booking),
+            method: :delete,
+            data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+
+        </div>
+        </div>
+      </div>
+
+      <div class="content-description">
+         <p> <%= booking.description %></p>
+         <p>date: <%= booking.date%></p>
+         <p>Lieu: <%= booking.location%></p>
+         <p>réponses</p>
+      </div>
+
+
+    </div>
+
+
+
+      <% end %>

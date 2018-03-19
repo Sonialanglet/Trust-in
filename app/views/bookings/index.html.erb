@@ -1,0 +1,73 @@
+<h3 class="all_bookings"> Vous avez reçu des demandes :</h3>
+
+
+  <% @bookings.each do |booking| %>
+  <% if booking.prestation.user == current_user%>
+
+  <div class="one-book">
+    <div class="message">
+      <div class="photo-show">
+        <% if booking.user.photo.present? %>
+          <%= image_tag booking.user.photo, class: "photo", crop: :thumb %>
+       <% elsif booking.user.facebook_picture_url.present? %>
+          <%= image_tag booking.user.facebook_picture_url, class: "photo", crop: :thumb %>
+       <% else %>
+           <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+       <% end %>
+       <%= link_to booking_path(booking)do %>
+       <p> voir</p>
+       <% end %>
+      </div>
+
+    <div class="message-name">
+      <p> De : <%= booking.user.first_name  %> <%= booking.user.last_name  %></p>
+
+     <p> le <%= booking.created_at.strftime("%d/%m/%Y")%> </p>
+    <p> Service : <%= booking.prestation.category.name  %></p>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<% end %>
+<% end %>
+
+
+
+
+<h3 class="all_bookings"> Vos messages:</h3>
+
+
+
+    <% @bookings.each do |booking| %>
+    <% if booking.prestation.user == booking.user%>
+    <div class="one-book">
+      <div class="message">
+        <div class="photo-show">
+          <% if booking.prestation.user.photo.present? %>
+            <%= image_tag booking.prestation.user.photo, class: "photo", crop: :thumb %>
+         <% elsif booking.prestation.user.facebook_picture_url.present? %>
+            <%= image_tag booking.prestation.user.facebook_picture_url, class: "photo", crop: :thumb %>
+         <% else %>
+             <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
+         <% end %>
+        </div>
+
+      <div class="message-name">
+        <p> Envoyé à : <%= booking.prestation.user.first_name  %> <%= booking.prestation.user.last_name  %></p>
+
+       <p> le <%= booking.created_at.strftime("%d/%m/%Y")%> </p>
+      <p> Service : <%= booking.prestation.category.name  %></p>
+       <p>répondre</p>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <% end %>
+  <% end %>

@@ -1,0 +1,10 @@
+<div class="col-xs-4">
+  <div id="booking">
+    <%= simple_form_for [@prestation, @booking] do |f| %>
+      <%= f.input :description, placeholder: 'Describe your need' %>
+      <%= f.input :date, placeholder: "2017-12-4", as: :string, input_html: {class: "datepicker"}%>
+      <%= f.input :location, placeholder: 'Boulogne' %>
+      <%= f.button :submit, 'Book!', class: "btn-plusone_regular" %>
+    <% end %>
+  </div>
+</div>
