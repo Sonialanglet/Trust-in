@@ -1,8 +1,8 @@
 
 
+<h3 class="all_bookings"> Vous avez reçu des demandes :</h3>
   <% @bookings.each do |booking| %>
   <% if booking.prestation.user == current_user%>
-<h3 class="all_bookings"> Vous avez reçu des demandes :</h3>
 
   <div class="one-book">
     <div class="message">

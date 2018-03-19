@@ -20,7 +20,7 @@ class BookingPolicy < ApplicationPolicy
 
 
   def destroy?
-    record.user == user
+   true
   end
 
 end

@@ -10,7 +10,8 @@
 
 .one-book {
 
-
+position:relative;
+background: white;
 p {
 
 font-size: 14px;
@@ -27,6 +28,9 @@ border: 1px solid rgba(220,224,244,1);
   .photo {
     width:30px;
     height:30px;
+    margin-left: 10px;
+    text-align: center;
+
   }
 
 
@@ -39,3 +43,22 @@ padding-right: 3px;
 
 }
 
+.circle-icon-delete-booking {
+  position: absolute;
+  right: 10px;
+  bottom:10px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+
+  background: #17E8C7;
+  width: 40px;
+      height: 40px;
+      border-radius: 50%;
+  a {
+    color: white;
+  }
+
+
+}

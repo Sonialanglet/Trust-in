@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.destroy
 
-    redirect_to booking_path
+    redirect_to bookings_path
   end
 
   private
