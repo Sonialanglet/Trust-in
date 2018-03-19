@@ -43,7 +43,7 @@
 
 
     <% @bookings.each do |booking| %>
-    <% if booking.prestation.user == booking.user%>
+
     <div class="one-book">
       <div class="message">
         <div class="photo-show">
@@ -54,6 +54,9 @@
          <% else %>
              <%= image_tag "profile_icon.png", class: "photo", crop: :thumb %>
          <% end %>
+         <%= link_to booking_path(booking)do %>
+         <p> voir</p>
+         <% end %>
         </div>
 
       <div class="message-name">
@@ -61,7 +64,7 @@
 
        <p> le <%= booking.created_at.strftime("%d/%m/%Y")%> </p>
       <p> Service : <%= booking.prestation.category.name  %></p>
-       <p>répondre</p>
+
 
       </div>
     </div>
@@ -70,4 +73,4 @@
   </div>
 
   <% end %>
-  <% end %>
+
