@@ -39,7 +39,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookings, only: [:index,:show, :destroy]
+  resources :bookings, only: [:index,:show, :destroy] do
+    resources :answers
+   end
 
   resources :categories, only: [:show, :index]
   resources :posts do
