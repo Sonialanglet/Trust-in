@@ -44,6 +44,7 @@ class PrestationsController < ApplicationController
     authorize @prestation
     @category = Category.new
     @review = Review.new
+    @booking = Booking.new
 
   end
 
@@ -76,6 +77,10 @@ class PrestationsController < ApplicationController
   def destroy
     @prestation = Prestation.find(params[:id])
     authorize @prestation
+    @bookings = @prestation.bookings
+    @bookings.each do |booking|
+      booking.destroy
+    end
     @prestation.destroy
 
     redirect_to prestations_path

@@ -172,3 +172,25 @@
     }
 }
 
+.btn-delete-booking {
+  color: white;
+  height: 46px;
+  width: 195px;
+  background: rgba(127, 103, 103, 1);
+  margin: 12px;
+  padding:5px;
+  border-radius: 5px;
+
+  transition: background 0.7s ease;
+  text-decoration: none;
+position:absolute;
+right:1px;
+top:2px;
+}
+
+.btn-delete-booking:hover {
+  opacity: 0.7;
+  background: rgba(127, 103, 103,0.6);
+  text-decoration: none;
+  color: white;
+}

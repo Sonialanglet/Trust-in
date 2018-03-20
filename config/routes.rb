@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
       post 'recomandation'
     end
     resources :reviews, only: [:create ]
+    resources :bookings, only: [:new, :create]
   end
 
 
@@ -38,6 +38,10 @@ Rails.application.routes.draw do
       get :remove_user
     end
   end
+
+  resources :bookings, only: [:index,:show, :destroy] do
+    resources :answers
+   end
 
   resources :categories, only: [:show, :index]
   resources :posts do

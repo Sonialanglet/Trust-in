@@ -6,5 +6,6 @@ class Prestation < ApplicationRecord
   has_many :groups
   has_many :reviews, dependent: :destroy
   has_many :recomands, dependent: :destroy
+  has_many :bookings,dependent: :destroy
 
 end
