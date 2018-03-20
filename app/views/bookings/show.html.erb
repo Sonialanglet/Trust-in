@@ -43,9 +43,8 @@
 
       <div class="content-description">
          <p> <%= @booking.description %></p>
-         <p>date: <%= @booking.date%></p>
          <p>Lieu: <%= @booking.location%></p>
-         <p>réponses</p>
+        <p> <%= pluralize(@booking.answers.count, 'réponse')%> </p>
       </div>
 
 
@@ -94,7 +93,7 @@
          <p> <%= @booking.description %></p>
          <p>date: <%= @booking.date%></p>
          <p>Lieu: <%= @booking.location%></p>
-         <p>réponses</p>
+         <p> <%= pluralize(@booking.answers.count, 'réponse')%> </p>
       </div>
 
 
@@ -104,4 +103,28 @@
 
 <% end %>
 
+
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+  <div class="description-replies">
+    <div class="review_single">
+      <% @booking.answers.each do |answer| %>
+      <li class="message">
+
+        <div class="message-reply-name">
+          <!-- retrouver comment afficher le nom de celui qui a créer la reponse. Que chose ne va pas dans le controller de answer -->
+          <p> <%=  %> </p>
+        </div>
+        <div class="message-reply-date">
+            <p> <%= answer.created_at.strftime("%d/%m/%Y")  %></p>
+        </div>
+        <div class="message-reply-content">
+            <p> <%= answer.content  %></p>
+        </div>
+        <% end %>
+      </li>
+
+    </div>
+        <%= render 'answers/form', booking: @booking, answer: @answer %>
+  </div>
+</div>
 

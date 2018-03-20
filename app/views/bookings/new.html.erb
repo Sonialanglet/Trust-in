@@ -1,10 +1,9 @@
 <div class="col-xs-4">
   <div id="booking">
     <%= simple_form_for [@prestation, @booking] do |f| %>
-      <%= f.input :description, label: "Demande", placeholder: 'Décrivez votre besoin' %>
-      <%= f.input :date, placeholder: "12/04/2018", as: :string, input_html: {class: "datepicker"}%>
+      <%= f.input :description, label: "Décrivez votre demande", placeholder: 'Précisez la date, le lieu et les horaires souhaités' %>
       <%= f.input :location, label: "Lieu de la prestation",placeholder: 'Boulogne' %>
-      <%= f.button :submit, 'Envoi!', class: "btn-plusone_regular" %>
+      <%= f.button :submit, 'Envoyer', class: "btn-plusone_regular" %>
     <% end %>
   </div>
 </div>

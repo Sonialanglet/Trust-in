@@ -5,6 +5,7 @@ class RepliesController < ApplicationController
       @post = Post.find(params[:post_id])
       @reply = Reply.new(reply_params)
       @reply.post = @post
+
       authorize @reply
       @reply.save
       redirect_to post_path(@post)

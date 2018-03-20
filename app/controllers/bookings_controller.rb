@@ -12,8 +12,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
     @booking = Booking.find(params[:id])
     authorize @booking
+    @answer = Answer.new
+    @answer.booking = @booking
 
-   @prestation = @booking.prestation
+    @prestation = @booking.prestation
 
   end
 

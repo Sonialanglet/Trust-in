@@ -7,13 +7,14 @@ class AnswersController < ApplicationController
     @answer.booking = @booking
     authorize @answer
     @answer.save
+
     redirect_to booking_path(@booking)
   end
 
 
   private
 
-  def reply_params
+  def answer_params
     params.require(:answer).permit(:content).merge(:user_id => current_user.id)
   end
 

@@ -10,7 +10,7 @@
 
 <div class="row">
 
-      <div class="col-xs-12 ">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 ">
         <div class="one-post">
           <div class="message">
             <div class="photo-show">
@@ -40,14 +40,15 @@
 </div>
 
 
-<div class="col-xs-12">
+<div class="col-xs-12 col-md-6 col-md-offset-3">
   <div class="description-replies">
     <div class="review_single">
       <% @post.replies.each do |reply| %>
       <li class="message">
 
         <div class="message-reply-name">
-          <p> <%= reply.post.user.first_name %></p>
+          <!-- retrouver comment afficher le nom de celui qui a créer la reponse. Que chose ne va pas dans le controller de replies -->
+          <p> <%= %></p>
         </div>
         <div class="message-reply-date">
             <p> <%= reply.created_at.strftime("%d/%m/%Y")  %></p>
