@@ -23,6 +23,10 @@
       <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Votre Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to bookings_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+      <i class="fa fa-envelope"></i>
+      <% end %>
+
 
 
       <!-- Avatar with dropdown menu -->
@@ -67,6 +71,9 @@
           <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li> <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li>
+          <%= link_to "Messages", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li>
           <%= link_to "Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
