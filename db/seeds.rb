@@ -93,10 +93,10 @@ p "creating prestations"
 
     p "creating un utilisateur dans le groupe Rachel"
 
-    group_user_sophie = GroupUser.new(group: group_rachel, user: user_sophie)
+    group_user_sophie = GroupUser.new(group: group_rachel, user: user_sophie, status: 'accepted')
     group_user_sophie.save!
 
-    group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel)
+    group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel, status: 'accepted')
     group_user_rachel.save!
    p"group_user done"
 

@@ -194,3 +194,15 @@ top:2px;
   text-decoration: none;
   color: white;
 }
+
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:150px;
+
+    a {
+      text-decoration:none;
+    }
+
+  }

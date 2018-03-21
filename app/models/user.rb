@@ -57,9 +57,10 @@ class User < ApplicationRecord
 
     def build_group(user)
 
-     group=Group.new(title: "carnet d'adresse de #{user.first_name} #{user.last_name}", founder: user)
-     group.users << user
+     group = Group.new(title: "carnet d'adresse de #{user.first_name} #{user.last_name}", founder: user, category: 'principal')
      group.save
+     group_user = GroupUser.new(group: group, user: user, status: 'accepted')
+     group_user.save
      end
 
 end

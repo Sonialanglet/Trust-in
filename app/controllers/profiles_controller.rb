@@ -8,10 +8,10 @@ end
 
   def show
 
-    @profile = Profile.where({user_id: current_user.id})
+    @profile = Profile.where({user_id: params[:id]}).first
 
     skip_authorization
-    @prestations = Prestation.where({user_id: current_user.id})
+    @prestations = Prestation.where({user_id: params[:id]})
 
 
   end
