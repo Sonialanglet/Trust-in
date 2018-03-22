@@ -28,4 +28,5 @@ class PrestationPolicy < ApplicationPolicy
     true
   end
 
+
 end

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     collection do
       get 'recomanded_prestations'
 
+
     end
 
     member do
@@ -39,7 +40,7 @@ Rails.application.routes.draw do
 
   resources :groups do
     member do
-      get :join
+      get :accept_join
     end
   end
 

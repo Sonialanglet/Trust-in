@@ -14,6 +14,7 @@ end
     @prestations = Prestation.where({user_id: params[:id]})
 
 
+
   end
 
 #   def new
@@ -36,8 +37,8 @@ end
 
 
  def edit
- @profile = current_user.profile
-  authorize @profile
+ @profile = Profile.where({user_id: params[:id]}).first
+ authorize @profile
  end
 
 
@@ -45,6 +46,7 @@ end
   def update
 
    @profile = current_user.profile
+
     @profile.update(profile_params)
     authorize @profile
     redirect_to profile_path(@profile)

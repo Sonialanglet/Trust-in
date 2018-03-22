@@ -39,6 +39,12 @@ class PrestationsController < ApplicationController
     render :index
   end
 
+  def search
+      @prestations = policy_scope(Prestation).joins(:category).where(category: "babysitting")
+      render :index
+      skip_authorization
+     end
+
   def show
     @prestation = Prestation.find(params[:id])
     authorize @prestation
@@ -52,6 +58,7 @@ class PrestationsController < ApplicationController
     @prestation = Prestation.new
     authorize @prestation
     @category = Category.new
+
 
   end
 

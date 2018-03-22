@@ -4,7 +4,7 @@ class ProfilePolicy < ApplicationPolicy
       scope
     end
   end
-  def show
+  def show?
     true
   end
   def new?
@@ -18,6 +18,7 @@ class ProfilePolicy < ApplicationPolicy
   def edit?
     true
   end
+
   def destroy?
     record.user == user
   end
