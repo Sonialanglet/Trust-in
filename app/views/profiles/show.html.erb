@@ -8,8 +8,6 @@
   <% avatar_url = "profile_icon.png" %>
 <% end %>
 
-
-
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="profil">
@@ -20,15 +18,12 @@
       <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
       <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
-        <%= link_to edit_user_registration_path(current_user) do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        <% end %>
+          <%= link_to edit_user_registration_path do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
         </div>
-        <% end %>
+      <% end %>
     </div>
-
-    </div>
-
   </div>
 </div>
 
@@ -38,14 +33,13 @@
       <h2> Recommandations : </h2>
       <div class="img-recos">
         <% current_user.prestations.each do |prestation|%>
-                 <div class="img-recos-name">
-                  <p> <% prestation.recomands.each do |reco|%>
-                  <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
-                </div>
-                <% end %>
-                <% end %>
+          <div class="img-recos-name">
+            <% prestation.recomands.each do |reco|%>
+              <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-
     </div>
   </div>
 </div>
@@ -60,14 +54,13 @@
         <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
 
         <% if current_user == @profile.user %>
-        <div class="circle-icon-profile">
-          <%= link_to edit_profile_path(@profile.user) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
-        </div>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile.user) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
@@ -77,64 +70,59 @@
     <div class="services">
       <h2> Prestations proposées: </h2>
       <div class="fiche-prestation">
-       <ul>
-         <% @prestations.each do |prestation|%>
-           <li class="item-list" style="list-style-type: none";>
-            <div class="name">
-              <%= prestation.category.name%>
-            </div>
-            <div class="price">
-              <%= prestation.price%>
-            </div>
-            <% if current_user == @profile.user %>
-            <div class="circle-icon-edit">
-                <%= link_to edit_prestation_path(prestation) do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
+        <ul>
+          <% @prestations.each do |prestation|%>
+            <li class="item-list" style="list-style-type: none";>
+              <div class="name">
+                <%= prestation.category.name%>
+              </div>
+              <div class="price">
+                <%= prestation.price%>
+              </div>
+              <% if current_user == @profile.user %>
+                <div class="circle-icon-edit">
+                  <%= link_to edit_prestation_path(prestation) do %>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <% end %>
+                </div>
 
-            <div class="circle-icon-delete">
-              <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-                '.html_safe, prestation_path(prestation),
-                method: :delete,
-                data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
-
-            </div>
-
-            <% end %>
-            <% end %>
-            <% end %>
-
+                <div class="circle-icon-delete">
+                  <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+                  '.html_safe, prestation_path(prestation),
+                  method: :delete,
+                  data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
+                </div>
+              <% end %>
             </li>
-
-       </ul>
+          <% end %>
+        </ul>
       </div>
-
     </div>
+
     <% if current_user == @profile.user %>
-       <div class="plus">
-         <div class="circle-icon-plus">
-           <%= link_to new_prestation_path(current_user) do %>
-             <i class="fa fa-plus" aria-hidden="true"></i>
-             <% end %>
-          </div>
-       </div>
-       <% end %>
+      <div class="plus">
+        <div class="circle-icon-plus">
+          <%= link_to new_prestation_path do %>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
 <% if current_user == @profile.user %>
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="services">
-      <p>Vous souhaitez supprimer votre compte ? </p>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <p>Vous souhaitez supprimer votre compte ? </p>
         <div class="circle-icon-profile">
-        <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-        '.html_safe, registration_path(current_user),
-        method: :delete,
-        data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+          <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+          '.html_safe, registration_path(current_user),
+          method: :delete,
+          data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
         </div>
+      </div>
     </div>
-
   </div>
-</div>
 <% end %>
