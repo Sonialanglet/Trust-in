@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :prestations do
     collection do
       get 'recomanded_prestations'
+
+
     end
 
     member do
@@ -27,15 +29,18 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-
+  resources :groups, param: :user_id do
+    member do
+      get :add_user_to_principal
+      delete :remove_user_from_principal
+    end
+  end
 
 
 
   resources :groups do
     member do
-      get :join
-      get :add
-      get :remove_user
+      get :accept_join
     end
   end
 

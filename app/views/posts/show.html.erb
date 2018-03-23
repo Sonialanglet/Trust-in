@@ -48,7 +48,7 @@
 
         <div class="message-reply-name">
           <!-- retrouver comment afficher le nom de celui qui a créer la reponse. Que chose ne va pas dans le controller de replies -->
-          <p> <%= %></p>
+          <p> <%= reply.user.first_name %></p>
         </div>
         <div class="message-reply-date">
             <p> <%= reply.created_at.strftime("%d/%m/%Y")  %></p>

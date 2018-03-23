@@ -21,11 +21,15 @@ class GroupPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def add?
+  def add_user_to_principal?
     true
   end
 
-  def remove_user
+  def remove_user_from_principal?
     true
   end
+  def accept_join_demand?
+    true
+  end
+
 end

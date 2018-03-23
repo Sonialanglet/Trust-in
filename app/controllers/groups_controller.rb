@@ -36,23 +36,53 @@ class GroupsController < ApplicationController
     end
   end
 
-  def add
-    @group_of_selected_user = Group.find(params[:id])
+  def add_user_to_principal
+    #@group_of_selected_user = Group.find(params[:id])
 
-    @selected_user = @group_of_selected_user.founder
+    #@selected_user = @group_of_selected_user.founder
+    @selected_user = User.find(params[:user_id])
 
-    @group = current_user.groups.first
-        @group.users << @selected_user unless @group.users.include? @selected_user
-        authorize @group
+    @group = current_user.groups.find do |group|
+      group.category == 'principal'
+    end
+
+    unless @group.users.include? @selected_user
+      group_user = GroupUser.new(group: @group, user: @selected_user, status: 'accepted')
+      group_user.save
+    end
+    authorize @group
     redirect_to groups_path
   end
 
-  def remove_user
+  def remove_user_from_principal
+   @group = current_user.groups.find do |group|
+     group.category == 'principal'
+   end
 
+    @selected_user = User.find(params[:user_id])
+    group_users = GroupUser.where(group: @group, user: @selected_user)
+    group_users.each do |group_user|
+      group_user.destroy
+    end
+      authorize @group
+      redirect_to groups_path
   end
 
 
-  def join
+  def want_join
+    @group = Group.find(params[:id])
+    @wanted_to_join = Group_user.create(user: current_user, group: @group, status: 'pending')
+    redirect_to groups_path
+  end
+
+  def accept_join_demand
+
+    @group_users = Group_user.where(group: @group,status: 'pending')
+      group_users.each do |group_user|
+        group_user.status = 'accepted'
+      end
+      authorize @group
+      redirect_to groups_path
   end
 
   def edit

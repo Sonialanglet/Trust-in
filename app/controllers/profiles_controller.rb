@@ -8,10 +8,11 @@ end
 
   def show
 
-    @profile = Profile.where({user_id: current_user.id})
+   @profile = Profile.find(params[:id])
 
     skip_authorization
-    @prestations = Prestation.where({user_id: current_user.id})
+    @prestations = Prestation.where({user_id: @profile.user.id})
+
 
 
   end
@@ -36,15 +37,17 @@ end
 
 
  def edit
- @profile = current_user.profile
-  authorize @profile
+   @profile = Profile.find(params[:id])
+    authorize @profile
  end
 
 
 
   def update
 
-   @profile = current_user.profile
+   # @profile = current_user.profile
+   @profile = Profile.find(params[:id])
+
     @profile.update(profile_params)
     authorize @profile
     redirect_to profile_path(@profile)

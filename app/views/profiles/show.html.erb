@@ -1,13 +1,12 @@
 <!-- photo de la personne qui s'incrit, avatar par defaut si pas de chargement photo -->
 <!-- gestion de la photo via facebook ou bien via le formulaire d'inscription -->
-<% if current_user.facebook_picture_url %>
-  <% avatar_url = current_user.facebook_picture_url %>
-<% elsif current_user.photo.present? %>
-  <% avatar_url = cl_image_path(current_user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
+<% if @profile.user.facebook_picture_url%>
+  <% avatar_url = @profile.user.facebook_picture_url %>
+<% elsif @profile.user.photo.present? %>
+  <% avatar_url = cl_image_path(@profile.user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
-
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -16,57 +15,14 @@
        <%= image_tag avatar_url, class: "photo", crop: :thumb %>
       </div>
 
-      <p class="name-show"><%= current_user.first_name%> <%= current_user.last_name%> </p>
-    <div class="circle-icon-profile">
-        <%= link_to edit_user_registration_path(current_user) do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        <% end %>
-
-    </div>
-    </div>
-
-    </div>
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="services">
-      <h2> vos recommandations : </h2>
-      <div class="img-recos">
-        <% current_user.prestations.each do |prestation|%>
-                 <div class="img-recos-name">
-                  <p> <% prestation.recomands.each do |reco|%>
-                  <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
-                </div>
-                <% end %>
-                <% end %>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="services">
-      <h2> vos informations : </h2>
-      <div class="img-recos infos">
-        <p class="name-show"> Lieu d'habitation : <%= current_user.profile.town%> </p>
-        <p class="name-show"> Ecole(s) fréquentées : <%= current_user.profile.school1%>, <%= current_user.profile.school2%> </p>
-        <p class="name-show"> Club et associations : <%= current_user.profile.club1%>, <%= current_user.profile.club2%> </p>
-
+      <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
+      <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
-
-          <%= link_to edit_profile_path(@current_user.profile) do %>
+          <%= link_to edit_user_registration_path do %>
             <i class="fa fa-pencil" aria-hidden="true"></i>
           <% end %>
-
-
         </div>
-      </div>
-
+      <% end %>
     </div>
   </div>
 </div>
@@ -74,59 +30,99 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
-      <h2> Les prestations que vous proposez: </h2>
-      <div class="fiche-prestation">
-       <ul>
-         <% @prestations.each do |prestation|%>
-           <li class="item-list" style="list-style-type: none";>
-            <div class="name">
-              <%= prestation.category.name%>
-            </div>
-            <div class="price">
-              <%= prestation.price%>
-            </div>
-            <div class="circle-icon-edit">
-                <%= link_to edit_prestation_path(current_user) do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
-            </div>
-            <div class="circle-icon-delete">
-              <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-                '.html_safe, prestation_path(current_user),
-                method: :delete,
-                data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
-
-            </div>
+      <h2> Recommandations : </h2>
+      <div class="img-recos">
+        <% current_user.prestations.each do |prestation|%>
+          <div class="img-recos-name">
+            <% prestation.recomands.each do |reco|%>
+              <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
             <% end %>
-            <% end %>
-
-            </li>
-
-       </ul>
-      </div>
-
-    </div>
-       <div class="plus">
-         <div class="circle-icon-plus">
-           <%= link_to new_prestation_path(current_user) do %>
-             <i class="fa fa-plus" aria-hidden="true"></i>
-             <% end %>
           </div>
-        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
-      <p>Vous souhaitez supprimer votre compte ? </p>
-        <div class="circle-icon-profile">
-        <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
-        '.html_safe, registration_path(current_user),
-        method: :delete,
-        data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
-        </div>
-    </div>
+      <h2> Informations : </h2>
+      <div class="img-recos infos">
+        <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
+        <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
+        <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
 
+        <% if current_user == @profile.user %>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> Prestations proposées: </h2>
+      <div class="fiche-prestation">
+        <ul>
+          <% @prestations.each do |prestation|%>
+            <li class="item-list" style="list-style-type: none";>
+              <div class="name">
+                <%= prestation.category.name%>
+              </div>
+              <div class="price">
+                <%= prestation.price%>
+              </div>
+              <% if current_user == @profile.user %>
+                <div class="circle-icon-edit">
+                  <%= link_to edit_prestation_path(prestation) do %>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <% end %>
+                </div>
+
+                <div class="circle-icon-delete">
+                  <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+                  '.html_safe, prestation_path(prestation),
+                  method: :delete,
+                  data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <% if current_user == @profile.user %>
+      <div class="plus">
+        <div class="circle-icon-plus">
+          <%= link_to new_prestation_path do %>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if current_user == @profile.user %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <p>Vous souhaitez supprimer votre compte ? </p>
+        <div class="circle-icon-profile">
+          <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+          '.html_safe, registration_path(current_user),
+          method: :delete,
+          data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

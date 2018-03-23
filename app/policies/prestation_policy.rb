@@ -27,4 +27,6 @@ class PrestationPolicy < ApplicationPolicy
   def recomanded_prestations?
     true
   end
+
+
 end
