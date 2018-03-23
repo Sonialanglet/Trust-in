@@ -15,8 +15,10 @@
       <% image_path category = "coursmusique.jpg" %>
       <% elsif prestation.category.name=="Pet Sitting" %>
         <% image_path category = "petsitting.jpg" %>
+        <% elsif prestation.category.name=="Travaux" %>
+          <% image_path category = "travaux.jpg" %>
 <% else %>
-  <% image_path category = "pied.jpg" %>
+  <% image_path category = "bulles.jpg" %>
 <% end %>
 
 <div class="card-prestations-index">
