@@ -55,7 +55,7 @@
 
         <% if current_user == @profile.user %>
           <div class="circle-icon-profile">
-            <%= link_to edit_profile_path(@profile.user) do %>
+            <%= link_to edit_profile_path(@profile) do %>
               <i class="fa fa-pencil" aria-hidden="true"></i>
             <% end %>
           </div>

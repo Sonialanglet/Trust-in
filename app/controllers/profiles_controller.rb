@@ -8,10 +8,10 @@ end
 
   def show
 
-    @profile = Profile.where({user_id: params[:id]}).first
+   @profile = Profile.find(params[:id])
 
     skip_authorization
-    @prestations = Prestation.where({user_id: params[:id]})
+    @prestations = Prestation.where({user_id: @profile.user.id})
 
 
 
@@ -37,15 +37,16 @@ end
 
 
  def edit
- @profile = Profile.where({user_id: params[:id]}).first
- authorize @profile
+   @profile = Profile.find(params[:id])
+    authorize @profile
  end
 
 
 
   def update
 
-   @profile = current_user.profile
+   # @profile = current_user.profile
+   @profile = Profile.find(params[:id])
 
     @profile.update(profile_params)
     authorize @profile

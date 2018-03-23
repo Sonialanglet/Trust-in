@@ -63,39 +63,39 @@
     <div class="filtres-categorie">
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= link_to edit_profile_path(@profile) do %>
+        <%= link_to edit_profile_path(current_user.profile) do %>
         <%= image_tag "babysittingTEXT3.jpg", class:"image-cat" %>
         <% end %>
 
       </div>
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= link_to edit_profile_path(@profile) do %>
+        <%= link_to edit_profile_path(current_user.profile) do %>
          <%= image_tag "courssoutienTEXT4.jpg", class:"image-cat" %>
          <% end %>
       </div>
 
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= link_to edit_profile_path(@profile) do %>
+        <%= link_to edit_profile_path(current_user.profile) do %>
          <%= image_tag "coursMUSIQUETEXT4.jpg", class:"image-cat" %>
          <% end %>
       </div>
 
       <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= link_to edit_profile_path(@profile) do %>
+        <%= link_to edit_profile_path(current_user.profile) do %>
          <%= image_tag "PETSITTINGTEXT4.jpg", class:"image-cat" %>
          <% end %>
       </div>
 
 
         <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-          <%= link_to edit_profile_path(current_user) do %>
+          <%= link_to edit_profile_path(current_user.profile) do %>
            <%= image_tag "travauxTEXT4.jpg", class:"image-cat" %>
            <% end %>
         </div>
 
         <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-          <%= link_to edit_profile_path(current_user) do %>
+          <%= link_to edit_profile_path(current_user.profile) do %>
            <%= image_tag "DIVERSTEXT4.jpg", class:"image-cat" %>
            <% end %>
         </div>
