@@ -28,7 +28,10 @@ class GroupPolicy < ApplicationPolicy
   def remove_user_from_principal?
     true
   end
-  def accept_join_demand?
+  def want_join?
+    true
+  end
+  def accept_join?
     true
   end
 

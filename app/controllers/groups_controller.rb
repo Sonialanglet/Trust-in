@@ -71,17 +71,36 @@ class GroupsController < ApplicationController
 
   def want_join
     @group = Group.find(params[:id])
-    @wanted_to_join = Group_user.create(user: current_user, group: @group, status: 'pending')
+    @wanted_to_join = GroupUser.new(user: current_user, group: @group, status: 'pending')
+    @wanted_to_join.save
+    authorize @group
     redirect_to groups_path
   end
 
-  def accept_join_demand
+  def accept_join
+   # le statut du groupuser du demandeur devient accepted et non plus pending
+     @group = current_user.groups.find do |group|
+    group.category == 'principal'
+       end
 
-    @group_users = Group_user.where(group: @group,status: 'pending')
-      group_users.each do |group_user|
-        group_user.status = 'accepted'
+    @group_users = GroupUser.where(group: @group, status: 'pending')
+
+    @group_users.each do |group_user|
+      group_user.status == 'accepted'
+
+     # je retrouve le  groupe principal de chaque groupuser
+      @group2 = group_user.user.groups.find do |group|
+      group.category == "principal"
       end
-      authorize @group
+     # j'ajoute le current_user dans leur groupe principal
+
+        group_user2 = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
+        group_user2.save
+        authorize @group
+
+        end
+
+
       redirect_to groups_path
   end
 
@@ -91,7 +110,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:title)
+    params.require(:group).permit(:title, )
   end
 
 end

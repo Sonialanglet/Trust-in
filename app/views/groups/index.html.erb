@@ -22,12 +22,39 @@
   </div>
 
   <div class="row">
+     <p> liste des personnes qui on demandé à rejoindre votre carnet </p>
+     <% @principal_group = current_user.groups.find do |group| %>
+       <% group.category == 'principal'  %>
+         <% end %>
+
+     <p>  <% @principal_group.group_users.each do |group_user| %> </p>
+    <% unless group_user.user == current_user %>
+
+     <% unless group_user.status == 'accepted'%>
+     <ul>
+       <li>
+         <%= group_user.user.first_name  %>
+     <%= link_to accept_join_group_path (group_user.user) do%>
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <% end %>
+
+         </li>
+     </ul>
+     <% end %>
+     <% end %>
+
+     <% end %>
+
+  </div>
+
+
+  <div class="row">
     <div class="groups-list">
-    <h3>    <i class="fa fa-sign-in" aria-hidden="true"></i>  Rejoindre leur carnet de contacts</h3>
+    <h3>    <i class="fa fa-sign-in" aria-hidden="true"></i>  Demander à rejoindre leur carnet de contacts</h3>
       <p> <strong> pour accéder à leurs recommandations </strong></p>
       <% @groups.each do |group| %>
       <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <% unless current_user.groups.first.users.include? group.founder%>
+
         <div class="one-group">
           <ul>
             <li>
@@ -36,7 +63,7 @@
                  <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %> </p>
                  </div>
                 <div class="circle-icon-add">
-                   <%= link_to add_user_to_principal_group_path (group.founder) do %>
+                   <%= link_to want_join_group_path (group) do %>
                   <i class="fa fa-sign-in" aria-hidden="true"></i>
                   <% end %>
                 </div>
@@ -45,9 +72,9 @@
           </li>
           </ul>
         </div>
-        <% end %>
       </div>
-       <% end %>
+
+        <% end %>
     </div>
   </div>
 

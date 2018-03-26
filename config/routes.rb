@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   resources :groups do
     member do
+      get :want_join
       get :accept_join
     end
   end
