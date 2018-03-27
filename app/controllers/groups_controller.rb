@@ -78,28 +78,38 @@ class GroupsController < ApplicationController
   end
 
   def accept_join
-   # le statut du groupuser du demandeur devient accepted et non plus pending
+    # Step1 : le current_user d'abord accepte la demande d'un autre de rejoindre son groupe principal
      @group = current_user.groups.find do |group|
     group.category == 'principal'
        end
 
-    @group_users = GroupUser.where(group: @group, status: 'pending')
+   # Step2 : le statut du groupuser du demandeur devient ainsi accepted et non plus pending
+    @group_users = GroupUser.where(group: @group, status: "pending")
 
     @group_users.each do |group_user|
-      group_user.status == 'accepted'
-
-     # je retrouve le  groupe principal de chaque groupuser
-      @group2 = group_user.user.groups.find do |group|
-      group.category == "principal"
-      end
-     # j'ajoute le current_user dans leur groupe principal
-
-        group_user2 = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
-        group_user2.save
-        authorize @group
-
+      group_user.status = 'accepted'
         end
 
+
+     # NB = en contrepartie, le current_user va à son tour faire partie du groupe principal du demandeur.
+     # Step 3 = on retrouve le  groupe principal de chaque groupuser accepté par le current_user
+      @group_users = GroupUser.where(group: @group, status: "accepted")
+
+       @group_users.each do |group_user|
+          @group2 = group_user.user.groups.find do |group|
+            unless group.founder == current_user
+            group.category == 'principal'
+            end
+            end
+        end
+
+     # Step4 = j'ajoute ainsi le current_user dans le groupe principal du demandeur
+
+        @group_user2 = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
+         unless @group_user2.present?
+           group_user2.save
+           authorize @group
+          end
 
       redirect_to groups_path
   end
