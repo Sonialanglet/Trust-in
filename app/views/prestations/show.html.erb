@@ -38,6 +38,9 @@
          <p class="name-show"><%= (Date.today.year)-(@prestation.user.profile.date_of_birth.year)%> ans
         </p>
         <% end %>
+        <% if @prestation.user.profile.phone %>
+         <p class="name-show">Tel: <%= @prestation.user.profile.phone%>  </p>
+        <% end %>
         <% if policy(@booking).new? %>
           <%= link_to new_prestation_booking_path(@prestation) do %>
             <p class="btn btn-danger centered"> Contacter </p>

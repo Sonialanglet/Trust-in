@@ -74,9 +74,12 @@ class GroupsController < ApplicationController
   def want_join
     @group = Group.find(params[:id])
     @wanted_to_join = GroupUser.new(user: current_user, group: @group, status: 'pending')
+
     @wanted_to_join.save
+
     authorize @group
     redirect_to groups_path
+
   end
 
   def accept_join

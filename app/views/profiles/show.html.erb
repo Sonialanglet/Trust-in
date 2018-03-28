@@ -52,6 +52,9 @@
         <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
         <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
         <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
+        <% if @profile.phone %>
+         <p class="name-show">Tel: <%= @profile.phone%>  </p>
+        <% end %>
 
         <% if current_user == @profile.user %>
           <div class="circle-icon-profile">

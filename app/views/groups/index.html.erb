@@ -1,6 +1,6 @@
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
       <div class="title-groups">
       <h3>Aggrandissez votre reseau pour vous simplifier votre quotidien </h3>
       </div>
@@ -22,7 +22,9 @@
   </div>
 
   <div class="row">
-     <p> liste des personnes qui on demandé à rejoindre votre carnet </p>
+    <div class="groups-list">
+    <h3>    <i class="fa fa-sign-in" aria-hidden="true"></i>  Ces personnes vous proposent de partager leurs bons plans :</h3>
+        <p> Si vous acceptez : vous aurez accès à toutes leurs recommandations et elles auront accès à  vos recommandations </p>
      <% @principal_group = current_user.groups.find do |group| %>
        <% group.category == 'principal'  %>
          <% end %>
@@ -33,11 +35,10 @@
      <% unless group_user.status == 'accepted'%>
      <ul>
        <li>
-         <%= group_user.user.first_name  %>
-
-     <%= link_to accept_join_group_path (@principal_group) do%>
-        <i class="fa fa-user-plus" aria-hidden="true"></i>
-        <% end %>
+         <%= group_user.user.first_name  %> <%= group_user.user.last_name  %>
+         <%= link_to accept_join_group_path (@principal_group) do%>
+          <p> accepter</p>
+            <% end %>
 
 
          </li>
@@ -46,16 +47,18 @@
      <% end %>
 
      <% end %>
-
+     </div>
   </div>
 
 
   <div class="row">
     <div class="groups-list">
-    <h3>    <i class="fa fa-sign-in" aria-hidden="true"></i>  Demander à rejoindre leur carnet de contacts</h3>
-      <p> <strong> pour accéder à leurs recommandations </strong></p>
+    <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  Invitez d'autres personnes à  partager vos bons plans  </h3>
+      <p> <strong> </strong></p>
       <% @groups.each do |group| %>
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
+       <% unless (group.founder == current_user) %>
+
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
 
         <div class="one-group">
           <ul>
@@ -69,74 +72,20 @@
                   <i class="fa fa-sign-in" aria-hidden="true"></i>
                   <% end %>
                 </div>
-
               </div>
           </li>
+
           </ul>
         </div>
       </div>
 
         <% end %>
+        <% end %>
+
+
     </div>
   </div>
 
-  <div class="row">
-    <div class="groups-list">
-    <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  Ajoutez à votre carnet de contacts</h3>
-    <p> <strong> pour partager vos recommandations </strong></p>
-      <% @groups.each do |group| %>
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <% unless current_user.groups.first.users.include? group.founder%>
-        <div class="one-group">
-          <ul>
-            <li>
-              <div class="one-to-add">
-                <div class="name-to-add">
-                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %> </p>
-                 </div>
-                <div class="circle-icon-add">
-               <%= link_to add_user_to_principal_group_path (group.founder) do%>
-                  <i class="fa fa-user-plus" aria-hidden="true"></i>
-                  <% end %>
-                </div>
-
-              </div>
-          </li>
-          </ul>
-        </div>
-        <% end %>
-    </div>
-       <% end %>
-    </div>
-  </div>
-
-
-
-
-
-  <div class="row">
-        <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="groups-list">
-      <h3> <i class="fa fa-address-book" aria-hidden="true"></i>  Vos contacts actuels</h3>
-
-      <% current_user.groups.each do |group| %>
-        <%group.users.each do |contact| %>
-        <div class="current_contacts">
-        <p>  <%= contact.first_name %> <%= contact.last_name %> </p>
-                <%= link_to remove_user_from_principal_group_path(contact),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } do%>
-                   <i class="fa fa-trash" aria-hidden="true"></i>
-                   <% end %>
-
-        <% end %>
-        <% end %>
-        </div>
-        </div>
-      </div>
-
-      </div>
-  </div>
 
 
 

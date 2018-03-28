@@ -62,7 +62,7 @@ end
  # end
 
  def profile_params
-   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :school1, :school2, :club1, :club2)
+   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :school1, :school2, :club1, :club2, :phone)
  end
 
 
