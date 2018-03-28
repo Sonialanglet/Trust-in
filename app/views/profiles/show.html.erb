@@ -3,7 +3,7 @@
 <% if @profile.user.facebook_picture_url%>
   <% avatar_url = @profile.user.facebook_picture_url %>
 <% elsif @profile.user.photo.present? %>
-  <% avatar_url = cl_image_path(@profile.user.photo, width: 35, height: 35, crop: :thumb, graviti: :face) %>
+  <% avatar_url = cl_image_path(@profile.user.photo, width: 100, height: 100, crop: :thumb, graviti: :face) %>
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
@@ -52,6 +52,9 @@
         <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
         <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
         <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
+        <% if @profile.phone %>
+         <p class="name-show">Tel: <%= @profile.phone%>  </p>
+        <% end %>
 
         <% if current_user == @profile.user %>
           <div class="circle-icon-profile">

@@ -1,7 +1,7 @@
 <% if @prestation.user.facebook_picture_url %>
   <% avatar_url = @prestation.user.facebook_picture_url %>
 <% elsif @prestation.user.photo.present? %>
-  <% avatar_url = cl_image_path(@prestation.user.photo, crop: :thumb, graviti: :face) %>
+  <% avatar_url = cl_image_path(@prestation.user.photo, width: 100, height: 100, crop: :thumb, graviti: :face) %>
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
@@ -16,7 +16,7 @@
       <% image_tag category = "coursMUSIQUETEXT4.jpg" %>
       <% elsif @prestation.category.name=="Pet Sitting" %>
         <% image_tag category = "PETSITTINGTEXT4.jpg" %>
-        <% elsif @prestation.category.name=="travaux" %>
+        <% elsif @prestation.category.name=="Travaux" %>
           <% image_tag category = "travauxTEXT4.jpg" %>
 <% else %>
   <% image_tag category = "DIVERSTEXT4.jpg" %>
@@ -37,6 +37,9 @@
         <% if @prestation.user.profile.date_of_birth %>
          <p class="name-show"><%= (Date.today.year)-(@prestation.user.profile.date_of_birth.year)%> ans
         </p>
+        <% end %>
+        <% if @prestation.user.profile.phone %>
+         <p class="name-show">Tel: <%= @prestation.user.profile.phone%>  </p>
         <% end %>
         <% if policy(@booking).new? %>
           <%= link_to new_prestation_booking_path(@prestation) do %>

@@ -51,6 +51,7 @@ class GroupsController < ApplicationController
       group_user.save
     end
     authorize @group
+    authorize @group_user
     redirect_to groups_path
   end
 
@@ -64,6 +65,7 @@ class GroupsController < ApplicationController
     group_users.each do |group_user|
       group_user.destroy
     end
+      authorize @group_user
       authorize @group
       redirect_to groups_path
   end
@@ -71,17 +73,48 @@ class GroupsController < ApplicationController
 
   def want_join
     @group = Group.find(params[:id])
-    @wanted_to_join = Group_user.create(user: current_user, group: @group, status: 'pending')
-    redirect_to groups_path
+    @wanted_to_join = GroupUser.create(user: current_user, group: @group, status: 'pending')
+   if
+    @wanted_to_join.save
+     authorize @group
+    redirect_to groups_path, notice: 'Votre demande a bien été envoyée'
+else
+
+  authorize @group
+  redirect_to groups_path, notice: 'impossible'
+end
+
+
   end
 
-  def accept_join_demand
+  def accept_join
+    # Step1 : le current_user d'abord accepte la demande d'un autre de rejoindre son groupe principal
+     @group = current_user.groups.find do |group|
+    group.category == 'principal'
+       end
 
-    @group_users = Group_user.where(group: @group,status: 'pending')
-      group_users.each do |group_user|
-        group_user.status = 'accepted'
-      end
-      authorize @group
+   # Step2 : le statut du groupuser du demandeur devient ainsi accepted et non plus pending
+    @group_users = GroupUser.where(group: @group, status: "pending")
+
+    @group_users.each do |group_user|
+      group_user.status = 'accepted'
+        end
+
+raise
+     # NB = en contrepartie, le current_user va à son tour faire partie du groupe principal du demandeur.
+     # Step 3 = on retrouve le  groupe principal de chaque groupuser accepté par le current_user
+      @group_users = GroupUser.where(group: @group, status: "accepted")
+
+       @group_users.each do |group_user|
+         @group2 = group_user.user.groups.where(category: "principal").first
+     # Step4 = j'ajoute ainsi le current_user dans le groupe principal du demandeur
+         @group_user = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
+         @group_user.save
+         authorize @group_user
+        authorize @group
+
+            end
+
       redirect_to groups_path
   end
 
