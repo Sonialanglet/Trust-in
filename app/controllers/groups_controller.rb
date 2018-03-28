@@ -51,6 +51,7 @@ class GroupsController < ApplicationController
       group_user.save
     end
     authorize @group
+    authorize @group_user
     redirect_to groups_path
   end
 
@@ -64,6 +65,7 @@ class GroupsController < ApplicationController
     group_users.each do |group_user|
       group_user.destroy
     end
+      authorize @group_user
       authorize @group
       redirect_to groups_path
   end
@@ -96,20 +98,17 @@ class GroupsController < ApplicationController
       @group_users = GroupUser.where(group: @group, status: "accepted")
 
        @group_users.each do |group_user|
-          @group2 = group_user.user.groups.find do |group|
-            unless group.founder == current_user
-            group.category == 'principal'
-            end
-            end
-        end
-
+         @group2 = group_user.user.groups.where(category: "principal").first
      # Step4 = j'ajoute ainsi le current_user dans le groupe principal du demandeur
+         @group_user = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
+         @group_user.save
+         authorize @group_user
+        authorize @group
 
-        @group_user2 = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
-         unless @group_user2.present?
-           group_user2.save
-           authorize @group
-          end
+            end
+
+
+
 
       redirect_to groups_path
   end
@@ -120,7 +119,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:title, )
+    params.require(:group).permit(:title)
   end
 
 end
