@@ -56,8 +56,8 @@
     <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  Invitez d'autres personnes à  partager vos bons plans  </h3>
       <p> <strong> </strong></p>
       <% @groups.each do |group| %>
-       <% unless (group.founder == current_user) %>
 
+       <% unless (group.founder == current_user) %>
       <div class="col-xs-12 col-md-8 col-md-offset-2">
 
         <div class="one-group">
@@ -65,13 +65,18 @@
             <li>
               <div class="one-to-add">
                 <div class="name-to-add">
+
                  <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %> </p>
+
                  </div>
                 <div class="circle-icon-add">
                    <%= link_to want_join_group_path (group) do %>
                   <i class="fa fa-sign-in" aria-hidden="true"></i>
                   <% end %>
+
+
                 </div>
+
               </div>
           </li>
 
@@ -85,6 +90,7 @@
 
     </div>
   </div>
+                 <p id="notice"><%= notice %></p>
 
 
 

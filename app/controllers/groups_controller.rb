@@ -73,12 +73,17 @@ class GroupsController < ApplicationController
 
   def want_join
     @group = Group.find(params[:id])
-    @wanted_to_join = GroupUser.new(user: current_user, group: @group, status: 'pending')
-
+    @wanted_to_join = GroupUser.create(user: current_user, group: @group, status: 'pending')
+   if
     @wanted_to_join.save
+     authorize @group
+    redirect_to groups_path, notice: 'Votre demande a bien été envoyée'
+else
 
-    authorize @group
-    redirect_to groups_path
+  authorize @group
+  redirect_to groups_path, notice: 'impossible'
+end
+
 
   end
 
@@ -95,7 +100,7 @@ class GroupsController < ApplicationController
       group_user.status = 'accepted'
         end
 
-
+raise
      # NB = en contrepartie, le current_user va à son tour faire partie du groupe principal du demandeur.
      # Step 3 = on retrouve le  groupe principal de chaque groupuser accepté par le current_user
       @group_users = GroupUser.where(group: @group, status: "accepted")
@@ -109,9 +114,6 @@ class GroupsController < ApplicationController
         authorize @group
 
             end
-
-
-
 
       redirect_to groups_path
   end
