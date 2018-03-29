@@ -37,6 +37,15 @@
           </div>
 
         </div>
+      <% if policy(@post).destroy? %>
+        <% if current_user == @post.user %>
+          <%= link_to post_path(@post),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+            <p class="delete-post">Delete</p>
+        <% end %>
+        <% end %>
+      <% end %>
 
 
       </div>
@@ -68,7 +77,6 @@
         <%= render 'replies/form', post: @post, reply: @reply %>
   </div>
 </div>
-
 
 
 
