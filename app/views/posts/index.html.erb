@@ -16,13 +16,17 @@
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+    <div class="form-post">
+      <%= simple_form_for @post, :html => {:multipart => true} do |form| %>
+        <div class="form-group form-post">
+          <%= form.input :content, as: :text, label:"Poster votre message" %>
+          <%= form.input :photo %>
+          <%= form.input :photo_cache, as: :hidden %>
 
-  <%= simple_form_for @post do |form| %>
-    <div class="form-group form-post">
-      <%= form.input :content, as: :text, label:"Poster votre message" %>
+        </div>
+         <%= form.submit "poster", class: "btn btn-danger" %>
+        <% end %>
     </div>
-     <%= form.submit "poster", class: "btn-new-prestation" %>
-    <% end %>
   </div>
 </div>
 
@@ -49,6 +53,11 @@
             </div>
           <div class="content">
           <%= post.content %>
+            <div class="content-photo">
+            <% if post.photo.present? %>
+              <%= image_tag post.photo_url, class:"photo-post", width: 80, height: 80, crop: :thumb, graviti: :face %>
+            <% end %>
+           </div>
           </div>
           <div class="link-answer">
           <%= link_to pluralize(post.replies.count, 'réponse'), post_path(post) %>

@@ -29,6 +29,11 @@
             </div>
           <div class="content">
           <%= @post.content %>
+             <div class="content-photo_show">
+             <% if @post.photo.present? %>
+               <%= image_tag @post.photo_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
+             <% end %>
+            </div>
           </div>
 
         </div>
