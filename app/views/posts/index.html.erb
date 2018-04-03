@@ -20,7 +20,7 @@
       <%= simple_form_for @post, :html => {:multipart => true} do |form| %>
         <div class="form-group form-post">
           <%= form.input :content, as: :text, label:"Poster votre message" %>
-          <%= form.input :photo %>
+          <%= form.input :photo%>
           <%= form.input :photo_cache, as: :hidden %>
 
         </div>
