@@ -112,7 +112,7 @@
 
         <div class="message-reply-name">
           <!-- retrouver comment afficher le nom de celui qui a créer la reponse. Que chose ne va pas dans le controller de answer -->
-          <p> <%=  %> </p>
+          <p> <%= answer.user.first_name %> </p>
         </div>
         <div class="message-reply-date">
             <p> <%= answer.created_at.strftime("%d/%m/%Y")  %></p>
