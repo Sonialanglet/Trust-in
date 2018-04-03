@@ -87,16 +87,15 @@ p "creating prestations"
   Recomand.new(prestation: prestation_valerie, user: user_sophie).save!
    # p "creating groups"
 
-    group_rachel = Group.new(title: "Bons plans Rachel", founder: user_rachel)
-    group_rachel.save!
-
+    group_rachel = user_rachel.groups.first
+    group_sophie = user_sophie.groups.first
 
     p "creating un utilisateur dans le groupe Rachel"
 
     group_user_sophie = GroupUser.new(group: group_rachel, user: user_sophie, status: 'accepted')
     group_user_sophie.save!
 
-    group_user_rachel = GroupUser.new(group: group_rachel, user: user_rachel, status: 'accepted')
+    group_user_rachel = GroupUser.new(group: group_sophie, user: user_rachel, status: 'accepted')
     group_user_rachel.save!
    p"group_user done"
 
