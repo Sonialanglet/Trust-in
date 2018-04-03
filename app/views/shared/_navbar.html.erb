@@ -25,6 +25,7 @@
       <%= link_to "Votre Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to bookings_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <i class="fa fa-envelope"></i>
+      <%#=Group.count(:all, :conditions => "status = 'pending'" ) %>
       <% end %>
 
 
