@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <div class="title-groups">
-      <h3>Aggrandissez votre reseau pour vous simplifier votre quotidien </h3>
+      <h3>Agrandissez votre reseau pour vous simplifier votre quotidien </h3>
       </div>
     </div>
   </div>
@@ -21,27 +21,28 @@
     </div>
   </div>
 
+<% if !@pending_users.empty? %>
   <div class="row">
     <div class="groups-list">
       <h3>    <i class="fa fa-sign-in-alt" aria-hidden="true"></i>  DEMANDES :</h3>
       <p> Si vous acceptez : vous aurez accès à toutes leurs recommandations et elles auront accès à  vos recommandations </p>
 
 
-       <% @pending_users.each do |user| %>
-         <ul>
-           <li>
-             <%= user.first_name  %> <%= user.last_name  %>
-             <%= link_to accept_join_group_path (current_user.groups.first) do%>
-              <p> accepter</p>
-                <% end %>
-
-
-             </li>
-         </ul>
-       <% end %>
-     </div>
+      <% @pending_users.each do |user| %>
+      <ul>
+       <li>
+         <%= user.first_name  %> <%= user.last_name  %>
+         <%= link_to accept_join_group_path (current_user.groups.first) do%>
+         <p> accepter</p>
+         <% end %>
+       </li>
+     </ul>
+     <% end %>
+   </div>
   </div>
+<% end %>
 
+<% if !@accepted_users.empty? %>
   <div class="row">
     <div class="groups-list">
       <h3>    <i class="fa fa-sign-in-alt" aria-hidden="true"></i>  ACCEPTES :</h3>
@@ -56,7 +57,9 @@
        <% end %>
      </div>
   </div>
+<% end %>
 
+<% if !@prospected_users.empty? %>
   <div class="row">
     <div class="groups-list">
       <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  INVITEZ d'autres personnes à partager vos bons plans  </h3>
@@ -75,7 +78,7 @@
 
                    </div>
                   <div class="circle-icon-add">
-                     <%= link_to want_join_group_path (current_user.groups.first) do %>
+                     <%= link_to want_join_group_path (user.groups.first) do %>
                     <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
                     <% end %>
                   </div>
@@ -89,53 +92,7 @@
       <% end %>
     </div>
   </div>
-
-
-
-  <div class="row">
-    <div class="groups-list">
-    <h3>    <i class="fa fa-user-plus" aria-hidden="true"></i>  Invitez d'autres personnes à  partager vos bons plans  </h3>
-      <p> <strong> </strong></p>
-      <% @groups.each do |group| %>
-
-       <% unless (group.founder == current_user) %>
-      <div class="col-xs-12 col-md-8 col-md-offset-2">
-
-        <div class="one-group">
-          <ul>
-            <li>
-              <div class="one-to-add">
-                <div class="name-to-add">
-
-                 <p>  <%= group.founder.first_name %> <%= group.founder.last_name.upcase %> </p>
-
-                 </div>
-                <div class="circle-icon-add">
-                   <%= link_to want_join_group_path (group) do %>
-                  <i class="fa fa-sign-in-alt" aria-hidden="true"></i>
-                  <% end %>
-
-
-                </div>
-
-              </div>
-          </li>
-
-          </ul>
-        </div>
-      </div>
-
-        <% end %>
-        <% end %>
-
-
-    </div>
-  </div>
-                 <p id="notice"><%= notice %></p>
-
-
-
-
+<% end %>
 
 
   <div class="row">
