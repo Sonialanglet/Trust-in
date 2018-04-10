@@ -16,10 +16,13 @@
       </div>
 
       <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
+      <% if @profile.phone %>
+       <p class="name-show">Tel: <%= @profile.phone%>  </p>
+      <% end %>
       <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
           <%= link_to edit_user_registration_path do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <i class="fa fa-pencil-alt" aria-hidden="true"></i>
           <% end %>
         </div>
       <% end %>
@@ -52,14 +55,12 @@
         <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
         <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
         <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
-        <% if @profile.phone %>
-         <p class="name-show">Tel: <%= @profile.phone%>  </p>
-        <% end %>
+
 
         <% if current_user == @profile.user %>
           <div class="circle-icon-profile">
             <%= link_to edit_profile_path(@profile) do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i>
             <% end %>
           </div>
         <% end %>
@@ -85,12 +86,12 @@
               <% if current_user == @profile.user %>
                 <div class="circle-icon-edit">
                   <%= link_to edit_prestation_path(prestation) do %>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                   <% end %>
                 </div>
 
                 <div class="circle-icon-delete">
-                  <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+                  <%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
                   '.html_safe, prestation_path(prestation),
                   method: :delete,
                   data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
@@ -120,7 +121,7 @@
       <div class="services">
         <p>Vous souhaitez supprimer votre compte ? </p>
         <div class="circle-icon-profile">
-          <p class="name"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>
+          <p class="name"><%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
           '.html_safe, registration_path(current_user),
           method: :delete,
           data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
