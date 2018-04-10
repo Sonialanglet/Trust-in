@@ -101,7 +101,7 @@
 
             <p> Recommandez-ici à votre tour :<%= link_to recomandation_prestation_path(@prestation), method: :post,
                data: { confirm: "Votre recommandation est ajoutée !" } do %>
-                <%=image_tag "like.png", class:'recomand-btn-lg' %>
+                <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
                 <% end %>
               </p>
         </div>

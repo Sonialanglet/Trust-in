@@ -75,7 +75,7 @@
           <p> Recommandez-vous également ? <%= link_to recomandation_prestation_path(prestation), method: :post,
           data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
             <div class="recomand-btn">
-              <i class="fa fa-thumbs-up"> </i>
+              <%= image_tag 'recomand.jpg' %>
             </div>
             <% end %>
 
