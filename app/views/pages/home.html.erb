@@ -20,7 +20,7 @@ url(<%= image_path 'bulles.jpg' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12 ">
-      <p> Bénéficiez des recommandations de votre réseau pour trouver des bons plans  et services </p>
+      <p> Bénéficiez des recommandations de votre réseau pour trouver des bons plans et services </p>
      </div>
     </div>
   </div>
@@ -29,8 +29,8 @@ url(<%= image_path 'bulles.jpg' %>);">
 <div class="container">
   <div class="row">
      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: url('<%= image_path 'babysitting.jpg' , height: 300, width: 400, crop: :fill %>');">
-          <div class="card-category"> BABYSITTING </div>
+        <div class="card" style="background: url('<%= image_path 'babysittingTEXT3.jpg' , height: 200, width: 200, crop: :fill %>');">
+          <div class="card-category">  </div>
             <div class="card-description">
               <h2></h2>
             </div>
@@ -38,9 +38,8 @@ url(<%= image_path 'bulles.jpg' %>);">
         </div>
      </div>
      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-        url('<%= image_path 'books.jpg' , height: 300, width: 400, crop: :fill %>');">
-          <div class="card-category"> ECHANGES ENTRE PARENTS </div>
+        <div class="card" style="background: url('<%= image_path 'courssoutienTEXT4.jpg' , height: 200, width: 200, crop: :fill %>');">
+          <div class="card-category"> </div>
             <div class="card-description">
               <h2></h2>
             </div>
@@ -48,9 +47,8 @@ url(<%= image_path 'bulles.jpg' %>);">
         </div>
      </div>
      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-        url('<%= image_path 'cooperative.jpg' , height: 300, width: 400, crop: :fill %>');">
-          <div class="card-category"> TRAVAUX </div>
+        <div class="card" style="background:         url('<%= image_path 'travauxTEXT4.jpg' , height: 200, width: 200, crop: :fill %>');">
+          <div class="card-category">  </div>
             <div class="card-description">
               <h2></h2>
             </div>
@@ -68,8 +66,69 @@ url(<%= image_path 'bulles.jpg' %>);">
 
   <div class="explication-concept">
     <div class="row">
-     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <p> Votre réseau d'entre-aide </p>
+     <div class="col-xs-12">
+      <p> Comment bénéficiez des recommandations de votre réseau ?</p>
+     </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <div class="feature-home-how">
+      <div class="picto-home">
+       <%= image_tag 'recomand.jpg' , height: 80, width: 80, crop: :fill %>
+      </div>
+      <div class="feature-header-how">
+        <h3>Recommandez </h3>
+      </div>
+      <div class="feature-body">
+        <p> Recommandez vos prestataires de confiance déjà inscrits ou invitez-les à s'inscrire</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="feature-home-how">
+       <div class="picto-home">
+        <%= image_tag 'network.jpg' , height: 80, width: 80, crop: :fill %>
+       </div>
+       <div class="feature-header-how">
+         <h3>Partagez </h3>
+       </div>
+       <div class="feature-body">
+         <p> Invitez votre réseau à partager vos recommandations respectives sur des prestataires de confiance </p>
+       </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+      <div class="feature-home-how">
+        <div class="picto-home">
+         <%= image_tag 'connections.jpg' , height: 80, width: 80, crop: :fill %>
+        </div>
+        <div class="feature-header-how">
+          <h3>Profitez </h3>
+        </div>
+        <div class="feature-body">
+          <p> Bénéficiez à votre tour de toutes les recommandations de votre réseau avec informations détaillées</p>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+<div class="separator">
+  <span> </span>
+  <span> </span>
+  <span> </span>
+</div>
+
+
+
+  <div class="explication-concept">
+    <div class="row">
+     <div class="col-xs-12">
+      <p> Un réseau d'entre-aide pour vous simplifier la vie </p>
      </div>
     </div>
   </div>
@@ -89,17 +148,18 @@ url(<%= image_path 'bulles.jpg' %>);">
     </div>
   </div>
   <div class="col-md-4">
-     <div class="picto-home">
-      <%= image_tag 'coeur_red.png' , height: 70, width: 70, crop: :fill %>
-     </div>
-     <div class="feature-header">
-       <h3>Confiance</h3>
-     </div>
-     <div class="feature-body">
-       <p> Vous pouvez choisir avec qui vous souhaitez partager vos recommandations</p>
-     </div>
+    <div class="feature-home">
+       <div class="picto-home">
+        <%= image_tag 'coeur_red.png' , height: 70, width: 70, crop: :fill %>
+       </div>
+       <div class="feature-header">
+         <h3>Confiance</h3>
+       </div>
+       <div class="feature-body">
+         <p> Vous pouvez choisir avec qui vous souhaitez partager vos recommandations</p>
+       </div>
 
-
+     </div>
   </div>
   <div class="col-md-4">
       <div class="feature-home">
@@ -115,10 +175,4 @@ url(<%= image_path 'bulles.jpg' %>);">
       </div>
   </div>
 
-</div>
-
-<div class="separator">
-  <span> </span>
-  <span> </span>
-  <span> </span>
 </div>
