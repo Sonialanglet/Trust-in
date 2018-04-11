@@ -2,24 +2,42 @@
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <div class="title-groups">
-      <h3>Partagez vos recommandations sur vos prestataires de confiance  </h3>
+      <h3>Partagez vos recommandations </h3>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="picto-group">
+        <%= image_tag 'network.jpg' , height: 80, width: 80, crop: :fill %>
+       </div>
+    </div>
+
+    <div class="col-xs-8">
+      <div class="text-group">
+        <p> <strong> INVITEZ </strong> votre réseau à partager vos recommandations  </p>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="subtitle-groups">
-        <div class="img-network">
-          <%= image_tag 'share.png' %>
-        </div>
-        <div class="text-network">
-          <p> <strong> INVITEZ </strong> votre réseau à partager vos recommandations  </p>
+    <div class="col-xs-4">
+      <div class="picto-group">
+        <%= image_tag 'connections.jpg' , height: 80, width: 80, crop: :fill %>
+       </div>
+    </div>
+
+    <div class="col-xs-8">
+      <div class="text-group">
           <p> ... et <strong>BENEFICIEZ</strong> à votre tour de leurs recommandations ! </p>
-        </div>
-      </div>
+       </div>
     </div>
   </div>
+
+
+
 
 <% if !@pending_users.empty? %>
   <div class="row">
