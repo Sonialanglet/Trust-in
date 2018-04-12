@@ -73,24 +73,33 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Recommandé par : </h2>
-        <p> Recommandé par <%= pluralize(@prestation.recomands.count, 'utilisateur') %>  </p>
+        <h2> Recommandations : </h2>
+        <p> <%= pluralize(@prestation.recomands.count, 'recommandation') %>  </p>
         <% @prestation.recomands.each do |recomandation|%>
         <div class="img-recos">
           <ul>
             <li>
               <% if recomandation.user.facebook_picture_url %>
-                <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small_reco" %>
+               <div class="img-recos-photo">
+                  <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small_reco" %>
+               </div>
                 <div class="img-recos-name">
                   <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %>, </p>
                 </div>
               <% elsif recomandation.user.photo.present? %>
-                <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small_reco" %>
+                <div class="img-recos-photo">
+                  <%= image_tag cl_image_path(recomandation.user.photo, crop: :thumb, graviti: :face), class:"avatar_small_reco" %>
+                </div>
                 <div class="img-recos-name">
                 <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
                 </div>
               <% else %>
-                <%= image_tag "profile_icon.png", class:"avatar_small" %>    <i class="fa fa-thumbs-up"> </i>
+                 <div class="img-recos-name">
+                <%= image_tag "profile_icon.png", class:"avatar_small" %>
+                </div>
+                <div class="img-recos-name">
+                <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
+                </div>
               <% end %>
             </li>
           </ul>
@@ -99,7 +108,7 @@
         </div>
       <div class="recommandez-show">
 
-            <p> Recommandez-ici à votre tour :<%= link_to recomandation_prestation_path(@prestation), method: :post,
+            <p> Recommandez vous aussi :<%= link_to recomandation_prestation_path(@prestation), method: :post,
                data: { confirm: "Votre recommandation est ajoutée !" } do %>
                 <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
                 <% end %>
