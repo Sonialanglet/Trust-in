@@ -24,7 +24,7 @@
       <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to groups_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <span> Votre Reseau </span>
-      <span class="navbar-notification">  <%= current_user.pending_users.size %> </span>
+      <span class=" btn navbar-notification">  <%= current_user.pending_users.size %> </span>
       <% end %>
       <%= link_to bookings_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <i class="fa fa-envelope"></i>
@@ -66,7 +66,7 @@
         <li>
         <%= link_to groups_path, class: "navbar-wagon-item navbar-wagon-link" do %>
           <span> Reseau </span>
-          <span class="navbar-notification">  <%= current_user.pending_users.size %> </span>
+          <span class="btn navbar-notification">  <%= current_user.pending_users.size %> </span>
           <% end %>
         </li>
         <li>
