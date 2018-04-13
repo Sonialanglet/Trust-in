@@ -22,7 +22,7 @@
       <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Votre Reseau", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Votre Reseau (#{current_user.pending_users.size})", groups_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to bookings_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <i class="fa fa-envelope"></i>
       <%#=Group.count(:all, :conditions => "status = 'pending'" ) %>

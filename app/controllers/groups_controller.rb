@@ -28,19 +28,9 @@ class GroupsController < ApplicationController
       #     ")
       #   .where("group_users.status='pending' AND groups.founder_id <> ?  AND groups.category = 'principal'", current_user.id)
 
-      @pending_users = User.all
-        .joins(
-          "JOIN group_users ON group_users.user_id = users.id
-          JOIN groups ON groups.id = group_users.group_id
-          ")
-        .where("group_users.status='pending' AND groups.founder_id = ?  AND groups.category = 'principal'", current_user.id)
+      @pending_users = current_user.pending_users
 
-      @accepted_users = User.all
-        .joins(
-          "JOIN group_users ON group_users.user_id = users.id
-          JOIN groups ON groups.id = group_users.group_id
-          ")
-        .where("group_users.status='accepted' AND groups.founder_id = ?  AND groups.category = 'principal' AND users.id <> ?", current_user.id, current_user.id)
+      @accepted_users = current_user.accepted_users
 
       @prospected_users = User.all
         .where("users.id NOT IN (SELECT user_id FROM group_users WHERE group_id IN (SELECT id FROM groups WHERE founder_id = ? AND category = 'principal'))", current_user.id)
