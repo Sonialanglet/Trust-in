@@ -42,6 +42,21 @@ class User < ApplicationRecord
       return user
   end
 
+  def pending_users
+    User.joins(
+          "JOIN group_users ON group_users.user_id = users.id
+          JOIN groups ON groups.id = group_users.group_id
+          ")
+        .where("group_users.status='pending' AND groups.founder_id = ?  AND groups.category = 'principal'", self)
+  end
+
+  def accepted_users
+    User.joins(
+          "JOIN group_users ON group_users.user_id = users.id
+          JOIN groups ON groups.id = group_users.group_id
+          ")
+        .where("group_users.status='accepted' AND groups.founder_id = ?  AND groups.category = 'principal' AND users.id <> ?", self, self)
+  end
 
   private
 
