@@ -105,6 +105,35 @@
   </div>
 <% end %>
 
+<% if !@pending_invited_users.empty? %>
+  <div class="row">
+    <div class="groups-list">
+      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  EN ATTENTE </h3>
+      <p> <strong> </strong></p>
+      <p> Demandes deja faites </p>
+      <% @pending_invited_users.each do |user| %>
+
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <div class="one-group">
+            <ul>
+              <li>
+                <div class="one-to-add">
+                  <div class="name-to-add">
+
+                   <p>  <%= user.first_name %> <%= user.last_name.upcase %> </p>
+
+                   </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <% if !@accepted_users.empty? %>
   <div class="row">

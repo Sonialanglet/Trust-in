@@ -58,6 +58,33 @@ class User < ApplicationRecord
         .where("group_users.status='accepted' AND groups.founder_id = ?  AND groups.category = 'principal' AND users.id <> ?", self, self)
   end
 
+  def prospected_users
+    already_invited_users_ids = already_invited_users.ids
+    if already_invited_users_ids.empty?
+      User.where("id <> ?", self)
+    else
+      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self)
+    end
+  end
+
+  def already_invited_users(status = nil)
+    # Return all the users having this user (self) in its group
+    # whatever the status (pending or accepted)
+    if (status)
+      query = "members.id = ? AND groups.founder_id <> members.id AND group_users.status = '#{status}'"
+    else
+      query = "members.id = ? AND groups.founder_id <> members.id"
+    end
+
+    User.joins(
+          "JOIN groups ON groups.founder_id = users.id
+          JOIN group_users ON group_users.group_id = groups.id
+          JOIN users members ON members.id = group_users.user_id
+          ")
+        .where(query, self)
+        .distinct()
+  end
+
   private
 
     def send_welcome_email
