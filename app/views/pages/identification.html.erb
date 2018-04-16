@@ -5,10 +5,9 @@
         <h2> Vous recherchez des personnes pour vous aider ? </h2>
         <p> Babysitting, soutien scolaire, cours de musique, travaux, etc ..</p>
         <div class="arrow-blue">
-        <p> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
-        </div>
-        <div class="validation">
-          <%= link_to "continuer",network_page_path, :class => "btn btn-continuer validation"  %>
+          <%= link_to network_page_path do  %>
+          <p> <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></p>
+          <% end %>
         </div>
       </div>
 
@@ -20,10 +19,9 @@
       <div class="etre-prestataire">
         <h2> vous souhaitez proposer vos services ? </h2>
         <div class="arrow">
-        <p> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></p>
-        </div>
-        <div class="validation">
-          <%= link_to "devenir truster",edit_profile_path(current_user), :class => "btn btn-truster validation"  %>
+          <%= link_to edit_profile_path(current_user) do  %>
+            <p> <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></p>
+            <% end %>
         </div>
       </div>
 
