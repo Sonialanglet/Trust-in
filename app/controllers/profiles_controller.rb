@@ -41,6 +41,11 @@ end
     authorize @profile
  end
 
+ def edit2
+   @profile = current_user.profile
+    authorize @profile
+ end
+
 
 
   def update

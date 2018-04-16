@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="form-login-new">
         <h2>Rejoindre Trust-in</h2>
 
@@ -14,8 +14,8 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :first_name, required: true, autofocus: true, placeholder: "Alexander" %>
-            <%= f.input :last_name, required: true, placeholder: "Supertramp" %>
+            <%= f.input :first_name, label: "Prénom", required: true, autofocus: true, placeholder: "Alexander" %>
+            <%= f.input :last_name, label: "Nom", required: true, placeholder: "Supertramp" %>
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :photo %>
             <%= f.input :photo_cache, as: :hidden %>

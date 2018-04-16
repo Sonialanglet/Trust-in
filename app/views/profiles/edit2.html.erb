@@ -1,0 +1,52 @@
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="title-information">
+          <h2>  Trust-in, partage de recommandations et bons plans avec votre réseau</h2>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="edit2-profile edit2" >
+        <div class="card-form">
+         <h2> A vous de nous dire, <%= current_user.first_name %></h2>
+
+          <% if current_user %>
+           <%= simple_form_for @profile  do |f| %>
+
+
+              <%= f.error_notification %>
+              <div class="form-inputs">
+
+
+                <p> <%= f.input :town, label: "Quelle ville habitez-vous ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
+                <p> ---------------- </p>
+
+                <p> <%= f.input :school1, label: "Ecole ou crèche enfant1",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
+                <p> <%= f.input :school2, label: "Ecole ou crèche enfant2",autofocus: true, placeholder: "SFA" , required: false, hint: '(si différente)'%> </p>
+
+                <p> astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
+                <p> Rassurez-vous : ce sera toujours à vous de choisir avec qui vous voulez partager recommandations et bons plans ! </p>
+            </div>
+
+
+          <div class="form-actions">
+            <%= f.button :submit, "Valider" %>
+          </div>
+
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+

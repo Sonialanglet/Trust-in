@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
-  get "/network", to: "pages#network", as: :network_page
+  get "/information", to: "pages#information", as: :information_page
+  get "/edit2", to: "profiles#edit2", as: :edit2_profile
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
