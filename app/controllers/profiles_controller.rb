@@ -55,7 +55,10 @@ end
 
     @profile.update(profile_params)
     authorize @profile
-    redirect_to profile_path(@profile)
+    if :back == edit2
+     redirect_to profile_path(@profile)
+    else
+    end
   end
 
  # def destroy
