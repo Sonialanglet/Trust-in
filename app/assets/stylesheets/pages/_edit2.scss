@@ -9,8 +9,8 @@ h2 {
     font-size: 25px;
     margin-right: 5px;
     margin-left: 5px;
-
-
+    color: #66666f;
+    font-weight: bold;
 }
 
 h3 {
@@ -24,11 +24,14 @@ h3 {
 
 p {
   text-align: center;
-    font-family: Lato-Black;
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 5px;
-    margin-left: 5px;
+      font-family: lato;
+      font-size: 16px;
+      margin-right: 5px;
+      margin-left: 5px;
+      background: #26acdd;
+      border-radius: 5px;
+      color: white;
+      padding: 10px;
 
 
 }
@@ -39,12 +42,16 @@ p {
 .edit2-profile {
   background: white;
   padding: 20px;
+  border-radius: 5px;
+
 
 h2 {
   font-family: lato;
   font-size: 23px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 25px;
+  color: #26acdd;
 }
 
 p {
@@ -55,4 +62,34 @@ p {
 }
 
 }
+
+.school-astuce {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: #26acdd;
+  border-radius: 5px;
+
+  p {
+  color: white;
+
+
+  }
+
+
+
+}
+
+.btn-edit2 {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: #26acdd;
+  color:white;
+  border-radius: 3px;
+  width: 95px;
+  border: none;
+}
+
 
