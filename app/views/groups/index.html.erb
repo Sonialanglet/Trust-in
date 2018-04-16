@@ -31,7 +31,8 @@
 <% if !@pending_users.empty? %>
   <div class="row">
     <div class="groups-list">
-      <h3>    <i class="fas fa-users"></i> DEMANDES DE PARTAGE </h3>
+         <h3>  <i class="fas fa-users"></i> DEMANDES DE PARTAGE  <div class="btn navbar-notification">  <%= current_user.pending_users.size %> </div></h3>
+
       <p> Ces personnes ont demandé à partager leurs recommandations avec vous</p>
       <p> Si vous acceptez : vous aurez accès à toutes leurs recommandations et elles auront accès aux votres </p>
 

@@ -73,8 +73,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Recommandations : </h2>
-        <p> <%= pluralize(@prestation.recomands.count, 'recommandation') %>  </p>
+        <h2> <%= pluralize(@prestation.recomands.count, 'recommandation') %> </h2>
         <% @prestation.recomands.each do |recomandation|%>
         <div class="img-recos">
           <ul>
@@ -106,7 +105,16 @@
               <% end %>
 
         </div>
-      <div class="recommandez-show">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+
+        <div class="recommandez-show">
+          <h2> A vous de jouer !</h2>
 
             <p> Recommandez vous aussi :<%= link_to recomandation_prestation_path(@prestation), method: :post,
                data: { confirm: "Votre recommandation est ajoutée !" } do %>
@@ -116,6 +124,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <% if @prestation.description.present? %>
   <div class="row">
