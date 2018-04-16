@@ -42,6 +42,13 @@ class GroupsController < ApplicationController
   end
   end
 
+  def firstnetwork
+
+    @groups = Group.all
+    authorize @groups
+    @prospected_users = current_user.prospected_users
+  end
+
   def show
     @group = Group.find(params[:id])
     authorize @group
