@@ -22,6 +22,7 @@ gem "pundit"
 gem 'omniauth-facebook'
 gem "letter_opener", group: :development
 gem 'postmark-rails'
+gem "geocoder"
 
 
 group :development do

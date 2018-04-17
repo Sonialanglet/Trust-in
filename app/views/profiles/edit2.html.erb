@@ -17,14 +17,16 @@
          <h2> A vous de nous dire, <%= current_user.first_name %></h2>
 
           <% if current_user %>
-           <%= simple_form_for @profile  do |f| %>
+           <%= simple_form_for @profile do |f| %>
 
 
               <%= f.error_notification %>
               <div class="form-inputs">
 
+                <input id="profile_adress" placeholder="Enter your address"
+                            onFocus="geolocate()" type="text"></input>
 
-                <p> <%= f.input :town, label: "Quelle ville habitez-vous ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
+                <p> <%= f.input :adress, label: "Quelle est vtre adresse ?",autofocus: true, placeholder: "Boulogne", required: true, id:"profile_adress"%> </p>
 
                 <div class="separator">
                     <span> </span>
