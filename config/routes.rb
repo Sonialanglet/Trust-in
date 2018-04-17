@@ -11,11 +11,16 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
-  get "/network", to: "pages#network", as: :network_page
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :profiles, only: [:index, :show, :edit, :update ]
+  resources :profiles, only: [:index, :show, :edit, :update ] do
+    member do
+      get :edit2
+      end
+  end
 
   resources :prestations do
     collection do
@@ -44,6 +49,7 @@ Rails.application.routes.draw do
     member do
       get :want_join
       get :accept_join
+      get :firstnetwork
     end
   end
 

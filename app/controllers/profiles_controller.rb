@@ -41,6 +41,11 @@ end
     authorize @profile
  end
 
+ def edit2
+   @profile = current_user.profile
+    authorize @profile
+ end
+
 
 
   def update
@@ -50,7 +55,11 @@ end
 
     @profile.update(profile_params)
     authorize @profile
-    redirect_to profile_path(@profile)
+      if  URI(request.referer).path == "/profiles/#{current_user.id}/edit2"
+      redirect_to groups_path
+    else
+      redirect_to profile_path(@profile)
+    end
   end
 
  # def destroy

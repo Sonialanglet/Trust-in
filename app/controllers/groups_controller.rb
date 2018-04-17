@@ -42,6 +42,13 @@ class GroupsController < ApplicationController
   end
   end
 
+  def firstnetwork
+
+    @groups = Group.all
+    authorize @groups
+    @prospected_users = current_user.prospected_users
+  end
+
   def show
     @group = Group.find(params[:id])
     authorize @group
@@ -103,16 +110,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @wanted_to_join = GroupUser.create(user: current_user, group: @group, status: 'pending')
    if
-    @wanted_to_join.save
+     @wanted_to_join.save
      authorize @group
-    redirect_to groups_path, notice: 'Votre demande a bien été envoyée'
-else
+     redirect_to groups_path, notice: 'Votre demande a bien été envoyée'
+    else
 
-  authorize @group
-  redirect_to groups_path, notice: 'impossible'
-end
-
-
+      authorize @group
+      redirect_to groups_path, notice: 'impossible'
+    end
   end
 
   def accept_join

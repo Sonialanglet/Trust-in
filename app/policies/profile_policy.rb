@@ -19,6 +19,11 @@ class ProfilePolicy < ApplicationPolicy
     true
   end
 
+  def edit2?
+    true
+  end
+
+
   def destroy?
     record.user == user
   end
