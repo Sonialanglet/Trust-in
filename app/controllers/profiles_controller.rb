@@ -55,9 +55,10 @@ end
 
     @profile.update(profile_params)
     authorize @profile
-    if :back == edit2
-     redirect_to profile_path(@profile)
+      if  URI(request.referer).path == "/profiles/#{current_user.id}/edit2"
+      redirect_to groups_path
     else
+      redirect_to profile_path(@profile)
     end
   end
 
