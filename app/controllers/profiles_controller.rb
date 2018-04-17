@@ -2,7 +2,16 @@ class ProfilesController < ApplicationController
 
 def index
  policy_scope(Profile)
- @profiles = Profile.all
+
+ @profiles = Profile.where.not(latitude: nil, longitude: nil)
+
+    @markers = @profiles.map do |profile|
+      {
+        lat: profile.latitude,
+        lng: profile.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
 end
 
 
