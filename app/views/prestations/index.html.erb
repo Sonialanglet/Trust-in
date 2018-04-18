@@ -15,7 +15,7 @@
 
   <div class="row">
     <div class="filtres">
-      <h2> Explorez les services Trust-in</h2>
+      <h2> Explorez les services proposés</h2>
       <div class="filtres-categorie ">
 
         <% categories = [
@@ -47,7 +47,7 @@
     <% if @recomanded_prestations.present?%>
       <div class="row">
         <div class="allprestations">
-          <h3> Services recommandés par votre réseau :</h3>
+          <h3> Services recommandés par votre réseau </h3>
             <div class="the-recommanded">
               <% @recomanded_prestations.each do |prestation| %>
                   <div class="col-xs-12 col-sm-4">
@@ -65,7 +65,7 @@
     <% if @prestations.present?%>
       <div class="row">
         <div class="allprestations">
-          <h3> Services qui pourraient vous intéresser :</h3>
+          <h3> Services qui pourraient vous intéresser </h3>
           <div class="the-non-recommanded">
             <% @prestations.each do |prestation| %>
                 <div class="col-xs-12 col-sm-4">

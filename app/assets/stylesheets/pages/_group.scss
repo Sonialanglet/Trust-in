@@ -9,7 +9,7 @@ h3 {
   text-align: center;
     font-family: lato;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 22px;
     color: rgb(30, 84, 92);
 }
 
@@ -67,7 +67,7 @@ h3 {
     color:white;
     font-weight: bold;
     background: rgb(37, 150, 227);
-    max-width: 600px;
+    max-width: 750px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -91,6 +91,12 @@ h3 {
   border-style: outset;
   border-width: 1px;
   height: 40px;
+  background:white;
+
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 5px;
 
 
  ul {
@@ -111,8 +117,12 @@ h3 {
 }
 
 .name-to-add {
-  left: 110px;
+  left: 135px;
   position: absolute;
+  a {
+
+    color:black;
+  }
 }
 
 .circle-icon-add {
@@ -140,14 +150,14 @@ h3 {
   margin-left: auto;
   margin-right: auto;
   border-style: outset;
-      border-width: 1px;
+  border-width: 1px;
 }
 
 .search-form-groups h3{
   text-align: center;
-      font-family: lato;
-      font-size: 18px;
-      font-weight: bold;
+  font-family: lato;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .feature-groups-how {
@@ -186,11 +196,11 @@ h3 {
 
 
 .text-group {
- padding-top: 15px;
+
   text-align: left;
   margin-left: 10px;
   margin-right:10px;
-  margin-top: 15px;
+
 
 
   p {
@@ -202,3 +212,67 @@ h3 {
   }
 }
 
+.explication-groups {
+background-color:white;
+max-width: 650px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 10px;
+border-radius:3px;
+padding: 10px;
+
+}
+
+.confirm-join {
+  position: absolute;
+  left: 35px;
+
+  p {
+    color:white;
+    background-color: orange;
+    font-family: lato;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.confirm-join:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+
+}
+
+.name-to-confirm {
+  position: absolute;
+  left: 132px;
+  padding-top: 5px;
+
+  a {
+
+    color:black;
+  }
+}
+
+.invite-join {
+
+  background: white;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: orange;
+  border-radius: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  a {
+    color: orange;
+    font-size: 17px;
+  }
+}

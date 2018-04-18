@@ -141,18 +141,10 @@
 }
 
 .recomand-btn {
-  width: 35px;
   margin: 2px;
-  color: white;
   position: absolute;
-  font-size: 24px;
   left: 0px;
-  bottom: 22px;
-
-  a {
-    color:red;
-
-  }
+  bottom: 2px;
 
     }
 
@@ -207,3 +199,17 @@ top:2px;
     }
 
   }
+
+.btn-post {
+
+  color: white;
+  height: 46px;
+  width: 104px;
+  background: #26acdd;
+  /* margin: 12px; */
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: lato;
+  font-size: 18px;
+}
