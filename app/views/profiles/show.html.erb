@@ -30,28 +30,12 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="services">
-      <h2> Recommandations : </h2>
-      <div class="img-recos">
-        <% current_user.prestations.each do |prestation|%>
-          <div class="img-recos-name">
-            <% prestation.recomands.each do |reco|%>
-              <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
       <h2> Informations : </h2>
-      <div class="img-recos infos">
+      <div class="profile-infos">
         <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
         <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
         <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
@@ -78,10 +62,10 @@
           <% @prestations.each do |prestation|%>
             <li class="item-list" style="list-style-type: none";>
               <div class="name">
-                <%= prestation.category.name%>
+               <p><%= prestation.category.name%> </p>
               </div>
               <div class="price">
-                <%= prestation.price%>
+               <p> <%= prestation.price%></p>
               </div>
               <% if current_user == @profile.user %>
                 <div class="circle-icon-edit">
@@ -115,12 +99,29 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+      <h2> Recommandations : </h2>
+      <div class="img-reco">
+        <% current_user.prestations.each do |prestation|%>
+          <div class="img-recos-name">
+            <% prestation.recomands.each do |reco|%>
+              <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% if current_user == @profile.user %>
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
         <p>Vous souhaitez supprimer votre compte ? </p>
-        <div class="circle-icon-profile">
+        <div class="icon-delete-blue">
           <p class="name"><%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
           '.html_safe, registration_path(current_user),
           method: :delete,

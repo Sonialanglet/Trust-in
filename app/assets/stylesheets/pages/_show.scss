@@ -1,5 +1,5 @@
 .profil {
-  background-color: rgba(73, 205, 194,0.6);
+  background-color: rgb(38, 172, 221);
   justify-content: center;
 }
 
@@ -133,9 +133,10 @@ position:relative;
 }
 
 .name {
-  width: 160px;
+  width: 210px;
   font-family: lato;
   font-size: 16px;
+  margin-left:30px;
 
 
 }
@@ -172,7 +173,7 @@ position:relative;
 }
 
 .circle-icon-profile {
-    background: #17E8C7;
+    background: rgb(38, 172, 221);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -190,11 +191,26 @@ position:relative;
 
 }
 
+.icon-delete-blue {
+
+    width: 40px;
+    height: 40px;
+    display: flex;
+    position: absolute;
+    right: 40px;
+    top: 2px;
+    a {
+      color: rgb(38, 172, 221);
+    }
+
+
+}
+
 .plus {
   margin-top: 10px;
 }
 .circle-icon-plus {
-    background: #17E8C7;
+    background: rgb(38, 172, 221);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -272,7 +288,7 @@ p {
 
 .img-recos-name {
   position: absolute;
-  left: 115px;
+  left: 97px;
 
 }
 

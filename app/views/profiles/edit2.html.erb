@@ -1,4 +1,6 @@
 
+
+
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="title-information">
@@ -6,6 +8,11 @@
         </div>
       </div>
     </div>
+    <form>
+      <label>Address</label>
+      <input id="flat_address" placeholder="Votre adresse...">
+    </form>
+
 
 
 
@@ -17,14 +24,14 @@
          <h2> A vous de nous dire, <%= current_user.first_name %></h2>
 
           <% if current_user %>
-           <%= simple_form_for @profile  do |f| %>
-
-
+             <%= simple_form_for @profile do |f| %>
               <%= f.error_notification %>
               <div class="form-inputs">
 
+                <div id="profile_adress">
+                   <p> <%= f.input :adress, label: "Quelle est vtre adresse ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
+                </div>
 
-                <p> <%= f.input :town, label: "Quelle ville habitez-vous ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
 
                 <div class="separator">
                     <span> </span>
@@ -55,5 +62,4 @@
   </div>
   </div>
 </div>
-
 

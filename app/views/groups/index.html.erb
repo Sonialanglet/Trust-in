@@ -1,9 +1,10 @@
 
+<div class="explication-groups">
   <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <div class="title-groups">
-      <h3>Partagez vos recommandations </h3>
-      </div>
+    <div class="col-xs-12 ">
+        <div class="title-groups">
+          <h3>Partagez vos recommandations avec qui vous voulez </h3>
+        </div>
     </div>
   </div>
 
@@ -11,51 +12,51 @@
   <div class="row">
     <div class="col-xs-6">
       <div class="picto-group">
-        <%= image_tag 'thumbnetwork.jpg' , height: 200, width: 200, crop: :fill %>
+        <%= image_tag 'thumbnetwork.jpg' , height: 150, width: 150, crop: :fill %>
        </div>
     </div>
 
     <div class="col-xs-6">
       <div class="text-group">
         <p> <strong> INVITEZ </strong> votre réseau à partager vos recommandations </p>
-          <p> ... et <strong>BENEFICIEZ</strong> à votre tour de leurs recommandations ! </p>
+          <p> <strong>BENEFICIEZ</strong> à votre tour de leurs recommandations</p>
 
       </div>
     </div>
   </div>
 
-
+</div>
 
 
 
 <% if !@pending_users.empty? %>
   <div class="row">
     <div class="groups-list">
-         <h3>  <i class="fas fa-users"></i> DEMANDES DE PARTAGE  <div class="btn navbar-notification">  <%= current_user.pending_users.size %> </div></h3>
-
-      <p> Ces personnes ont demandé à partager leurs recommandations avec vous</p>
-      <p> Si vous acceptez : vous aurez accès à toutes leurs recommandations et elles auront accès aux votres </p>
-
+         <h3>  <i class="fas fa-users"></i> DEMANDES  <div class="btn navbar-notification">  <%= current_user.pending_users.size %> </div></h3>
+          <div class="expli-partage">
+            <p> Ces personnes ont demandé à partager leurs recommandations avec vous</p>
+            <p> Si vous acceptez : vous aurez accès à toutes leurs recommandations et elles auront accès aux votres </p>
+          </div>
 
       <% @pending_users.each do |user| %>
 
 
 
-              <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <div class="col-xs-12 col-md-6 col-md-offset-3">
                 <div class="one-group">
                   <ul>
                     <li>
                       <div class="one-to-add">
-                        <div class="name-to-add">
+                        <div class="name-to-confirm">
 
                           <%= link_to profile_path (user.profile) do%>
-                            <p> <%= user.first_name  %> <%= user.last_name  %> </p>
+                            <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
                            <% end %>
                         </div>
 
-                        <div class="">
+                        <div class="confirm-join">
                          <%= link_to accept_join_group_path (current_user.groups.first) do%>
-                           <p> ACCEPT</p>
+                           <p> confirmer</p>
                          <% end %>
                         </div>
                       </div>
@@ -74,24 +75,26 @@
 <% if !@prospected_users.empty? %>
   <div class="row">
     <div class="groups-list">
-      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  INVITEZ à partager vos recommandations </h3>
+      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  INVITEZ </h3>
       <p> <strong> </strong></p>
-      <p> Pour pouvoir à votre tour bénéficier de leurs recommandations et bons plans </p>
+      <p> Partagez vos recommandations et bénéficiez en retour de leurs recommandations et bons plans</p>
       <% @prospected_users.each do |user| %>
 
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="one-group">
             <ul>
               <li>
                 <div class="one-to-add">
                   <div class="name-to-add">
+                    <%= link_to profile_path (user.profile) do%>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
+                     <% end %>
 
-                   <p>  <%= user.first_name %> <%= user.last_name.upcase %> </p>
 
                    </div>
-                  <div class="">
+                  <div class="invite-join">
                      <%= link_to want_join_group_path (user.groups.first) do %>
-                    <i class="fas fa-user-plus" aria-hidden="true"></i>
+                    <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
                     <% end %>
                   </div>
 
@@ -111,10 +114,10 @@
     <div class="groups-list">
       <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  EN ATTENTE </h3>
       <p> <strong> </strong></p>
-      <p> Demandes deja faites </p>
+      <p> Demandes de partage en attente de validation </p>
       <% @pending_invited_users.each do |user| %>
 
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="one-group">
             <ul>
               <li>
@@ -143,7 +146,7 @@
 
 
        <% @accepted_users.each do |user| %>
-       <div class="col-xs-12 col-md-8 col-md-offset-2">
+       <div class="col-xs-12 col-md-6 col-md-offset-3">
          <div class="one-group">
            <ul>
              <li>
