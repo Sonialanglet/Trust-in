@@ -7,6 +7,7 @@
   text-align: center;
   font-family: lato;
   font-size: 20px;
+  color:white;
 }
 
 
@@ -40,8 +41,8 @@
 
 
 .services  {
-margin-top:10px;
-margin-bottom: 15px;
+margin-top:5px;
+margin-bottom: 5px;
 background-color: white;
 padding-top: 5px;
 padding-bottom: 20px;
@@ -58,13 +59,29 @@ position:relative;
 
 .services p {
   text-align: center;
-      font-family: lato;
-      font-size: 18px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 10px;
+  font-family: lato;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
+.recos-all {
+  margin-top:5px;
+  margin-bottom: 5px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 20px;
+
+h2 {
+  text-align: center;
+  font-family: lato;
+  font-weight: bold;
+  font-size: 23px;
+  padding-top: 15px;
+
+}
+}
 .photoservice {
   margin-top: 10px;
   height:80px;
@@ -105,10 +122,10 @@ position:relative;
     font-family: lato;
     font-weight: bold;
     font-size: 23px;
-    padding-top: 15px;
+    padding-top: 5px;
   }
-  margin-top:10px;
-  margin-bottom: 15px;
+  margin-top:5px;
+  margin-bottom: 5px;
   background-color: white;
   padding-left: 10px;
   padding-right: 10px;
@@ -118,8 +135,8 @@ position:relative;
   text-align: center;
   font-family: lato;
   font-size: 16px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .fiche-prestation {
@@ -249,14 +266,14 @@ p {
      border-radius: 3px;
 }
 
-.img-recos {
+.img-recos-presta {
+  display:flex;
 
-  display: flex;
-  position:relative;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
+  padding-bottom: 10px;
 
 
   p {
@@ -288,12 +305,12 @@ p {
 
 .img-recos-name {
   position: absolute;
-  left: 97px;
+  left: 112px;
 
 }
 
 .recommandez-show {
-  padding-top: 20px;
+
   background: white;
 
     p {
@@ -305,5 +322,23 @@ p {
           padding-top: 10px;
           color: orange;
           font-weight: bold;
+  }
+}
+
+.phone {
+  background-color: white;
+  width: 165px;
+  height: 32px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 3px;
+  margin-bottom: 11px;
+  padding: 5px;
+
+  p {
+    font-family: lato;
+    font-size: 16px;
+    color:black;
   }
 }

@@ -36,9 +36,29 @@
     <div class="services">
       <h2> Informations : </h2>
       <div class="profile-infos">
-        <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
-        <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
-        <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
+        <p> Lieu d'habitation : <%= @profile.town%> </p>
+        <p> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
+
+        <% if current_user == @profile.user %>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @profile.description.present? %>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="services">
+
+      <h2> Présentation : </h2>
+      <div class="profile-infos">
+        <p> <%= @profile.description%> </p>
 
 
         <% if current_user == @profile.user %>
@@ -52,6 +72,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
