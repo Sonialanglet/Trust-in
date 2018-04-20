@@ -16,9 +16,15 @@
       </div>
 
       <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
-      <% if @profile.phone %>
-       <p class="name-show">Tel: <%= @profile.phone%>  </p>
+      <% if @profile.date_of_birth %>
+       <p class="name-show"><%= (Date.today.year)-(@profile.date_of_birth.year)%> ans
+      </p>
       <% end %>
+      <% if @profile.phone %>
+        <div class="phone">
+           <p class="name-show">P : <%= @profile.phone%>  </p>
+        </div>
+        <% end %>
       <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
           <%= link_to edit_user_registration_path do %>
