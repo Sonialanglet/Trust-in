@@ -11,29 +11,31 @@ class PrestationsController < ApplicationController
          @prestations = Prestation.joins(:user, :category).where(sql_query, query: "%#{params[:query]}%")
          @category = Category.new
          @recomand = Recomand.new
-    elsif params[:category].present?
-      @category = params[:category]
-      @recomanded_prestations = policy_scope(Prestation)
-      .joins(
-        "JOIN categories c ON prestations.category_id = c.id
-        JOIN recomands r ON prestations.id = r.prestation_id
-        JOIN users user_prestation ON user_prestation.id = prestations.user_id
-        JOIN users user_recomand ON user_recomand.id = r.user_id
-        JOIN group_users ON group_users.user_id = user_recomand.id
-        JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
-        ")
-        .distinct
-        .where("my_group_users.status = 'accepted' AND group_users.status = 'accepted' AND my_group_users.user_id = ? AND c.name = ?", current_user.id, params[:category])
-      if @recomanded_prestations.present?
-        @prestations = policy_scope(Prestation)
-          .joins("JOIN categories c ON prestations.category_id = c.id")
-          .where("prestations.id NOT IN (?) AND c.name = ?", @recomanded_prestations.ids, params[:category])
-      else
-        @prestations = policy_scope(Prestation)
-          .joins("JOIN categories c ON prestations.category_id = c.id")
-          .where("c.name = ?", params[:category])
-      end
-      @recomand = Recomand.new
+     elsif params[:category].present?
+         @category = params[:category]
+         @recomanded_prestations = policy_scope(Prestation)
+         .joins(
+           "JOIN categories c ON prestations.category_id = c.id
+           JOIN recomands r ON prestations.id = r.prestation_id
+           JOIN users user_prestation ON user_prestation.id = prestations.user_id
+           JOIN users user_recomand ON user_recomand.id = r.user_id
+           JOIN group_users ON group_users.user_id = user_recomand.id
+           JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
+           ")
+           .distinct
+           .where("my_group_users.status = 'accepted' AND group_users.status = 'accepted' AND my_group_users.user_id = ? AND c.name = ?", current_user.id, params[:category])
+         if @recomanded_prestations.present?
+           @prestations = policy_scope(Prestation)
+             .joins("JOIN categories c ON prestations.category_id = c.id")
+             .where("prestations.id NOT IN (?) AND c.name = ?", @recomanded_prestations.ids, params[:category])
+         else
+           @prestations = policy_scope(Prestation)
+             .joins("JOIN categories c ON prestations.category_id = c.id")
+             .where("c.name = ?", params[:category])
+         end
+         @recomand = Recomand.new
+         render :search
+
     else
       @recomanded_prestations = policy_scope(Prestation)
       .joins(
@@ -65,9 +67,30 @@ class PrestationsController < ApplicationController
   end
 
   def search
-      @prestations = policy_scope(Prestation).joins(:category).where(category: "babysitting")
-      render :index
-      skip_authorization
+      @category = params[:category]
+      @recomanded_prestations = policy_scope(Prestation)
+      .joins(
+        "JOIN categories c ON prestations.category_id = c.id
+        JOIN recomands r ON prestations.id = r.prestation_id
+        JOIN users user_prestation ON user_prestation.id = prestations.user_id
+        JOIN users user_recomand ON user_recomand.id = r.user_id
+        JOIN group_users ON group_users.user_id = user_recomand.id
+        JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
+        ")
+        .distinct
+        .where("my_group_users.status = 'accepted' AND group_users.status = 'accepted' AND my_group_users.user_id = ? AND c.name = ?", current_user.id, params[:category])
+      if @recomanded_prestations.present?
+        @prestations = policy_scope(Prestation)
+          .joins("JOIN categories c ON prestations.category_id = c.id")
+          .where("prestations.id NOT IN (?) AND c.name = ?", @recomanded_prestations.ids, params[:category])
+      else
+        @prestations = policy_scope(Prestation)
+          .joins("JOIN categories c ON prestations.category_id = c.id")
+          .where("c.name = ?", params[:category])
+      end
+    @recomand = Recomand.new
+    render :search
+
      end
 
   def show
