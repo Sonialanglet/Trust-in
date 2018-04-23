@@ -15,16 +15,19 @@
                <p>  <%= f.input :town, label: "Ville d'habitation",autofocus: true, placeholder: "Boulogne", required: true%></p>
                <p><%= f.input :adress, label: "Adresse",autofocus: true, placeholder: "1 route de la Reine", required: true %> </p>
                 <p> <%= f.input :phone, label: "Mobile",autofocus: true, placeholder: "06-10-10-10-10", hint: "Votre téléphone sera visible. Vous aurez plus de chances d'être contacté rapidement",required: false %></p>
+
                 <p> <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %> </p>
 
-                <p> <%= f.input :school1, label: "Etablissement scolaire actuel",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
-                <p> <%= f.input :school2, label: "Précédent établissement",autofocus: true, placeholder: "SFA" , required: false%> </p>
+                <p> <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
+                <p> <%= f.input :school2, label: "Autre établissement",autofocus: true, placeholder: "SFA" , required: false%> </p>
+                <p> <%= f.input :formation1, label: "Diplôme",autofocus: true, placeholder: "Diplôme obtenu" , required: false%></p>
+                <p> <%= f.input :formation2, label: "Autre diplôme",autofocus: true, placeholder: "Autre diplôme obtenu" , required: false%></p>
 
             </div>
 
 
           <div class="form-actions">
-            <%= f.button :submit, "Valider" %>
+            <%= f.button :submit, "Valider",class:"btn-edit2" %>
           </div>
 
             <% end %>

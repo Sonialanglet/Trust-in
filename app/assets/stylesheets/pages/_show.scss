@@ -58,12 +58,23 @@ position:relative;
 }
 
 .services p {
-  text-align: center;
+
   font-family: lato;
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
+}
+
+.profile-infos {
+  padding-left: 30px;
+
+  ul {
+
+  list-style-type: none;
+  font-size: 15px;
+
+}
 }
 
 .recos-all {
@@ -146,14 +157,14 @@ h2 {
 
 .item-list {
   display:flex;
-  position:relative;
+
 }
 
 .name {
-  width: 210px;
+  width: 140px;
   font-family: lato;
   font-size: 16px;
-  margin-left:30px;
+
 
 
 }
@@ -215,7 +226,7 @@ h2 {
     display: flex;
     position: absolute;
     right: 40px;
-    top: 2px;
+    bottom: 2px;
     a {
       color: rgb(38, 172, 221);
     }
@@ -338,7 +349,7 @@ p {
 
   p {
     font-family: lato;
-    font-size: 16px;
+    font-size: 14px;
     color:black;
   }
 }
