@@ -31,7 +31,7 @@
   </div>
   <div class = "card-footer">
     <div class="info-prestataire">
-      <p ><strong> <%= prestation.user.first_name.upcase%> </strong> </p>
+      <p ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.upcase%></strong> </p>
       <% if prestation.user.profile.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
       <% end %>

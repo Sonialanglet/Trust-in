@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417093819) do
+ActiveRecord::Schema.define(version: 20180423091311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 20180417093819) do
     t.string "adress"
     t.string "school1"
     t.string "school2"
-    t.string "club1"
-    t.string "club2"
+    t.string "formation1"
+    t.string "formation2"
     t.bigint "user_id"
     t.date "date_of_birth"
     t.datetime "created_at", null: false
@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(version: 20180417093819) do
     t.string "phone"
     t.float "latitude"
     t.float "longitude"
+    t.string "child_school1"
+    t.string "child_school2"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

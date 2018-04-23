@@ -39,8 +39,10 @@
         </p>
         <% end %>
         <% if @prestation.user.profile.phone %>
-         <p class="name-show">Tel: <%= @prestation.user.profile.phone%>  </p>
-        <% end %>
+          <div class="phone">
+             <p class="name-show">P : <%= @prestation.user.profile.phone%>  </p>
+          </div>
+          <% end %>
         <% if policy(@booking).new? %>
           <%= link_to new_prestation_booking_path(@prestation) do %>
             <p class="btn btn-danger centered"> Contacter </p>
@@ -68,18 +70,16 @@
 
 
 
-
-
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="services">
+      <div class="recos-all">
         <h2> <%= pluralize(@prestation.recomands.count, 'recommandation') %> </h2>
         <% @prestation.recomands.each do |recomandation|%>
-        <div class="img-recos">
+        <div class="">
           <ul>
-            <li>
+            <li class="img-recos-presta">
               <% if recomandation.user.facebook_picture_url %>
-               <div class="img-recos-photo">
+               <div class="img-recos-photo-recos-photo">
                   <%= image_tag recomandation.user.facebook_picture_url, class:"avatar_small_reco" %>
                </div>
                 <div class="img-recos-name">
@@ -102,9 +102,9 @@
               <% end %>
             </li>
           </ul>
-              <% end %>
 
         </div>
+              <% end %>
       </div>
     </div>
   </div>
@@ -114,13 +114,13 @@
       <div class="services">
 
         <div class="recommandez-show">
-          <h2> A vous de jouer !</h2>
+          <h2> Recommandez à votre tour</h2>
 
-            <p> Recommandez vous aussi :<%= link_to recomandation_prestation_path(@prestation), method: :post,
+            <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
                data: { confirm: "Votre recommandation est ajoutée !" } do %>
                 <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
-                <% end %>
               </p>
+                <% end %>
         </div>
       </div>
     </div>
@@ -149,7 +149,35 @@
   </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <h2> Informations : </h2>
+        <div class="profile-infos">
+          <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.town%> </p>
+          <p> <strong> Etablissement(s) fréquentés :</strong> </p>
+          <ul>
+            <li> <%= @prestation.user.profile.school1%></li>
+            <li> <%= @prestation.user.profile.school2%></li>
+          </ul>
+          <p> <strong>Formation : </strong>
+            <ul>
+              <li> <%= @prestation.user.profile.formation1%></li>
+              <li> <%= @prestation.user.profile.formation2%></li>
+            </ul>
 
+
+          <% if current_user == @prestation.user %>
+            <div class="circle-icon-profile">
+              <%= link_to edit_profile_path(@prestation.user.profile) do %>
+                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
             <%= render 'reviews/form', prestation: @prestation, review: @review %>
@@ -160,14 +188,22 @@
 
     <div class="col-xs-12 col-md-6 col-md-offset-3">
 
+      <% if current_user == @prestation.user %>
+
         <% if policy(@prestation).destroy? %>
-          <% if current_user == @prestation.user %>
             <%= link_to prestation_path(@prestation),
                   method: :delete,
                   data: { confirm: "Are you sure?" } do %>
               <p class="btn-delete">Supprimer</p>
           <% end %>
           <% end %>
+
+
+              <%= link_to edit_prestation_path(@prestation) do %>
+                <p class="btn-delete">Modifier</p>
+            <% end %>
+
+
         <% end %>
     </div>
 

@@ -7,6 +7,10 @@
 
 
 .edit-profile {
+  background: white;
+  padding: 14px;
+  margin-top: 15px;
+
 
 h2 {
   font-family: lato;
@@ -17,9 +21,14 @@ h2 {
 
 p {
   font-family: lato;
-  font-size: 16px;
-  text-align: center;
-  color: rgb(37, 150, 227);
+  font-size: 15px;
+
+  color: rgb(76, 100, 166);
+}
+label {
+
+    font-family: lato;
+    font-size: 16px;
 }
 
 }

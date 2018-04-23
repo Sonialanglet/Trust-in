@@ -16,9 +16,15 @@
       </div>
 
       <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
-      <% if @profile.phone %>
-       <p class="name-show">Tel: <%= @profile.phone%>  </p>
+      <% if @profile.date_of_birth %>
+       <p class="name-show"><%= (Date.today.year)-(@profile.date_of_birth.year)%> ans
+      </p>
       <% end %>
+      <% if @profile.phone %>
+        <div class="phone">
+           <p class="name-show"><strong> Mobile :</strong> <%= @profile.phone%>  </p>
+        </div>
+        <% end %>
       <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
           <%= link_to edit_user_registration_path do %>
@@ -36,9 +42,17 @@
     <div class="services">
       <h2> Informations : </h2>
       <div class="profile-infos">
-        <p class="name-show"> Lieu d'habitation : <%= @profile.town%> </p>
-        <p class="name-show"> Ecole(s) fréquentées : <%= @profile.school1%>, <%= @profile.school2%> </p>
-        <p class="name-show"> Club et associations : <%= @profile.club1%>, <%= @profile.club2%> </p>
+        <p> <strong> Lieu d'habitation :  </strong><%= @profile.town%> </p>
+        <p> <strong> Etablissement(s) fréquentés :</strong> </p>
+        <ul>
+          <li> <%= @profile.school1%></li>
+          <li> <%= @profile.school2%></li>
+        </ul>
+        <p> <strong>Formation : </strong>
+          <ul>
+            <li> <%= @profile.formation1%> </li>
+            <li> <%= @profile.formation2%> </li>
+          </ul>
 
 
         <% if current_user == @profile.user %>
@@ -53,51 +67,76 @@
   </div>
 </div>
 
+<% if @profile.description.present? %>
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
-      <h2> Prestations proposées: </h2>
-      <div class="fiche-prestation">
-        <ul>
-          <% @prestations.each do |prestation|%>
-            <li class="item-list" style="list-style-type: none";>
-              <div class="name">
-               <p><%= prestation.category.name%> </p>
-              </div>
-              <div class="price">
-               <p> <%= prestation.price%></p>
-              </div>
-              <% if current_user == @profile.user %>
-                <div class="circle-icon-edit">
-                  <%= link_to edit_prestation_path(prestation) do %>
-                    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                  <% end %>
-                </div>
 
-                <div class="circle-icon-delete">
-                  <%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
-                  '.html_safe, prestation_path(prestation),
-                  method: :delete,
-                  data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+      <h2> Présentation : </h2>
+      <div class="profile-infos">
+        <p> <%= @profile.description%> </p>
+
+
+        <% if current_user == @profile.user %>
+          <div class="circle-icon-profile">
+            <%= link_to edit_profile_path(@profile) do %>
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-
-    <% if current_user == @profile.user %>
-      <div class="plus">
-        <div class="circle-icon-plus">
-          <%= link_to new_prestation_path do %>
-            <i class="fa fa-plus" aria-hidden="true"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
+<% end %>
+
+<% if @prestations.present? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="services">
+        <h2> Prestations proposées: </h2>
+        <div class="fiche-prestation">
+          <ul>
+            <% @prestations.each do |prestation|%>
+              <li class="item-list" style="list-style-type: none";>
+                <div class="name">
+                 <p><%= prestation.category.name%> </p>
+                </div>
+                <div class="price">
+                 <p> <%= prestation.price%></p>
+                </div>
+                <% if current_user == @profile.user %>
+                  <div class="circle-icon-edit">
+                    <%= link_to edit_prestation_path(prestation) do %>
+                      <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                    <% end %>
+                  </div>
+
+                  <div class="circle-icon-delete">
+                    <%= link_to '<i class="fas fa-trash-alt" aria-hidden="true"></i>
+                    '.html_safe, prestation_path(prestation),
+                    method: :delete,
+                    data: { confirm: 'are you sure?'},class: "btn btn-gray"%>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <% if current_user == @profile.user %>
+        <div class="plus">
+          <div class="circle-icon-plus">
+            <%= link_to new_prestation_path do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -107,7 +146,9 @@
         <% current_user.prestations.each do |prestation|%>
           <div class="img-recos-name">
             <% prestation.recomands.each do |reco|%>
-              <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p>
+            <ul>
+              <li>  <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p> </li>
+            </ul>
             <% end %>
           </div>
         <% end %>

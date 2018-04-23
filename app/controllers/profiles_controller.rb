@@ -46,7 +46,7 @@ end
 
 
  def edit
-   @profile = Profile.find(params[:id])
+   @profile = current_user.profile
     authorize @profile
  end
 
