@@ -6,16 +6,18 @@
             <p> Les  champs (*) doivent être obligatoirement complétés pour pouvoir proposer ses services </p>
 
            <% if current_user %>
+
             <%= simple_form_for @profile do |f| %>
 
               <%= f.error_notification %>
               <div class="form-inputs">
+           <input class="form-control string required" autofocus="autofocus" required="required" aria-required="true" placeholder="Boulogne" type="text" value="Boulogne" name="profile[town]" id="profile_town" autocomplete="off">
 
                <p> <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %> </p>
+
                <p>  <%= f.input :town, label: "Ville d'habitation",autofocus: true, placeholder: "Boulogne", required: true%></p>
-               <div id="adress">
-                 <p><%= f.input :adress, label: "Adresse",autofocus: true, placeholder: "1 route de la Reine", required: true %> </p>
-               </div>
+
+
                 <p> <%= f.input :phone, label: "Mobile",autofocus: true, placeholder: "06-10-10-10-10", hint: "Votre téléphone sera visible. Vous aurez plus de chances d'être contacté rapidement",required: false %></p>
 
                 <p> <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %> </p>
