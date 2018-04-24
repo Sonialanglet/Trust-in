@@ -1,14 +1,28 @@
-<p>Bienvenue <%= @user.first_name %>,</p>
+<div class="cadre-email">
+
+  <div class="text-welcome">
+    <p>Bienvenue @user.first_name,</p>
+    <p>  Nous avons le plaisir de vous accueillir au sein de la Communauté Trust-in @Boulogne </p> <br>
+
+    <p>  Nous avons tous un réseau de proximité assez peu exploité : </p>
+      <ul>
+        <li> <p> parents dans la même école que vos enfants que vous croisez régulièrement </p> </li>
+        <li> <p> connaissances de votre club de sport</p></li>
+        <li> <p> amis/collègues habitant votre quartier , etc ..</p></li>
+      </ul>
 
 
-
-<p>
-  Nous avons le plaisir de vous accueillir au sein de la Communauté Trust-in.
-
-  Que vous ayez besoin d’aide dans la réalisation d’une tâche ou que vous souhaitiez proposer vos services, rendez-vous sur www.trust-in.fr
+    <p>  Dans cet espace, vous pourrez trouver tous les bons plans recommandés par votre réseau de proximité : babysitters de confiance, prof de musique, petsitter, aide pour des travaux ... </p>
+    <p> Envie de proposer vos services ?</p>
+    <p>Rendez-vous sur www.trust-in.fr </p>
 
 
+    </div>
+        <%= link_to "Se connecter",identification_page_path, :class => "btn btn-connecter"  %>
+    </div>
 
 
+  </div>
 
-</p>
+</div>
+
