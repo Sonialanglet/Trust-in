@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :prestations do
     collection do
       get 'recomanded_prestations'
-
+      get 'search'
 
     end
 

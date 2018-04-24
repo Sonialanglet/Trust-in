@@ -50,7 +50,7 @@
           <h3> Services recommandés par votre réseau </h3>
             <div class="the-recommanded">
               <% @recomanded_prestations.each do |prestation| %>
-                  <div class="col-xs-12 col-sm-4">
+                  <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="one-card">
                     <%= render 'shared/card-prestation', prestation: prestation %>
                     </div>
@@ -68,7 +68,7 @@
           <h3> Services qui pourraient vous intéresser </h3>
           <div class="the-non-recommanded">
             <% @prestations.each do |prestation| %>
-                <div class="col-xs-12 col-sm-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="one-card">
                   <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
                   </div>
