@@ -31,8 +31,14 @@ class BookingsController < ApplicationController
       @booking.prestation = @prestation
       @booking.user = current_user
       authorize @booking
-      @booking.save
-      redirect_to booking_path(@booking)
+
+      if @booking.save
+        UserMailer.notify_book(@booking).deliver_now
+        redirect_to booking_path(@booking)
+
+      else
+        render :new
+      end
     end
 
 

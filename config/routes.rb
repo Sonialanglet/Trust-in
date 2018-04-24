@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
-
+  get "/welcomeessai", to: "pages#welcomeessai", as: :welcomeessai_page
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

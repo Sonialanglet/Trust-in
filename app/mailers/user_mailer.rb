@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.user_mailer.welcome.subject
-  default from: "sonia@trust-in.fr"
+  default from: "Trust-in Boulogne@trust-in.fr"
 
   #
 
@@ -17,11 +17,16 @@ class UserMailer < ApplicationMailer
 
 
 
-       def reset_password_instructions(record, token, opts={})
-             @token = token
-             @user = record
+ def reset_password_instructions(record, token, opts={})
+       @token = token
+       @user = record
 
-             mail(to: @user.email, subject: 'reset_password_instructions')
-           end
+       mail(to: @user.email, subject: 'reset_password_instructions')
+ end
 
+def notify_book(user)
+  @user = user # Instance variable => available in view
+
+  mail(to:   @user.prestation.user.email, subject: 'Nouveau message dans Trust-in')
+end
 end
