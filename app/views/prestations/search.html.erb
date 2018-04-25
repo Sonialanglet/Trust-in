@@ -21,42 +21,42 @@
     <h2> Découvrez les services <%= @category%></h2>
   </div>
 
-<div class="all-search-prestations">
+  <div class="all-search-prestations">
 
-  <% if @recomanded_prestations.present?%>
-    <div class="row">
-      <div class="allprestations">
-        <h3> Services recommandés par votre réseau </h3>
-          <div class="the-recommanded">
-            <% @recomanded_prestations.each do |prestation| %>
+    <% if @recomanded_prestations.present?%>
+      <div class="row">
+        <div class="allprestations">
+          <h3> Services recommandés par votre réseau </h3>
+            <div class="the-recommanded">
+              <% @recomanded_prestations.each do |prestation| %>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="one-card">
+                    <%= render 'shared/card-prestation', prestation: prestation %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="all-search-prestations">
+    <% if @prestations.present?%>
+      <div class="row">
+        <div class="allprestations">
+          <h3> Services qui pourraient vous intéresser </h3>
+          <div class="the-non-recommanded">
+            <% @prestations.each do |prestation| %>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="one-card">
-                  <%= render 'shared/card-prestation', prestation: prestation %>
+                  <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
                   </div>
                 </div>
             <% end %>
-          </div>
-      </div>
-    </div>
-  <% end %>
-
-
-  <% if @prestations.present?%>
-    <div class="row">
-      <div class="allprestations">
-        <h3> Services qui pourraient vous intéresser </h3>
-        <div class="the-non-recommanded">
-          <% @prestations.each do |prestation| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="one-card">
-                <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
-                </div>
-              </div>
-          <% end %>
         </div>
+    <% end %>
       </div>
-    </div>
-  <% end %>
-
+  </div>
 
 </div>
