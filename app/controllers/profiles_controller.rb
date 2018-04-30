@@ -19,6 +19,7 @@ end
 
    @profile = Profile.find(params[:id])
 
+
     skip_authorization
     @prestations = Prestation.where({user_id: @profile.user.id})
 
@@ -80,8 +81,8 @@ end
  # end
 
  def profile_params
-   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :school1, :school2, :club1, :club2, :phone)
- end
+   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :school1, :school2, :formation1, :formation2, :phone, :child_school1, :child_school2)
+end
 
 
 end

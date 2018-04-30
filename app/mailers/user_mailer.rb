@@ -24,9 +24,21 @@ class UserMailer < ApplicationMailer
        mail(to: @user.email, subject: 'reset_password_instructions')
  end
 
-def notify_book(user)
-  @user = user # Instance variable => available in view
+def notify_book(booking)
+  @booking = booking # Instance variable => available in view
 
-  mail(to:   @user.prestation.user.email, subject: 'Nouveau message dans Trust-in')
+  mail(to:   @booking.prestation.user.email, subject: 'Nouveau message dans Trust-in')
 end
+
+def notify_want_join(group)
+  @group = group
+  mail(to:   @group.founder.email, subject: 'Nouvelle demande dans Trust-in')
+end
+
+def notify_accept_join(group_user)
+  @group_user = group_user
+  mail(to:   group_user.user.email, subject: 'Votre demande a été acceptée dans Trust-in')
+end
+
+
 end

@@ -40,6 +40,7 @@
                 <div id="" class="card-form">
                   <% if current_user %>
                     <%= simple_form_for @prestation do |f| %>
+                  <%= f.error_notification %>
                   <div class="message-error">
 
                   </div>
