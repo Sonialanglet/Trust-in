@@ -13,7 +13,9 @@
               <div class="form-inputs">
 
                <p> <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %> </p>
-
+                <% if flash[:error] %>
+                  <p class="error"><%= flash[:error] %></p>
+                <% end %>
                <p>  <%= f.input :adress, label: "Indiquez votre adresse complète",autofocus: true, placeholder: "Boulogne", required: true%></p>
 
 

@@ -63,12 +63,23 @@ end
    # @profile = current_user.profile
    @profile = Profile.find(params[:id])
 
-    @profile.update(profile_params)
     authorize @profile
-      if  URI(request.referer).path == "/profiles/#{current_user.id}/edit2"
-      redirect_to groups_path
+    if  URI(request.referer).path == "/profiles/#{current_user.id}/edit2"
+     if profile_params[:adress].empty?
+        flash[:error] = 'Adresse obligatoire'
+        redirect_to edit2_profile_path(@profile)
+      else
+        @profile.update(profile_params)
+        redirect_to groups_path
+      end
     else
-      redirect_to profile_path(@profile)
+      if profile_params[:adress].empty?
+        flash[:error] = 'Adresse obligatoire'
+        redirect_to edit_profile_path(@profile)
+      else
+        @profile.update(profile_params)
+        redirect_to profile_path(@profile)
+      end
     end
   end
 
