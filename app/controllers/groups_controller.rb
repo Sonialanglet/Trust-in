@@ -38,7 +38,9 @@ class GroupsController < ApplicationController
       @pending_invited_users = current_user.already_invited_users('pending')
 
       @groups = Group.all
-      @group = Group.new
+
+
+
   end
   end
 
@@ -112,6 +114,7 @@ class GroupsController < ApplicationController
    if
      @wanted_to_join.save
      authorize @group
+     UserMailer.notify_want_join(@group).deliver_now
      redirect_to groups_path, notice: 'Votre demande a bien été envoyée'
     else
 
@@ -132,6 +135,8 @@ class GroupsController < ApplicationController
    @group_users.each do |group_user|
     group_user.status = 'accepted'
     group_user.save
+    UserMailer.notify_accept_join(group_user).deliver_now
+
   end
 
 
