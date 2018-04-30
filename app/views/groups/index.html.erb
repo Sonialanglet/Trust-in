@@ -49,7 +49,7 @@
                       <div class="one-to-add">
                         <div class="name-to-confirm">
 
-                          <%= link_to profile_path (@profile) do%>
+                          <%= link_to profile_path (user.profile) do%>
                             <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
                            <% end %>
                         </div>
@@ -86,7 +86,7 @@
               <li>
                 <div class="one-to-add">
                   <div class="name-to-add">
-                    <%= link_to profile_path (user) do%>
+                    <%= link_to profile_path (user.profile) do%>
                       <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
                      <% end %>
 
@@ -157,7 +157,7 @@
 
                   </div>
                  <div class="">
-                    <%= link_to profile_path (user) do %>
+                    <%= link_to profile_path (user.profile) do %>
                    <i class="far fa-user-circle" aria-hidden="true"></i>
                    <% end %>
                  </div>
