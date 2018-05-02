@@ -23,6 +23,7 @@ gem 'omniauth-facebook'
 gem "letter_opener", group: :development
 gem 'postmark-rails'
 gem "geocoder"
+gem 'forest_liana'
 
 
 group :development do

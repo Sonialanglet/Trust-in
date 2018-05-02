@@ -23,8 +23,6 @@ end
     skip_authorization
     @prestations = Prestation.where({user_id: @profile.user.id})
 
-
-
   end
 
 #   def new
