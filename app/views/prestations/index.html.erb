@@ -44,14 +44,14 @@
     </div>
   </div>
 
-    <% if @recomanded_prestations.present?%>
       <div class="row">
+    <% if @recomanded_prestations.present?%>
         <div class="allprestations">
           <h3> Services recommandés par votre réseau </h3>
-            <div class="the-recommanded">
               <% @recomanded_prestations.each do |prestation| %>
+            <div class="the-recommanded">
                   <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="one-card">
+                    <div class="">
                     <%= render 'shared/card-prestation', prestation: prestation %>
                     </div>
                   </div>
@@ -66,8 +66,8 @@
     <% if @prestations.present?%>
         <div class="allprestations">
           <h3> Services qui pourraient vous intéresser </h3>
-          <div class="the-non-recommanded">
             <% @prestations.each do |prestation| %>
+          <div class="the-non-recommanded">
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="one-card">
                   <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
