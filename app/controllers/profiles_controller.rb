@@ -20,11 +20,8 @@ end
    @profile = Profile.find(params[:id])
 
 
-
     skip_authorization
     @prestations = Prestation.where({user_id: @profile.user.id})
-
-
 
   end
 

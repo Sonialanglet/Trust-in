@@ -75,6 +75,9 @@
         <h2> Informations : </h2>
         <div class="profile-infos">
           <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.town%> </p>
+
+          <p> <strong> Distance :  </strong><%= Geocoder::Calculations.distance_between([@prestation.user.profile.latitude, @prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})%> </p>
+
           <p> <strong> Etablissement(s) fréquentés :</strong> </p>
           <ul>
             <li> <%= @prestation.user.profile.school1%></li>
