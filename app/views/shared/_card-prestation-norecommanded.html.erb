@@ -1,7 +1,7 @@
 <% if prestation.user.facebook_picture_url %>
   <% avatar_url = prestation.user.facebook_picture_url %>
 <% elsif prestation.user.photo.present? %>
-  <% avatar_url = cl_image_path(prestation.user.photo, crop: :fill) %>
+  <% avatar_url = cl_image_path(prestation.user.photo, crop: :thumb, graviti: :face) %>
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
@@ -22,47 +22,52 @@
 <% end %>
 
 <div class="card-prestations-index">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category%>');">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
     <div class="card-category">  <%= prestation.category.name%> </div>
     <div class="card-description">
     </div>
-    <%= image_tag avatar_url, crop: :fill, class:'card-user' %>
+
     <%= link_to '', prestation_path(prestation), class:'card-link' %>
   </div>
   <div class = "card-footer">
     <div class="info-prestataire">
+
       <p ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.upcase%></strong> </p>
       <% if prestation.user.profile.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
       <% end %>
       <p> <%= prestation.user.profile.town%> </p>
+      <p> Distance : </p>
     </div>
     <div class="recos-prestataire">
 
-        <div class="recomand">
-          <% if prestation.recomands.count > 0 %>
-          <%= image_tag "star.png", class:'star-recomand' %>
-          <% else %>
-          <%= image_tag "star0.png", class:'star-recomand' %>
-          <% end %>
-          <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+      <div class="recomand">
+        <% if prestation.recomands.count > 0 %>
+        <%= image_tag "star.png", class:'star-recomand' %>
+        <% else %>
+        <%= image_tag "star0.png", class:'star-recomand' %>
+        <% end %>
+        <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+      </div>
 
 
 
-        </div>
-          <div class="recommandez-ici">
+        <div class="recommandez-ici">
           <p>  <%= link_to recomandation_prestation_path(prestation), method: :post,
           data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
             <div class="recomand-btn">
              <%= image_tag 'recomand.jpg', width: 60, height: 60 %>
             </div>
             <% end %>
-
-      </p>
-          </div>
+          </p>
+        </div>
     </div>
+
   </div>
-  </div>
+    <div class="link-detail">
+      <%= link_to 'detail', prestation_path(prestation), class:'btn btn-detail' %>
+     </div>
+</div>
 
 
 

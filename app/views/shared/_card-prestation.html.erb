@@ -22,11 +22,11 @@
 <% end %>
 
 <div class="card-prestations-index-recomanded">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category%>');">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
     <div class="card-category">  <%= prestation.category.name%> </div>
     <div class="card-description">
     </div>
-    <%= image_tag avatar_url, crop: :fill, class:'card-user' %>
+
     <%= link_to '', prestation_path(prestation), class:'card-link' %>
   </div>
   <div class = "card-footer">
@@ -78,13 +78,15 @@
               <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
             </div>
             <% end %>
-
       </p>
           </div>
     </div>
+    <div class="link-detail">
+      <%= link_to 'detail', prestation_path(prestation), class:'btn btn-detail' %>
+     </div>
+  </div>
 
-  </div>
-  </div>
+</div>
 
 
 
