@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503073205) do
+ActiveRecord::Schema.define(version: 20180503090653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,10 @@ ActiveRecord::Schema.define(version: 20180503073205) do
     t.string "child_school1"
     t.string "child_school2"
     t.float "distance"
+    t.string "street_number"
+    t.string "route"
+    t.string "locality"
+    t.string "country"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

@@ -63,16 +63,17 @@ end
 
     authorize @profile
     if  URI(request.referer).path == "/profiles/#{current_user.id}/edit2"
-     if profile_params[:adress].empty?
+     if profile_params[:adress].nil? || profile_params[:adress].empty?
         flash[:error] = 'Adresse obligatoire'
         redirect_to edit2_profile_path(@profile)
       else
         @profile.update(profile_params)
         @profile.distance = Geocoder::Calculations.distance_between([@profile.latitude, @profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})
+        raise
         redirect_to groups_path
       end
     else
-      if profile_params[:adress].empty?
+      if profile_params[:adress].nil? || profile_params[:adress].empty?
         flash[:error] = 'Adresse obligatoire'
         redirect_to edit_profile_path(@profile)
       else

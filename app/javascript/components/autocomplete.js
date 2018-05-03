@@ -1,18 +1,31 @@
-function autocomplete() {
-  document.addEventListener("DOMContentLoaded", function() {
-    var profileAddress = document.getElementById('profile_adress');
 
-    if (profileAddress) {
-      var autocomplete = new google.maps.places.Autocomplete(profileAddress, { types: [ 'geocode' ] });
-      google.maps.event.addDomListener(profileAddress, 'keydown', function(e) {
-        if (e.key === "Enter") {
-          e.preventDefault(); // Do not submit the form on Enter.
-        }
-      });
-    }
-  });
+
+function initializeAutocomplete(id) {
+  var element = document.getElementById('profile_adress');
+  if (element) {
+    var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+  }
 }
 
-export { autocomplete };
+function onPlaceChanged() {
+  var place = this.getPlace();
+
+  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+  for (var i in place.address_components) {
+    var component = place.address_components[i];
+    for (var j in component.types) {  // Some types are ["country", "political"]
+      var type_element = document.getElementById(component.types[j]);
+      if (type_element) {
+        type_element.value = component.long_name;
+      }
+    }
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', function() {
+  initializeAutocomplete('profile_adress');
+});
 
 
