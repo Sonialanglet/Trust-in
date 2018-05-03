@@ -8,8 +8,6 @@ function autocomplete(id) {
   }
 }
 
-
-
 function onPlaceChanged() {
   var place = this.getPlace();
 
