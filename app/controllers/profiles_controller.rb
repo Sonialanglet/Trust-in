@@ -68,6 +68,7 @@ end
         redirect_to edit2_profile_path(@profile)
       else
         @profile.update(profile_params)
+        @profile.distance = Geocoder::Calculations.distance_between([@profile.latitude, @profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})
         redirect_to groups_path
       end
     else
@@ -76,6 +77,7 @@ end
         redirect_to edit_profile_path(@profile)
       else
         @profile.update(profile_params)
+        @profile.distance = Geocoder::Calculations.distance_between([@profile.latitude, @profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})
         redirect_to profile_path(@profile)
       end
     end
