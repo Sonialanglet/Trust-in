@@ -17,9 +17,12 @@
                   <p class="error"><%= flash[:error] %></p>
                 <% end %>
                <p>  <%= f.input :adress, label: "Indiquez votre adresse complète",autofocus: true, placeholder: "Boulogne", required: true%></p>
-               <%= f.hidden_field :street_number, label: "Num",autofocus: true, required: true, type:"hidden" %>
-               <%= f.hidden_field :route, label: "Rue",autofocus: true%>
-               <p>  <%= f.input :locality, label: "Ville",autofocus: true, required: true %></p>
+               <%= f.hidden_field :street_number, label: "Num" %>
+               <%= f.hidden_field :route, label: "Rue"%>
+               <p>  <%= f.input :locality, label: "Ville" %></p>
+               <%= f.hidden_field :country, label: "pays"%>
+               <%= f.hidden_field :longitude, label: "longitude"%>
+               <%= f.hidden_field :latitude, label: "latitude"%>
 
 
 

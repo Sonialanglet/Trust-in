@@ -13,6 +13,7 @@ class PrestationsController < ApplicationController
          @recomand = Recomand.new
      elsif params[:category].present?
          @category = params[:category]
+
          @recomanded_prestations = policy_scope(Prestation)
          .joins(
            "JOIN categories c ON prestations.category_id = c.id
@@ -28,10 +29,11 @@ class PrestationsController < ApplicationController
            @prestations = policy_scope(Prestation)
              .joins("JOIN categories c ON prestations.category_id = c.id")
              .where("prestations.id NOT IN (?) AND c.name = ?", @recomanded_prestations.ids, params[:category])
-         else
+
            @prestations = policy_scope(Prestation)
              .joins("JOIN categories c ON prestations.category_id = c.id")
              .where("c.name = ?", params[:category])
+
          end
          @recomand = Recomand.new
          render :search
