@@ -24,8 +24,11 @@
               <%= f.error_notification %>
               <div class="form-inputs">
 
-                   <p> <%= f.input :adress, label: "Quelle est votre adresse ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
-                   <p>  <%= f.input :town, label: "Indiquez votre ville",autofocus: true, placeholder: "Boulogne", required: true%></p>
+                <p> <%= f.input :adress, label: "Quelle est votre adresse ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
+                <%= f.hidden_field :street_number, label: "Num",autofocus: true, required: true, type:"hidden" %>
+                <%= f.hidden_field :route, label: "Rue",autofocus: true%>
+                <p>  <%= f.input :locality, label: "Ville",autofocus: true, required: true %></p>
+
 
                    <div class="school-astuce">
                      <p> <i class="far fa-lightbulb"></i> Votre adresse ne sera jamais visible, ni communiquée. Elle sera utilisée uniquement pour géolocaliser les prestataires les plus proches de chez vous.</p>

@@ -33,7 +33,7 @@
         </div>
 
         <p class="name-show"><%= @prestation.user.first_name%> <%= @prestation.user.last_name%> </p>
-        <p class="name-show"><%= @prestation.user.profile.town%> </p>
+        <p class="name-show"><%= @prestation.user.profile.locality%> </p>
 
         <% if @prestation.user.profile.date_of_birth %>
          <p class="name-show"><%= (Date.today.year)-(@prestation.user.profile.date_of_birth.year)%> ans
@@ -74,7 +74,7 @@
       <div class="services">
         <h2> Informations : </h2>
         <div class="profile-infos">
-          <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.town%> </p>
+          <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.locality%> </p>
           <% if @prestation.user.profile.distance %>
           <p> <strong> Distance controller : </strong> <%= (@prestation.user.profile.distance).round(1)%> Km</p>
           <% end %>
