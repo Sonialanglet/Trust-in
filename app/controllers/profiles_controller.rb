@@ -68,8 +68,6 @@ end
         redirect_to edit2_profile_path(@profile)
       else
         @profile.update(profile_params)
-        @profile.distance = Geocoder::Calculations.distance_between([@profile.latitude, @profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})
-        raise
         redirect_to groups_path
       end
     else
@@ -78,7 +76,6 @@ end
         redirect_to edit_profile_path(@profile)
       else
         @profile.update(profile_params)
-        @profile.distance = Geocoder::Calculations.distance_between([@profile.latitude, @profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})
         redirect_to profile_path(@profile)
       end
     end
@@ -93,7 +90,7 @@ end
  # end
 
  def profile_params
-   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :child_school1, :child_school2, :street_number, :route, :locality, :country, :distance)
+   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :child_school1, :child_school2, :street_number, :route, :locality, :country)
 end
 
 

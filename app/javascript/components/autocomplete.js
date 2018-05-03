@@ -9,20 +9,23 @@ function autocomplete(id) {
 }
 
 function onPlaceChanged() {
-  var place = this.getPlace();
+    var place = this.getPlace();
 
-  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
-
-  for (var i in place.address_components) {
-    var component = place.address_components[i];
-    for (var j in component.types) {  // Some types are ["country", "political"]
-      var type_element = document.getElementById(component.types[j]);
-      if (type_element) {
-        type_element.value = component.long_name;
+    for (var i in place.address_components) {
+      var component = place.address_components[i];
+      for (var j in component.types) {
+        var type_element = document.getElementById(component.types[j]);
+        if (type_element) {
+          type_element.value = component.long_name;
+        }
       }
     }
+
+    var longitude = document.getElementById("longitude");
+    var latitude = document.getElementById("latitude");
+    longitude.value = place.geometry.location.lng();
+    latitude.value = place.geometry.location.lat();
   }
-}
 
 google.maps.event.addDomListener(window, 'load', function() {
   autocomplete('profile_adress');
