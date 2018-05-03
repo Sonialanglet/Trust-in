@@ -93,7 +93,7 @@ end
  # end
 
  def profile_params
-   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :child_school1, :child_school2)
+   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :child_school1, :child_school2, :street_number, :route, :locality, :country, :distance)
 end
 
 
