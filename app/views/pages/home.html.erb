@@ -1,10 +1,11 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.8) 0%, rgba(0,36,61,0.2) 60%),
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.7) 0%, rgba(0,36,61,0.1) 60%),
 url(<%= image_path 'bulles.jpg' %>);">
   <div class="banner-content">
-    <h1> Trust-in </h1>
+    <h1> </h1>
     <div class="text-banner">
-      <p> Le réseau pour simplifier votre quotidien de parents </p>
+      <h2> Bénéficiez des recommandations de votre réseau </h2>
+      <p> pour vous aider dans votre quotidien</p>
       <%if @first_visit %>
   </div>
       <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
@@ -28,8 +29,8 @@ url(<%= image_path 'bulles.jpg' %>);">
 
 <div class="container">
   <div class="row">
-     <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: url('<%= image_path 'babysitting.jpg', width: 80, height:80, crop: :fill %>');">
+     <div class="col-xs-12 col-sm-3">
+        <div class="card-homepage" style="background: url('<%= image_path 'babysitting.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
               <h2>BABYSITTING</h2>
@@ -38,8 +39,8 @@ url(<%= image_path 'bulles.jpg' %>);">
         </div>
      </div>
 
-     <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: url('<%= image_path 'books.jpg', width: 80, height:80, crop: :fill %>');">
+     <div class="col-xs-12 col-sm-3">
+        <div class="card-homepage" style="background: url('<%= image_path 'books.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category"> </div>
             <div class="card-description">
               <h2>SOUTIEN SCOLAIRE</h2>
@@ -47,11 +48,21 @@ url(<%= image_path 'bulles.jpg' %>);">
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
      </div>
-     <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: url('<%= image_path 'travaux.jpg' , width: 80, height:80, crop: :fill %>');">
+     <div class="col-xs-12 col-sm-3">
+        <div class="card-homepage" style="background: url('<%= image_path 'travaux.jpg' , width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
               <h2>PETITS TRAVAUX</h2>
+            </div>
+          <%= link_to '', prestations_path, class:'card-link' %>
+        </div>
+     </div>
+
+     <div class="col-xs-12 col-sm-3">
+        <div class="card-homepage" style="background: url('<%= image_path 'petsitting.jpg' , width: 80, height:80, crop: :fill %>');">
+          <div class="card-category">  </div>
+            <div class="card-description">
+              <h2>PET SITTING</h2>
             </div>
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
