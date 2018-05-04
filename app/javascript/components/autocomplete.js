@@ -14,15 +14,15 @@ function onPlaceChanged() {
     for (var i in place.address_components) {
       var component = place.address_components[i];
       for (var j in component.types) {
-        var type_element = document.getElementById(component.types[j]);
+        var type_element = document.getElementById(profile_component.types[j]);
         if (type_element) {
           type_element.value = component.long_name;
         }
       }
     }
 
-    var longitude = document.getElementById("longitude");
-    var latitude = document.getElementById("latitude");
+    var longitude = document.getElementById("profile_longitude");
+    var latitude = document.getElementById("profile_latitude");
     longitude.value = place.geometry.location.lng();
     latitude.value = place.geometry.location.lat();
   }
