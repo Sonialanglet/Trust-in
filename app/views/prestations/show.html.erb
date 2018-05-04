@@ -1,7 +1,7 @@
 <% if @prestation.user.facebook_picture_url %>
   <% avatar_url = @prestation.user.facebook_picture_url %>
 <% elsif @prestation.user.photo.present? %>
-  <% avatar_url = cl_image_path(@prestation.user.photo, width: 200, height: 200, crop: :thumb, graviti: :face) %>
+  <% avatar_url = cl_image_path(@prestation.user.photo, width: 130, height: 130, crop: :thumb, graviti: :face) %>
 <% else %>
   <% avatar_url = "profile_icon.png" %>
 <% end %>
