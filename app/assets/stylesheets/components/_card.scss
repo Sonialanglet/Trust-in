@@ -15,6 +15,23 @@
   margin-right: auto;
 }
 
+.card-homepage {
+  height: 180px;
+  width: 180px;
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 2px 0px #aaa;
+}
+
 
 .one-card {
   margin-top:10px;
@@ -87,15 +104,21 @@
 .card-description {
   position: absolute;
   bottom: 3px;
-  left: 10px;
+  width: 180px;
 
 }
 .card-description h2 {
-  font-size: 20px;
+  font-size: 15px;
  color: #4c64a6;
  font-weight: bold;
  background-color:white;
-}
+ padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+ }
+
+
+
 .card-description p {
   font-size: 14px;
   opacity: 0.7;

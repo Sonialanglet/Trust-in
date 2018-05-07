@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-xs-6">
       <div class="picto-group">
-        <%= image_tag 'poucebleu.png' , width: 150 %>
+        <%= image_tag 'sharing.jpg' , width: 150, class:"picto-group" %>
        </div>
     </div>
 
@@ -75,10 +75,12 @@
 <% if !@prospected_users.empty? %>
   <div class="row">
     <div class="groups-list">
-      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  INVITEZ </h3>
-      <p> <strong> </strong></p>
+      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  SUGGESTIONS POUR VOUS </h3>
+
       <p> Partagez vos recommandations et bénéficiez en retour de leurs recommandations et bons plans</p>
       <% @prospected_users.each do |user| %>
+
+      <% if user.profile.locality == current_user.profile.locality %>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="one-group">
@@ -87,10 +89,9 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                     <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- Habite: <%= user.profile.locality  %> hh </p>
+
                      <% end %>
-
-
                    </div>
                   <div class="invite-join">
                      <%= link_to want_join_group_path (user.groups.first) do %>
@@ -103,9 +104,39 @@
             </ul>
           </div>
         </div>
+      <% end %>
+
+      <% if user.profile.locality != current_user.profile.locality %>
+
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="one-group">
+            <ul>
+              <li>
+                <div class="one-to-add">
+                  <div class="name-to-add">
+                    <%= link_to profile_path (user.profile) do%>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- Habite: <%= user.profile.locality  %> hh </p>
+
+                     <% end %>
+                   </div>
+                  <div class="invite-join">
+                     <%= link_to want_join_group_path (user.groups.first) do %>
+                    <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                    <% end %>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+
 
       <% end %>
     </div>
+
+
   </div>
 <% end %>
 
@@ -142,7 +173,7 @@
 <% if !@accepted_users.empty? %>
   <div class="row">
     <div class="groups-list">
-      <h3>    <i class="far fa-address-book" aria-hidden="true"></i>  Votre réseau :</h3>
+      <h3>    <i class="far fa-address-book" aria-hidden="true"></i>  VOTRE RESEAU :</h3>
 
 
        <% @accepted_users.each do |user| %>
