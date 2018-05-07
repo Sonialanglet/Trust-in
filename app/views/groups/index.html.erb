@@ -106,8 +106,37 @@
         </div>
       <% end %>
 
+      <% if user.profile.locality != current_user.profile.locality %>
+
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="one-group">
+            <ul>
+              <li>
+                <div class="one-to-add">
+                  <div class="name-to-add">
+                    <%= link_to profile_path (user.profile) do%>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- Habite: <%= user.profile.locality  %> hh </p>
+
+                     <% end %>
+                   </div>
+                  <div class="invite-join">
+                     <%= link_to want_join_group_path (user.groups.first) do %>
+                    <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                    <% end %>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+
+
       <% end %>
     </div>
+
+
   </div>
 <% end %>
 
