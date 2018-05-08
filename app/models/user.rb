@@ -19,10 +19,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :groups, dependent: :destroy, foreign_key: 'founder_id'
 
-
   devise :omniauthable, omniauth_providers: [:facebook]
-
-
 
   def self.find_for_facebook_oauth(auth)
       user_params = auth.slice(:provider, :uid)
@@ -46,19 +43,13 @@ class User < ApplicationRecord
   end
 
   def facebook_friends
-     User.where(uid: facebook_uids)
+    User.where(uid: facebook_uids)
   end
 
   def prospected_facebook_friends
-
-     already_invited_users_ids = already_invited_users.ids
-     if already_invited_users_ids.empty?
-       User.where("id <> ?", self).where(uid: facebook_uids)
-     else
-       User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where(uid: facebook_uids)
-     end
+    already_invited_users_ids = already_invited_users.ids
+    User.where.not(id: already_invited_users_ids).where.not(id: self).where(uid: facebook_uids)
   end
-
 
   def pending_users
     User.joins(
@@ -78,11 +69,9 @@ class User < ApplicationRecord
 
   def prospected_users
     already_invited_users_ids = already_invited_users.ids
-    if already_invited_users_ids.empty?
-      User.where("id <> ?", self).where.not(uid: facebook_uids)
-    else
-      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where.not(uid: facebook_uids)
-    end
+    # Exclude the facebook friends
+    # Search users not already invited with no Facebook id OR not facebook friend
+    User.where(uid: nil).or(User.where.not(uid: facebook_uids)).where.not(id: already_invited_users_ids).where.not(id: self)
   end
 
   def already_invited_users(status = nil)
@@ -105,31 +94,33 @@ class User < ApplicationRecord
 
   private
 
-    def send_welcome_email
-      UserMailer.welcome(self).deliver_now
-    end
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
-    def build_profile(user)
+  def build_profile(user)
+   profile=Profile.new(user: user)
+   profile.save
+   end
 
-     profile=Profile.new(user: user)
-     profile.save
-     end
+  def build_group(user)
+    group = Group.new(title: "carnet d'adresse de #{user.first_name} #{user.last_name}", founder: user, category: 'principal')
+    group.save
+    group_user = GroupUser.new(group: group, user: user, status: "accepted")
+    group_user.save
+  end
 
-    def build_group(user)
-
-     group = Group.new(title: "carnet d'adresse de #{user.first_name} #{user.last_name}", founder: user, category: 'principal')
-     group.save
-     group_user = GroupUser.new(group: group, user: user, status: "accepted")
-     group_user.save
-     end
-
-     def facebook_uids
-        url = "https://graph.facebook.com/me/friends?access_token=#{token}"
-        user_friends_request = open(url).read
-        user_friends = JSON.parse(user_friends_request)
-        user_friends["data"].map do |user|
-          user["id"]
-        end
+  def facebook_uids
+    url = "https://graph.facebook.com/me/friends?access_token=#{token}"
+    begin
+      user_friends_request = open(url).read
+      user_friends = JSON.parse(user_friends_request)
+      user_friends["data"].map do |user|
+        user["id"]
       end
-
+    rescue
+      # In case of error, return an empty array
+      []
+    end
+  end
 end
