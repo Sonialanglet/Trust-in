@@ -46,14 +46,19 @@ class User < ApplicationRecord
   end
 
   def facebook_friends
-    url = "https://graph.facebook.com/me/friends?access_token=#{token}"
-    user_friends_request = open(url).read
-    user_friends = JSON.parse(user_friends_request)
-    emails = user_friends.data.map do |user|
-      user.email
-      end
-     User.where("email in #{emails}")
+     User.where(uid: facebook_uids)
   end
+
+  def prospected_facebook_friends
+
+     already_invited_users_ids = already_invited_users.ids
+     if already_invited_users_ids.empty?
+       User.where("id <> ?", self).where(uid: facebook_uids)
+     else
+       User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where(uid: facebook_uids)
+     end
+  end
+
 
   def pending_users
     User.joins(
@@ -74,9 +79,9 @@ class User < ApplicationRecord
   def prospected_users
     already_invited_users_ids = already_invited_users.ids
     if already_invited_users_ids.empty?
-      User.where("id <> ?", self)
+      User.where("id <> ?", self).where.not(uid: facebook_uids)
     else
-      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self)
+      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where.not(uid: facebook_uids)
     end
   end
 
@@ -117,5 +122,14 @@ class User < ApplicationRecord
      group_user = GroupUser.new(group: group, user: user, status: "accepted")
      group_user.save
      end
+
+     def facebook_uids
+        url = "https://graph.facebook.com/me/friends?access_token=#{token}"
+        user_friends_request = open(url).read
+        user_friends = JSON.parse(user_friends_request)
+        user_friends["data"].map do |user|
+          user["id"]
+        end
+      end
 
 end
