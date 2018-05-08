@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class User < ApplicationRecord
   after_create :send_welcome_email
   after_create do |user|
@@ -23,7 +26,7 @@ class User < ApplicationRecord
 
   def self.find_for_facebook_oauth(auth)
       user_params = auth.slice(:provider, :uid)
-      user_params.merge! auth.info.slice(:email, :first_name, :last_name, :password, :user_friends)
+      user_params.merge! auth.info.slice(:email, :first_name, :last_name, :password)
       user_params[:facebook_picture_url] = auth.info.image
       user_params[:token] = auth.credentials.token
       user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
@@ -41,6 +44,21 @@ class User < ApplicationRecord
 
       return user
   end
+
+  def facebook_friends
+     User.where(uid: facebook_uids)
+  end
+
+  def prospected_facebook_friends
+
+     already_invited_users_ids = already_invited_users.ids
+     if already_invited_users_ids.empty?
+       User.where("id <> ?", self).where(uid: facebook_uids)
+     else
+       User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where(uid: facebook_uids)
+     end
+  end
+
 
   def pending_users
     User.joins(
@@ -61,9 +79,9 @@ class User < ApplicationRecord
   def prospected_users
     already_invited_users_ids = already_invited_users.ids
     if already_invited_users_ids.empty?
-      User.where("id <> ?", self)
+      User.where("id <> ?", self).where.not(uid: facebook_uids)
     else
-      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self)
+      User.where("id NOT IN (?) AND id <> ?", already_invited_users_ids, self).where.not(uid: facebook_uids)
     end
   end
 
@@ -104,5 +122,14 @@ class User < ApplicationRecord
      group_user = GroupUser.new(group: group, user: user, status: "accepted")
      group_user.save
      end
+
+     def facebook_uids
+        url = "https://graph.facebook.com/me/friends?access_token=#{token}"
+        user_friends_request = open(url).read
+        user_friends = JSON.parse(user_friends_request)
+        user_friends["data"].map do |user|
+          user["id"]
+        end
+      end
 
 end
