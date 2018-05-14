@@ -58,7 +58,6 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Services Proposés : </h2>
         <div class="img-services">
          <%= image_tag category, class: "photoservice" %>
         </div>
@@ -72,7 +71,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Informations : </h2>
+
         <div class="profile-infos">
           <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.locality%> </p>
           <p> <strong> Distance :  </strong><%= (Geocoder::Calculations.distance_between([@prestation.user.profile.latitude, @prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
@@ -106,7 +105,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
-        <h2> Présentation : </h2>
+
         <p> <%=  @prestation.description %> </p>
       </div>
     </div>

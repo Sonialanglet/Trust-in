@@ -1,12 +1,19 @@
 
 .card {
-  height: 250px;
-      /* width: 150px; */
+  position:relative;
+  border-radius: 50%;
+
+  height: 180px;
+  width: 180px;
   background-size: cover !important;
   background-position: center;
   color: white;
-  position: relative;
-  border-radius: 7px;
+  /* position: relative; */
+
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
@@ -60,27 +67,23 @@
 
 
 .card-prestations-index {
-
+  padding-top: 10px;
   margin-left: 8px;
   margin-right: 8px;
   background-color: white;
   margin-top: 6px;
   box-shadow: 2px 2px 0px #aaa;
-
-
   border-radius: 7px;
 
 }
 
 .card-prestations-index-recomanded {
-
+  padding-top: 10px;
   margin-left: 8px;
   margin-right: 8px;
   background-color: white;
   margin-top: 6px;
   box-shadow: 2px 2px 0px rgb(0, 255, 254);
-  padding-top: 20px;
-  padding-left: 10px;
   border-radius: 7px;
 }
 
@@ -138,12 +141,13 @@
 .card-footer {
      // background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(http://res.cloudinary.com/dfjd5sbad/image/upload/v1511968719/emghxa2ioidbq0etjfxd.jpg);
   background-position: center;
-  height: 200px;
+  height: 155px;
   background-color: white;
   padding-left: 6px;
-  padding-top: 5px;
+  padding-top: 10px;
   border-color: #E6E6E6;
   position:relative;
+  margin-top:15px;
 
   h3 {
   font-family: lato;
@@ -161,6 +165,7 @@
      color: #4F4F4F;
      margin: 0;
          }
+
 }
 
 .categories {
@@ -192,7 +197,12 @@
   right: 23px;
   width: 80px;
 
+  p {
+    font-size:20px;
+    font-weight:bold;
+    text-align: center;
 
+  }
 
 
 }
@@ -215,9 +225,7 @@
 
 .recomand-reseau-count {
   width: 80px;
-  position: absolute;
-  top: 41px;
-  right: 0px;
+
 
   p {
 
@@ -231,8 +239,7 @@
 
 .recomand-reseau-list {
   width: 81px;
-  position: absolute;
-  top: 85px;
+
 
 
   p {

@@ -23,45 +23,55 @@
 
 <div class="card-prestations-index">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
-    <div class="card-category">  <%= prestation.category.name%> </div>
-
 
     <%= link_to '', prestation_path(prestation), class:'card-link' %>
   </div>
-  <div class = "card-footer">
-    <div class="info-prestataire">
 
+  <div class = "card-footer">
+    <div class="recomand-reseau">
+        <% if prestation.recomands.count > 0 %>
+            <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+            data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+             <i class="fas fa-thumbs-up" ></i>
+              <% end %>
+             </p>
+
+          <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+            <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+            <% end %>
+          </div>
+
+        <% else %>
+          <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+          <i class="far fa-thumbs-up"></i>
+          <% end %>
+          </p>
+          <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+            <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
+            <% end %>
+          </div>
+
+        <% end %>
+
+    </div>
+
+
+    <div class="names">
       <p ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.upcase%></strong> </p>
+
+
       <p ><strong> <%= prestation.category.name.upcase%> </strong> </p>
       <% if prestation.user.profile.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
       <% end %>
       <p> <%= prestation.user.profile.locality%> </p>
+
       <p> Distance : <%= (Geocoder::Calculations.distance_between([prestation.user.profile.latitude, prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
     </div>
-    <div class="recos-prestataire">
 
-      <div class="recomand">
-        <% if prestation.recomands.count > 0 %>
-        <%= image_tag "star.png", class:'star-recomand' %>
-        <% else %>
-        <%= image_tag "star0.png", class:'star-recomand' %>
-        <% end %>
-        <p> <%= pluralize(prestation.recomands.count, 'reco')%> </p>
-      </div>
-
-
-
-        <div class="recommandez-ici">
-          <p>  <%= link_to recomandation_prestation_path(prestation), method: :post,
-          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
-            <div class="recomand-btn">
-             <%= image_tag 'recomand.jpg', width: 60, height: 60 %>
-            </div>
-            <% end %>
-          </p>
-        </div>
-    </div>
 
   </div>
 
