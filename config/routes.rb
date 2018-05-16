@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
     member do
       post 'recomandation'
+      delete 'cancel_recomandation'
     end
     resources :reviews, only: [:create ]
     resources :bookings, only: [:new, :create]

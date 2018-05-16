@@ -39,9 +39,6 @@
           </div>
 
       <% @pending_users.each do |user| %>
-
-
-
               <div class="col-xs-12 col-md-6 col-md-offset-3">
                 <div class="one-group">
                   <ul>
@@ -77,9 +74,36 @@
     <div class="groups-list">
       <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  SUGGESTIONS POUR VOUS </h3>
 
-      <p> Partagez vos recommandations et bénéficiez en retour de leurs recommandations et bons plans</p>
-      <% @prospected_users.each do |user| %>
+      <p> Partagez vos recommandations et bénéficiez en retour des recommandations et bons plans de votre réseau</p>
 
+      <!-- on pousse d'abord les amis facebook-->
+        <%current_user.prospected_facebook_friends.each do |user| %>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="one-group">
+            <ul>
+              <li>
+                <div class="one-to-add">
+                  <div class="name-to-add">
+                    <%= link_to profile_path (user.profile) do%>
+                   <p><%= user.first_name %> <%= user.last_name.upcase %> - ami Facebook </p>
+                   <% end %>
+                   </div>
+                   <div class="invite-join">
+                      <%= link_to want_join_group_path (user.groups.first) do %>
+                     <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                     <% end %>
+                   </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <% @prospected_users.each do |user| %>
+      <!-- on pousse ensuite les personnes de la meme ville-->
       <% if user.profile.locality == current_user.profile.locality %>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -89,8 +113,7 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                     <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- Habite: <%= user.profile.locality  %> hh </p>
-
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>-<%= user.profile.locality  %> </p>
                      <% end %>
                    </div>
                   <div class="invite-join">
@@ -115,7 +138,7 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                     <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- Habite: <%= user.profile.locality  %> </p>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- <%= user.profile.locality  %> </p>
 
                      <% end %>
                    </div>
@@ -187,7 +210,7 @@
                   <p>  <%= user.first_name %> <%= user.last_name.upcase %> </p>
 
                   </div>
-                 <div class="">
+                 <div class="profile-acess">
                     <%= link_to profile_path (user.profile) do %>
                    <i class="far fa-user-circle" aria-hidden="true"></i>
                    <% end %>
@@ -204,48 +227,5 @@
 <% end %>
 
 
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class = "search-form-groups">
-        <h3> <i class="fa fa-search-plus" aria-hidden="true"></i>  Rechercher une personne </h3>
 
 
-      <%= form_tag groups_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "rechercher par nom de famille"
-        %>
-      <% end %>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div>
-
-  <%current_user.prospected_facebook_friends.each do |user| %>
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="one-group">
-      <ul>
-        <li>
-          <div class="one-to-add">
-            <div class="name-to-add">
-
-             <p>  <%= user.first_name %> <%= user.last_name.upcase %> </p>
-
-             </div>
-            <div class="">
-               <%= link_to profile_path (user.profile) do %>
-              <i class="far fa-user-circle" aria-hidden="true"></i>
-              <% end %>
-            </div>
-
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <% end %>
-</div>

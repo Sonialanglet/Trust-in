@@ -1,7 +1,7 @@
 
 
-    <h2> Avis : </h2>
-    <p> <%= @prestation.reviews.count %> avis </p>
+
+  <strong> <p> <%= @prestation.reviews.count %> avis </p> </strong>
     <div class="review_single">
        <% @prestation.reviews.each do |review| %>
        <li>

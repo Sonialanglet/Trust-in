@@ -22,14 +22,59 @@
 <% end %>
 
 <div class="card-prestations-index-recomanded">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
-    <div class="card-category">  <%= prestation.category.name%> </div>
+  <div class="photo-index" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path avatar_url%>');">
 
     <%= link_to '', prestation_path(prestation), class:'card-link' %>
   </div>
+
   <div class = "card-footer">
-    <div class="info-prestataire">
-      <p ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.upcase%></strong> </p>
+    <div class="recomand-reseau">
+        <% if prestation.recomands.count > 1 %>
+            <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+            data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+             <i class="fas fa-thumbs-up btn btn-vote" ></i>
+              <% end %>
+             </p>
+
+          <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+            <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau :</p>
+            <% end %>
+          </div>
+          <div class="recomand-reseau-list">
+            <p> par <%= prestation.recomands.first.user.first_name%> et d'autres  </p>
+         </div>
+
+         <% elsif prestation.recomands.count == 1 %>
+            <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+            data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+            <i class="fas fa-thumbs-up btn btn-vote" ></i>
+            <% end %>
+            </p>
+           <div class="recomand-reseau-count" >
+            <%= link_to prestation_path(prestation) do %>
+             <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau :</p>
+               <% end %>
+           </div>
+           <div class="recomand-reseau-list">
+             <p> par <%= prestation.recomands.first.user.first_name%> </p>
+          </div>
+
+        <% else %>
+          <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
+          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
+          <i class="far fa-thumbs-up btn btn-vote"></i>
+          <% end %>
+          </p>
+        <% end %>
+
+    </div>
+
+
+    <div class="names">
+      <h4><strong> <%= prestation.user.first_name.capitalize%> </strong> </h4>
+
+
       <p ><strong> <%= prestation.category.name.upcase%> </strong> </p>
       <% if prestation.user.profile.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
@@ -38,50 +83,7 @@
 
       <p> Distance : <%= (Geocoder::Calculations.distance_between([prestation.user.profile.latitude, prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
     </div>
-    <div class="recos-prestataire">
 
-        <div class="recomand-reseau">
-          <% if prestation.recomands.count > 1 %>
-            <%= image_tag "star.png", class:'star-recomand-reseau' %>
-            <div class="recomand-reseau-count" >
-              <%= link_to prestation_path(prestation) do %>
-              <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
-              <% end %>
-            </div>
-            <div class="recomand-reseau-list">
-              <p> par <%= prestation.recomands.first.user.first_name%> et d'autres  </p>
-           </div>
-
-           <% elsif prestation.recomands.count == 1 %>
-             <%= image_tag "star.png", class:'star-recomand-reseau' %>
-             <div class="recomand-reseau-count" >
-              <%= link_to prestation_path(prestation) do %>
-               <p> <%= pluralize(prestation.recomands.count, 'reco')%> par votre réseau !</p>
-                 <% end %>
-
-             </div>
-             <div class="recomand-reseau-list">
-               <p> par <%= prestation.recomands.first.user.first_name%> </p>
-            </div>
-
-          <% else %>
-          <%= image_tag "star0.png", class:'star-recomand-reseau' %>
-          <% end %>
-
-         </div>
-
-
-        </div>
-          <div class="recommandez-ici">
-          <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
-          data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
-            <div class="recomand-btn">
-              <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
-            </div>
-            <% end %>
-      </p>
-          </div>
-    </div>
 
   </div>
 

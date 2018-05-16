@@ -24,6 +24,9 @@ class PrestationPolicy < ApplicationPolicy
   def recomandation?
     true # Tous les users peuvent créer une recomandation
   end
+  def cancel_recomandation?
+    true # Tous les users peuvent créer une recomandation
+  end
   def recomanded_prestations?
     true
   end

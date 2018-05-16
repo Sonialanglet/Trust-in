@@ -55,10 +55,10 @@
 
   </div>
 
+
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Services Proposés : </h2>
         <div class="img-services">
          <%= image_tag category, class: "photoservice" %>
         </div>
@@ -72,7 +72,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-        <h2> Informations : </h2>
+
         <div class="profile-infos">
           <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.locality%> </p>
           <p> <strong> Distance :  </strong><%= (Geocoder::Calculations.distance_between([@prestation.user.profile.latitude, @prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
@@ -106,7 +106,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
-        <h2> Présentation : </h2>
+
         <p> <%=  @prestation.description %> </p>
       </div>
     </div>
@@ -166,22 +166,59 @@
     </div>
   </div>
 
-  <div class="row">
+
+  <% @prestation.recomands.each do |recomandation|%>
+    <% if recomandation.user == current_user %>
+      <div class="row">
+         <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="services">
+              <div class="cancel-reco">
+                <p> Vous souhaitez annuler votre recommandation ?</p>
+                <%= link_to '<i class="fas fa-thumbs-down"></i>'.html_safe,  cancel_recomandation_prestation_path(@prestation),
+                  method: :delete,
+                  data: { confirm: 'are you sure?'},class: "btn btn-gray"%> </p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <% else %>
+       <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="services">
+            <div class="recommandez-show">
+             <p> Envie de recommander <%= @prestation.user.first_name %> à votre réseau ?</p>
+             <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
+               data: { confirm: "Votre recommandation est ajoutée !" } do %>
+              <i class="far fa-thumbs-up btn btn-vote " ></i>
+             </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <% end %>
+
+  <% if @prestation.recomands.empty? %>
+
+   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="services">
-
         <div class="recommandez-show">
-          <h2> Recommandez à votre tour</h2>
-
-            <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
-               data: { confirm: "Votre recommandation est ajoutée !" } do %>
-                <%= image_tag 'recomand.jpg', width: 50, height: 50 %>
-              </p>
-                <% end %>
+         <p> Envie de recommander <%= @prestation.user.first_name %> à votre réseau ?</p>
+         <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
+           data: { confirm: "Votre recommandation est ajoutée !" } do %>
+         <%= image_tag "like.png", width:40 %>
+         </p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+  <% end %>
+
+
 
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="description-prestation">
