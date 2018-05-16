@@ -1,3 +1,5 @@
+<div class="container">
+
 <div class="search-form">
     <p> Filtrez votre recherche </p>
 
@@ -42,42 +44,38 @@
 </div>
 
 
-<% if @recomanded_prestations.present?%>
 <div class="row">
+  <% if @recomanded_prestations.present?%>
     <div class="allprestations">
       <h3> Services recommandés par votre réseau </h3>
           <% @recomanded_prestations.each do |prestation| %>
-        <div class="the-recommanded">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="one-card">
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
               <%= render 'shared/card-prestation', prestation: prestation %>
               </div>
-            </div>
+
           <% end %>
-        </div>
     </div>
-<% end %>
-</div>
+  <% end %>
 </div>
 
 
-<% if @prestations.present?%>
-  <div class="row">
+
+<div class="row">
+  <% if @prestations.present?%>
     <div class="allprestations">
       <h3> Services qui pourraient vous intéresser </h3>
         <% @prestations.each do |prestation| %>
-      <div class="the-non-recommanded">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="one-card">
-              <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+               <%= render 'shared/card-prestation-norecommanded', prestation: prestation %>
               </div>
-            </div>
+
         <% end %>
-      </div>
     </div>
+  <% end %>
  </div>
-<% end %>
 
 
 
-
+</div>
