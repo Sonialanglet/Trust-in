@@ -139,6 +139,15 @@ class PrestationsController < ApplicationController
     redirect_to prestations_path
    end
 
+def cancel_recomandation
+  @prestation = Prestation.find(params[:id])
+  authorize @prestation
+  @recomand = Recomand.where(user:current_user).first
+  @recomand.destroy
+
+  redirect_to prestation_path(@prestation)
+end
+
   private
 
   def prestation_params

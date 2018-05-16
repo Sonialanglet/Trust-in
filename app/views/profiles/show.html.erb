@@ -40,8 +40,7 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
-      <h2> Informations : </h2>
-      <div class="profile-infos">
+        <div class="profile-infos">
         <p> <strong> Lieu d'habitation :  </strong><%= @profile.locality%> </p>
         <p> <strong> Etablissement(s) fréquentés :</strong> </p>
         <ul>
@@ -72,8 +71,7 @@
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
 
-      <h2> Présentation : </h2>
-      <div class="profile-infos">
+       <div class="profile-infos">
         <p> <%= @profile.description%> </p>
 
 
@@ -142,12 +140,12 @@
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="services">
       <h2> Recommandations : </h2>
-      <div class="img-reco">
-        <% current_user.prestations.each do |prestation|%>
-          <div class="img-recos-name">
-            <% prestation.recomands.each do |reco|%>
+        <div class="recap_recomandations_profile">
+        <% @prestations.each do |prestation|%>
+          <div class="">
+           <% prestation.recomands.each do |reco|%>
             <ul>
-              <li>  <p> <%= reco.user.first_name %> <%= reco.user.last_name %>, </p> </li>
+              <li>  <p> <%= reco.user.first_name %> <%= reco.user.last_name %> pour le <%=prestation.category.name %></p> </li>
             </ul>
             <% end %>
           </div>

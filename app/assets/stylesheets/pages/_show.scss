@@ -1,6 +1,7 @@
 .profil {
   background-color: rgb(38, 172, 221);
   justify-content: center;
+  padding:10px;
 }
 
 .name-show {
@@ -45,7 +46,7 @@ margin-top:5px;
 margin-bottom: 5px;
 background-color: white;
 padding-top: 5px;
-padding-bottom: 20px;
+padding-bottom: 5px;
 position:relative;
 }
 
@@ -53,8 +54,8 @@ position:relative;
   text-align: center;
   font-family: lato;
   font-weight: bold;
-  font-size: 23px;
-  padding-top: 15px;
+  font-size: 16px;
+  padding-top: 5px;
 }
 
 .services p {
@@ -88,8 +89,8 @@ h2 {
   text-align: center;
   font-family: lato;
   font-weight: bold;
-  font-size: 23px;
-  padding-top: 15px;
+  font-size: 16px;
+
 
 }
 }
@@ -150,6 +151,11 @@ h2 {
   padding-bottom: 5px;
 }
 
+.description-prestation label {
+  font-family: lato;
+  font-size: 16px;
+}
+
 .fiche-prestation {
 
 
@@ -165,8 +171,6 @@ h2 {
   font-family: lato;
   font-size: 16px;
 
-
-
 }
 
 .price {
@@ -178,7 +182,7 @@ h2 {
   position: absolute;
   right: 40px;
   a {
-    color: #17E8C7;
+    color: #469AE0;
   }
 
 }
@@ -186,9 +190,9 @@ h2 {
 .circle-icon-delete {
   position: absolute;
   right: 0px;
-  color:#17E8C7;
+  color:#469AE0;
   a {
-    color: #17E8C7;
+    color: #469AE0;
   }
 
 
@@ -269,6 +273,8 @@ p {
   padding-bottom: 7px
 }
 
+
+
 }
 
 .review_single li {
@@ -327,18 +333,34 @@ p {
     p {
       text-align: center;
           font-family: lato;
-          font-size: 18px;
+          font-size: 15px;
           padding-left: 10px;
           padding-right: 10px;
           padding-top: 10px;
-          color: orange;
+
           font-weight: bold;
   }
 }
 
+
+
+.cancel-reco {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+  p {
+    text-align: center;
+    font-family: lato;
+    font-size: 15px;
+  }
+
+}
+
 .phone {
   background-color: white;
-  width: 165px;
+  width: 172px;
   height: 32px;
   display: block;
   margin-right: auto;
@@ -352,4 +374,22 @@ p {
     font-size: 14px;
     color:black;
   }
+}
+
+.recap_recomandations_profile {
+
+ul {
+
+  list-style-type: none;
+}
+
+
+p {
+  font-family: lato;
+  font-size: 14px;
+  color:black;
+  padding-top:1px;
+  line-height: 5px;
+}
+
 }

@@ -299,3 +299,19 @@ top:2px;
   text-decoration: none;
   color: white;
 }
+
+
+.btn-vote {
+
+  width:40px;
+}
+
+.btn-vote:hover {
+  color: blue;
+  -webkit-transform:scale(1.3);
+   -moz-transform:scale(1.3);
+   -ms-transform:scale(1.3);
+   -o-transform:scale(1.3);
+   transform:scale(1.3);
+
+}

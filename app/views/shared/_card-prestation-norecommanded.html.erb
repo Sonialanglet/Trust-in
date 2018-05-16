@@ -32,7 +32,7 @@
         <% if prestation.recomands.count > 0 %>
             <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
             data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
-             <i class="fas fa-thumbs-up" ></i>
+             <i class="fas fa-thumbs-up btn btn-vote" ></i>
               <% end %>
              </p>
 
@@ -45,7 +45,7 @@
         <% else %>
           <p> <%= link_to recomandation_prestation_path(prestation), method: :post,
           data: { confirm: "Votre recommandation a été prise en compte !" }  do %>
-          <i class="far fa-thumbs-up"></i>
+          <i class="far fa-thumbs-up btn btn-vote"></i>
           <% end %>
           </p>
           <div class="recomand-reseau-count" >
@@ -60,7 +60,7 @@
 
 
     <div class="names">
-      <p ><strong> <%= prestation.user.first_name.capitalize%> <%= prestation.user.last_name.upcase%></strong> </p>
+      <h4 ><strong> <%= prestation.user.first_name.capitalize%> </strong> </h4>
 
 
       <p ><strong> <%= prestation.category.name.upcase%> </strong> </p>
