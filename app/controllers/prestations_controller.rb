@@ -142,7 +142,7 @@ class PrestationsController < ApplicationController
 def cancel_recomandation
   @prestation = Prestation.find(params[:id])
   authorize @prestation
-  @recomand = Recomand.where(user:current_user).first
+  @recomand = Recomand.where(prestation:@prestation, user:current_user).first
   @recomand.destroy
 
   redirect_to prestation_path(@prestation)

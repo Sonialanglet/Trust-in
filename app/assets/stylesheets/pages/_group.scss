@@ -90,7 +90,7 @@ h3 {
 .one-group {
   border-style: outset;
   border-width: 1px;
-  height: 40px;
+  height: 46px;
   background:white;
 
   display: block;
@@ -231,7 +231,7 @@ padding: 10px;
 
   p {
     color:white;
-    background-color: orange;
+    background-color: blue;
     font-family: lato;
     font-size: 15px;
     font-weight: bold;
@@ -242,6 +242,7 @@ padding: 10px;
 
   a {
     text-decoration: none;
+    color:white;
   }
 }
 
@@ -270,15 +271,15 @@ padding: 10px;
 
 .invite-join {
 
-  background: white;
+  background: blue;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
-  border-color: orange;
+  border-color: blue;
   border-radius: 5px;
   padding-left: 2px;
   padding-right: 2px;
   a {
-    color: orange;
+    color: white;
     font-size: 17px;
   }
 }
