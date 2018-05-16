@@ -162,6 +162,9 @@
 
   </div>
 <% end %>
+<div class="pagedeisgn">
+<%= paginate(@prospected_users) %>
+</div>
 
 <% if !@pending_invited_users.empty? %>
   <div class="row">

@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
 
       @accepted_users = current_user.accepted_users
 
-      @prospected_users = current_user.prospected_users
+      @prospected_users = current_user.prospected_users.page(params[:page]).per(5)
 
       @already_invited_users = current_user.already_invited_users
       @pending_invited_users = current_user.already_invited_users('pending')
