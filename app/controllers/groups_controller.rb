@@ -28,14 +28,15 @@ class GroupsController < ApplicationController
       #     ")
       #   .where("group_users.status='pending' AND groups.founder_id <> ?  AND groups.category = 'principal'", current_user.id)
 
-      @pending_users = current_user.pending_users
+      @pending_users = current_user.pending_users.page(params[:page])
 
       @accepted_users = current_user.accepted_users
 
-      @prospected_users = current_user.prospected_users.page(params[:page]).per(5)
+      @prospected_users = current_user.prospected_users.page(params[:page]).per(25)
+      @prospected_facebook_friends = current_user.prospected_facebook_friends.page(params[:page]).per(25)
 
-      @already_invited_users = current_user.already_invited_users
-      @pending_invited_users = current_user.already_invited_users('pending')
+      @already_invited_users = current_user.already_invited_users.page(params[:page])
+      @pending_invited_users = current_user.already_invited_users('pending').page(params[:page])
 
       @groups = Group.all
 

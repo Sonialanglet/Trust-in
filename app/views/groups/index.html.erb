@@ -69,30 +69,31 @@
   <% end %>
 
 
-<% if !@prospected_users.empty? %>
-  <div class="row">
-    <div class="groups-list">
-      <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  SUGGESTIONS POUR VOUS </h3>
+<div class="row">
+  <div class="groups-list">
+    <h3>    <i class="fas fa-user-plus" aria-hidden="true"></i>  SUGGESTIONS POUR VOUS </h3>
 
-      <p> Partagez vos recommandations et bénéficiez en retour des recommandations et bons plans de votre réseau</p>
+    <p> Partagez vos recommandations et bénéficiez en retour des recommandations et bons plans de votre réseau</p>
 
+    <% if !@prospected_facebook_friends.empty? %>
       <!-- on pousse d'abord les amis facebook-->
+      <p> <strong> Vous êtes amis Facebook </strong> </p>
         <%current_user.prospected_facebook_friends.each do |user| %>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <div class="one-group">
-            <ul>
+           <div class="one-group">
+             <ul>
               <li>
                 <div class="one-to-add">
                   <div class="name-to-add">
-                    <%= link_to profile_path (user.profile) do%>
-                   <p><%= user.first_name %> <%= user.last_name.upcase %> - ami Facebook </p>
-                   <% end %>
-                   </div>
-                   <div class="invite-join">
-                      <%= link_to want_join_group_path (user.groups.first) do %>
-                     <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
-                     <% end %>
-                   </div>
+                     <%= link_to profile_path (user.profile) do%>
+                    <p><%= user.first_name %> <%= user.last_name.upcase %> - ami Facebook </p>
+                    <% end %>
+                  </div>
+                  <div class="invite-join">
+                       <%= link_to want_join_group_path (user.groups.first) do %>
+                      <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                      <% end %>
+                 </div>
 
                 </div>
               </li>
@@ -100,11 +101,43 @@
           </div>
         </div>
         <% end %>
-      </div>
+ <% end %>
+  </div>
+</div>
 
+
+<% if !@prospected_users.empty? %>
+ <div class="row">
+    <div class="groups-list">
+      <p> <strong> Autres suggestions </strong> </p>
       <% @prospected_users.each do |user| %>
       <!-- on pousse ensuite les personnes de la meme ville-->
-      <% if user.profile.locality == current_user.profile.locality %>
+      <% if user.profile.school1 == current_user.profile.child_school1 && !user.profile.school1.nil? || user.profile.school1 == current_user.profile.child_school2 && !user.profile.school1.nil? || user.profile.school2 == current_user.profile.child_school1 && !user.profile.school2.nil? || user.profile.school2 == current_user.profile.child_school2 && !user.profile.school2.nil?%>
+
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="one-group">
+            <ul>
+              <li>
+                <div class="one-to-add">
+                  <div class="name-to-add">
+                    <%= link_to profile_path (user.profile) do%>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>-<%= user.profile.school1%> <%= user.profile.school1%> </p>
+                     <% end %>
+                   </div>
+                  <div class="invite-join">
+                     <%= link_to want_join_group_path (user.groups.first) do %>
+                    <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                    <% end %>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- on pousse ensuite les personnes de la meme ville-->
+      <% elsif user.profile.locality == current_user.profile.locality %>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="one-group">
@@ -127,44 +160,40 @@
             </ul>
           </div>
         </div>
-      <% end %>
-
-      <% if user.profile.locality != current_user.profile.locality %>
+      <% else%>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-          <div class="one-group">
-            <ul>
-              <li>
-                <div class="one-to-add">
-                  <div class="name-to-add">
-                    <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- <%= user.profile.locality  %> </p>
+        <div class="one-group">
+          <ul>
+            <li>
+              <div class="one-to-add">
+                <div class="name-to-add">
+                  <%= link_to profile_path (user.profile) do%>
+                    <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- <%= user.profile.locality  %> </p>
 
-                     <% end %>
-                   </div>
-                  <div class="invite-join">
-                     <%= link_to want_join_group_path (user.groups.first) do %>
-                    <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
-                    <% end %>
-                  </div>
-
+                   <% end %>
+                 </div>
+                <div class="invite-join">
+                   <%= link_to want_join_group_path (user.groups.first) do %>
+                  <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
+                  <% end %>
                 </div>
-              </li>
-            </ul>
-          </div>
+
+              </div>
+            </li>
+          </ul>
         </div>
-      <% end %>
+      </div>
 
-
-      <% end %>
-    </div>
-
-
+    <% end %>
+    <% end %>
+  </div>
+</div>
+  <div class="pagedeisgn">
+  <%= paginate(@prospected_users) %>
   </div>
 <% end %>
-<div class="pagedeisgn">
-<%= paginate(@prospected_users) %>
-</div>
+
 
 <% if !@pending_invited_users.empty? %>
   <div class="row">
