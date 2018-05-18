@@ -49,7 +49,7 @@
             </ul>
             <% end %>
 
-            <% if @profile.child_school1.nil? %>
+            <% if !@profile.child_school1.nil? %>
               <p> <strong>Etablissement fréquenté par les enfants de <%=@profile.user.first_name %> : </strong>
                 <ul>
                   <li> <%= @profile.child_school1%> </li>
