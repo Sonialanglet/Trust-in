@@ -1,12 +1,12 @@
 .etre-prestataire {
-  background-color: white;
+
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
 
   h2 {
@@ -41,3 +41,43 @@
   font-size: 50px;
   color: rgba(73, 205, 194, 1);
 }
+
+.feature_home {
+    padding: 30px;
+    position: relative;
+    background: #fff;
+    margin-bottom: 30px;
+    color: #888;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feature_home i {
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    width: 120px;
+    height: 120px;
+    line-height: 110px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px dashed #ccc;
+    font-size: 62px;
+    color: #6dcff6;
+}
+.feature_home h3 {
+    font-size: 20px;}
+
+
+    a.btn_1.outline, .btn_1.outiline, input .btn_1.outiline {
+        color: #555;
+        background: none;
+        border: 2px solid #555;
+        padding: 5px 18px;
+    }
+
+
