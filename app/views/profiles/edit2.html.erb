@@ -1,30 +1,19 @@
 
-
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="title-information">
-          <h2>  Trust-in, partage de recommandations avec votre réseau</h2>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
+<div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="edit2-profile edit2" >
         <div class="card-form">
-         <h2> A vous de nous dire, <%= current_user.first_name %></h2>
+         <h2> Bienvenue sur Trust-in, Veuillez confirmer votre adresse <%= current_user.first_name %> </h2>
 
+         <div class="school-astuce">
+           <p> <i class="far fa-lightbulb"></i> Votre adresse ne sera jamais visible, ni communiquée. Elle sera utilisée uniquement pour géolocaliser les prestataires les plus proches de chez vous.</p>
+         </div>
           <% if current_user %>
              <%= simple_form_for @profile do |f| %>
               <%= f.error_notification %>
               <div class="form-inputs">
 
-                <p> <%= f.input :adress, label: "Quelle est votre adresse ?",autofocus: true, placeholder: "Boulogne", required: true%> </p>
+                <p> <%= f.input :adress, label: "Quelle est votre adresse ?",autofocus: true, placeholder: "1 rue de Billancourt, Boulogne", required: true%> </p>
                 <%= f.hidden_field :street_number, label: "Num" %>
                 <%= f.hidden_field :route, label: "Rue"%>
                 <p>  <%= f.input :locality, label: "Ville" %></p>
@@ -33,9 +22,6 @@
                 <%= f.hidden_field :latitude, label: "latitude"%>
 
 
-                   <div class="school-astuce">
-                     <p> <i class="far fa-lightbulb"></i> Votre adresse ne sera jamais visible, ni communiquée. Elle sera utilisée uniquement pour géolocaliser les prestataires les plus proches de chez vous.</p>
-                   </div>
 
 
 
@@ -45,12 +31,12 @@
                     <span> </span>
                   </div>
 
-
-                <p> <%= f.input :child_school1, label: "Ecole ou crèche enfant1",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
-                <p> <%= f.input :child_school2, label: "Ecole ou crèche enfant2",autofocus: true, placeholder: "SFA" , required: false, hint: '(si différente)'%> </p>
+                  <h2> Si vous êtes parents :</h2>
                 <div class="school-astuce">
                    <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
                 </div>
+                <p> <%= f.input :child_school1, label: "Ecole ou crèche enfant1",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
+                <p> <%= f.input :child_school2, label: "Ecole ou crèche enfant2",autofocus: true, placeholder: "SFA" , required: false, hint: '(si différente)'%> </p>
 
             </div>
 
@@ -67,5 +53,18 @@
     </div>
   </div>
   </div>
+
+
 </div>
 
+
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="envie-proposer">
+          <%= link_to edit_profile_path(current_user) do  %>
+          <p> Vous souhaitez proposer vos services ? <i class="far fa-hand-point-right"> c'est par ici qu'on s'inscrit !</i> </p>
+          <% end %>
+
+    </div>
+  </div>
+</div>

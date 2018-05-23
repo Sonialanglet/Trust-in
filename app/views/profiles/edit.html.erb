@@ -12,28 +12,28 @@
               <%= f.error_notification %>
               <div class="form-inputs">
 
-               <p> <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %> </p>
+               <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %>
                 <% if flash[:error] %>
                   <p class="error"><%= flash[:error] %></p>
                 <% end %>
-               <p>  <%= f.input :adress, label: "Indiquez votre adresse complète",autofocus: true, placeholder: "Boulogne", required: true%></p>
+                <%= f.input :adress, label: "Indiquez votre adresse complète",autofocus: true, placeholder: "1 rue de Billancourt, Boulogne", required: true%>
                <%= f.hidden_field :street_number, label: "Num" %>
                <%= f.hidden_field :route, label: "Rue"%>
-               <p>  <%= f.input :locality, label: "Ville" %></p>
+                <%= f.input :locality, label: "Ville" %>
                <%= f.hidden_field :country, label: "pays"%>
                <%= f.hidden_field :longitude, label: "longitude"%>
                <%= f.hidden_field :latitude, label: "latitude"%>
 
 
 
-                <p> <%= f.input :phone, label: "Mobile",autofocus: true, placeholder: "06-10-10-10-10", hint: "Votre téléphone sera visible. Vous aurez plus de chances d'être contacté rapidement",required: false %></p>
+                <%= f.input :phone, label: "Mobile",autofocus: true, placeholder: "06-10-10-10-10", hint: "Votre téléphone sera visible. Vous aurez plus de chances d'être contacté rapidement",required: false %>
 
-                <p> <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %> </p>
+                <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %>
 
-                <p> <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%></p>
-                <p> <%= f.input :school2, label: "Autre établissement",autofocus: true, placeholder: "SFA" , required: false%> </p>
-                <p> <%= f.input :formation1, label: "Diplôme",autofocus: true, placeholder: "Diplôme obtenu" , required: false%></p>
-                <p> <%= f.input :formation2, label: "Autre diplôme",autofocus: true, placeholder: "Autre diplôme obtenu" , required: false%></p>
+                <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
+                <%= f.input :school2, label: "Autre établissement",autofocus: true, placeholder: "SFA" , required: false%>
+                <%= f.input :formation1, label: "Diplôme",autofocus: true, placeholder: "Diplôme obtenu" , required: false%>
+                <%= f.input :formation2, label: "Autre diplôme",autofocus: true, placeholder: "Autre diplôme obtenu" , required: false%>
 
             </div>
 

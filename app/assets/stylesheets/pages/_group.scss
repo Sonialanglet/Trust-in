@@ -117,13 +117,21 @@ h3 {
 }
 
 .name-to-add {
-  left: 135px;
-  position: absolute;
+  text-align: left;
+
+
   a {
 
     color:black;
+
+  }
+
+  p {
+    text-align: left;
   }
 }
+
+
 
 .circle-icon-add {
   left: 41px;
@@ -227,13 +235,13 @@ padding: 10px;
 
 .confirm-join {
   position: absolute;
-  left: 35px;
+  right: 50px;
 
   p {
     color:white;
-    background-color: blue;
+    background-color: #189ae7;
     font-family: lato;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     padding: 5px;
     border-radius: 5px;
@@ -259,28 +267,32 @@ padding: 10px;
 }
 
 .name-to-confirm {
-  position: absolute;
-  left: 132px;
+  text-align: left;
   padding-top: 5px;
+
 
   a {
 
     color:black;
   }
+
+  p {
+    text-align: left;
+  }
 }
 
 .invite-join {
 
-  background: blue;
-  border-style: solid;
-  border-width: 1px 1px 1px 1px;
-  border-color: blue;
+  background: #189ae7;
+
   border-radius: 5px;
   padding-left: 2px;
   padding-right: 2px;
+  position: absolute;
+  right: 50px;
   a {
     color: white;
-    font-size: 17px;
+    font-size: 14px;
   }
 }
 
@@ -294,6 +306,18 @@ padding: 10px;
 
 }
 
+.cancel-join {
+  position: absolute;
+  right: 20px;
+
+}
+
+
+.profile-acess {
+  position: absolute;
+  left: 30px;
+
+}
 .profile-acess:hover {
   -webkit-transform:scale(1.3);
    -moz-transform:scale(1.3);

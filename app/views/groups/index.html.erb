@@ -9,22 +9,6 @@
   </div>
 
 
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="picto-group">
-        <%= image_tag 'sharing.jpg' , width: 150, class:"picto-group" %>
-       </div>
-    </div>
-
-    <div class="col-xs-6">
-      <div class="text-group">
-        <p> <strong> INVITEZ </strong> votre réseau à partager vos recommandations </p>
-          <p> <strong>BENEFICIEZ</strong> à votre tour de leurs recommandations</p>
-
-      </div>
-    </div>
-  </div>
-
 </div>
 
 
@@ -56,6 +40,11 @@
                            <p> confirmer</p>
                          <% end %>
                         </div>
+                         <div class="cancel-join">
+                              <%= link_to refuse_join_group_path (current_user.groups.first) do %>
+                           <i class="far fa-times-circle"></i>
+                             <% end %>
+                        </div>
                       </div>
                     </li>
                   </ul>
@@ -86,7 +75,8 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                      <%= link_to profile_path (user.profile) do%>
-                    <p><%= user.first_name %> <%= user.last_name.upcase %> - ami Facebook </p>
+                    <p><%= user.first_name %> <%= user.last_name.upcase %> <br>
+                     ami Facebook </p>
                     <% end %>
                   </div>
                   <div class="invite-join">
@@ -94,7 +84,11 @@
                       <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
                       <% end %>
                  </div>
-
+                  <div class="cancel-join">
+                       <%= link_to not_want_join_group_path (user.groups.first) do %>
+                    <i class="far fa-times-circle"></i>
+                      <% end %>
+                 </div>
                 </div>
               </li>
             </ul>
@@ -103,16 +97,19 @@
         <% end %>
  <% end %>
   </div>
+  <div class="pagedeisgn">
+  <%= paginate(@prospected_users) %>
+  </div>
 </div>
 
 
 <% if !@prospected_users.empty? %>
  <div class="row">
     <div class="groups-list">
-      <p> <strong> Autres suggestions </strong> </p>
+      <p> <strong> --- </strong> </p>
       <% @prospected_users.each do |user| %>
       <!-- on pousse ensuite les personnes de la meme ville-->
-      <% if user.profile.school1 == current_user.profile.child_school1 && !user.profile.school1.nil? || user.profile.school1 == current_user.profile.child_school2 && !user.profile.school1.nil? || user.profile.school2 == current_user.profile.child_school1 && !user.profile.school2.nil? || user.profile.school2 == current_user.profile.child_school2 && !user.profile.school2.nil?%>
+      <% if user.profile.child_school1 == current_user.profile.child_school1 && !user.profile.child_school1.nil? || user.profile.child_school1 == current_user.profile.child_school2 && !user.profile.child_school1.nil? || user.profile.child_school2 == current_user.profile.child_school1 && !user.profile.child_school2.nil? || user.profile.child_school2 == current_user.profile.child_school2 && !user.profile.child_school2.nil?%>
 
         <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="one-group">
@@ -121,7 +118,8 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                     <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>-<%= user.profile.school1%> <%= user.profile.school1%> </p>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %><br>
+                        <%= user.profile.school1%> <%= user.profile.school1%> </p>
                      <% end %>
                    </div>
                   <div class="invite-join">
@@ -129,7 +127,11 @@
                     <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
                     <% end %>
                   </div>
-
+                   <div class="cancel-join">
+                        <%= link_to not_want_join_group_path (user.groups.first) do %>
+                     <i class="far fa-times-circle"></i>
+                       <% end %>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -146,7 +148,8 @@
                 <div class="one-to-add">
                   <div class="name-to-add">
                     <%= link_to profile_path (user.profile) do%>
-                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>-<%= user.profile.locality  %> </p>
+                      <p> <%= user.first_name  %> <%= user.last_name.upcase  %>  <br>
+                        <%= user.profile.locality  %> </p>
                      <% end %>
                    </div>
                   <div class="invite-join">
@@ -154,7 +157,11 @@
                     <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
                     <% end %>
                   </div>
-
+                   <div class="cancel-join">
+                        <%= link_to not_want_join_group_path (user.groups.first) do %>
+                     <i class="far fa-times-circle"></i>
+                       <% end %>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -169,7 +176,8 @@
               <div class="one-to-add">
                 <div class="name-to-add">
                   <%= link_to profile_path (user.profile) do%>
-                    <p> <%= user.first_name  %> <%= user.last_name.upcase  %>- <%= user.profile.locality  %> </p>
+                    <p> <%= user.first_name  %> <%= user.last_name.upcase  %> <br>
+                      <%= user.profile.locality  %> </p>
 
                    <% end %>
                  </div>
@@ -178,7 +186,11 @@
                   <i class="fas fa-user-plus" aria-hidden="true">inviter</i>
                   <% end %>
                 </div>
-
+                 <div class="cancel-join">
+                      <%= link_to not_want_join_group_path (user.groups.first) do %>
+                   <i class="far fa-times-circle"></i>
+                     <% end %>
+                </div>
               </div>
             </li>
           </ul>

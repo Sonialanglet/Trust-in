@@ -124,6 +124,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def not_want_join
+    @group = Group.find(params[:id])
+    @not_wanted_to_join = GroupUser.create(user: current_user, group: @group, status: 'not_wanted')
+    @not_wanted_to_join.save
+    authorize @group
+    redirect_to groups_path
+  end
+
   def accept_join
     # Step1 : le current_user d'abord accepte la demande d'un autre de rejoindre son groupe principal
     @group = current_user.groups.find do |group|
@@ -156,6 +164,20 @@ class GroupsController < ApplicationController
    end
 
    redirect_to groups_path
+ end
+
+ def refuse_join
+    @group = current_user.groups.find do |group|
+      group.category == 'principal'
+    end
+
+   # le statut du groupuser du demandeur devient ainsi refused et non plus pending
+   @group_users = GroupUser.where(group: @group, status: "pending")
+
+   @group_users.each do |group_user|
+    group_user.status = 'refused'
+    group_user.save
+    end
  end
 
   def edit

@@ -34,14 +34,14 @@
     <div class="services">
         <div class="profile-infos">
         <p> <strong> Lieu d'habitation :  </strong><%= @profile.locality%> </p>
-        <% if !@profile.school1.empty? %>
+        <% if !@profile.school1.present? %>
           <p> <strong> Etablissement(s) fréquentés :</strong> </p>
           <ul>
             <li> <%= @profile.school1%></li>
             <li> <%= @profile.school2%></li>
           </ul>
         <% end %>
-        <% if !@profile.formation1.empty? %>
+        <% if !@profile.formation1.present? %>
           <p> <strong>Formation : </strong>
             <ul>
               <li> <%= @profile.formation1%> </li>
@@ -49,7 +49,7 @@
             </ul>
             <% end %>
 
-            <% if !@profile.child_school1.nil? %>
+            <% if !@profile.child_school1.present? %>
               <p> <strong>Etablissement fréquenté par les enfants de <%=@profile.user.first_name %> : </strong>
                 <ul>
                   <li> <%= @profile.child_school1%> </li>

@@ -12,4 +12,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   group.users << resource
   #   group.save
   #end
+
 end
