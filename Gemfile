@@ -24,6 +24,8 @@ gem "letter_opener", group: :development
 gem 'postmark-rails'
 gem "geocoder"
 gem 'forest_liana'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 
 group :development do

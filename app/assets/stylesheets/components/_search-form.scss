@@ -17,3 +17,15 @@
 #header {
   display:none;
 }
+
+
+#search{
+ background-image: url(search.png);
+ background-repeat: no-repeat;
+ text-indent: 18px;
+ background-position: 10px;
+}
+
+#search:focus{
+ background-image:none;
+}

@@ -31,8 +31,13 @@ class GroupPolicy < ApplicationPolicy
   def want_join?
     true
   end
-
+  def not_want_join?
+    true
+  end
   def accept_join?
+    true
+  end
+  def refuse_join?
     true
   end
   def firstnetwork?

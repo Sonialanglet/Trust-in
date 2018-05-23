@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get "/identification", to: "pages#identification", as: :identification_page
-  get "/welcomeessai", to: "pages#welcomeessai", as: :welcomeessai_page
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -49,8 +50,9 @@ Rails.application.routes.draw do
 
   resources :groups do
     member do
-      get :want_join
+      get :want_join, :not_want_join
       get :accept_join
+      get :refuse_join
       get :firstnetwork
     end
   end

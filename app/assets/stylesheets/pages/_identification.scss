@@ -1,20 +1,21 @@
 .etre-prestataire {
-  background-color: white;
+
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin-bottom: 10px;
   padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-left: 15px;
+
+  padding-bottom: 10px;
 
 
   h2 {
-      text-align: center;
-      font-family: lato;
-      font-weight: bold;
-      font-size: 23px;
-      color:#FF3F3F;
+ font-family: lato;
+ font-size: 23px;
+ font-weight: bold;
+ text-align: center;
+ margin-bottom: 25px;
+ color: #26acdd;
     }
 
     p {
@@ -32,7 +33,7 @@
 
 
 .arrow p {
-  font-size: 50px;
+  font-size: 30px;
   color: red;
 }
 
@@ -40,3 +41,51 @@
   font-size: 50px;
   color: rgba(73, 205, 194, 1);
 }
+
+.feature_home {
+    padding: 20px;
+    position: relative;
+    background: #fff;
+    margin-bottom: 30px;
+    color: #888;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feature_home i {
+    margin: auto;
+    margin-bottom: 20px;
+    display: block;
+    width: 120px;
+    height: 120px;
+    line-height: 110px;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px dashed #ccc;
+    font-size: 62px;
+    color: #6dcff6;
+}
+.feature_home h3 {
+    font-size: 20px;
+  }
+
+
+    p.btn_1.outline, .btn_1.outiline, input .btn_1.outiline {
+        color: #555;
+        background: none;
+        border: 2px solid #555;
+        padding: 5px 18px;
+    }
+
+    p.btn_1.outline:hover {
+      -webkit-transform:scale(1.3);
+       -moz-transform:scale(1.3);
+       -ms-transform:scale(1.3);
+       -o-transform:scale(1.3);
+       transform:scale(1.3);
+    }
+

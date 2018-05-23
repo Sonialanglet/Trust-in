@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
     @post = Post.new
     else
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.order("created_at DESC").page(params[:page]).per(25)
 
     @post = Post.new
     end

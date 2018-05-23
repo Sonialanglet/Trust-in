@@ -21,7 +21,7 @@
       <!-- Links when logged in -->
       <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Forum", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to groups_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <span> Votre Reseau </span>
       <span class=" btn navbar-notification">  <%= current_user.pending_users.size %> </span>
@@ -72,7 +72,7 @@
         <li>
           <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
-        <li> <%= link_to "Annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <li> <%= link_to "Forum", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
 
         <li>
@@ -82,7 +82,7 @@
            <%= link_to "Proposer", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li>
-          <%= link_to "Profile", profile_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Profil", profile_path(current_user.profile), class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>

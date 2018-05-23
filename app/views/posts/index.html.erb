@@ -2,13 +2,13 @@
 
 <div class="cards-container post-backg">
   <div class = "search-form">
-    <p> Filtrez votre recherche </p>
 
   <%= form_tag posts_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "rechercher par mot clé"
+        id: "search",
+      placeholder: "thème dans le forum, nom d'une personne?"
     %>
   <% end %>
   </div>
@@ -71,3 +71,7 @@
 
 </div>
 </div>
+
+
+  <%= paginate(@posts) %>
+

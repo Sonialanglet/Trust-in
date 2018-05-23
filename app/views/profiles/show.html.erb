@@ -16,15 +16,7 @@
       </div>
 
       <p class="name-show"><%= @profile.user.first_name%> <%= @profile.user.last_name%> </p>
-      <% if @profile.date_of_birth %>
-       <p class="name-show"><%= (Date.today.year)-(@profile.date_of_birth.year)%> ans
-      </p>
-      <% end %>
-      <% if @profile.phone %>
-        <div class="phone">
-           <p class="name-show"><strong> Mobile :</strong> <%= @profile.phone%>  </p>
-        </div>
-        <% end %>
+
       <%if current_user == @profile.user %>
         <div class="circle-icon-profile">
           <%= link_to edit_user_registration_path do %>
@@ -42,17 +34,28 @@
     <div class="services">
         <div class="profile-infos">
         <p> <strong> Lieu d'habitation :  </strong><%= @profile.locality%> </p>
-        <p> <strong> Etablissement(s) fréquentés :</strong> </p>
-        <ul>
-          <li> <%= @profile.school1%></li>
-          <li> <%= @profile.school2%></li>
-        </ul>
-        <p> <strong>Formation : </strong>
+        <% if !@profile.school1.present? %>
+          <p> <strong> Etablissement(s) fréquentés :</strong> </p>
           <ul>
-            <li> <%= @profile.formation1%> </li>
-            <li> <%= @profile.formation2%> </li>
+            <li> <%= @profile.school1%></li>
+            <li> <%= @profile.school2%></li>
           </ul>
+        <% end %>
+        <% if !@profile.formation1.present? %>
+          <p> <strong>Formation : </strong>
+            <ul>
+              <li> <%= @profile.formation1%> </li>
+              <li> <%= @profile.formation2%> </li>
+            </ul>
+            <% end %>
 
+            <% if !@profile.child_school1.present? %>
+              <p> <strong>Etablissement fréquenté par les enfants de <%=@profile.user.first_name %> : </strong>
+                <ul>
+                  <li> <%= @profile.child_school1%> </li>
+                  <li> <%= @profile.child_school1%> </li>
+                </ul>
+                <% end %>
 
         <% if current_user == @profile.user %>
           <div class="circle-icon-profile">
