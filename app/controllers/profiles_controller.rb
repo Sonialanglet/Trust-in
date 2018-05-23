@@ -68,7 +68,7 @@ end
         redirect_to edit2_profile_path(@profile)
       else
         @profile.update(profile_params)
-        redirect_to groups_path
+        redirect_to firstnetwork_group_path(@profile)
       end
     else
       if profile_params[:adress].nil? || profile_params[:adress].empty?

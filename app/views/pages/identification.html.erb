@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="etre-prestataire">
-      <h2>  Bienvenue dans la communauté Trust-in</h2>
+      <h2>  Bienvenue dans la communauté Trust-in !</h2>
       <p> Nous sommes ravis que vous nous ayez rejoint</p>
       </div>
     </div>
@@ -11,63 +11,28 @@
 
 
 
-  <div class="col-sm-offset-2 col-sm-4 wow zoomIn animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;">
+  <div class="col-sm-offset-2 col-sm-4" style="visibility: visible; animation-delay: 0.2s;">
       <div class="feature_home" style="min-height: 346px;">
-          <i class="icon-users"></i>
-          <h3>Je recherche de l'aide </h3>
-          <p>Je recherche des personnes qui pourront me rendre des services ou à bénéficier de bons plans</p>
+         <i class="fas fa-hands-helping"></i>
+          <h3>Vous recherchez de l'aide ?</h3>
+          <p> Recherche de personnes qui pourront vous rendre des services ou vous faire bénéficier de bons plans</p>
+
           <%= link_to edit2_profile_path(current_user) do  %>
-          <p class="btn_1 outline"> C'est par ici ! </p>
+          <p class="btn btn_1 outline"> C'est par ici ! </p>
           <% end %>
-          <a href="http://www.trustykids.com/custom/TrustyKids/pages/isParent.php?isParent=1" class="btn_1 outline">C'est par ici !</a>
+
       </div>
   </div>
-   <div class="col-sm-4 wow zoomIn animated" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: zoomIn;">
+   <div class="col-sm-4 " style="visibility: visible; animation-delay: 0.4s;">
           <div class="feature_home" style="min-height: 346px;">
-              <i class="icon-user"></i>
-              <h3>Je veux proposer mes services</h3>
-              <p>Je suis prêt à proposer des services auprès des membres de la plateforme Trust-in@Boulogne.</p>
-              <a href="http://www.trustykids.com/custom/TrustyKids/pages/isParent.php?isTruster=1" class="btn_1 outline">C'est par là !</a>
+            <i class="fas fa-flag"></i>
+              <h3>Vous voulez proposer vos services ?</h3>
+              <p> Rendre des services auprès des membres de la plateforme Trust-in@Boulogne.</p>
+             <%= link_to edit_profile_path(current_user) do  %>
+             <p class="btn btn_1 outline"> C'est par là ! </p>
+             <% end %>
           </div>
    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="etre-prestataire">
-       <h2> Commencez dès à présent </h2>
-        <div class="arrow-blue">
-         <%= link_to edit2_profile_path(current_user) do  %>
-         <p> <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i></p>
-         <% end %>
-       </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="envie-proposer">
-            <%= link_to edit_profile_path(current_user) do  %>
-            <p> Vous souhaitez proposer vos services ? <i class="far fa-hand-point-right"> c'est par ici qu'on s'inscrit !</i> </p>
-            <% end %>
-
-      </div>
-    </div>
-  </div>
-
 
 
 </div>
