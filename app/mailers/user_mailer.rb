@@ -32,12 +32,16 @@ end
 
 def notify_want_join(group)
   @group = group
+  group_users = GroupUser.where(group: @group, status: 'pending')
+  @who_is_asking = group_users.last.user
   mail(to:   @group.founder.email, subject: 'Nouvelle demande dans Trust-in')
+
 end
 
 def notify_accept_join(group_user)
   @group_user = group_user
   mail(to:   group_user.user.email, subject: 'Votre demande a été acceptée dans Trust-in')
+
 end
 
 

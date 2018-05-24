@@ -12,7 +12,7 @@
               <%= f.error_notification %>
               <div class="form-inputs">
 
-               <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 18, end_year: Date.today.year - 70, autofocus: true, required: true %>
+               <%= f.input :date_of_birth, label: "Date de naissance", order: [:day,:month, :year], prompt: { day: 'jour', month: 'mois', year: 'année' }, start_year: Date.today.year - 13, end_year: Date.today.year - 70, autofocus: true, required: true %>
                 <% if flash[:error] %>
                   <p class="error"><%= flash[:error] %></p>
                 <% end %>
@@ -30,10 +30,19 @@
 
                 <%= f.input :description, label: "Présentez-vous",autofocus: true, placeholder: "Bonjour, Je suis actuellement élève en seconde au lycée Notre dame de Boulogne. Je suis l’aînée d'une famille de 3 enfants et j'ai l'habitude de garder ma petite soeur de 4 ans. J'ai également fait plusieurs babysittings en soirée au cours de l'année : essentiellement des enfants d'amis de mes parents ....", required: false %>
 
-                <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
-                <%= f.input :school2, label: "Autre établissement",autofocus: true, placeholder: "SFA" , required: false%>
                 <%= f.input :formation1, label: "Diplôme",autofocus: true, placeholder: "Diplôme obtenu" , required: false%>
                 <%= f.input :formation2, label: "Autre diplôme",autofocus: true, placeholder: "Autre diplôme obtenu" , required: false%>
+                <h2> Si vous êtes lycéen/étudiant</h2>
+                <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
+                      <h2> Si vous êtes parents</h2>
+                    <div class="school-astuce">
+                       <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
+                    </div>
+                    <%= f.input :child_school1, label: "Ecole ou crèche enfant1",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
+                    <%= f.input :child_school2, label: "Ecole ou crèche enfant2",autofocus: true, placeholder: "si vous avez plusieurs enfants" , required: false%>
+
+                </div>
+
 
             </div>
 
