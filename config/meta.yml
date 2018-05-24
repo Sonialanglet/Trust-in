@@ -1,5 +1,5 @@
 meta_product_name: "Trust-in"
 meta_title: "Trust-in - Partage de bons plans et services avec votre réseau de proximité"
 meta_description: "Un réseau de proximité pour vous simplifier le quotidien. Trouvez de l'aide et échangez des recommandations et bons plans avec votre réseau de proximité à un niveau ultra-local (parents d'écoles des enfants, membres du même club de sport, relations de voisinage, etc.. ) "
-meta_image: "bulles.jpg"                       # should exist in `app/assets/images/`
+meta_image: "boulognehome.png"                       # should exist in `app/assets/images/`
 twitter_account: "@Trust-in_twitter_account"   # required for Twitter Cards
