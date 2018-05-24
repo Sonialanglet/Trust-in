@@ -76,7 +76,7 @@ end
         redirect_to edit_profile_path(@profile)
       else
         @profile.update(profile_params)
-        redirect_to profile_path(@profile)
+        redirect_to new_prestation_path
       end
     end
   end
