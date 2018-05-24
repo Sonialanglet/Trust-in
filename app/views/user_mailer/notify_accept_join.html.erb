@@ -24,7 +24,7 @@ width: 100% !important; height: 100%; margin: 10px; line-height: 1.4; background
 }
 </style>
 
-    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Bonne nouvelle, <%= group_user.group.founder.first_name %> a accepté votre invitation </span>
+    <span class="preheader" style="box-sizing: border-box; display: none !important; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 1px; line-height: 1px; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden; visibility: hidden;">Bonne nouvelle, <%= @group_user.group.founder.first_name %> a accepté votre invitation </span>
 
     <table class="email-wrapper" max-width=600px cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; margin: 0; padding: 0; width: 100%;" bgcolor="#b3cbd8">
       <tr>
@@ -44,7 +44,7 @@ width: 100% !important; height: 100%; margin: 10px; line-height: 1.4; background
                   <tr>
                     <td class="content-cell" style="box-sizing: border-box; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; padding: 35px; word-break: break-word;">
                       <h1 style="box-sizing: border-box; color: #2F3133; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 19px; font-weight: bold; margin-top: 0;" align="left">Bonne nouvelle <%= @group_user.user.first_name %> !</h1>
-                      <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; font-weight: bold;margin-top: 0;" align="left"> <%= group_user.group.founder.first_name %>  <%= group_user.group.founder.last_name %> a accepté votre invitation à partager vos bons plans et recommandations respectifs </p>
+                      <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; font-weight: bold;margin-top: 0;" align="left"> <%= @group_user.group.founder.first_name %>  <%= @group_user.group.founder.last_name %> a accepté votre invitation à partager vos bons plans et recommandations respectifs </p>
                       <p style="box-sizing: border-box; color: #74787E; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; line-height: 1.5em; margin-top: 0;" align="left"><p>  Rendez-vous sur Trust-in pour découvrir les recommandations de votre réseau </p>
 
 
