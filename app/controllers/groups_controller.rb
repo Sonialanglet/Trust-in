@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
       @pending_users = current_user.pending_users.page(params[:page])
 
-      @accepted_users = current_user.accepted_users
+      @accepted_users = current_user.accepted_users.page(params[:page])
 
       @prospected_users = current_user.prospected_users.page(params[:page]).per(25)
       @prospected_facebook_friends = current_user.prospected_facebook_friends.page(params[:page]).per(25)
@@ -144,6 +144,7 @@ class GroupsController < ApplicationController
    @group_users.each do |group_user|
     group_user.status = 'accepted'
     group_user.save
+
     UserMailer.notify_accept_join(group_user).deliver_now
 
   end
