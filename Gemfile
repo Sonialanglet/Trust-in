@@ -8,6 +8,8 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.5'
 gem 'redis'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
