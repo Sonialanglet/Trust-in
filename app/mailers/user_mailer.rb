@@ -40,7 +40,7 @@ end
 
 def notify_accept_join(group_user)
   @group_user = group_user
-  mail(to:   group_user.user.email, subject: 'Votre demande a été acceptée dans Trust-in')
+  mail(to:   @group_user.user.email, subject: 'Votre demande a été acceptée dans Trust-in')
 
 end
 

@@ -150,7 +150,7 @@
                 <p> <%= recomandation.user.first_name %> <%= recomandation.user.last_name %></p>
                 </div>
               <% else %>
-                 <div class="img-recos-name">
+                 <div class="img-recos-photo">
                 <%= image_tag "profile_icon.png", class:"avatar_small" %>
                 </div>
                 <div class="img-recos-name">
@@ -161,10 +161,14 @@
           </ul>
 
         </div>
-              <% end %>
+      <% end %>
       </div>
     </div>
   </div>
+
+
+
+
 
 
   <% @prestation.recomands.each do |recomandation|%>
@@ -181,8 +185,11 @@
           </div>
         </div>
       </div>
+    <% end %>
+    <% end %>
 
-      <% else %>
+    <% unless @prestation.recomands.any? {|recomandation| recomandation.user == current_user} %>
+
        <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
           <div class="services">
@@ -197,26 +204,10 @@
           </div>
         </div>
       </div>
-  <% end %>
-  <% end %>
+    <% end %>
 
-  <% if @prestation.recomands.empty? %>
 
-   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="services">
-        <div class="recommandez-show">
-         <p> Envie de recommander <%= @prestation.user.first_name %> à votre réseau ?</p>
-         <p> <%= link_to recomandation_prestation_path(@prestation), method: :post,
-           data: { confirm: "Votre recommandation est ajoutée !" } do %>
-         <%= image_tag "like.png", width:40 %>
-         </p>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
+
 
 
 
