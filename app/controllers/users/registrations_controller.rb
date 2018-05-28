@@ -13,4 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   group.save
   #end
 
+
+  def registration_paramss
+   params.require(:user).permit(:email, :first_name, :last_name, :photo, :facebook_picture_url, :password, :password_confirmation)
+   end
+
 end

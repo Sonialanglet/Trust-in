@@ -23,6 +23,9 @@
               <%= f.input :first_name, label: "Prénom", autofocus: true%>
               <%= f.input :last_name, label: "Nom",required: false %>
               <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+              <%= f.input :password_confirmation, required: true %>
+
               <%= image_tag avatar_url %>
               <%= f.input :photo, label: "Modifier photo"%>
 
