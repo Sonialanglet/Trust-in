@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'school_children/index'
+
   mount ForestLiana::Engine => '/forest'
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -62,6 +64,7 @@ Rails.application.routes.draw do
    end
 
   resources :categories, only: [:show, :index]
+  resources :school_children, only: [:show, :index]
   resources :posts do
     resources :replies
   end

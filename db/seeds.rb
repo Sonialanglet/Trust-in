@@ -114,3 +114,11 @@ p "creating prestations"
    post_sophie = Post.new(content: "Help ! ma babysitter m'a plantée. Qui est dsipo pour venir garder mes 2 enfants ce soir à 19h30 ?", user: user_sophie)
    post_sophie.save!
   p"creating 2 posts OK done"
+
+  p "creating 1 school_children"
+
+    school_child_SFA = Category.new(name: "SFA", locality: "Boulogne")
+    school_child_SFA.save!
+
+
+

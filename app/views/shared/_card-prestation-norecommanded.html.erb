@@ -68,8 +68,9 @@
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
       <% end %>
       <p> <%= prestation.user.profile.locality%> </p>
-
+      <% if prestation.user.profile.latitude %>
       <p> Distance : <%= (Geocoder::Calculations.distance_between([prestation.user.profile.latitude, prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
+      <% end %>
     </div>
 
 
