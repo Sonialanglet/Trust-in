@@ -111,7 +111,7 @@
         <% @prospected_users.each do |user| %>
 
         <!-- on pousse ensuite les personnes de la meme ville-->
-        <% if user.profile.child_school1 == current_user.profile.child_school1 && !user.profile.child_school1.blank? || user.profile.child_school1 == current_user.profile.child_school2 && !user.profile.child_school1.blank? || user.profile.child_school2 == current_user.profile.child_school1 && !user.profile.child_school2.blank? || user.profile.child_school2 == current_user.profile.child_school2 && !user.profile.child_school2.blank?%>
+        <% if user.profile.child_school == current_user.profile.child_school && !user.profile.child_school.blank? %>
 
           <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="one-group">

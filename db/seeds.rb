@@ -117,7 +117,7 @@ p "creating prestations"
 
   p "creating 1 school_children"
 
-    school_child_SFA = Category.new(name: "SFA", locality: "Boulogne")
+    school_child_SFA = SchoolChild.new(name: "SFA", locality: "Boulogne")
     school_child_SFA.save!
 
 
