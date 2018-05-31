@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
 
   belongs_to :user
-
+  belongs_to :school_child
 
 
   geocoded_by :adress

@@ -40,8 +40,8 @@
                        <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
                     </div>
 
-
-                     <%= f.text_field :school_child_name %>
+                    <%= f.collection_select :school_child_id, SchoolChild.order(:name), :id, :name, include_blank: true %>
+                     <%= f.text_field :school_child_id, as: :search, data: { autocomplete_source: school_children_path} %>
 
                 </div>
 

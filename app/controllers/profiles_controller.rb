@@ -39,7 +39,6 @@ end
 
 
 
-
  def edit
    @profile = current_user.profile
     authorize @profile
