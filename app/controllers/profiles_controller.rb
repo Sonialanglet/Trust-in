@@ -5,13 +5,7 @@ def index
 
  @profiles = Profile.where.not(latitude: nil, longitude: nil)
 
-    @markers = @profiles.map do |profile|
-      {
-        lat: profile.latitude,
-        lng: profile.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
+
 end
 
 
@@ -44,9 +38,18 @@ end
 # end
 
 
+
+
  def edit
    @profile = current_user.profile
     authorize @profile
+    if params[:query].present?
+      sql_query = " \
+            school_children.name ILIKE :query \
+          "
+       @school_children = Profile.joins(:school_child).where(sql_query, query: "%#{params[:query]}%")
+    end
+
  end
 
  def edit2
@@ -89,8 +92,9 @@ end
  #   redirect_to prestations_path
  # end
 
+
  def profile_params
-   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :street_number, :route, :locality, :country, :child_school)
+   params.require(:profile).permit!
 end
 
 

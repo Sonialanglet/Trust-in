@@ -3,9 +3,12 @@ require 'open-uri'
 
 class User < ApplicationRecord
   after_create :send_welcome_email
+
   after_create do |user|
+   SchoolChild.create
    build_profile(user)
    build_group(user)
+
  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530095137) do
+ActiveRecord::Schema.define(version: 20180531101759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20180530095137) do
     t.string "route"
     t.string "locality"
     t.string "country"
+    t.string "child_school"
     t.bigint "school_child_id"
     t.index ["school_child_id"], name: "index_profiles_on_school_child_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
@@ -185,6 +186,8 @@ ActiveRecord::Schema.define(version: 20180530095137) do
     t.string "locality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_school_children_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -233,4 +236,5 @@ ActiveRecord::Schema.define(version: 20180530095137) do
   add_foreign_key "replies", "users"
   add_foreign_key "reviews", "prestations"
   add_foreign_key "reviews", "users"
+  add_foreign_key "school_children", "users"
 end
