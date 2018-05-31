@@ -5,7 +5,7 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   after_create do |user|
-   SchoolChild.create
+
    build_profile(user)
    build_group(user)
 
@@ -100,6 +100,7 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
   end
+
 
   def build_profile(user)
    profile=Profile.new(user: user)

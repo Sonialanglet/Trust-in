@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  get 'school_children/index'
 
   mount ForestLiana::Engine => '/forest'
   devise_for :users,

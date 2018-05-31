@@ -1,3 +1,3 @@
 class SchoolChild < ApplicationRecord
-  has_many :profiles, dependent: :destroy
+  belongs_to :user
 end
