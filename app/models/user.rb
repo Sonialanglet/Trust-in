@@ -5,7 +5,6 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   after_create do |user|
-
    build_profile(user)
    build_group(user)
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180531085641) do
+ActiveRecord::Schema.define(version: 20180601141402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,8 +144,6 @@ ActiveRecord::Schema.define(version: 20180531085641) do
     t.string "locality"
     t.string "country"
     t.string "child_school"
-    t.bigint "school_child_id"
-    t.index ["school_child_id"], name: "index_profiles_on_school_child_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -186,6 +184,8 @@ ActiveRecord::Schema.define(version: 20180531085641) do
     t.string "locality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id"
+    t.index ["profile_id"], name: "index_school_children_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -226,7 +226,6 @@ ActiveRecord::Schema.define(version: 20180531085641) do
   add_foreign_key "posts", "users"
   add_foreign_key "prestations", "categories"
   add_foreign_key "prestations", "users"
-  add_foreign_key "profiles", "school_children"
   add_foreign_key "profiles", "users"
   add_foreign_key "recomands", "prestations"
   add_foreign_key "recomands", "users"
@@ -234,4 +233,5 @@ ActiveRecord::Schema.define(version: 20180531085641) do
   add_foreign_key "replies", "users"
   add_foreign_key "reviews", "prestations"
   add_foreign_key "reviews", "users"
+  add_foreign_key "school_children", "profiles"
 end
