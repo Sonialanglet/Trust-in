@@ -133,6 +133,8 @@ p "creating prestations"
       sc.name = row['appellation_officielle']
       sc.adress = row['adresse_uai']
       sc.CP = row['code_postal_uai']
+      sc.latitude = row ['coordonnee_x']
+      sc.longitude = row ['coordonnee_y']
       sc.locality = row['localite_acheminement_uai']
       sc.save!
      end
@@ -143,6 +145,8 @@ p "creating prestations"
           sc = SchoolChild.new
           sc.name = row['appellation_officielle']
           sc.CP = row['code_postal_uai']
+          sc.latitude = row ['coordonnee_x']
+          sc.longitude = row ['coordonnee_y']
           sc.locality = row['localite_acheminement_uai']
           sc.save!
            end

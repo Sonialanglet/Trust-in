@@ -26,7 +26,7 @@ gem "geocoder"
 gem 'forest_liana'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem 'jquery-ui-rails'
+
 
 
 

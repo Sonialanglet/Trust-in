@@ -1,6 +1,13 @@
+import { autocomplete } from 'jquery-ui/ui/widgets/autocomplete';
 
-    jQuery(function() {
-      return $('#profile_child_school').autocomplete({
-        source: $('#profile_child_school').data('autocomplete-source')
-      });
+function autocompleteSchools () {
+   $('#profile_school_child_name').autocomplete({
+      source: $('#profile_school_child_name').data('autocomplete-source')
     });
+
+
+
+}
+
+
+export { autocompleteSchools };

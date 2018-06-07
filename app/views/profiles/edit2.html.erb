@@ -35,7 +35,8 @@
                 <div class="school-astuce">
                    <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
                 </div>
-                <%= f.input :child_school, label: "Ecole de votre enfant",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
+
+                <%= f.text_field :school_child_name, data: { autocomplete_source: SchoolChild.limit(100).order(:name).pluck(:name)}  %>
 
             </div>
 

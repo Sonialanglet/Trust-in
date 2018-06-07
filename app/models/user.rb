@@ -50,7 +50,8 @@ class User < ApplicationRecord
 
   def prospected_facebook_friends
     already_invited_users_ids = already_invited_users.ids
-    User.where.not(id: already_invited_users_ids).where.not(id: self).where(uid: facebook_uids)
+    pending_users_ids = pending_users.ids
+    User.where.not(id: already_invited_users_ids).where.not(id: self).where(uid: facebook_uids).where.not(id: pending_users_ids)
   end
 
   def pending_users
@@ -71,9 +72,10 @@ class User < ApplicationRecord
 
   def prospected_users
     already_invited_users_ids = already_invited_users.ids
+    pending_users_ids = pending_users.ids
     # Exclude the facebook friends
     # Search users not already invited with no Facebook id OR not facebook friend
-    User.where(uid: nil).or(User.where.not(uid: facebook_uids)).where.not(id: already_invited_users_ids).where.not(id: self)
+    User.where(uid: nil).or(User.where.not(uid: facebook_uids)).where.not(id: already_invited_users_ids).where.not(id: pending_users_ids).where.not(id: self)
   end
 
   def already_invited_users(status = nil)

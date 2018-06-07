@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
 
   belongs_to :user
+  belongs_to :school_child, optional:true
 
 
 
@@ -14,7 +15,8 @@ class Profile < ApplicationRecord
 
 
   def school_child_name=(name)
-    self.school_child = SchoolChild.find_or_create_by(name: name)
+    self.school_child = SchoolChild.find_or_create_by(name: name) if name.present?
+
   end
 
 

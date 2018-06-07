@@ -102,8 +102,6 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jquery-ui-rails (5.0.5)
-      railties (>= 3.2.16)
     json (2.1.0)
     jsonapi-serializers (1.0.0)
       activesupport
@@ -290,7 +288,6 @@ DEPENDENCIES
   forest_liana
   geocoder
   jbuilder (~> 2.0)
-  jquery-ui-rails
   kaminari
   kaminari-bootstrap
   letter_opener
