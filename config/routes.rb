@@ -48,13 +48,13 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :groups do
+    resources :users, controller: :groups do
+      put :accept_join
+      put :refuse_join
+    end
     member do
       get :want_join, :not_want_join
-      get :accept_join
-      get :refuse_join
       get :firstnetwork
     end
   end
