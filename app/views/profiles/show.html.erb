@@ -49,10 +49,10 @@
             </ul>
             <% end %>
 
-            <% if @profile.child_school? %>
+            <% if @profile.school_child_id? %>
               <p> <strong>Etablissement fréquenté par les enfants de <%=@profile.user.first_name %> : </strong>
                 <ul>
-                  <li> <%= @profile.child_school%> </li>
+                  <li> <%= @profile.school_child.name%> </li>
 
                 </ul>
                 <% end %>

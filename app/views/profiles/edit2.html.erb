@@ -24,20 +24,6 @@
 
 
 
-
-                <div class="separator">
-                    <span> </span>
-                    <span> </span>
-                    <span> </span>
-                  </div>
-
-                  <h2> Si vous êtes parents :</h2>
-                <div class="school-astuce">
-                   <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
-                </div>
-
-                <%= f.text_field :school_child_name, data: { autocomplete_source: SchoolChild.limit(100).order(:name).pluck(:name)}  %>
-
             </div>
 
 

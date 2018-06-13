@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-SchoolChild.destroy_all
+
 Profile.destroy_all
 Prestation.destroy_all
 p "destroy1"
@@ -16,7 +16,7 @@ Recomand.destroy_all
 Group.destroy_all
 Category.destroy_all
 Post.destroy_all
-
+SchoolChild.destroy_all
 
 p "creating users"
 user_rachel = User.new(email: 'sonia.langlet@gmail.com', password: "password", first_name: 'Rachel', last_name: "Markle")

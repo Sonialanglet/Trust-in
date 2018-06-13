@@ -8,16 +8,16 @@ class Profile < ApplicationRecord
   geocoded_by :adress
   after_validation :geocode, if: :will_save_change_to_adress?
 
-  def school_child_name
-    school_child.try(:name)
+  #def school_child_name
+  #  school_child.try(:name)
 
-  end
+  #end
 
 
-  def school_child_name=(name)
-    self.school_child = SchoolChild.find_or_create_by(name: name) if name.present?
+  #def school_child_name=(name)
+  #  self.school_child = SchoolChild.find_or_create_by(name: name) if name.present?
 
-  end
+#  end
 
 
 end

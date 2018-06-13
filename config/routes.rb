@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
     member do
       get :edit2
+      #get :edit_list_school
       end
   end
 

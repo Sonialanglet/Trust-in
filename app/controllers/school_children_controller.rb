@@ -3,16 +3,10 @@ class SchoolChildrenController < ApplicationController
 
   def index
     policy_scope(SchoolChild)
-    if params[:query].present?
-       sql_query = "name ILIKE :query"
-        @school_children = SchoolChild.order(:name).where(sql_query, query: "%#{params[:query]}%").where.not(name: nil)
-        respond_to do |format|
-            format.html  # index.html.erb
-            format.json  { render :json => @school_children.map(&:name) }
-          end
-       else
-    @school_children = SchoolChild.limit(20)
-    end
+
+
+        @school_children = SchoolChild.near(params[:latitude => current_user.profile.latitude, :longitude => current_user.profile.longitude], 20, units: :km, :order => :distance)
+
   end
 
   def show

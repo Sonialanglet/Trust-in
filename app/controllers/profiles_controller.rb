@@ -56,7 +56,10 @@ end
     authorize @profile
  end
 
-
+ #def edit_list_school
+  # @profile = current_user.profile
+  #  authorize @profile
+# end
 
   def update
 
@@ -72,7 +75,9 @@ end
         @profile.update(profile_params)
         redirect_to firstnetwork_group_path(@profile)
       end
+
     else
+
       if profile_params[:adress].nil? || profile_params[:adress].empty?
         flash[:error] = 'Adresse obligatoire'
         redirect_to edit_profile_path(@profile)
@@ -93,7 +98,7 @@ end
 
 
  def profile_params
-   params.require(:profile).permit!
+   params.require(:profile).permit(:description, :date_of_birth, :town, :adress, :longitude, :latitude, :school1, :school2, :formation1, :formation2, :phone, :street_number, :route, :locality, :country, :school_child)
 end
 
 
