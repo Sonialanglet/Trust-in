@@ -134,51 +134,34 @@ class GroupsController < ApplicationController
 
   def accept_join
     # Step1 : le current_user d'abord accepte la demande d'un autre de rejoindre son groupe principal
-    @group = current_user.groups.find do |group|
-      group.category == 'principal'
-    end
+    group = Group.find(params[:group_id])
+    user = User.find(params[:user_id])
+    authorize group
 
-   # Step2 : le statut du groupuser du demandeur devient ainsi accepted et non plus pending
-   @group_users = GroupUser.where(group: @group, status: "pending")
-
-   @group_users.each do |group_user|
-    group_user.status = 'accepted'
-    group_user.save
+    group_user = GroupUser.where(group_id: params[:group_id], status: "pending", user_id: params[:user_id]).limit(1).first
+    GroupUser.where(group_id: params[:group_id], status: "pending", user_id: params[:user_id]).limit(1).update_all(status: 'accepted')
 
     UserMailer.notify_accept_join(group_user).deliver_now
 
+    # NB = en contrepartie, le current_user va à son tour faire partie du groupe principal du demandeur.
+    # Step 2 = on retrouve le  groupe principal du groupuser accepté par le current_user
+
+    group_principal = user.groups.where(category: "principal").first
+    GroupUser.create(group: group_principal, user: current_user, status: 'accepted')
+
+    redirect_to groups_path
   end
 
-
-     # NB = en contrepartie, le current_user va à son tour faire partie du groupe principal du demandeur.
-     # Step 3 = on retrouve le  groupe principal de chaque groupuser accepté par le current_user
-     @group_users = GroupUser.where(group: @group, status: "accepted")
-
-     @group_users.each do |group_user|
-       @group2 = group_user.user.groups.where(category: "principal").first
-     # Step4 = j'ajoute ainsi le current_user dans le groupe principal du demandeur
-     @group_user = GroupUser.new(group: @group2, user: current_user, status: 'accepted')
-     @group_user.save
-     authorize @group_user
-     authorize @group
-
-   end
-
-   redirect_to groups_path
- end
-
  def refuse_join
-    @group = current_user.groups.find do |group|
-      group.category == 'principal'
-    end
+    # Step1 : le current_user d'abord accepte la demande d'un autre de rejoindre son groupe principal
+    group = Group.find(params[:group_id])
+    user = User.find(params[:user_id])
+    authorize group
 
-   # le statut du groupuser du demandeur devient ainsi refused et non plus pending
-   @group_users = GroupUser.where(group: @group, status: "pending")
+    group_user = GroupUser.where(group_id: params[:group_id], status: "pending", user_id: params[:user_id]).limit(1).first
+    GroupUser.where(group_id: params[:group_id], status: "pending", user_id: params[:user_id]).limit(1).update_all(status: 'refused')
+    redirect_to groups_path
 
-   @group_users.each do |group_user|
-    group_user.status = 'refused'
-    group_user.save
-    end
  end
 
   def edit

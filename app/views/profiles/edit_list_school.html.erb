@@ -1,0 +1,24 @@
+<% if current_user %>
+   <%= simple_form_for @profile do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+
+
+
+        <h2> Si vous êtes parents :</h2>
+      <div class="school-astuce">
+         <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
+      </div>
+
+      <p> <%= f.input :school_child_id, collection: SchoolChild.near(params[:latitude => current_user.profile.latitude, :longitude => current_user.profile.longitude], 1000, units: :km, :order => :distance)%> </p>
+
+  </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Valider", class:"btn-edit2"%>
+    </div>
+
+      <% end %>
+ <% end %>
+
+  </div>

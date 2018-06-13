@@ -23,7 +23,9 @@ class ProfilePolicy < ApplicationPolicy
     true
   end
 
-
+  def edit_list_school?
+    true
+  end
   def destroy?
     record.user == user
   end

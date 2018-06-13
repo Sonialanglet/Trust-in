@@ -34,12 +34,13 @@
                 <%= f.input :formation2, label: "Autre diplôme",autofocus: true, placeholder: "Autre diplôme obtenu" , required: false%>
                 <h2> Si vous êtes lycéen/étudiant</h2>
                 <%= f.input :school1, label: "Etablissement scolaire fréquenté",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
+
                       <h2> Si vous êtes parents</h2>
                     <div class="school-astuce">
                        <p> <i class="far fa-lightbulb"></i> - astuce : si vous avez des enfants scolarisés, nous pourrons vous identifier d'autres parents de l'établissement </p>
                     </div>
-                    <%= f.input :child_school1, label: "Ecole ou crèche enfant1",autofocus: true, placeholder: "Notre Dame de Boulogne" , required: false%>
-                    <%= f.input :child_school2, label: "Ecole ou crèche enfant2",autofocus: true, placeholder: "si vous avez plusieurs enfants" , required: false%>
+
+
 
                 </div>
 
@@ -52,6 +53,8 @@
           </div>
 
             <% end %>
+
+
           <% end %>
 
         </div>

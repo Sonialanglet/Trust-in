@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+
   mount ForestLiana::Engine => '/forest'
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -19,8 +20,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :profiles, only: [:index, :show, :edit, :update ] do
+
     member do
       get :edit2
+      #get :edit_list_school
       end
   end
 
@@ -46,13 +49,13 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :groups do
+    resources :users, controller: :groups do
+      put :accept_join
+      put :refuse_join
+    end
     member do
       get :want_join, :not_want_join
-      get :accept_join
-      get :refuse_join
       get :firstnetwork
     end
   end
@@ -62,6 +65,7 @@ Rails.application.routes.draw do
    end
 
   resources :categories, only: [:show, :index]
+  resources :school_children, only: [:show, :index]
   resources :posts do
     resources :replies
   end

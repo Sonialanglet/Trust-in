@@ -30,18 +30,18 @@
                       <div class="one-to-add">
                         <div class="name-to-confirm">
 
-                          <%= link_to profile_path (user.profile) do%>
+                          <%= link_to profile_path (user.profile) do %>
                             <p> <%= user.first_name  %> <%= user.last_name.upcase  %> </p>
                            <% end %>
                         </div>
 
                         <div class="confirm-join">
-                         <%= link_to accept_join_group_path (current_user.groups.first) do%>
+                         <%= link_to group_user_accept_join_path(current_user.groups.first, user), method: :put do %>
                            <p> confirmer</p>
                          <% end %>
                         </div>
                          <div class="cancel-join">
-                              <%= link_to refuse_join_group_path (current_user.groups.first) do %>
+                              <%= link_to group_user_refuse_join_path(current_user.groups.first, user), method: :put do %>
                            <i class="far fa-times-circle"></i>
                              <% end %>
                         </div>
@@ -111,7 +111,7 @@
         <% @prospected_users.each do |user| %>
 
         <!-- on pousse ensuite les personnes de la meme ville-->
-        <% if user.profile.child_school1 == current_user.profile.child_school1 && !user.profile.child_school1.blank? || user.profile.child_school1 == current_user.profile.child_school2 && !user.profile.child_school1.blank? || user.profile.child_school2 == current_user.profile.child_school1 && !user.profile.child_school2.blank? || user.profile.child_school2 == current_user.profile.child_school2 && !user.profile.child_school2.blank?%>
+        <% if !user.profile.school_child.blank? && user.profile.school_child.name == current_user.profile.school_child.name  %>
 
           <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="one-group">
@@ -121,7 +121,7 @@
                     <div class="name-to-add">
                       <%= link_to profile_path (user.profile) do%>
                         <p> <%= user.first_name  %> <%= user.last_name.upcase  %><br>
-                          <%= user.profile.school1%> <%= user.profile.school2%> </p>
+                          <%= user.profile.child_school%> <%= user.profile.child_school%> </p>
                        <% end %>
                      </div>
                     <div class="invite-join">

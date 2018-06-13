@@ -35,10 +35,10 @@ class GroupPolicy < ApplicationPolicy
     true
   end
   def accept_join?
-    true
+    record.founder == user
   end
   def refuse_join?
-    true
+    record.founder == user
   end
   def firstnetwork?
     true

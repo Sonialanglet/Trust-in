@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <div class="first-share">
+    <div class="title-groups">
       <h3>Partagez vos recommandations pour vous simplifier le quotidien </h3>
-      <p> Voulez-vous bénéficier des recommandations et bons plans de membres déjà inscrits ? </p>
+      <h4> <i class="far fa-lightbulb"></i>  Bénéficiez des recommandations et bons plans de membres déjà inscrits </h4>
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@
        <% @prospected_users.each do |user| %>
 
        <!-- on pousse ensuite les personnes de la meme ville-->
-       <% if user.profile.child_school1 == current_user.profile.child_school1 && !user.profile.child_school1.blank? || user.profile.child_school1 == current_user.profile.child_school2 && !user.profile.child_school1.blank? || user.profile.child_school2 == current_user.profile.child_school1 && !user.profile.child_school2.blank? || user.profile.child_school2 == current_user.profile.child_school2 && !user.profile.child_school2.blank?%>
+ <% if !user.profile.school_child.blank? && user.profile.school_child.name == current_user.profile.school_child.name  %>
 
          <div class="col-xs-12 col-md-6 col-md-offset-3">
            <div class="one-group">
@@ -163,5 +163,9 @@
  <% end %>
 
 
-
+ <div class="next">
+ <%= link_to prestations_path do %>
+ <i class="fas fa-arrow-circle-right"> Ensuite : accéder aux services </i>
+ <% end %>
+ </div>
 
