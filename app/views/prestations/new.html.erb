@@ -3,57 +3,40 @@
 <div class="row">
   <div class="filtres">
   <h2> Quels services souhaitez-vous proposer ?</h2>
-  <div class="filtres-categorie">
 
-    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-      <%= image_tag "babysittingTEXT3.jpg", class:"image-cat" %>
-
-    </div>
-    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "courssoutienTEXT4.jpg", class:"image-cat" %>
-    </div>
-
-
-    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "coursMUSIQUETEXT4.jpg", class:"image-cat" %>
-    </div>
-    <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-       <%= image_tag "PETSITTINGTEXT4.jpg", class:"image-cat" %>
-    </div>
-
-
-      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "travauxTEXT4.jpg", class:"image-cat" %>
-      </div>
-
-      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-         <%= image_tag "DIVERSTEXT4.jpg", class:"image-cat" %>
-      </div>
-
-  </div>
   </div>
 </div>
         <div id="" class="container">
+
           <div class="content">
+          <div class="registration">
             <div class="row">
               <div class="col-xs-12 col-md-6 col-md-offset-3">
                 <div id="" class="card-form">
                   <% if current_user %>
+                  <div>
+                    <div class="school-astuce">
+                      <p> <i class="far fa-lightbulb"></i> Indiquez le service que vous proposez et le tarif. Donnez des détails sur vos expériences dans ce domaine pour donner envie de faire appel à vous</p>
+                    </div>
+
+                  </div>
                     <%= simple_form_for @prestation do |f| %>
                   <%= f.error_notification %>
                   <div class="message-error">
 
                   </div>
-                     <%= f.association :category, collection: Category.all.order('name ASC') %>
-                      <%= f.input :price, placeholder: "8€/h" %>
-                      <%= f.input :description, placeholder: "Décrivez votre expérience" %>
-                      <%= f.submit "valider", class: "btn-new-prestation"%>
+                     <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
+                      <%= f.input :price, label: "Tarif horaire ou journalier", placeholder: "9€/h" %>
+                      <%= f.input :description, :as => :text, :input_html => { 'rows' => 10}, label: "Décrivez votre expérience", placeholder: "Décrivez votre expérience dans ce domaine et donnez quelques exemples pour donner envie aux membres de faire appel à vos services" %>
+
+                      <%= f.submit "valider", class: "btn-edit2"%>
                     <% end %>
                   <% end %>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         </div>
 <% else %>
 
