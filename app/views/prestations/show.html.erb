@@ -92,7 +92,8 @@
           <% if current_user == @prestation.user %>
             <div class="circle-icon-profile">
               <%= link_to edit_profile_path(@prestation.user.profile) do %>
-                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                <i class="fa fa-pencil-alt" aria-hidden="true"> </i>
+
               <% end %>
             </div>
           <% end %>

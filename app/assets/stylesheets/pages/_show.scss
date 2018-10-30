@@ -65,6 +65,8 @@ position:relative;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
+
+  text-align: -webkit-center;
 }
 
 .profile-infos {
@@ -218,6 +220,10 @@ h2 {
     top: 10px;
     a {
       color: white;
+    }
+    p {
+      color: white;
+      font-size: 9px;
     }
 
 
@@ -393,3 +399,18 @@ p {
 }
 
 }
+
+.registration {
+
+  background:linear-gradient(rgba(0,0,0,0) 10%, #eeeeee), url(bulles.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(0,101,168,0.8) 0%;
+  background-size: cover;
+  padding: 40px;
+  display: block;
+
+}
+
+
