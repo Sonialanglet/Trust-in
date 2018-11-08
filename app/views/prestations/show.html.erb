@@ -76,18 +76,20 @@
         <div class="profile-infos">
           <p> <strong> Lieu d'habitation :  </strong><%= @prestation.user.profile.locality%> </p>
           <p> <strong> Distance :  </strong><%= (Geocoder::Calculations.distance_between([@prestation.user.profile.latitude, @prestation.user.profile.longitude], [current_user.profile.latitude, current_user.profile.longitude], options = {})).round(1)%> kM </p>
-
-          <p> <strong> Etablissement(s) fréquentés :</strong> </p>
-          <ul>
-            <li> <%= @prestation.user.profile.school1%></li>
-            <li> <%= @prestation.user.profile.school2%></li>
-          </ul>
-          <p> <strong>Formation : </strong>
+          <% if @prestation.user.profile.school1 %>
+            <p> <strong> Etablissement(s) fréquentés :</strong> </p>
             <ul>
-              <li> <%= @prestation.user.profile.formation1%></li>
-              <li> <%= @prestation.user.profile.formation2%></li>
+              <li> <%= @prestation.user.profile.school1%></li>
+              <li> <%= @prestation.user.profile.school2%></li>
             </ul>
-
+          <% end %>
+          <% if @prestation.user.profile.formation1 %>
+              <p> <strong>Formation : </strong>
+                <ul>
+                  <li> <%= @prestation.user.profile.formation1%></li>
+                  <li> <%= @prestation.user.profile.formation2%></li>
+                </ul>
+          <% end %>
 
           <% if current_user == @prestation.user %>
             <div class="circle-icon-profile">
