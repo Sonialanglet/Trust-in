@@ -17,6 +17,8 @@
         <% image_path category = "petsitting.jpg" %>
         <% elsif prestation.category.name=="Travaux" %>
           <% image_path category = "travaux.jpg" %>
+          <% elsif @prestation.category.name=="Loisir" %>
+            <% image_tag category = "loisir.jpg" %>
 <% else %>
   <% image_path category = "bulles.jpg" %>
 <% end %>

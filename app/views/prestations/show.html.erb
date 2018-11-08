@@ -18,6 +18,8 @@
         <% image_tag category = "PETSITTINGTEXT4.jpg" %>
         <% elsif @prestation.category.name=="Travaux" %>
           <% image_tag category = "travauxTEXT4.jpg" %>
+          <% elsif @prestation.category.name=="Loisir" %>
+            <% image_tag category = "loisir.jpg" %>
 <% else %>
   <% image_tag category = "DIVERSTEXT4.jpg" %>
 <% end %>
