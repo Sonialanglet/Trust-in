@@ -32,6 +32,16 @@
                       <%= f.input :price, label: "Tarif horaire ou journalier", placeholder: "9€/h" %>
                       <%= f.input :description, :as => :text, :input_html => { 'rows' => 10}, label: "Décrivez votre expérience", placeholder: "Décrivez votre expérience dans ce domaine et donnez quelques exemples pour donner envie aux membres de faire appel à vos services" %>
 
+                      <p> <%= f.input :photo1, label:"Ajout Photo"%> </p>
+                       <%= f.input :photo1_cache, as: :hidden %>
+
+                       <p> <%= f.input :photoN2, label:" Add+"%> </p>
+                        <%= f.input :photoN2_cache, as: :hidden %>
+
+
+                       <p> <%= f.input :photoN3, label:"Add+"%> </p>
+                        <%= f.input :photoN3_cache, as: :hidden %>
+
                       <%= f.submit "valider", class: "btn-edit2"%>
                     <% end %>
                   <% end %>

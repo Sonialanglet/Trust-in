@@ -1,4 +1,7 @@
 class Prestation < ApplicationRecord
+  mount_uploader :photo1, PhotoUploader
+  mount_uploader :photoN2, PhotoUploader
+  mount_uploader :photoN3, PhotoUploader
   belongs_to :user
 
   belongs_to :category

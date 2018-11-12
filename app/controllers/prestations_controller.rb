@@ -151,7 +151,7 @@ end
   private
 
   def prestation_params
-    params.require(:prestation).permit(:price, :description, :category_id, :photo)
+    params.require(:prestation).permit(:price, :description, :category_id, :photo1, :photoN2, :photoN3)
   end
 
 

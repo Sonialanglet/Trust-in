@@ -130,6 +130,19 @@
   </div>
   <% end %>
 
+ <div class="content-photo_show">
+ <% if @prestation.photo1.present? %>
+   <%= image_tag @prestation.photo1_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
+ <% end %>
+
+ <% if @prestation.photoN2.present? %>
+   <%= image_tag @prestation.photoN2_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
+ <% end %>
+ <% if @prestation.photoN3.present? %>
+   <%= image_tag @prestation.photoN3_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
+ <% end %>
+
+</div>
 
 
   <div class="row">
