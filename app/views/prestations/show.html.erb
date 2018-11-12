@@ -130,6 +130,7 @@
   </div>
   <% end %>
 
+<div class="row">
  <div class="content-photo_show">
  <% if @prestation.photo1.present? %>
    <%= image_tag @prestation.photo1_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
@@ -142,6 +143,7 @@
    <%= image_tag @prestation.photoN3_url, class:"photo-post", width: 200, height: 200, crop: :thumb, graviti: :face %>
  <% end %>
 
+</div>
 </div>
 
 
