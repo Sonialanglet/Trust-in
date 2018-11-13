@@ -7,6 +7,7 @@ class Prestation < ApplicationRecord
   belongs_to :category
   validates_uniqueness_of :category_id, :scope => :user_id, :message => "Vous avez déjà créé une proposition pour cette catégorie. RDV dans la section Profile du menu déroulant en haut à droite si vous souhaitez la modifier"
 
+  validates :photo1, :photoN2,:photoN3, file_size: { less_than: 1.megabytes }
   has_many :groups
   has_many :reviews, dependent: :destroy
   has_many :recomands, dependent: :destroy

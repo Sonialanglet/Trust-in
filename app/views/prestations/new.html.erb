@@ -2,9 +2,8 @@
 
 <div class="row">
   <div class="filtres">
-  <h1> Quels services souhaitez-vous proposer ?</h1>
-  <p> Veuillez maintenant sélectionner le ou les services que vous souhaitez proposer aux membres</p>
-
+    <h1> Quels services souhaitez-vous proposer ?</h1>
+    <p> Veuillez maintenant sélectionner le ou les services que vous souhaitez proposer aux membres</p>
   </div>
 </div>
         <div id="" class="container">
@@ -24,15 +23,19 @@
 
                   </div>
                     <%= simple_form_for @prestation do |f| %>
-                  <%= f.error_notification %>
                   <div class="message-error">
+                  <%= f.error_notification %>
 
                   </div>
                      <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
                       <%= f.input :price, label: "Tarif horaire ou journalier", placeholder: "9€/h" %>
                       <%= f.input :description, :as => :text, :input_html => { 'rows' => 10}, label: "Décrivez votre expérience", placeholder: "Décrivez votre expérience dans ce domaine et donnez quelques exemples pour donner envie aux membres de faire appel à vos services" %>
 
-                      <p> <%= f.input :photo1, label:"Ajout Photo"%> </p>
+                      <div class="school-astuce">
+                        <p> <i class="far fa-lightbulb"></i> Vous pouvez ajouter des photos illustrant vos prestations (Taille photo<1MO) </p>
+                      </div>
+
+                      <p> <%= f.input :photo1, label:"Add Photo"%> </p>
                        <%= f.input :photo1_cache, as: :hidden %>
 
                        <p> <%= f.input :photoN2, label:" Add+"%> </p>
