@@ -29,6 +29,12 @@
 
                   </div>
                      <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
+
+                     <div class="bulle-info", title= >
+                      <i class="far fa-question-circle"> <span> Choissez un titre court qui décrit ce que vous proposez. par exemple : garde de chiens et chats, cours de yoga, cours de piano </span> </i>
+
+                      </div>
+                     <%= f.input :title, label: "Titre du service", placeholder: "Donnez un titre à votre service, ex.cours de yoga, garde de chien" %>
                       <%= f.input :price, label: "Tarif horaire ou journalier", placeholder: "9€/h" %>
                       <%= f.input :description, :as => :text, :input_html => { 'rows' => 10}, label: "Décrivez votre expérience", placeholder: "Décrivez votre expérience dans ce domaine et donnez quelques exemples pour donner envie aux membres de faire appel à vos services" %>
 
