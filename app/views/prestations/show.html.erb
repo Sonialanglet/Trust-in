@@ -63,6 +63,10 @@
       <div class="services">
         <div class="img-services">
          <%= image_tag category, class: "photoservice" %>
+         <p> Service <%= @prestation.category.name%> </p>
+         <% if @prestation.title%>
+           <p> Propose : <%= @prestation.title%> </p>
+         <% end %>
         </div>
         <div class="price-services">
         <p>  <%= @prestation.price %> </p>
