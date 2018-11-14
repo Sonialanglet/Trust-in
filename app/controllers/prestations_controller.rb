@@ -24,6 +24,7 @@ class PrestationsController < ApplicationController
            JOIN group_users ON group_users.user_id = user_recomand.id
            JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
            ")
+           .distinct
            .where("my_group_users.status = 'accepted' AND group_users.status = 'accepted' AND my_group_users.user_id = ? AND c.name = ?", current_user.id, params[:category])
          if @recomanded_prestations.present?
            @prestations = policy_scope(Prestation)
@@ -47,6 +48,7 @@ class PrestationsController < ApplicationController
         JOIN group_users ON group_users.user_id = user_recomand.id
         JOIN group_users my_group_users ON my_group_users.group_id = group_users.group_id
         ")
+        .distinct
         .where("my_group_users.status = 'accepted' AND group_users.status = 'accepted' AND my_group_users.user_id = ? ", current_user.id)
 
       if @recomanded_prestations.present?
