@@ -102,7 +102,9 @@
             <% @prestations.each do |prestation|%>
               <li class="item-list" style="list-style-type: none";>
                 <div class="name">
+                  <%= link_to prestation_path(prestation) do %>
                  <p><%= prestation.category.name%> </p>
+                 <% end %>
                 </div>
                 <div class="price">
                  <p> <%= prestation.price%></p>

@@ -4,6 +4,7 @@ class PrestationsController < ApplicationController
     if params[:query].present?
       sql_query = " \
            prestations.description ILIKE :query \
+           OR prestations.title ILIKE :query \
            OR users.first_name ILIKE :query \
            OR categories.name ILIKE :query \
            OR users.last_name ILIKE :query \
@@ -151,7 +152,7 @@ end
   private
 
   def prestation_params
-    params.require(:prestation).permit(:price, :description, :category_id, :photo)
+    params.require(:prestation).permit(:price, :description, :category_id, :photo, :title)
   end
 
 

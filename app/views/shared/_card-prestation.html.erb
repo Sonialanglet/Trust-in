@@ -78,6 +78,9 @@
 
 
       <p ><strong> <%= prestation.category.name.upcase%> </strong> </p>
+      <% if prestation.title %>
+        <p ><strong> <%= prestation.title%> </strong> </p>
+      <% end %>
       <% if prestation.user.profile.date_of_birth %>
         <p> <%= Date.today.year-prestation.user.profile.date_of_birth.year%> ans</p>
       <% end %>
