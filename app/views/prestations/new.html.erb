@@ -31,7 +31,7 @@
                      <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
 
                   <div classe="info-bulle">
-                      <i class="far fa-question-circle picto-item" aria-label="Choissez un titre court qui décrit ce que vous proposez. Par exemple : garde de chiens et chats, cours de yoga, cours de piano"> </i>
+                      <i class="far fa-question-circle picto-item" aria-label="Choissez un titre court qui décrit ce que vous proposez.Ex: garde de chiens et chats, cours de yoga, cours de piano"> </i>
                   </div>
 
                      <%= f.input :title, label: "Titre du service", placeholder: "Donnez un titre à votre service, ex.cours de yoga, garde de chien" %>
