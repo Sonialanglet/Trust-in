@@ -20,6 +20,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Services proposés", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Activités", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "P'tites annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to groups_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <span> Votre Reseau </span>
@@ -71,6 +72,9 @@
         </li>
         <li>
           <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        </li>
+        <li>
+          <%= link_to "Activités", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
         <li> <%= link_to "P'tites annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
