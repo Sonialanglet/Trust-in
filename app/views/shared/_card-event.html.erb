@@ -1,10 +1,22 @@
+<% if event.photo %>
+  <% event_url = event.photo %>
+<% else %>
+  <% event_url = "bulles.jpg" %>
+<% end %>
 
-<div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+
+
+<div class=card-event-full>
+  <div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
     <div class="card-event-description">
-    <h2><%=event.name.capitalize %></h2>
+    <h2><%=event.name.capitalize %> </h2>
     <p> Venez vous initier au Street Art </p>
   </div>
-
-
   <%= link_to '', event_path(event), class:'card-link' %>
+  </div>
+
+<div class="card-event-footer">
+  <h2>Date de l'évènement : <%=event.date %></h2>
+</div>
+
 </div>
