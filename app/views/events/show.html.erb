@@ -1,16 +1,63 @@
+<% if @event.photo %>
+  <% event_url = event.photo %>
+<% else %>
+  <% event_url = "bulles.jpg" %>
+<% end %>
 
-<h2><%= @event.name %></h2>
+<div class='container'>
 
-<div class="col-xs-12 col-md-6 col-md-offset-3">
-  <div class="booking-form">
-    <%= simple_form_for [@event, @participation] do |f| %>
-      <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
-     <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
-     <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>
-     <%= f.input :phone, label: "Telephone", placeholder: 'Doe' %>
-      <%= f.button :submit, 'Envoyer', class: "btn-plusone_regular" %>
-    <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="event-title">
+        <h1><%= @event.name %></h1>
+      </div>
+    </div>
   </div>
+
+
+  <div class="row">
+    <div class="participation-event">
+      <div class="col-xs-12 col-md-6">
+        <div class="event-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
+
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="booking-form">
+          <p> <strong>Date de l'activité :</strong> <%= @event.date %></p>
+          <%= simple_form_for [@event, @participation] do |f| %>
+
+          <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
+           <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
+          <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>
+          <%= f.input :phone, label: "Telephone", placeholder: 'Doe' %>
+          <%= f.button :submit, 'Envoyer', class: "btn-plusone_regular" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="event-long-description">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <p> <strong>Programme : </strong> </p>
+        <p><%= @event.description %></p>
+        <p> rerejzadh hsddsz jhzdhz jhsjhds jhdh </p>
+        <p> jdjsdkhds jkhdjhdsj kjhdjhdsjdshds kjhdhjdsh jhkdsd hdhdh dhdhdh dhdhhd hhdhdd dhdhdhd hdhdhdh hsjshj </p>
+        <p> jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+        <p> jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+
+
+        <p> <strong> Lieu de rendez-vous : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+        <p> <strong> Horaire : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+        <p> <strong> Condition de paiement : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
-
-
