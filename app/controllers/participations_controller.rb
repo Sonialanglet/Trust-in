@@ -38,7 +38,7 @@ class ParticipationsController < ApplicationController
   private
 
     def participation_params
-      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status)
+      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity)
     end
 
 end

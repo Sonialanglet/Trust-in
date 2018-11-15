@@ -34,6 +34,7 @@
       <div class="col-xs-12 col-md-6">
         <div class="booking-form">
         <p> <strong>Date de l'activité :</strong> <%= @event.date %></p>
+        <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
           <%= simple_form_for [@event, @participation] do |f| %>
           <%= f.input :quantity, label: "Nombre de participants" %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
