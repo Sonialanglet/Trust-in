@@ -4,6 +4,13 @@
   <% event_url = "bulles.jpg" %>
 <% end %>
 
+<div class="back">
+<%= link_to events_path do %>
+<i class="fas fa-arrow-circle-left"> Retour à la liste des activités </i>
+<% end %>
+</div>
+
+
 <div class='container'>
 
   <div class="row">
@@ -21,18 +28,19 @@
         <div class="event-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
 
         </div>
+          <p>  Une activité plusieurs créative et stimulante à savourer en famille ou entre amis </p>
       </div>
 
       <div class="col-xs-12 col-md-6">
         <div class="booking-form">
-          <p> <strong>Date de l'activité :</strong> <%= @event.date %></p>
+        <p> <strong>Date de l'activité :</strong> <%= @event.date %></p>
           <%= simple_form_for [@event, @participation] do |f| %>
-
+          <%= f.input :quantity, label: "Nombre de participants" %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
            <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
           <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>
           <%= f.input :phone, label: "Telephone", placeholder: 'Doe' %>
-          <%= f.button :submit, 'Envoyer', class: "btn-plusone_regular" %>
+          <%= f.button :submit, 'Reserver', class: "btn-plusone_regular" %>
           <% end %>
         </div>
       </div>
