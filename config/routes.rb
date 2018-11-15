@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
 
 
+  get 'participations/index'
+
+  get 'participations/new'
+
+  get 'participations/create'
+
   mount ForestLiana::Engine => '/forest'
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -69,5 +75,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :replies
   end
-  resources :events, only: [:show, :index]
+  resources :events, only: [:show, :index] do
+    resources :participations
+  end
+
 end
