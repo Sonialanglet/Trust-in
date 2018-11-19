@@ -66,5 +66,16 @@
   </div>
 
 
+  <% if current_user.admin == true %>
+    <div class="row">
+      <div class="filtres">
+          <%= link_to edit_event_path(@event) do %>
+            <p class="btn btn-danger centered"> modifier activité </p>
+          <% end %>
+
+      </div>
+    </div>
+  <% end %>
 
 </div>
+

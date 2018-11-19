@@ -15,6 +15,10 @@ class EventPolicy < ApplicationPolicy
       end
 
   def create?
+     true
+    end
+
+    def edit?
       true
     end
 
