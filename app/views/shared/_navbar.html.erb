@@ -19,9 +19,9 @@
       <% end %>
 
       <!-- Links when logged in -->
-      <%= link_to "Services proposés", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Activités", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "P'tites annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <%= link_to groups_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <span> Votre Reseau </span>
       <span class=" btn navbar-notification">  <%= current_user.pending_users.size %> </span>
@@ -71,13 +71,12 @@
           <% end %>
         </li>
         <li>
-          <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        </li>
-        <li>
           <%= link_to "Activités", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
-        <li> <%= link_to "P'tites annonces", posts_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <li>
+          <%= link_to "Services", prestations_path, class: "navbar-wagon-item navbar-wagon-link" %>
         </li>
+
 
         <li>
            <%= link_to "Proposer vos services?", new_prestation_path, class: "navbar-wagon-item navbar-wagon-link" %>

@@ -4,8 +4,8 @@ url(<%= image_path 'boulognehome.png' %>);">
   <div class="banner-content">
 
     <div class="text-banner">
-      <h1> Partage de bons plans et services avec votre réseau </h1>
-      <p> pour vous aider dans votre quotidien</p>
+      <h1> Trouvez des activités et services recommandés par votre réseau </h1>
+      <p> Profitez de votre quotidien</p>
       <%if @first_visit %>
   </div>
       <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
@@ -21,7 +21,7 @@ url(<%= image_path 'boulognehome.png' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12 ">
-      <p> Bénéficiez des recommandations de votre réseau de proximité pour trouver des bons plans et services </p>
+      <p> Bénéficiez de votre réseau de proximité pour découvrir des activités originales et services près de chez vous </p>
      </div>
     </div>
   </div>
@@ -29,11 +29,22 @@ url(<%= image_path 'boulognehome.png' %>);">
 
 <div class="container">
   <div class="row">
+
+     <div class="col-xs-12 col-sm-3">
+        <div class="card-homepage" style="background: url('<%= image_path 'yogaXS.jpg', width: 80, height:80, crop: :fill %>');">
+          <div class="card-category"> </div>
+            <div class="card-description">
+              <h2> INCROYABLES ACTIVITES </h2>
+            </div>
+          <%= link_to '', prestations_path, class:'card-link' %>
+        </div>
+     </div>
+
      <div class="col-xs-12 col-sm-3">
         <div class="card-homepage" style="background: url('<%= image_path 'babysitting.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
-              <h2>BABYSITTING</h2>
+              <h2> SERVICES </BR> BABYSITTING </h2>
             </div>
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
@@ -43,27 +54,18 @@ url(<%= image_path 'boulognehome.png' %>);">
         <div class="card-homepage" style="background: url('<%= image_path 'travaux.jpg' , width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
-              <h2>PETITS TRAVAUX</h2>
+              <h2>SERVICES </BR> TRAVAUX</h2>
             </div>
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
      </div>
 
-     <div class="col-xs-12 col-sm-3">
-        <div class="card-homepage" style="background: url('<%= image_path 'yogaXS.jpg', width: 80, height:80, crop: :fill %>');">
-          <div class="card-category"> </div>
-            <div class="card-description">
-              <h2>LOISIR</h2>
-            </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
-        </div>
-     </div>
 
      <div class="col-xs-12 col-sm-3">
         <div class="card-homepage" style="background: url('<%= image_path 'petsitting.jpg' , width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
-              <h2>PET SITTING</h2>
+              <h2> SERVICES </BR> PET SITTING</h2>
             </div>
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
@@ -79,17 +81,17 @@ url(<%= image_path 'boulognehome.png' %>);">
  <div class="explication-concept">
    <div class="row">
     <div class="col-xs-12">
-     <p> Un site de proximité pour trouver de l'aide facilement </p>
+     <p> Des expériences conviviales près de chez vous et des services du quotidien </p>
     </div>
    </div>
  </div>
 
   <div class="exempleservices">
+  <p> Envie de trouver une activité conviviale et originale à faire en famille ? Découvrez les incroyables activités près de chez vous  </p>
   <p> Vous recherchez un babysitter de confiance à Boulogne ? Retrouvez les babysitters recommandés par votre réseau </p>
   <p> Envie de partir ce week-end ? Trouvez un Petsitter pour garder votre animal </p>
-  <p> Envie de trouver une activité à faire en famille ? Réservez une activité de loisir à partager à plusieurs  </p>
-  <p> Besoin d'aide pour débarasser votre cave ?  Trouvez la personne pour vous aider </p>
- <p> Trust-in @ Boulogne, retrouvez les personnes de confiance déjà recommandées par votre réseau  </p>
+
+ <p> Trust-in @ Boulogne, retrouvez les activités et services proche de chez vous recommandés par votre réseau  </p>
   </div>
   <div class="separator">
     <span> </span>
@@ -101,7 +103,7 @@ url(<%= image_path 'boulognehome.png' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12">
-      <p> Un réseau d'entre-aide pour vous simplifier la vie </p>
+      <p> Des activités et des services à partager </p>
      </div>
     </div>
   </div>
@@ -113,10 +115,10 @@ url(<%= image_path 'boulognehome.png' %>);">
        <%= image_tag 'share.png' , height: 70, width: 70, crop: :fill %>
       </div>
       <div class="feature-header">
-        <h3>Solidarité</h3>
+        <h3>Convivialité</h3>
       </div>
       <div class="feature-body">
-        <p> Chaque membre recommande des personnes de confiance pour vous rendre service à votre tour</p>
+        <p> Chaque membre peut découvrir et partager avec son réseau les activités et/ou  services préférés </p>
       </div>
     </div>
   </div>
