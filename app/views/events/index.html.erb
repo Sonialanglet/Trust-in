@@ -7,6 +7,20 @@
   </div>
 </div>
 
+
+<% if current_user.admin == true %>
+  <div class="row">
+    <div class="filtres">
+        <%= link_to new_event_path(@event) do %>
+          <p class="btn btn-danger centered"> Ajout activité </p>
+        <% end %>
+
+    </div>
+  </div>
+<% end %>
+
+
+
   <div class="row">
     <% @events.each do |event| %>
       <div class="col-xs-12 col-md-6 col-md-offset-3">
