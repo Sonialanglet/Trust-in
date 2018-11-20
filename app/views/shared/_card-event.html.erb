@@ -11,12 +11,18 @@
     <div class="card-event-description">
     <h2><%=event.name.capitalize %> </h2>
     <p> <%=event.teaser %> </p>
-  </div>
+    </div>
+
+    <% if event.date %>
+    <div class="card-event-date">
+      <p> Date : <%=event.date.strftime("%d %B %Y - %H h %M") %> </p>
+    </div>
+    <% end %>
   <%= link_to '', event_path(event), class:'card-link' %>
   </div>
 
 <div class="card-event-footer">
-  <h2>Date de l'évènement : <%=event.date %></h2>
+  <h2> <%=event.resume %></h2>
 
 </div>
 

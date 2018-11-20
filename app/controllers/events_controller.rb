@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :must_be_admin, only: [:new, :create, :edit, :destroy]
+  before_action :must_be_admin, only: [:new, :create, :edit, :destroy, :update]
 
   def index
     @events = policy_scope(Event).order(created_at: :desc)
@@ -18,7 +18,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(event_params) do |event|
+      event.user = current_user
+      end
       authorize @event
     if @event.save
       redirect_to events_path
@@ -52,7 +54,7 @@ class EventsController < ApplicationController
 
 
   def event_params
-    params.require(:event).permit(:name, :teaser, :description, :photo, :date, :price)
+    params.require(:event).permit(:name, :teaser, :description, :resume, :photo, :date, :price)
   end
 
   def must_be_admin

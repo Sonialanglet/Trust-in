@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119173813) do
+ActiveRecord::Schema.define(version: 20181120092605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20181119173813) do
     t.integer "number_of_participants"
     t.string "teaser"
     t.bigint "user_id"
+    t.text "resume"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

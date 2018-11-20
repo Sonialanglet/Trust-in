@@ -34,7 +34,9 @@
 
       <div class="col-xs-12 col-md-6">
         <div class="booking-form">
-        <p> <strong>Date de l'activité :</strong> <%= @event.date %></p>
+          <% if @event.date %>
+             <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
+            <% end %>
         <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
           <%= simple_form_for [@event, @participation] do |f| %>
           <%= f.input :quantity, label: "Nombre de participants" %>
@@ -57,9 +59,8 @@
 
 
 
-        <p> <strong> Lieu de rendez-vous : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
-        <p> <strong> Horaire : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
-        <p> <strong> Condition de paiement : </strong>jsjkds hdhdhdn hjdjdd hdjdjdj </p>
+        <p> <strong> Condition de paiement : </strong>
+          Nos activités ne sont pas remboursables. En nous prévenant 7 jours avant la date de l’activité concernée, nous pouvons vous proposer de la reporter sur une date ultérieure. Dans ce cas merci de nous écrire à contact@trust-in.fr en nous précisant votre demande</p>
 
       </div>
     </div>
@@ -72,6 +73,19 @@
           <%= link_to edit_event_path(@event) do %>
             <p class="btn btn-danger centered"> modifier activité </p>
           <% end %>
+
+      </div>
+    </div>
+  <% end %>
+
+  <% if current_user.admin == true %>
+    <div class="row">
+      <div class="filtres">
+          <%= link_to event_path(@event),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+            <p class="btn-delete">Supprimer</p>
+        <% end %>
 
       </div>
     </div>
