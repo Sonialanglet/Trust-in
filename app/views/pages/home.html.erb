@@ -5,7 +5,7 @@ url(<%= image_path 'boulognehome.png' %>);">
 
     <div class="text-banner">
       <h1> Trouvez des activités et services recommandés par votre réseau </h1>
-      <p> Profitez de votre quotidien</p>
+      <p> Profitez de votre quotidien !</p>
       <%if @first_visit %>
   </div>
       <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
@@ -30,47 +30,27 @@ url(<%= image_path 'boulognehome.png' %>);">
 <div class="container">
   <div class="row">
 
-     <div class="col-xs-12 col-sm-3">
+     <div class="col-xs-12 col-sm-6">
         <div class="card-homepage" style="background: url('<%= image_path 'yogaXS.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category"> </div>
             <div class="card-description">
-              <h2> INCROYABLES ACTIVITES </h2>
+              <h2> INCROYABLES ACTIVITES </BR> PRES DE CHEZ VOUS </h2>
             </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
+          <%= link_to '', events_path, class:'card-link' %>
         </div>
      </div>
 
-     <div class="col-xs-12 col-sm-3">
+     <div class="col-xs-12 col-sm-6">
         <div class="card-homepage" style="background: url('<%= image_path 'babysitting.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
-              <h2> SERVICES </BR> BABYSITTING </h2>
-            </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
-        </div>
-     </div>
-
-     <div class="col-xs-12 col-sm-3">
-        <div class="card-homepage" style="background: url('<%= image_path 'travaux.jpg' , width: 80, height:80, crop: :fill %>');">
-          <div class="card-category">  </div>
-            <div class="card-description">
-              <h2>SERVICES </BR> TRAVAUX</h2>
+              <h2> SERVICES RECOMMANDES </BR> PAR VOTRE RESEAU </h2>
             </div>
           <%= link_to '', prestations_path, class:'card-link' %>
         </div>
      </div>
 
 
-     <div class="col-xs-12 col-sm-3">
-        <div class="card-homepage" style="background: url('<%= image_path 'petsitting.jpg' , width: 80, height:80, crop: :fill %>');">
-          <div class="card-category">  </div>
-            <div class="card-description">
-              <h2> SERVICES </BR> PET SITTING</h2>
-            </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
-        </div>
-     </div>
-  </div>
 
   <div class="separator">
     <span> </span>
@@ -88,10 +68,9 @@ url(<%= image_path 'boulognehome.png' %>);">
 
   <div class="exempleservices">
   <p> Envie de trouver une activité conviviale et originale à faire en famille ? Découvrez les incroyables activités près de chez vous  </p>
-  <p> Vous recherchez un babysitter de confiance à Boulogne ? Retrouvez les babysitters recommandés par votre réseau </p>
-  <p> Envie de partir ce week-end ? Trouvez un Petsitter pour garder votre animal </p>
+  <p> Vous recherchez un babysitter de confiance à Boulogne ? Retrouvez les babysitters recommandés par votre réseau et bien d'autres services du quotidien </p>
 
- <p> Trust-in @ Boulogne, retrouvez les activités et services proche de chez vous recommandés par votre réseau  </p>
+ <p> Trust-in @ Boulogne, retrouvez les activités et services proches de chez vous recommandés par votre réseau  </p>
   </div>
   <div class="separator">
     <span> </span>

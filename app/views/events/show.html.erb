@@ -69,7 +69,7 @@
 
   <% if current_user.admin == true %>
     <div class="row">
-      <div class="filtres">
+      <div class="modif-event">
           <%= link_to edit_event_path(@event) do %>
             <p class="btn btn-danger centered"> modifier activité </p>
           <% end %>
@@ -80,11 +80,11 @@
 
   <% if current_user.admin == true %>
     <div class="row">
-      <div class="filtres">
+      <div class="modif-event">
           <%= link_to event_path(@event),
                 method: :delete,
                 data: { confirm: "Are you sure?" } do %>
-            <p class="btn-delete">Supprimer</p>
+            <p class="btn btn-danger centered">Supprimer</p>
         <% end %>
 
       </div>

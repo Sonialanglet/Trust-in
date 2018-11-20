@@ -10,9 +10,9 @@
 
 <% if current_user.admin == true %>
   <div class="row">
-    <div class="filtres">
+    <div class="add-event">
         <%= link_to new_event_path(@event) do %>
-          <p class="btn btn-danger centered"> Ajout activité </p>
+          <p class="btn btn-primary centered"> Ajout activité </p>
         <% end %>
 
     </div>
