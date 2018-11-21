@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-
   mount ForestLiana::Engine => '/forest'
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -69,4 +68,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :replies
   end
+  resources :events do
+    resources :participations
+  end
+
 end

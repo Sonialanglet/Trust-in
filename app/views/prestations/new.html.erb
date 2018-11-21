@@ -31,7 +31,7 @@
                      <%= f.association :category, label: "Choisissez le service que vous voulez proposer ", collection: Category.all.order('name ASC') %>
 
                   <div classe="info-bulle">
-                      <i class="far fa-question-circle picto-item" aria-label="Choissez un titre court qui décrit ce que vous proposez. Par exemple : garde de chiens et chats, cours de yoga, cours de piano"> </i>
+                      <i class="far fa-question-circle picto-item" aria-label="Choissez un titre court qui décrit ce que vous proposez.Ex: garde de chiens et chats, cours de yoga, cours de piano"> </i>
                   </div>
 
                      <%= f.input :title, label: "Titre du service", placeholder: "Donnez un titre à votre service, ex.cours de yoga, garde de chien" %>
@@ -77,17 +77,6 @@
       </div>
 
 
-        <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-          <%= link_to edit_profile_path(current_user.profile) do %>
-           <%= image_tag "travauxTEXT4.jpg", class:"image-cat" %>
-           <% end %>
-        </div>
-
-      <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
-        <%= link_to edit_profile_path(current_user.profile) do %>
-         <%= image_tag "loisir.jpg", class:"image-cat" %>
-         <% end %>
-      </div>
 
         <div id="bouton" onclick="show_hide_div('header');" class="cat btn">
           <%= link_to edit_profile_path(current_user.profile) do %>

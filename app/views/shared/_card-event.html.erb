@@ -1,0 +1,29 @@
+<% if event.photo %>
+  <% event_url = event.photo %>
+<% else %>
+  <% event_url = "bulles.jpg" %>
+<% end %>
+
+
+
+<div class=card-event-full>
+  <div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
+    <div class="card-event-description">
+    <h2><%=event.name.capitalize %> </h2>
+    <p> <%=event.teaser %> </p>
+    </div>
+
+    <% if event.date %>
+    <div class="card-event-date">
+      <p> Date : <%=event.date.strftime("%d %B %Y - %H h %M") %> </p>
+    </div>
+    <% end %>
+  <%= link_to '', event_path(event), class:'card-link' %>
+  </div>
+
+<div class="card-event-footer">
+  <h2> <%=event.resume %></h2>
+
+</div>
+
+</div>

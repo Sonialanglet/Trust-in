@@ -1,0 +1,95 @@
+<% if @event.photo %>
+  <% event_url = @event.photo %>
+<% else %>
+  <% event_url = "bulles.jpg" %>
+<% end %>
+
+<div class="back">
+<%= link_to events_path do %>
+<i class="fas fa-arrow-circle-left"> Retour à la liste des activités </i>
+<% end %>
+</div>
+
+
+<div class='container'>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="event-title">
+        <h1><%= @event.name %></h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="participation-event">
+      <div class="col-xs-12 col-md-6">
+        <div class="event-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
+
+        </div>
+
+          <p>   <%= @event.teaser %>  </p>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="booking-form">
+          <% if @event.date %>
+             <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
+            <% end %>
+        <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
+          <%= simple_form_for [@event, @participation] do |f| %>
+          <%= f.input :quantity, label: "Nombre de participants" %>
+          <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
+           <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
+          <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>
+          <%= f.input :phone, label: "Telephone", placeholder: 'Doe' %>
+          <%= f.button :submit, 'Reserver', class: "btn-plusone_regular" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="event-long-description">
+      <div class="col-xs-12 ">
+        <p> <strong>Programme : </strong> </p>
+        <p><%= @event.description %></p>
+
+
+
+        <p> <strong> Condition de paiement : </strong>
+          Nos activités ne sont pas remboursables. En nous prévenant 7 jours avant la date de l’activité concernée, nous pouvons vous proposer de la reporter sur une date ultérieure. Dans ce cas merci de nous écrire à contact@trust-in.fr en nous précisant votre demande</p>
+
+      </div>
+    </div>
+  </div>
+
+
+  <% if current_user.admin == true %>
+    <div class="row">
+      <div class="modif-event">
+          <%= link_to edit_event_path(@event) do %>
+            <p class="btn btn-danger centered"> modifier activité </p>
+          <% end %>
+
+      </div>
+    </div>
+  <% end %>
+
+  <% if current_user.admin == true %>
+    <div class="row">
+      <div class="modif-event">
+          <%= link_to event_path(@event),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+            <p class="btn btn-danger centered">Supprimer</p>
+        <% end %>
+
+      </div>
+    </div>
+  <% end %>
+
+</div>
+

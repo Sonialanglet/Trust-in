@@ -1,5 +1,5 @@
 meta_product_name: "Trust-in"
-meta_title: "Trust-in - Partage de bons plans et services avec votre réseau"
-meta_description: "Trouvez des services et bons plans recommandés par votre réseau de proximité : babysitting, cours de soutien, petsitting ou autres services et bons plans pour vous aider dans votre quotidien"
+meta_title: "Trust-in - Découvrez et partagez d'incroyables activités et services"
+meta_description: "Découvrez des activités conviviales près de chez vous et des services recommandés par votre réseau de proximité : des expériences, des rencontres pour illuminer votre quotidien"
 meta_image: "boulognehome.png"                       # should exist in `app/assets/images/`
 twitter_account: "@Trust-in_twitter_account"   # required for Twitter Cards

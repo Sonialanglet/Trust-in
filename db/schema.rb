@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181113164839) do
+ActiveRecord::Schema.define(version: 20181120120059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,21 @@ ActiveRecord::Schema.define(version: 20181113164839) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "photo"
+    t.datetime "date"
+    t.string "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_of_participants"
+    t.string "teaser"
+    t.bigint "user_id"
+    t.text "resume"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "group_prestations", force: :cascade do |t|
     t.bigint "prestation_id"
     t.bigint "group_id"
@@ -102,6 +117,21 @@ ActiveRecord::Schema.define(version: 20181113164839) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.index ["founder_id"], name: "index_groups_on_founder_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "status"
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.index ["event_id"], name: "index_participations_on_event_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -228,11 +258,14 @@ ActiveRecord::Schema.define(version: 20181113164839) do
   add_foreign_key "answers", "users"
   add_foreign_key "bookings", "prestations"
   add_foreign_key "bookings", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "group_prestations", "groups"
   add_foreign_key "group_prestations", "prestations"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "users", column: "founder_id"
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "prestations", "categories"
   add_foreign_key "prestations", "users"

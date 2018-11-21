@@ -18,8 +18,8 @@
 }
 
 .card-homepage {
-  height: 180px;
-  width: 180px;
+  height: 250px;
+  width: 300px;
   background-size: cover !important;
   background-position: center;
   color: white;
@@ -104,7 +104,7 @@
 .card-description {
   position: absolute;
   bottom: 3px;
-  width: 180px;
+  width: 300px;
 
 }
 .card-description h2 {
@@ -293,3 +293,65 @@
 padding-bottom:10px;
 
 }
+
+
+.card-event-full {
+
+  margin-bottom: 26px;
+}
+
+.card-event {
+  height: 260px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+
+.card-event-description {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.card-event-description h2 {
+  font-size: 28px;
+}
+.card-event-description p {
+  font-size: 17px;
+  opacity: 0.7;
+
+}
+.card-event-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-event-link:hover {
+  opacity: 0.1;
+}
+
+.card-event-footer {
+  height: 60px;
+  background-position: center;
+
+h2 {
+  font-size: 20px;
+}
+}
+
+
+.card-event-date {
+
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+
