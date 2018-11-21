@@ -1,5 +1,5 @@
 meta_product_name: "Trust-in"
-meta_title: "Trust-in - Découverte et partage d'activités et services incroyables à Boulogne"
-meta_description: "Découvrez des expériences conviviales près de chez vous et trouvez des services recommandés par votre réseau de proximité : des expériences, des rencontres pour illuminer votre quotidien"
+meta_title: "Trust-in - Découvrez et partagez d'incroyables activités et services"
+meta_description: "Découvrez des activités conviviales près de chez vous et des services recommandés par votre réseau de proximité : des expériences, des rencontres pour illuminer votre quotidien"
 meta_image: "boulognehome.png"                       # should exist in `app/assets/images/`
 twitter_account: "@Trust-in_twitter_account"   # required for Twitter Cards
