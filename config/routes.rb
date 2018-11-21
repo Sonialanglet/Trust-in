@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
   authenticated :user do
-          root 'events#index', as: :authenticated_root
+          root 'prestations#index', as: :authenticated_root
   end
 
   root to: 'pages#home'
