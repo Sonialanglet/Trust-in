@@ -24,6 +24,8 @@
   <% image_tag category = "DIVERSTEXT4.jpg" %>
 <% end %>
 
+<% content_for :meta_title, "#{@prestation.category.name} sur #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_image, @prestation.category.photo %>
 
 <div class='container'>
   <div class="row">

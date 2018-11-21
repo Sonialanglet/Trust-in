@@ -1,8 +1,13 @@
+
 <% if @event.photo %>
   <% event_url = @event.photo %>
 <% else %>
   <% event_url = "bulles.jpg" %>
 <% end %>
+<% content_for :meta_title, "#{@event.name} sur #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+<% content_for :meta_image, @event.photo %>
+
 
 <div class="back">
 <%= link_to events_path do %>
