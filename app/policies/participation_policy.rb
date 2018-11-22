@@ -16,7 +16,12 @@ class ParticipationPolicy < ApplicationPolicy
   def create?
     true # Tous les users peuvent créer un booking
   end
-
+  def edit?
+   true
+  end
+  def update?
+   true
+  end
 
 
   def destroy?

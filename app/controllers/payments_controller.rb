@@ -3,11 +3,11 @@ class PaymentsController < ApplicationController
   before_action :set_participation
 
     def new
+      authorize @participation
     end
 
 
     def create
-      authorize @participation
       customer = Stripe::Customer.create(
         source: params[:stripeToken],
         email:  params[:stripeEmail]
@@ -16,10 +16,11 @@ class PaymentsController < ApplicationController
       charge = Stripe::Charge.create(
         customer:     customer.id,   # You should store this customer id and re-use it.
         amount:       @participation.amount_cents,
-        description:  "Paiement pour l'activité #{@participation.event} pour la participation #{@participation.id}",
+        description:  "Paiement pour l'activité #{@participation.event_ref} pour la participation #{@participation.id}",
         currency:     @participation.amount.currency
       )
       @participation.update(payment: charge.to_json, state: 'payé')
+      authorize @participation
       redirect_to participation_path(@participation)
 
     rescue Stripe::CardError => e
