@@ -1,1 +1,6 @@
-
+<h1>Participation</h1>
+<ul>
+  <li>Status: <%= @participation.status %></li>
+  <li>Item: <%= @participation.event%></li>
+  <li>Montant: <%= humanized_money_with_symbol(@participation.amount) %></li>
+<ul>

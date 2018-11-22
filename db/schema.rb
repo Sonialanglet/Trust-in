@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121171310) do
+ActiveRecord::Schema.define(version: 20181122105953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,12 +125,13 @@ ActiveRecord::Schema.define(version: 20181121171310) do
     t.string "email"
     t.string "phone"
     t.string "status"
-    t.bigint "event_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
-    t.index ["event_id"], name: "index_participations_on_event_id"
+    t.jsonb "payment"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "event_ref"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
@@ -264,7 +265,6 @@ ActiveRecord::Schema.define(version: 20181121171310) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "groups", "users", column: "founder_id"
-  add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "prestations", "categories"
