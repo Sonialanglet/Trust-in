@@ -27,7 +27,7 @@ class ParticipationsController < ApplicationController
     @participation.user = current_user
     @participation.event_ref = @event.name
     @participation.status = "pending"
-    @participation.amount = @event.price
+    @participation.amount = @event.price*@participation.quantity
 
     authorize @participation
         if @participation.save
@@ -42,7 +42,7 @@ class ParticipationsController < ApplicationController
   private
 
     def participation_params
-      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity, :amount, :event_ref)
+      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :payment, :quantity, :amount_cents, :event_ref, :user_id)
     end
 
 end

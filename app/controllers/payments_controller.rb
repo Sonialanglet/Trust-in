@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
         description:  "Paiement pour l'activité #{@participation.event_ref} pour la participation #{@participation.id}",
         currency:     @participation.amount.currency
       )
-      @participation.update(payment: charge.to_json, state: 'payé')
+      @participation.update(payment: charge.to_json, status: 'payé')
       authorize @participation
       redirect_to participation_path(@participation)
 
