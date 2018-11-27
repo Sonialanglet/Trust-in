@@ -68,8 +68,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :replies
   end
-  resources :events do
-    resources :participations
-  end
+  resources :events
+  resources :participations
+
 
 end
