@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-
+Participation.destroy_all
+Event.destroy_all
 Profile.destroy_all
 Prestation.destroy_all
 p "destroy1"
@@ -107,50 +108,9 @@ p "creating prestations"
   # group_prestation_rachel.save!
   # p"group_prestation done"
 
-   p "creating deux posts par rachel"
-
-   post_rachel = Post.new(content: "Qui connaitrait le nom d'un bon plombier. J'ai besoin de changer mon ballon d'eau chaude.merci !", user: user_rachel)
-   post_rachel.save!
-
-   post_sophie = Post.new(content: "Help ! ma babysitter m'a plantée. Qui est dsipo pour venir garder mes 2 enfants ce soir à 19h30 ?", user: user_sophie)
-   post_sophie.save!
-  p"creating 2 posts OK done"
 
 
-  p "creating a file of schools"
 
-  csv_options = { col_sep: ';', headers: :first_row }
-
-
-  csv_text = File.read(Rails.root.join('db', 'DEPP.csv'))
-  if ! csv_text.valid_encoding?
-    s = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"e").encode('UTF-8')
-   new_csv_text = s.gsub(/dr/i,'med')
-
-  csv = CSV.parse(new_csv_text, csv_options)
-  csv.each do |row|
-      sc = SchoolChild.new
-      sc.name = row['appellation_officielle']
-      sc.adress = row['adresse_uai']
-      sc.CP = row['code_postal_uai']
-      sc.latitude = row ['coordonnee_x']
-      sc.longitude = row ['coordonnee_y']
-      sc.locality = row['localite_acheminement_uai']
-      sc.save!
-     end
-
-     else
-     csv = CSV.parse(csv_text, csv_options)
-      csv.each do |row|
-          sc = SchoolChild.new
-          sc.name = row['appellation_officielle']
-          sc.CP = row['code_postal_uai']
-          sc.latitude = row ['coordonnee_x']
-          sc.longitude = row ['coordonnee_y']
-          sc.locality = row['localite_acheminement_uai']
-          sc.save!
-           end
-  end
 
 
 

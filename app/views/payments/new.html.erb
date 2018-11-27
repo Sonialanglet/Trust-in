@@ -3,7 +3,7 @@
 <%= form_tag participation_payments_path(@participation) do %>
   <article>
     <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@participation.amount) %></span>
+      <span>Amount: <%= humanized_money_with_symbol(@participation.amount_cents) %></span>
     </label>
   </article>
 
@@ -14,7 +14,7 @@
     data-name="Paiement de l'activité"
     data-email="<%= current_user.email %>"
     data-description="activité <%= @participation.event_ref %>"
-    data-amount="<%= @participation.amount_cents %>"
+    data-amount="<%= @participation.amount_cents * 100 %>"
     data-currency="eur"></script>
 
 

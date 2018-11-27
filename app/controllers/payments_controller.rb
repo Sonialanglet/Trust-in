@@ -8,7 +8,11 @@ class PaymentsController < ApplicationController
 
 
     def create
-      customer = Stripe::Customer.create email: email
+    customer = Stripe::Customer.create(
+       source: params[:stripeToken],
+       email:  params[:stripeEmail]
+     )
+
 
       charge = Stripe::Charge.create(
         customer:     customer.id,   # You should store this customer id and re-use it.

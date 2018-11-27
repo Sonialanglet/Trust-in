@@ -43,7 +43,7 @@
           <% if @event.date %>
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
-            <p><strong>Tarif par participant:</strong> <%= humanized_money_with_symbol(@event.price)  %></p>
+            <p><strong>Tarif par participant:</strong> <%= humanized_money_with_symbol(@event.price_cents)  %></p>
         <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
           <%= simple_form_for [@participation] do |f| %>
           <%= f.input :quantity, label: "Nombre de participants" %>
