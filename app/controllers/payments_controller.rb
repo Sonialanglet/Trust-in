@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
 
 
     def create
+
       customer = Stripe::Customer.create(
         source: params[:stripeToken],
         email:  params[:stripeEmail]
