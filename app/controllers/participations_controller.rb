@@ -18,13 +18,14 @@ class ParticipationsController < ApplicationController
   def new
     @participation = Participation.new
     @participation.user = current_user
-    @participation.event = Event.find(params[:event_id])
+    @event = Event.find(params[:event_id])
   end
 
   def create
     @participation = Participation.new(participation_params)
+    @event = Event.find(params[:event_id])
     @participation.user = current_user
-    @participation.event = Event.find(params[:event_id])
+    @participation.event_ref = @event.name
     authorize @participation
         if @participation.save
           redirect_to events_path, notice: "Vous êtes enregistré!"
@@ -38,7 +39,7 @@ class ParticipationsController < ApplicationController
   private
 
     def participation_params
-      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity)
+      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity, :event_ref)
     end
 
 end
