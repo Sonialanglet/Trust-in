@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users,
       controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
+
   authenticated :user do
           root 'prestations#index', as: :authenticated_root
   end

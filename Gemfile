@@ -27,7 +27,7 @@ gem 'forest_liana'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'sprockets', '~>3.7.2'
-
+gem 'omniauth-stripe-connect'
 
 
 
