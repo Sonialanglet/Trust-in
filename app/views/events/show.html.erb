@@ -38,7 +38,7 @@
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
         <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
-        <p> <strong> Tarif :</strong>  <%= @event.price %></p>
+        <p> <strong> Tarif :</strong>  <%= @event.price_cents %></p>
           <%= simple_form_for [@participation] do |f| %>
           <%= f.input :quantity, label: "Nombre de participants" %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>

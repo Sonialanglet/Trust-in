@@ -71,6 +71,6 @@ Rails.application.routes.draw do
   end
   resources :events
   resources :participations
-
+  resources :charges
 
 end
