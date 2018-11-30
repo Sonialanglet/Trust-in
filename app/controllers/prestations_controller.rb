@@ -1,4 +1,5 @@
 class PrestationsController < ApplicationController
+
   def index
     policy_scope(Prestation)
     if params[:query].present?

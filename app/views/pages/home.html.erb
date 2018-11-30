@@ -4,24 +4,21 @@ url(<%= image_path 'boulognehome.png' %>);">
   <div class="banner-content">
 
     <div class="text-banner">
-      <h1> Découvrez et partagez des activités et services à proximité </h1>
+      <h1> Découvrez et profitez d'activités originales à côté de chez vous </h1>
       <p> Illuminez votre quotidien !</p>
-      <%if @first_visit %>
+
   </div>
-      <%= link_to "Se connecter",identification_page_path, :class => "btn btn-trust_large"  %>
+      <%= link_to "Se connecter",events_path, :class => "btn btn-trust_large"  %>
   </div>
-  <%else %>
-  </div>
-      <%= link_to "Se connecter",prestations_path, :class => "btn btn-trust_large"  %>
-  </div>
-  <% end %>
+
 </div>
 
 <div class="container">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12 ">
-      <p> Découvrez des activités originales et services près de chez vous. Partagez avec votre réseau de proximité ! </p>
+      <p> Découvrez une sélection d'activités originales et insolites près de chez vous </p>
+
      </div>
     </div>
   </div>
@@ -30,23 +27,32 @@ url(<%= image_path 'boulognehome.png' %>);">
 <div class="container">
   <div class="row">
 
-     <div class="col-xs-12 col-sm-6">
+     <div class="col-xs-12 col-sm-4">
         <div class="card-homepage" style="background: url('<%= image_path 'yogaXS.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category"> </div>
             <div class="card-description">
-              <h2> INCROYABLES ACTIVITES </BR> PRES DE CHEZ VOUS </h2>
+              <h2> INITIATION </BR> AU GRAFFITI </h2>
             </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
+          <%= link_to '', events_path, class:'card-link' %>
+        </div>
+     </div>
+     <div class="col-xs-12 col-sm-4">
+        <div class="card-homepage" style="background: url('<%= image_path 'yogaXS.jpg', width: 80, height:80, crop: :fill %>');">
+          <div class="card-category"> </div>
+            <div class="card-description">
+              <h2> INITIATION </BR> AU GRAFFITI </h2>
+            </div>
+          <%= link_to '', events_path, class:'card-link' %>
         </div>
      </div>
 
-     <div class="col-xs-12 col-sm-6">
+     <div class="col-xs-12 col-sm-4">
         <div class="card-homepage" style="background: url('<%= image_path 'babysitting.jpg', width: 80, height:80, crop: :fill %>');">
           <div class="card-category">  </div>
             <div class="card-description">
               <h2> SERVICES RECOMMANDES </BR> PAR VOTRE RESEAU </h2>
             </div>
-          <%= link_to '', prestations_path, class:'card-link' %>
+          <%= link_to '', events_path, class:'card-link' %>
         </div>
      </div>
 
@@ -61,14 +67,14 @@ url(<%= image_path 'boulognehome.png' %>);">
  <div class="explication-concept">
    <div class="row">
     <div class="col-xs-12">
-     <p> Des expériences conviviales près de chez vous et des services du quotidien </p>
+     <p> Des expériences conviviales juste à côté de chez vous </p>
     </div>
    </div>
  </div>
 
   <div class="exempleservices">
-  <p> Envie de trouver une activité conviviale et originale à faire en famille ? Découvrez les incroyables activités près de chez vous  </p>
-  <p> Vous recherchez un babysitter de confiance à Boulogne ? Retrouvez les babysitters recommandés par votre réseau et bien d'autres services du quotidien </p>
+  <p> Envie de trouver une activité conviviale et qui change de l'ordinaire à faire en famille ? Découvrez les incroyables activités près de chez vous  </p>
+  <p> Motivée par une sortie mais vous devez gérer l'intendance à la maison ? On a pensé à tout : retrouvez des babysitters recommandés par votre réseau et bien d'autres services du quotidien encore </p>
 
  <p> Trust-in @ Boulogne, illuminez votre quotidien grâce aux activités et services proches de chez vous </p>
   </div>
@@ -82,11 +88,24 @@ url(<%= image_path 'boulognehome.png' %>);">
   <div class="explication-concept">
     <div class="row">
      <div class="col-xs-12">
-      <p> Des activités et des services à partager </p>
+      <p> Des activités et des services pour se faire plaisir  </p>
      </div>
     </div>
   </div>
 
+  <div class="col-md-4">
+      <div class="feature-home">
+        <div class="picto-home">
+         <%= image_tag 'location.png' , height: 70, width: 70, crop: :fill %>
+        </div>
+        <div class="feature-header">
+          <h3>Proximité</h3>
+        </div>
+        <div class="feature-body">
+          <p> Des expériences avec les meilleurs experts locaux à découvrir juste à côté de chez vous </p>
+        </div>
+      </div>
+  </div>
 
   <div class="col-md-4">
     <div class="feature-home">
@@ -97,36 +116,24 @@ url(<%= image_path 'boulognehome.png' %>);">
         <h3>Convivialité</h3>
       </div>
       <div class="feature-body">
-        <p> Chaque membre peut découvrir et partager avec son réseau les activités et/ou  services préférés </p>
+        <p> Des expériences qui sortent de l'ordinaire à découvrir et partager dans la bonne humeur </p>
       </div>
     </div>
   </div>
+
   <div class="col-md-4">
     <div class="feature-home">
        <div class="picto-home">
         <%= image_tag 'coeur_red.png' , height: 70, width: 70, crop: :fill %>
        </div>
        <div class="feature-header">
-         <h3>Confiance</h3>
+         <h3>Qualité</h3>
        </div>
        <div class="feature-body">
-         <p> Vous pouvez choisir avec qui vous souhaitez partager vos recommandations</p>
+         <p> Des expériences testées et adoubées par nos testeurs locaux pour leur caractère qualitatif et insolite. </p>
        </div>
 
      </div>
-  </div>
-  <div class="col-md-4">
-      <div class="feature-home">
-        <div class="picto-home">
-         <%= image_tag 'location.png' , height: 70, width: 70, crop: :fill %>
-        </div>
-        <div class="feature-header">
-          <h3>Proximité</h3>
-        </div>
-        <div class="feature-body">
-          <p> Un réseau à un niveau ultra-local, proche de chez vous</p>
-        </div>
-      </div>
   </div>
 
 

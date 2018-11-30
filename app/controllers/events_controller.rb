@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :must_be_admin, only: [:new, :create, :edit, :destroy, :update]
 
   def index
