@@ -6,10 +6,6 @@
       <div class="form-login-new">
         <h2>Rejoindre Trust-in</h2>
 
-        <%= render "devise/shared/links" %>
-
-        <h2>------------ ou déjà inscrit ? ------------ </h2>
-
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
@@ -19,8 +15,10 @@
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :photo, label: "Votre photo" %>
             <%= f.input :photo_cache, as: :hidden %>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
+            <%= f.input :password, label: "Mot de passe", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, label: "Confirmez votre mot de passe", required: true %>
+            <%= f.input :newsletter, label: "J'accepte de recevoir la newsletter", as: :boolean  %>
+            <%= f.input :agreement, label: "Je reconnais avoir lu le règlement et notre charte de protection de vos données personnelles ", as: :boolean, required: true  %>
           </div>
 
           <div class="form-actions">

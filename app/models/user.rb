@@ -22,7 +22,7 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy, foreign_key: 'founder_id'
 
   devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
-
+  validates :agreement, acceptance: { accept: true }
 
   def self.find_for_facebook_oauth(auth)
       user_params = auth.slice(:provider, :uid)

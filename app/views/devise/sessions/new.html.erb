@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="rappel-connexion">
 
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <h2> <i class="fas fa-info-circle"></i> Vous devez être connecté pour accéder à cette rubrique</h2>
+    </div>
 
       <div class="form-login-new">
+    <h2>------ Pas encore inscrit ? ------ </h2>
         <div class="facebook-connect">
           <%- if devise_mapping.omniauthable? %>
               <div class="btn btn-facebook">
@@ -35,7 +39,7 @@
           <% end -%>
         </div>
 
-        <h2>--------- ou déjà inscrit ? --------- </h2>
+        <h2>-------- Déjà inscrit ? -------- </h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
