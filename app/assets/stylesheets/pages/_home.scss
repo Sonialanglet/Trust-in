@@ -7,15 +7,16 @@
   padding-left: 10px;
   padding-right: 11px;
 
-  p {
+  h2 {
     font-family: lato;
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 19px;
+    text-transform: uppercase;
+    line-height: 26px;
     font-weight: bold;
   }
 
 
-  }
+}
 
 
 
@@ -50,10 +51,10 @@
 
     h3 {
     font-weight: 900;
-    font-size: 30px;
+    font-size: 24px;
 
     }
-    color: #4c64a6;
+    color: black;
     font-family: lato-medium;
     text-transform: uppercase;
     justify-content: space-around;
@@ -66,7 +67,7 @@
 
     h3 {
     font-weight: bold;
-    font-size: 33px;
+    font-size: 24px;
     color: rgb(76, 100, 166);
     font-family: lato;
 
@@ -84,6 +85,11 @@
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
+    p {
+      color: #383838;
+      font-size: 15px;
+      font-weight: 800px;
+      }
         }
 
 .picto-home {
@@ -122,10 +128,14 @@
 .exempleservices {
  margin-top: 40px;
 
+
 }
 .exempleservices p {
-  color: #144862;
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 11px;
+  color: #383838;
+  font-size: 15px;
+  font-weight: 800px;
+  text-align: justify;
+
+
+
 }

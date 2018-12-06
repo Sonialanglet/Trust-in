@@ -1,15 +1,18 @@
 
 .btn-trust_large {
   color: white;
-  background: linear-gradient(45deg, #D32944, #FF0108);
+
   padding: 10px 10px;
   margin: 3px;
   // border: 0.5px, solid, #FF0108;
-  border-radius: 5px;
+
+  border-style: solid;
+  border-color: white;
   font-weight: bold;
-  height: 59px;
-  width: 195px;
-  font-size: x-large;
+  text-transform: uppercase;
+  height: 48px;
+  width: 169px;
+  font-size: small;
   transition: background 0.7s ease;
   text-decoration: none;
   margin-top: 5px;

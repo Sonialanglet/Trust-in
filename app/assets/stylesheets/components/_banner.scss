@@ -12,24 +12,25 @@
 }
 .banner h1 {
   font-family: lato;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+
+  text-transform: uppercase;
 }
 .banner h2 {
 
-  font-size: 36px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-
+  text-transform: uppercase;
 
 
 }
 
 .banner p {
-  font-size: 30px;
+  font-size: 16px;
   margin-left: 10px;
   margin-right: 10px;
   color: #fff;
