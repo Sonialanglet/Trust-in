@@ -6,7 +6,7 @@
   <div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path event.photo %>');">
     <div class="card-event-description">
     <h2><%=event.name.capitalize %> </h2>
-    <p> <%=event.teaser %> </p>
+
     </div>
 
     <% if event.date %>
@@ -14,12 +14,14 @@
       <p> Date : <%=event.date.strftime("%d %B %Y - %H h %M") %> </p>
     </div>
     <% end %>
+      <div class="card-ensavoirplus">
+        <h2> EN SAVOIR PLUS </h2>
+      </div>
   <%= link_to '', event_path(event), class:'card-link' %>
   </div>
 
 <div class="card-event-footer">
   <h2> <%=event.resume %></h2>
-
 </div>
 
 </div>

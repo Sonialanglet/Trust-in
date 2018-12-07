@@ -36,6 +36,9 @@ user_valerie = User.new(email: 'son.ialanglet@gmail.com', password: "password", 
 user_valerie.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
 user_valerie.save
 
+user_admin = User.new(email: 'admin@gmail.com', password: "password", first_name: 'chef', last_name: "admin", admin:'true')
+user_admin.remote_photo_url = "http://res.cloudinary.com/ddfczdsao/image/upload/v1516015983/mkdkqkiad9es8d8nyfel.jpg"
+user_admin.save
 p "users - done"
 
 
@@ -119,13 +122,12 @@ p "creating prestations"
 
 
 
-  p"creating 2 events "
+  p"creating 1 events "
 
-event_grafiti = Event.new(name: "Initiation au graffiti", price: "15€", teaser: "Initiez-vous à l'art du graffiti",
-  resume: "Plongez pendant 2H dans l'univers du street Art et réalisez votre première création avec le graffeur Mush", description: "Une activité originale et inspirante avec notre artiste Boulonnais Mush. Venez vivre une initiation au graffiti en réalisant vous même et à plusieurs une oeuvre en format XXL Lors de cette activité, vous découvrirez les étapes successives à la réalisation d’un graffiti et cela vous permettra de comprendre et d'essayer les différentes techniques utilisées par les graffeurs. Cet expérience d'initiation vous permettra de travailler en équipe et de transformer vos idées sur une réalisation en format XXL dans un climat chaleureux et positif. Mush saura vous accompagner tout au long de cette initiation dans la bonne humeur et vous faire partager sa passion. Une initiation qui vous donnera envie de poursuivre l’aventure et d'admirer dans la ville les différentes réalisations d'art urbain. Vous ne vous promènerez plus jamais dans la ville de la même manière ; Laissez-vous tenter par cet atelier créatif, convivial et inspirant d’une durée de 2h.
+event_grafiti = Event.new(name: "Initiation au graffiti", price_cents: "15€", teaser: "Initiez-vous à l'art du graffiti",
+  resume: "Plongez pendant 2H dans l'univers du street Art et réalisez votre première création", description: "Une activité originale et inspirante avec notre artiste Boulonnais Mush. Venez vivre une initiation au graffiti en réalisant vous même et à plusieurs une oeuvre en format XXL Lors de cette activité, vous découvrirez les étapes successives à la réalisation d’un graffiti et cela vous permettra de comprendre et d'essayer les différentes techniques utilisées par les graffeurs. Cet expérience d'initiation vous permettra de travailler en équipe et de transformer vos idées sur une réalisation en format XXL dans un climat chaleureux et positif. Mush saura vous accompagner tout au long de cette initiation dans la bonne humeur et vous faire partager sa passion. Une initiation qui vous donnera envie de poursuivre l’aventure et d'admirer dans la ville les différentes réalisations d'art urbain. Vous ne vous promènerez plus jamais dans la ville de la même manière ; Laissez-vous tenter par cet atelier créatif, convivial et inspirant d’une durée de 2h.
+", user: user_admin)
+event_grafiti.save!
 
-", user: user_sophie)
-event_grafiti.save
-
-  p"creating 2 events OK done"
+  p"creating 1 events OK done"
 

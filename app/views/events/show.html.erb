@@ -36,7 +36,7 @@
         <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
         <p> <strong> Tarif :</strong>  <%= @event.price_cents %></p>
           <%= simple_form_for [@participation] do |f| %>
-          <%= f.input :quantity, label: "Nombre de participants" %>
+          <%= f.input :quantity, label: "Nombre de participants", required: true %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
            <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
           <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>

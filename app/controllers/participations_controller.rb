@@ -1,4 +1,6 @@
 class ParticipationsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     policy_scope(Participation)
     @participations = Participation.all.order("created_at DESC")
@@ -9,8 +11,8 @@ class ParticipationsController < ApplicationController
 
     @participation = Participation.find(params[:event_id])
     authorize @participation
+    @event = Event.find(params[:event_id])
 
-    @event = @participation.event
 
   end
 
@@ -25,7 +27,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.new(participation_params)
     @event = Event.find(params[:event_id])
     @participation.user = current_user
-    @participation.event_ref = @event.name
+    @event.name = @participation.event_ref
     authorize @participation
         if @participation.save
           redirect_to events_path, notice: "Vous êtes enregistré!"

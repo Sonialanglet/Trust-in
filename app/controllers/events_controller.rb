@@ -11,6 +11,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @participation = Participation.new
+    @participation.event_ref = @event.name
+
   end
 
   def new
