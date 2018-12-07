@@ -1,8 +1,4 @@
-<% if @event.photo %>
-  <% event_url = @event.photo %>
-<% else %>
-  <% event_url = "bulles.jpg" %>
-<% end %>
+
 
 <div class="back">
 <%= link_to events_path do %>
@@ -25,7 +21,7 @@
   <div class="row">
     <div class="participation-event">
       <div class="col-xs-12 col-md-6">
-        <div class="event-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
+        <div class="event-photo-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path @event.photo %>');">
 
         </div>
 

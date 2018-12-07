@@ -1,13 +1,9 @@
-<% if event.photo %>
-  <% event_url = event.photo %>
-<% else %>
-  <% event_url = "bulles.jpg" %>
-<% end %>
+
 
 
 
 <div class=card-event-full>
-  <div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path event_url %>');">
+  <div class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),  url('<%= image_path event.photo %>');">
     <div class="card-event-description">
     <h2><%=event.name.capitalize %> </h2>
     <p> <%=event.teaser %> </p>

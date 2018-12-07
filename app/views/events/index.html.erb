@@ -4,29 +4,27 @@
 <div class="row">
   <div class="titre-events">
 
-    <h1> Découvrez, Partagez et Illuminez votre quotidien ! </h1>
-    <p> Des expériences conviviales et originales à Boulogne Billancourt que nous avons testées et adorées </p>
+    <h1> DECOUVRIR. SE DIVERTIR . PARTAGER</h1>
+    <p> Découvrir des expériences inoubliables à côté de chez vous.  </p>
+    <p> Se divertir grâce à des activités sélectionnées et validées pour leur côté convivial, divertissant et consensuel pour toute la famille </p>
+    <p> Partager avec des artistes, artisans et professionnels avec un vrai savoir-faire pour se divertir en famille </p>
   </div>
 </div>
 
-<% if current_user.present? %>
-<% if current_user.admin == true %>
-  <div class="row">
-    <div class="add-event">
-        <%= link_to new_event_path(@event) do %>
-          <p class="btn btn-primary centered"> Ajout activité </p>
-        <% end %>
 
-    </div>
+<div class="row">
+  <div class="titre-events">
+
+    <h1> PLUSIEURS DATES DISPONIBLES </h1>
+
   </div>
-<% end %>
-<% end %>
+</div>
 
 
 
   <div class="row">
     <% @events.each do |event| %>
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <%= render 'shared/card-event', event: event %>
         <!-- insert <div class="card"> -->
       </div>
@@ -34,5 +32,4 @@
   </div>
 </div>
 
-<%= link_to image_tag('stripe.png'), user_stripe_connect_omniauth_authorize_path%>
 
