@@ -9,9 +9,9 @@ class ParticipationsController < ApplicationController
 
   def show
 
-    @participation = Participation.find(params[:event_id])
+    @participation = Participation.find(params[:id])
     authorize @participation
-    @event = Event.find(params[:event_id])
+
 
 
   end

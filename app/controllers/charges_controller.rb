@@ -8,7 +8,8 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-    @amount = 500
+
+    @amount = @participation.amount_cents
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -17,14 +18,18 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :amount      =>  @amount,
+      :description => 'Paiement de #{@participation.event_ref} , N° de commande #{@participation.id}',
+      :currency    => 'eur'
     )
+
+    @participation.update(payment: charge.to_json, status: 'paid')
+    redirect_to participation_path(@participation)
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to new_participation_charge_path(@participation)
   end
 
 
