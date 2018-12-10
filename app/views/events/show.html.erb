@@ -1,4 +1,6 @@
-
+<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+<% content_for :meta_image, cl_image_path(@event.photo) %>
 
 <div class="back">
 <%= link_to events_path do %>
@@ -36,6 +38,7 @@
         <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
         <p> <strong> Tarif :</strong>  <%= @event.price_cents %></p>
           <%= simple_form_for [@participation] do |f| %>
+          <%= hidden_field_tag 'event_id', @event.id %>
           <%= f.input :quantity, label: "Nombre de participants", required: true %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
            <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>

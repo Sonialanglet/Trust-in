@@ -70,7 +70,8 @@ Rails.application.routes.draw do
     resources :replies
   end
   resources :events
-  resources :participations
-  resources :charges
+  resources :participations do
+    resources :charges
+    end
 
 end

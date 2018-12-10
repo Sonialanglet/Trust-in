@@ -1,7 +1,9 @@
 class ChargesController < ApplicationController
   skip_after_action :verify_authorized
+  before_action :set_participation
 
   def new
+
   end
 
   def create
@@ -24,4 +26,12 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+
+  private
+
+    def set_participation
+      @participation = current_user.participations.where(status: nil).find(params[:participation_id])
+    end
+
 end
