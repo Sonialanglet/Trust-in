@@ -28,7 +28,8 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'sprockets', '~>3.7.2'
 gem 'omniauth-stripe-connect'
-gem 'stripe'
+gem 'stripe', '~> 4.0.3'
+gem 'oauth2', '>= 1.4.1'
 
 
 
