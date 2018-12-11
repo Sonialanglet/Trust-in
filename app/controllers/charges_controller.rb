@@ -9,6 +9,7 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
 
+
     @amount = @participation.amount_cents
 
     customer = Stripe::Customer.create(
