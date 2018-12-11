@@ -40,6 +40,7 @@
         <p> <strong> Tarif :</strong>  <%= @event.price_cents %> euros</p>
         <h3> Réservez vos places ! </h3>
           <%= simple_form_for [@participation] do |f| %>
+          <%= f.error_notification %>
           <%= hidden_field_tag 'event_id', @event.id %>
           <%= f.input :quantity, label: "Nombre de places", required: true %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
