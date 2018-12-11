@@ -13,6 +13,8 @@ class EventsController < ApplicationController
     @participation = Participation.new
     @participation.event_ref = @event.name
 
+    @participations = Participation.all
+
   end
 
   def new
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params) do |event|
       event.user = current_user
+
       end
       authorize @event
     if @event.save

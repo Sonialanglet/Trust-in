@@ -1,6 +1,4 @@
-<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @event.description %>
-<% content_for :meta_image, cl_image_path(@event.photo) %>
+
 
 <div class="back">
 <%= link_to events_path do %>
@@ -35,11 +33,15 @@
           <% if @event.date %>
              <p> <strong>Date de l'activité :</strong> <%= @event.date.strftime("%d %B %Y - %H h %M") %></p>
             <% end %>
-        <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants %></p>
-        <p> <strong> Tarif :</strong>  <%= @event.price_cents %></p>
+        <p> <strong> Nombre de places disponibles :</strong>  <%= @event.number_of_participants - Participation.sum(:quantity) %></p>
+        <% if  @event.number_of_participants - Participation.sum(:quantity) < 0 %>
+        <h2> COMPLET</h2>
+        <% end%>
+        <p> <strong> Tarif :</strong>  <%= @event.price_cents %> euros</p>
+        <h3> Réservez vos places ! </h3>
           <%= simple_form_for [@participation] do |f| %>
           <%= hidden_field_tag 'event_id', @event.id %>
-          <%= f.input :quantity, label: "Nombre de participants", required: true %>
+          <%= f.input :quantity, label: "Nombre de places", required: true %>
           <%= f.input :first_name, label: "Prénom", placeholder: 'John' %>
            <%= f.input :last_name, label: "Nom", placeholder: 'Doe' %>
           <%= f.input :email, label: "Email", placeholder: 'Doe@gmail.com' %>

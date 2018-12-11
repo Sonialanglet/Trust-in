@@ -26,6 +26,7 @@ class ParticipationsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @participation = Participation.new(participation_params)
+
     @participation.user = current_user
     @participation.event_ref = @event.name
     @participation.amount_cents = @event.price_cents * @participation.quantity
@@ -34,7 +35,7 @@ class ParticipationsController < ApplicationController
 
           redirect_to new_participation_charge_path(@participation)
         else
-          render action: 'new'
+          render action: 'show'
         end
   end
 
@@ -43,7 +44,7 @@ class ParticipationsController < ApplicationController
   private
 
     def participation_params
-      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity, :event_ref, :amount_cents)
+      params.require(:participation).permit(:first_name, :last_name, :email, :phone, :status, :quantity, :event_ref, :amount_cents, :user, :available_places)
     end
 
 end
