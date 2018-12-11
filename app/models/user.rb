@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :groups, dependent: :destroy, foreign_key: 'founder_id'
-  has_many :participations
+  has_many :participations, dependent: :destroy
 
   devise :omniauthable, omniauth_providers: [:facebook, :stripe_connect]
   validates :agreement, acceptance: { accept: true }
